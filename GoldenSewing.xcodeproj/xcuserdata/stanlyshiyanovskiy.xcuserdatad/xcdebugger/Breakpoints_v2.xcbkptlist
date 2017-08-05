@@ -2,4 +2,166 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoldenSewing/PersistentService.swift"
+            timestampString = "523562733.320232"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getProductCategoryBy(ID:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoldenSewing/FirstVC.swift"
+            timestampString = "523609218.369878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoldenSewing/PersistentService.swift"
+            timestampString = "523609473.830278"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "getProductCategories(callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoldenSewing/PersistentService.swift"
+            timestampString = "523610770.866739"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "getListOfCategories(callback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static GoldenSewing.PersistentService.((getListOfCategories in _A285F940A1E03F1AA0739971EE99E630) (callback : (Swift.Array&lt;GoldenSewing.ProductCategory&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "GoldenSewing"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
+                  timestampString = "523609730.329787"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "1708">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static GoldenSewing.PersistentService.((getListOfCategories in _A285F940A1E03F1AA0739971EE99E630) (callback : (Swift.Array&lt;GoldenSewing.ProductCategory&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "GoldenSewing"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
+                  timestampString = "523609730.332317"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "2175">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoldenSewing/PersistentService.swift"
+            timestampString = "523609556.287436"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "getPostsCount(urlString:callback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static GoldenSewing.PersistentService.((getPostsCount in _A285F940A1E03F1AA0739971EE99E630) (urlString : Swift.String, callback : (Swift.Int) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "GoldenSewing"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
+                  timestampString = "523609814.947035"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static GoldenSewing.PersistentService.((getPostsCount in _A285F940A1E03F1AA0739971EE99E630) (urlString : Swift.String, callback : (Swift.Int) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "GoldenSewing"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
+                  timestampString = "523609814.950158"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "254">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoldenSewing/PersistentService.swift"
+            timestampString = "523610770.866739"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "getListOfCategories(callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -10,12 +10,21 @@ import UIKit
 
 class ProductsTVC: UITableViewController {
     
+    // MARK: - Properties -
+    var categoryID = 0
+    var categoryTitle = ""
+    var productsArray = Set<Product>()
     let productsNames = ["Митра 1", "Митра 2", "Митра 3", "Митра 4", "Митра 5"]
     let productsImages = ["1", "2", "3", "4", "5"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = categoryTitle
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        
     }
 
     // MARK: - Table view data source -
@@ -24,13 +33,14 @@ class ProductsTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productsNames.count
+        return productsArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ProductTVCell
-        
-        cell.configureCell(productsImages[indexPath.row], productsNames[indexPath.row], "no name", "no name")
+        var tempArr = [Product]()
+        tempArr.append(contentsOf: productsArray)
+        cell.configureCell(tempArr[indexPath.row])
         
         return cell
     }
@@ -40,12 +50,12 @@ class ProductsTVC: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailSegue" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let dvc = segue.destination as! DetailVC
-                dvc.imageName = self.productsImages[indexPath.row]
-            }
-        }
+//        if segue.identifier == "detailSegue" {
+//            if let indexPath = tableView.indexPathForSelectedRow {
+//                let dvc = segue.destination as! DetailVC
+//                dvc.imageName = self.productsImages[indexPath.row]
+//            }
+//        }
     }
 
 }

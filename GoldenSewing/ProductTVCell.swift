@@ -26,12 +26,13 @@ class ProductTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(_ image: String, _ title: String, _ article: String, _ type: String) {
+    func configureCell(_ product: Product) {
         
-        nameLabel.text = title.capitalized
-        articleLabel.text = article
-        typeLabel.text = type
-        imgView?.image = UIImage(named: "\(image)")
+        nameLabel.text = product.name?.capitalized
+        articleLabel.text = "\(product.id)"
+        typeLabel.text = product.subName?.capitalized
+        let data = product.featuredImg! as Data
+        imgView?.image = UIImage(data: data)
         
         imgView?.layer.cornerRadius = imgView.frame.height/10
         imgView?.clipsToBounds = true
