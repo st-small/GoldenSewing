@@ -14,16 +14,17 @@ enum Category: Int {
     case ikonostasy = 3             // 9 posts
     case ikony = 4                  // 144 posts
     case komplektySborkiMitr = 5    // 49 posts
-    case metallonit = 101           // 78 posts
+    case metallonit = 101           // 78 posts == 1 collection *
     case mitres = 6                 // 155 posts
     case oblArch = 7                // 27 posts
-    case oblDiak = 8                // 14 posts
+    case oblDiak = 8                // 14 posts - не всегда есть inlay (attributes[2])
     case oblIer = 9                 // 28 posts
     case plaschanicy = 10           // 14 posts
-    case pokrovcy = 11              // 20 posts
-    case raznoe = 1                 // 1 collection
-    case skrizhali = 13             // 21 posts
-    case tkani = 103                // 15 posts
+    case pokrovcy = 11              // 20 posts - не всегда есть inlay (attributes[2])
+    case raznoe = 1                 // 1 collection - http://zolotoe-shitvo.kr.ua/wp-json/wp/v2/pages/1148
+    case skrizhali = 13             // 21 posts  - не всегда есть inlay (attributes[2])
+    case tkani = 103                // 15 posts *
+    case geraldika = 18              // 1 collection - http://zolotoe-shitvo.kr.ua/wp-json/wp/v2/pages/1122
 }
 
 // default_name
@@ -91,40 +92,22 @@ enum AttributesEnum: String {
                             "icon_13": "Лаковая миниатюра, лазерное напыление"]
 
 // default_value_color
-enum ColorVal: String {
-    case color_1 = "Белый"
-    case color_2 = "Белый + золото"
-    case color_3 = "Белый + серебро"
-    case color_3_1 = "Бежевый"
-    case color_3_2 = "Бежевый + золото"
-    case color_3_3 = "Бежевый + серебро"
-    case color_4 = "Бордо"
-    case color_5 = "Бордо + золото"
-    case color_6 = "Бордо + серебро"
-    case color_6_1 = "Вишневый"
-    case color_6_2 = "Вишневый + золото"
-    case color_6_3 = "Вишневый + серебро"
-    case color_7 = "Голубой"
-    case color_8 = "Голубой + золото"
-    case color_9 = "Голубой + серебро"
-    case color_10 = "Желтый"
-    case color_10_1 = "Желтый + золото"
-    case color_10_2 = "Желтый + серебро"
-    case color_10_3 = "Желтый + золото + горчица"
-    case color_11 = "Зеленый"
-    case color_12 = "Зеленый + золото"
-    case color_13 = "Зеленый + серебро"
-    case color_14 = "Красный"
-    case color_15 = "Красный + золото"
-    case color_16 = "Красный + серебро"
-    case color_17 = "Фиолетовый"
-    case color_18 = "Фиолетовый + золото"
-    case color_19 = "Фиолетовый + серебро"
-    case color_20 = "Черный"
-    case color_21 = "Черный + золото"
-    case color_22 = "Черный + серебро"
-}
-
-
     
+    static let colorValDict = ["color_1"    : "Белый",              "color_2"       : "Белый + золото",
+                               "color_3"    : "Белый + серебро",    "color_3_1"     : "Бежевый",
+                               "color_3_2"  : "Бежевый + золото",   "color_3_3"     : "Бежевый + серебро",
+                               "color_4"    : "Бордо",              "color_5"       : "Бордо + золото",
+                               "color_6"    : "Бордо + серебро",    "color_6_1"     : "Вишневый",
+                               "color_6_2"  : "Вишневый + золото",  "color_6_3"     : "Вишневый + серебро",
+                               "color_7"    : "Голубой",            "color_8"       : "Голубой + золото",
+                               "color_9"    : "Голубой + серебро",  "color_10"      : "Желтый",
+                               "color_10_1" : "Желтый + золото",    "color_10_2"    : "Желтый + серебро",
+                               "color_10_3" : "Желтый + золото + горчица",
+                               "color_11"   : "Зеленый",            "color_12"      : "Зеленый + золото",
+                               "color_13"   : "Зеленый + серебро",  "color_14"      : "Красный",
+                               "color_15"   : "Красный + золото",   "color_16"      : "Красный + серебро",
+                               "color_17"   : "Фиолетовый",         "color_18"      : "Фиолетовый + золото",
+                               "color_19"   : "Фиолетовый + серебро",
+                               "color_20"   : "Бордо + серебро",    "color_21"      : "Черный + золото",
+                               "color_22"   : "Черный + серебро"]
 }

@@ -2,7 +2,7 @@
 //  ProductCategory+CoreDataProperties.swift
 //  GoldenSewing
 //
-//  Created by Stanly Shiyanovskiy on 05.08.17.
+//  Created by Stanly Shiyanovskiy on 14.08.17.
 //  Copyright © 2017 Stanly Shiyanovskiy. All rights reserved.
 //
 
@@ -19,6 +19,7 @@ extension ProductCategory {
     @NSManaged public var id: Int16
     @NSManaged public var name: String?
     @NSManaged public var postsCount: Int16
+    @NSManaged public var lastUpdate: NSDate?
     @NSManaged public var products: NSSet?
 
 }

@@ -32,6 +32,6 @@ class CategoriesTVCell: UITableViewCell {
             btn.titleLabel?.font = btn.titleLabel?.font.withSize(12)
         }
         btn.setTitle(title, for: .normal)
+        self.hideSeparator()
     }
-
 }

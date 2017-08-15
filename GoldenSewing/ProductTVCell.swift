@@ -14,6 +14,7 @@ class ProductTVCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var articleLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var econom: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,17 +27,43 @@ class ProductTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(_ product: Product) {
+    func configureCell(_ product: Product, category: Int) {
+        // set cell background
+        self.backgroundColor = UIColor.CustomColors.burgundy
         
+        // set all text labels
         nameLabel.text = product.name?.capitalized
-        articleLabel.text = "\(product.id)"
-        typeLabel.text = product.subName?.capitalized
-        let data = product.featuredImg! as Data
-        imgView?.image = UIImage(data: data)
+        articleLabel.text = "Артикул \(product.id)"
+        if category == 103 {
+            var str = ""
+            for val in product.cloth! {
+                str += "\(val), "
+            }
+            typeLabel.text = String(str.characters.dropLast(2))
+        } else {
+            typeLabel.text = product.subName?.capitalized
+        }
         
+        // set image
+        if product.featuredImg == nil {
+            imgView?.image = UIImage(named: "Placeholder")
+        } else {
+            let data = product.featuredImg! as Data
+            imgView?.image = UIImage(data: data)
+        }
+        
+        // show lowCost mark
+        econom?.image = UIImage(named: "Econom")
+        econom?.isHidden = product.isLowCost ? false : true
+        
+        // set image view
         imgView?.layer.cornerRadius = imgView.frame.height/10
+        imgView?.layer.borderWidth = 1.0
+        imgView?.layer.borderColor = (UIColor.CustomColors.yellow).cgColor
         imgView?.clipsToBounds = true
         
+        showSeparator()
     }
 
 }
+
