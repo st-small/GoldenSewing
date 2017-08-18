@@ -26,7 +26,7 @@
                   moduleName = "GoldenSewing"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
-                  timestampString = "524475992.17084"
+                  timestampString = "524737945.094398"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "624"
@@ -41,7 +41,7 @@
                   moduleName = "GoldenSewing"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
-                  timestampString = "524475992.173319"
+                  timestampString = "524737945.101523"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "624"
@@ -49,6 +49,70 @@
                   offsetFromSymbolStart = "3672">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoldenSewing/ProductsTVC.swift"
+            timestampString = "524680010.739907"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "loadData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GoldenSewing.ProductsTVC.((loadData in _2FB1F97B64D0C14C1856AEE6461711AF) () -&gt; ()).(closure #1)"
+                  moduleName = "GoldenSewing"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/ProductsTVC.swift"
+                  timestampString = "524594132.618123"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "252"
+                  endingLineNumber = "252"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GoldenSewing.ProductsTVC.((loadData in _2FB1F97B64D0C14C1856AEE6461711AF) () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "GoldenSewing"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/ProductsTVC.swift"
+                  timestampString = "524594132.620792"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "252"
+                  endingLineNumber = "252"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoldenSewing/CategoriesVC.swift"
+            timestampString = "524737224.168543"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "scrollViewShouldScrollToTop(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

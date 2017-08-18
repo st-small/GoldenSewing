@@ -11,9 +11,7 @@ import UIKit
 class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     // MARK: - Outlets -
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableViewTop: NSLayoutConstraint!
     @IBOutlet weak var tableViewBottom: NSLayoutConstraint!
     
     // MARK: - Properties -
@@ -21,6 +19,8 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var searchResults = [Product]()
     var isInSearchMode = false
     var kbFrameSize: CGRect?
+    var hidingNavBarManager: HidingNavigationBarManager?
+    lazy var searchBar: UISearchBar = UISearchBar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,21 +43,50 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         // get datasource for tableView
         categories = ProductCategory.getPRCategories()
         
-        searchBar.returnKeyType = UIReturnKeyType.done
-        
         registerForKeyboardNotifications()
+
+        // set view for searchBar
+        let extensionView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 40))
+        extensionView.backgroundColor = UIColor.CustomColors.burgundy
+        
+        // set UISearchBar
+        searchBar.searchBarStyle = UISearchBarStyle.prominent
+        let font = UIFont(name: "Avenir", size: 12)!
+        let attributes = [
+            NSForegroundColorAttributeName: UIColor.CustomColors.yellow,
+            NSFontAttributeName : font]
+        searchBar.attributedPlaceholder = NSAttributedString(string: "Type something",
+                                                             attributes:attributes)
+        searchBar.searchText
+        //searchBar.placeholder = " Поиск по артикулу или наименованию..."
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        searchBar.barTintColor = UIColor.CustomColors.burgundy
+        //searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        extensionView.addSubview(searchBar)
+        
+        hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: tableView)
+        hidingNavBarManager?.addExtensionView(extensionView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableViewBottom.constant = 0
-        self.searchBar.isHidden = searchResults.isEmpty ? true : false
+        hidingNavBarManager?.viewWillAppear(animated)
+    }
+    
+    
+    override func viewDidLayoutSubviews()  {
+        super.viewDidLayoutSubviews()
+        hidingNavBarManager?.viewDidLayoutSubviews()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        //navigationController?.setNavigationBarHidden(false, animated: true)
+        hidingNavBarManager?.viewWillDisappear(animated)
     }
+
     
     deinit {
         removeKeyboardNotifications()
@@ -115,20 +144,20 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         if searchBar.text == nil || searchBar.text == "" {
             
-            isInSearchMode = false
-            self.searchBar.isHidden = true
-            tableViewTop.constant = -64
-            self.searchBar.endEditing(true)
-            tableView.reloadData()
+//            isInSearchMode = false
+//            self.searchBar.isHidden = true
+//            tableViewTop.constant = -64
+//            self.searchBar.endEditing(true)
+//            tableView.reloadData()
             
         } else {
             
-            isInSearchMode = true
-            if (searchBar.text?.isNumber)! {
-                searchResults = Product.findProductBy(categoryID: 0, ID: Int(searchBar.text!)!, orString: "")
-            } else {
-                searchResults = Product.findProductBy(categoryID: 0, ID: 0, orString: searchBar.text!)
-            }
+//            isInSearchMode = true
+//            if (searchBar.text?.isNumber)! {
+//                searchResults = Product.findProductBy(categoryID: 0, ID: Int(searchBar.text!)!, orString: "")
+//            } else {
+//                searchResults = Product.findProductBy(categoryID: 0, ID: 0, orString: searchBar.text!)
+//            }
 
             tableView.reloadData()
         }
@@ -140,45 +169,23 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isInSearchMode = false
-        self.searchBar.isHidden = true
-        tableViewTop.constant = -64
-        self.searchBar.endEditing(true)
-        searchBar.text = ""
-        searchResults.removeAll()
-        tableView.reloadData()
+//        isInSearchMode = false
+//        self.searchBar.isHidden = true
+//        tableViewTop.constant = -64
+//        self.searchBar.endEditing(true)
+//        searchBar.text = ""
+//        searchResults.removeAll()
+//        tableView.reloadData()
     }
     
     // MARK: - Private methods -
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
-        if (velocity.y > 0) {
-            
-            let view = UIView()
-            view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 20)
-            view.backgroundColor = UIColor.CustomColors.burgundy
-            self.navigationController?.view.addSubview(view)
-            UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions(), animations: {
-                self.searchBar.isHidden = true
-                self.tableViewTop.constant = -64
-                //print("self.tableViewTop.constant \(self.tableViewTop.constant)")
-                self.navigationController?.setNavigationBarHidden(true, animated: true)
-            }, completion: nil)
-            
-        } else if velocity.y < -1 {
-            
-            UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions(), animations: {
-                self.tableViewTop.constant = -24
-                //print("self.tableViewTop.constant \(self.tableViewTop.constant)")
-                self.searchBar.isHidden = false
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-            }, completion: nil)
-        }
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        hidingNavBarManager?.shouldScrollToTop()
+        return true
     }
     
     // MARK: - Navigation
     @IBAction func btnPressed(_ sender: UIButton) {
-        //print("button pressed \(sender.tag)")
         if sender.tag == 101 {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MetallonitVC") as! MetallonitVC
             vc.categoryID = sender.tag
@@ -208,7 +215,7 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as! DetailVC
         vc.product = searchResults[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
-        self.searchBar.isHidden = true
+        //self.searchBar.isHidden = true
     }
 
 

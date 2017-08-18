@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		521492CF1F45DE8C00A75BE1 /* HidingNavigationBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521492CD1F45DE8C00A75BE1 /* HidingNavigationBarManager.swift */; };
+		521492D01F45DE8C00A75BE1 /* HidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521492CE1F45DE8C00A75BE1 /* HidingViewController.swift */; };
 		52253B261F38DAC8009DF046 /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52253B251F38DAC8009DF046 /* CategoriesVC.swift */; };
 		52253B281F39A134009DF046 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52253B271F39A134009DF046 /* String+Extension.swift */; };
 		52253B2A1F39EAEE009DF046 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52253B291F39EAEE009DF046 /* UITableViewCell+Extension.swift */; };
@@ -21,6 +23,7 @@
 		523ED3121F2F6BDA00BE20E5 /* ProductsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ED3111F2F6BDA00BE20E5 /* ProductsTVC.swift */; };
 		523ED3141F2F723700BE20E5 /* ProductTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ED3131F2F723700BE20E5 /* ProductTVCell.swift */; };
 		5250C9291F42CC2900153E65 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250C9281F42CC2800153E65 /* UIApplication+Extension.swift */; };
+		5250C92B1F42DF6600153E65 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250C92A1F42DF6600153E65 /* FoldingCell.swift */; };
 		5251083E1F2F9D650044804C /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251083D1F2F9D650044804C /* DetailVC.swift */; };
 		525108401F2FA8040044804C /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251083F1F2FA8040044804C /* FirstVC.swift */; };
 		525108421F2FB35F0044804C /* PersistentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525108411F2FB35F0044804C /* PersistentService.swift */; };
@@ -35,9 +38,13 @@
 		52526DEF1F3F46D400621B87 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52526DEE1F3F46D400621B87 /* NSDate+Extension.swift */; };
 		52C6B6961F3F5F02009171DC /* RaznoeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6B6951F3F5F02009171DC /* RaznoeCell.swift */; };
 		52C6B6981F3F820E009171DC /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6B6971F3F820E009171DC /* UIImageView+Extension.swift */; };
+		52F293111F437BBB00D07842 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293101F437BBB00D07842 /* UIViewX.swift */; };
+		52F293131F4445BD00D07842 /* UnfoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293121F4445BD00D07842 /* UnfoldingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		521492CD1F45DE8C00A75BE1 /* HidingNavigationBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingNavigationBarManager.swift; sourceTree = "<group>"; };
+		521492CE1F45DE8C00A75BE1 /* HidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingViewController.swift; sourceTree = "<group>"; };
 		52253B251F38DAC8009DF046 /* CategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		52253B271F39A134009DF046 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		52253B291F39EAEE009DF046 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
@@ -54,6 +61,7 @@
 		523ED3111F2F6BDA00BE20E5 /* ProductsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsTVC.swift; sourceTree = "<group>"; };
 		523ED3131F2F723700BE20E5 /* ProductTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTVCell.swift; sourceTree = "<group>"; };
 		5250C9281F42CC2800153E65 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		5250C92A1F42DF6600153E65 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
 		5251083D1F2F9D650044804C /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		5251083F1F2FA8040044804C /* FirstVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		525108411F2FB35F0044804C /* PersistentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentService.swift; sourceTree = "<group>"; };
@@ -68,6 +76,8 @@
 		52526DEE1F3F46D400621B87 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		52C6B6951F3F5F02009171DC /* RaznoeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaznoeCell.swift; sourceTree = "<group>"; };
 		52C6B6971F3F820E009171DC /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		52F293101F437BBB00D07842 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
+		52F293121F4445BD00D07842 /* UnfoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnfoldingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +91,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		521492CC1F45DE5A00A75BE1 /* PodsFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5250C92A1F42DF6600153E65 /* FoldingCell.swift */,
+				521492CD1F45DE8C00A75BE1 /* HidingNavigationBarManager.swift */,
+				521492CE1F45DE8C00A75BE1 /* HidingViewController.swift */,
+			);
+			name = PodsFiles;
+			path = GoldenSewing;
+			sourceTree = "<group>";
+		};
 		523ED2F31F29CA9400BE20E5 = {
 			isa = PBXGroup;
 			children = (
 				523ED2FE1F29CA9400BE20E5 /* GoldenSewing */,
+				521492CC1F45DE5A00A75BE1 /* PodsFiles */,
 				523ED2FD1F29CA9400BE20E5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,6 +165,7 @@
 				5236B2751F3C8BC60072594D /* CollViewCell.swift */,
 				52C6B6951F3F5F02009171DC /* RaznoeCell.swift */,
 				5251085C1F31C4B40044804C /* CategoriesTVCell.swift */,
+				52F293121F4445BD00D07842 /* UnfoldingCell.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -158,6 +181,7 @@
 				52253B291F39EAEE009DF046 /* UITableViewCell+Extension.swift */,
 				52253B271F39A134009DF046 /* String+Extension.swift */,
 				52C6B6971F3F820E009171DC /* UIImageView+Extension.swift */,
+				52F293101F437BBB00D07842 /* UIViewX.swift */,
 				523ED2FF1F29CA9400BE20E5 /* AppDelegate.swift */,
 				523ED30B1F29CA9400BE20E5 /* Info.plist */,
 				523ED3061F29CA9400BE20E5 /* Assets.xcassets */,
@@ -239,8 +263,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				525108441F307DC50044804C /* CoreDataStack.swift in Sources */,
+				5250C92B1F42DF6600153E65 /* FoldingCell.swift in Sources */,
 				525108421F2FB35F0044804C /* PersistentService.swift in Sources */,
 				5236B2761F3C8BC60072594D /* CollViewCell.swift in Sources */,
+				52F293111F437BBB00D07842 /* UIViewX.swift in Sources */,
 				523ED3001F29CA9400BE20E5 /* AppDelegate.swift in Sources */,
 				525108471F307E1F0044804C /* Model.xcdatamodeld in Sources */,
 				5251083E1F2F9D650044804C /* DetailVC.swift in Sources */,
@@ -250,6 +276,7 @@
 				5236B2721F3B69C70072594D /* MetallonitVC.swift in Sources */,
 				52C6B6961F3F5F02009171DC /* RaznoeCell.swift in Sources */,
 				5251085D1F31C4B40044804C /* CategoriesTVCell.swift in Sources */,
+				521492CF1F45DE8C00A75BE1 /* HidingNavigationBarManager.swift in Sources */,
 				5236AC5E1F32F3470077AC80 /* Product+CoreDataClass.swift in Sources */,
 				52526DED1F3F29CC00621B87 /* Date+Extension.swift in Sources */,
 				525108401F2FA8040044804C /* FirstVC.swift in Sources */,
@@ -258,11 +285,13 @@
 				523ED3141F2F723700BE20E5 /* ProductTVCell.swift in Sources */,
 				52C6B6981F3F820E009171DC /* UIImageView+Extension.swift in Sources */,
 				525108591F30E5C00044804C /* UIColor+Extension.swift in Sources */,
+				521492D01F45DE8C00A75BE1 /* HidingViewController.swift in Sources */,
 				52253B261F38DAC8009DF046 /* CategoriesVC.swift in Sources */,
 				5251084F1F307EF60044804C /* ProductCategory+CoreDataProperties.swift in Sources */,
 				5236AC5F1F32F3470077AC80 /* Product+CoreDataProperties.swift in Sources */,
 				5250C9291F42CC2900153E65 /* UIApplication+Extension.swift in Sources */,
 				525108571F30E5140044804C /* Constants.swift in Sources */,
+				52F293131F4445BD00D07842 /* UnfoldingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +416,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = GoldenSewing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SiS.GoldenSewing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,6 +430,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = GoldenSewing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SiS.GoldenSewing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
