@@ -40,6 +40,9 @@
 		52C6B6981F3F820E009171DC /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6B6971F3F820E009171DC /* UIImageView+Extension.swift */; };
 		52F293111F437BBB00D07842 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293101F437BBB00D07842 /* UIViewX.swift */; };
 		52F293131F4445BD00D07842 /* UnfoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293121F4445BD00D07842 /* UnfoldingCell.swift */; };
+		5726DB131F48975E0019C984 /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726DB121F48975E0019C984 /* ProductsVC.swift */; };
+		5726DB151F48BA970019C984 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726DB141F48BA970019C984 /* CosmosDistrib.swift */; };
+		573B0CF31F49C76B00BD6121 /* pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 573B0CF21F49C76B00BD6121 /* pop.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		52C6B6971F3F820E009171DC /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		52F293101F437BBB00D07842 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		52F293121F4445BD00D07842 /* UnfoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnfoldingCell.swift; sourceTree = "<group>"; };
+		5726DB121F48975E0019C984 /* ProductsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsVC.swift; sourceTree = "<group>"; };
+		5726DB141F48BA970019C984 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
+		573B0CF21F49C76B00BD6121 /* pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pop.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 				5250C92A1F42DF6600153E65 /* FoldingCell.swift */,
 				521492CD1F45DE8C00A75BE1 /* HidingNavigationBarManager.swift */,
 				521492CE1F45DE8C00A75BE1 /* HidingViewController.swift */,
+				5726DB141F48BA970019C984 /* CosmosDistrib.swift */,
 			);
 			name = PodsFiles;
 			path = GoldenSewing;
@@ -137,6 +144,7 @@
 				523ED3031F29CA9400BE20E5 /* Main.storyboard */,
 				5251083F1F2FA8040044804C /* FirstVC.swift */,
 				52253B251F38DAC8009DF046 /* CategoriesVC.swift */,
+				5726DB121F48975E0019C984 /* ProductsVC.swift */,
 				523ED3111F2F6BDA00BE20E5 /* ProductsTVC.swift */,
 				5251083D1F2F9D650044804C /* DetailVC.swift */,
 				5236B2711F3B69C70072594D /* MetallonitVC.swift */,
@@ -184,6 +192,7 @@
 				52F293101F437BBB00D07842 /* UIViewX.swift */,
 				523ED2FF1F29CA9400BE20E5 /* AppDelegate.swift */,
 				523ED30B1F29CA9400BE20E5 /* Info.plist */,
+				573B0CF21F49C76B00BD6121 /* pop.mp3 */,
 				523ED3061F29CA9400BE20E5 /* Assets.xcassets */,
 			);
 			name = Supported;
@@ -249,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573B0CF31F49C76B00BD6121 /* pop.mp3 in Resources */,
 				523ED30A1F29CA9400BE20E5 /* LaunchScreen.storyboard in Resources */,
 				523ED3071F29CA9400BE20E5 /* Assets.xcassets in Resources */,
 				523ED3051F29CA9400BE20E5 /* Main.storyboard in Resources */,
@@ -265,6 +275,7 @@
 				525108441F307DC50044804C /* CoreDataStack.swift in Sources */,
 				5250C92B1F42DF6600153E65 /* FoldingCell.swift in Sources */,
 				525108421F2FB35F0044804C /* PersistentService.swift in Sources */,
+				5726DB131F48975E0019C984 /* ProductsVC.swift in Sources */,
 				5236B2761F3C8BC60072594D /* CollViewCell.swift in Sources */,
 				52F293111F437BBB00D07842 /* UIViewX.swift in Sources */,
 				523ED3001F29CA9400BE20E5 /* AppDelegate.swift in Sources */,
@@ -280,6 +291,7 @@
 				5236AC5E1F32F3470077AC80 /* Product+CoreDataClass.swift in Sources */,
 				52526DED1F3F29CC00621B87 /* Date+Extension.swift in Sources */,
 				525108401F2FA8040044804C /* FirstVC.swift in Sources */,
+				5726DB151F48BA970019C984 /* CosmosDistrib.swift in Sources */,
 				52253B281F39A134009DF046 /* String+Extension.swift in Sources */,
 				5251084E1F307EF60044804C /* ProductCategory+CoreDataClass.swift in Sources */,
 				523ED3141F2F723700BE20E5 /* ProductTVCell.swift in Sources */,

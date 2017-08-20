@@ -31,6 +31,7 @@ class UnfoldingCell: FoldingCell {
     @IBOutlet weak var clothBig: UILabel!
     
     @IBOutlet weak var inlayProperties: UILabel!
+    @IBOutlet weak var ratingLbl: CosmosView!
     
     // MARK: - Properties -
     
@@ -109,6 +110,23 @@ class UnfoldingCell: FoldingCell {
             tempString += "Инкрустация: \(String(str2.characters.dropLast(2)))"
         }
         
+        // for fabricsProperties
+        if product.pattern != nil {
+            tempString += "Рисунок (паттерн): \((product.pattern)!)\n\n"
+        }
+        
+        if product.width != nil {
+            tempString += "Ширина ткани: \((product.width)!)\n\n"
+        }
+        
+        var str4 = ""
+        if product.color != nil {
+            for val in product.color! {
+                str4 += "\(val), "
+            }
+            tempString += "Цветовая гамма: \(String(str4.characters.dropLast(2)))"
+        }
+        
         if tempString != "" {
             inlayProperties.text = tempString
             inlayProperties.isHidden = false
@@ -131,6 +149,14 @@ class UnfoldingCell: FoldingCell {
         economImg?.isHidden = product.isLowCost ? false : true
         economBig?.isHidden = product.isLowCost ? false : true
         
+        // set rating value
+        if product.rating == 0 {
+            ratingLbl.isHidden = true
+        } else {
+            ratingLbl.rating = Double(product.rating)
+            ratingLbl.isHidden = false
+        }
+        
         // set image view
         thumbnailImg?.layer.cornerRadius = thumbnailImg.frame.height/10
         thumbnailImg?.layer.borderWidth = 1.0
@@ -141,15 +167,5 @@ class UnfoldingCell: FoldingCell {
 
 
     // MARK: - Actions
-    
-    @IBAction func orderInfBtn(_ sender: UIButton) {
-        print("let ask some information...")
-    }
-    
-    @IBAction func callBtn(_ sender: UIButton) {
-        print("calling...")
-        
-    }
-    
 
 }

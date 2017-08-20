@@ -56,7 +56,7 @@ open class HidingNavigationBarManager: NSObject, UIScrollViewDelegate, UIGesture
 	fileprivate var isUpdatingValues = false
 	
 	// Hiding navigation bar state
-	fileprivate var currentState = HidingNavigationBarState.Open
+	var currentState = HidingNavigationBarState.Open
 	fileprivate var previousState = HidingNavigationBarState.Open
 
 	//Options

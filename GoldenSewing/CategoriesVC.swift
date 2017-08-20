@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     // MARK: - Outlets -
@@ -18,6 +19,7 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var categories = [ProductCategory]()
     var searchResults = [Product]()
     var isInSearchMode = false
+    var isKBShown: Bool = false
     var kbFrameSize: CGRect?
     var hidingNavBarManager: HidingNavigationBarManager?
     lazy var searchBar: UISearchBar = UISearchBar()
@@ -51,18 +53,12 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         // set UISearchBar
         searchBar.searchBarStyle = UISearchBarStyle.prominent
-        let font = UIFont(name: "Avenir", size: 12)!
-        let attributes = [
-            NSForegroundColorAttributeName: UIColor.CustomColors.yellow,
-            NSFontAttributeName : font]
-        searchBar.attributedPlaceholder = NSAttributedString(string: "Type something",
-                                                             attributes:attributes)
-        searchBar.searchText
-        //searchBar.placeholder = " Поиск по артикулу или наименованию..."
+        
+        //searchBar.searchText
+        searchBar.placeholder = " Поиск по артикулу или наименованию..."
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
         searchBar.barTintColor = UIColor.CustomColors.burgundy
-        //searchBar.backgroundImage = UIImage()
         searchBar.delegate = self
         extensionView.addSubview(searchBar)
         
@@ -83,7 +79,6 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //navigationController?.setNavigationBarHidden(false, animated: true)
         hidingNavBarManager?.viewWillDisappear(animated)
     }
 
@@ -95,20 +90,33 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     // MARK: - Keyboard methods -
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     func removeKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     func kbWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo
         let kbFrameSize = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         self.kbFrameSize = kbFrameSize
-        self.tableViewBottom.constant = kbFrameSize.height
+        tableViewBottom.constant = kbFrameSize.height
         UIView.animate(withDuration:0.3) {
             self.view.layoutIfNeeded()
         }
+        
+        isKBShown = true
+    }
+    
+    func kbWillHide() {
+        UIView.animate(withDuration:0.3) {
+            if self.isKBShown {
+                self.tableViewBottom.constant -= CGFloat((self.kbFrameSize?.height)!)
+            }
+        }
+        self.isKBShown = false
     }
     
     // MARK: - Table view data source
@@ -144,20 +152,18 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         if searchBar.text == nil || searchBar.text == "" {
             
-//            isInSearchMode = false
-//            self.searchBar.isHidden = true
-//            tableViewTop.constant = -64
-//            self.searchBar.endEditing(true)
-//            tableView.reloadData()
+            isInSearchMode = false
+            self.searchBar.endEditing(true)
+            tableView.reloadData()
             
         } else {
             
-//            isInSearchMode = true
-//            if (searchBar.text?.isNumber)! {
-//                searchResults = Product.findProductBy(categoryID: 0, ID: Int(searchBar.text!)!, orString: "")
-//            } else {
-//                searchResults = Product.findProductBy(categoryID: 0, ID: 0, orString: searchBar.text!)
-//            }
+            isInSearchMode = true
+            if (searchBar.text?.isNumber)! {
+                searchResults = Product.findProductBy(categoryID: 0, ID: Int(searchBar.text!)!, orString: "")
+            } else {
+                searchResults = Product.findProductBy(categoryID: 0, ID: 0, orString: searchBar.text!)
+            }
 
             tableView.reloadData()
         }
@@ -165,17 +171,14 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
-        tableViewBottom.constant = 0
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        isInSearchMode = false
-//        self.searchBar.isHidden = true
-//        tableViewTop.constant = -64
-//        self.searchBar.endEditing(true)
-//        searchBar.text = ""
-//        searchResults.removeAll()
-//        tableView.reloadData()
+        isInSearchMode = false
+        searchBar.endEditing(true)
+        searchBar.text = ""
+        searchResults.removeAll()
+        tableView.reloadData()
     }
     
     // MARK: - Private methods -
@@ -202,7 +205,7 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             //vc.categoryTitle = (sender.titleLabel?.text!)!
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProductsTVC") as! ProductsTVC
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProductsVC") as! ProductsVC
             vc.categoryID = sender.tag
             vc.categoryTitle = (sender.titleLabel?.text!)!
             self.navigationController?.pushViewController(vc, animated: true)
@@ -211,11 +214,11 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        searchBar.endEditing(true)
         guard !searchResults.isEmpty else { return }
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as! DetailVC
         vc.product = searchResults[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
-        //self.searchBar.isHidden = true
     }
 
 

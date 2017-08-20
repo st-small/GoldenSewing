@@ -1,12 +1,13 @@
 //
-//  ProductsTVC.swift
+//  ProductsVC.swift
 //  GoldenSewing
 //
-//  Created by Stanly Shiyanovskiy on 31.07.17.
+//  Created by Stanly Shiyanovskiy on 19.08.17.
 //  Copyright © 2017 Stanly Shiyanovskiy. All rights reserved.
 //
 
 import UIKit
+import AVFoundation
 
 fileprivate struct C {
     struct CellHeight {
@@ -15,9 +16,11 @@ fileprivate struct C {
     }
 }
 
-class ProductsTVC: UITableViewController, UISearchBarDelegate {
+class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     // MARK: - Outlets -
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewBottom: NSLayoutConstraint!
     
     // MARK: - Properties -
     var categoryID = 0
@@ -28,10 +31,13 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
     var cellHeights = [CGFloat]()
     var hidingNavBarManager: HidingNavigationBarManager?
     lazy var searchBar: UISearchBar = UISearchBar()
-    
+    var value: IndexPath?
+    var refresh = UIRefreshControl()
+    var sound: AVAudioPlayer!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // set naviagtion label
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44))
         label.backgroundColor = .clear
@@ -42,8 +48,12 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
         label.text = categoryTitle
         self.navigationItem.titleView = label
         
-        self.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
-        self.refreshControl?.tintColor = UIColor.CustomColors.yellow
+        // add refreshControl to tableView
+        refresh.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
+        refresh.tintColor = UIColor.CustomColors.yellow
+        refresh.attributedTitle = NSAttributedString(string: "Обновляем данные", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 13), NSForegroundColorAttributeName:UIColor.CustomColors.yellow])
+        hidingNavBarManager?.refreshControl = refresh
+        tableView.addSubview(refresh)
         
         tableView.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         tableView.tableFooterView = UIView()
@@ -74,6 +84,7 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
         searchBar.placeholder = " Поиск по артикулу или наименованию..."
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
+        searchBar.tintColor = UIColor.CustomColors.yellow
         searchBar.barTintColor = UIColor.CustomColors.burgundy
         searchBar.delegate = self
         extensionView.addSubview(searchBar)
@@ -81,6 +92,16 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
         hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: tableView)
         hidingNavBarManager?.addExtensionView(extensionView)
         
+        // set sound
+        let path = Bundle.main.path(forResource: "pop", ofType: "mp3")
+        let soundURL = URL(fileURLWithPath: path!)
+        
+        do {
+            try sound = AVAudioPlayer(contentsOf: soundURL)
+            sound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,6 +111,10 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
         cellHeights = (0..<productsArray.count).map { _ in C.CellHeight.close }
         tableView.reloadData()
         
+        if value != nil {
+            tableView.scrollToRow(at: value!, at: .top, animated: true)
+
+        }
     }
     
     override func viewDidLayoutSubviews()  {
@@ -97,16 +122,11 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
         hidingNavBarManager?.viewDidLayoutSubviews()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        // start check if post is modified
-        checkModifiedSettingsForPost(startElement: 0, endElement: 9)
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         hidingNavBarManager?.viewWillDisappear(animated)
     }
+    
     
     deinit {
         removeKeyboardNotifications()
@@ -127,37 +147,36 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
         let userInfo = notification.userInfo
         let kbFrameSize = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         self.kbFrameSize = kbFrameSize
+        tableViewBottom.constant = kbFrameSize.height
         UIView.animate(withDuration:0.3) {
             self.view.layoutIfNeeded()
         }
+        
+        isKBShown = true
     }
     
     func kbWillHide() {
         UIView.animate(withDuration:0.3) {
             if self.isKBShown {
-                //self.tableViewBottom.constant -= CGFloat((self.kbFrameSize?.height)!)
+                self.tableViewBottom.constant -= CGFloat((self.kbFrameSize?.height)!)
             }
         }
         self.isKBShown = false
     }
     
-    // MARK: - Table view data source -
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    // MARK: - Table view data source
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return productsArray.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath) as! UnfoldingCell
         cell.configureCell(productsArray[indexPath.row], category: categoryID)
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         // UNcomment this part to use folding cell feature - start -
@@ -165,12 +184,19 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
             return
         }
         
+        cell.bigImg.tag = indexPath.row
+        cell.bigImg.isUserInteractionEnabled = true
+        let tapRecognizer = UITapGestureRecognizer(target: self, action:#selector (imageTapped))
+        cell.bigImg.addGestureRecognizer(tapRecognizer)
+        
         var duration = 0.0
         if cellHeights[indexPath.row] == C.CellHeight.close { // open cell
+            let offsetValue: CGFloat = (hidingNavBarManager?.currentState)! == HidingNavigationBarState.Open ? 104 : 24
             cellHeights[indexPath.row] = C.CellHeight.open
             cell.unfold(true, animated: true, completion: { _ in
-                let offset = CGPoint(x: 0, y: cell.frame.minY - 64)
+                let offset = CGPoint(x: 0, y: cell.frame.minY - offsetValue)
                 self.tableView.setContentOffset(offset, animated: true)
+                self.value = indexPath
             })
             duration = 0.5
         } else {// close cell
@@ -187,11 +213,11 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
     }
     
     // MARK: - For folding cell feature methods: -
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeights[indexPath.row]
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if case let foldingCell as UnfoldingCell = cell {
             if cellHeights[indexPath.row] == C.CellHeight.close {
                 foldingCell.unfold(false, animated: false, completion: nil)
@@ -202,47 +228,45 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
     }
     
     // MARK: - SearchBar -
-    //    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-    //        searchBar.showsCancelButton = true
-    //        tableView.reloadData()
-    //        return true
-    //    }
-    //
-    //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    //
-    //        if searchBar.text == nil || searchBar.text == "" {
-    //            self.searchBar.isHidden = true
-    //            self.searchBar.endEditing(true)
-    //            tableView.reloadData()
-    //
-    //        } else {
-    //
-    //            if (searchBar.text?.isNumber)! {
-    //                productsArray = Product.findProductBy(categoryID: categoryID, ID: Int(searchBar.text!)!, orString: "")
-    //            } else {
-    //                productsArray = Product.findProductBy(categoryID: categoryID, ID: 0, orString: searchBar.text!)
-    //            }
-    //
-    //            tableView.reloadData()
-    //        }
-    //    }
-    //
-    //    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-    //        searchBar.showsCancelButton = false
-    //        loadData()
-    //        tableView.setContentOffset(CGPoint(x: 0, y: -24), animated: true)
-    //    }
-    //
-    //    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-    //        self.searchBar.isHidden = true
-    //        self.searchBar.endEditing(true)
-    //        searchBar.text = ""
-    //        loadData()
-    //        tableView.setContentOffset(CGPoint(x: 0, y: -24), animated: true)
-    //    }
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.showsCancelButton = true
+        tableView.reloadData()
+        return true
+    }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            self.searchBar.endEditing(true)
+            tableView.reloadData()
+            
+        } else {
+            
+            if (searchBar.text?.isNumber)! {
+                productsArray = Product.findProductBy(categoryID: categoryID, ID: Int(searchBar.text!)!, orString: "")
+            } else {
+                productsArray = Product.findProductBy(categoryID: categoryID, ID: 0, orString: searchBar.text!)
+            }
+            
+            tableView.reloadData()
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        loadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+        searchBar.text = ""
+        loadData()
+    }
+
+
+
     // MARK: - Private methods -
-    override func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
         hidingNavBarManager?.shouldScrollToTop()
         return true
     }
@@ -253,12 +277,29 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
             self.productsArray.sort { ($0.edited)! > ($1.edited)! }
             self.tableView.reloadData()
         }
-        self.refreshControl?.endRefreshing()
+        playSound()
+        refresh.endRefreshing()
+    }
+    
+    func playSound() {
+        if sound.isPlaying {
+            sound.stop()
+        }
+        sound.play()
     }
     
     func backButtonTapped() {
         _ = navigationController?.popViewController(animated: true)
     }
+    
+    func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
+        searchBar.endEditing(true)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as! DetailVC
+        let product = productsArray[(gestureRecognizer.view?.tag)!]
+        vc.product = product
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func checkModifiedSettingsForPost(startElement: Int, endElement: Int) {
         // check last checking more than 10 days ago
@@ -287,5 +328,5 @@ class ProductsTVC: UITableViewController, UISearchBarDelegate {
             }
         }
     }
-    
+
 }
