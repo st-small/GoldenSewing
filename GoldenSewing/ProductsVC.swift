@@ -108,7 +108,6 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         super.viewWillAppear(animated)
         hidingNavBarManager?.viewWillAppear(animated)
         loadData()
-        cellHeights = (0..<productsArray.count).map { _ in C.CellHeight.close }
         tableView.reloadData()
         
         if value != nil {
@@ -273,8 +272,11 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     @objc private func loadData() {
         productsArray = Product.getProductsByParentCategory(productCatID: categoryID)
+        cellHeights = (0..<productsArray.count).map { _ in C.CellHeight.close }
         DispatchQueue.main.async {
-            self.productsArray.sort { ($0.edited)! > ($1.edited)! }
+            if !self.productsArray.isEmpty {
+                self.productsArray.sort { ($0.edited)! > ($1.edited)! }
+            }
             self.tableView.reloadData()
         }
         playSound()
