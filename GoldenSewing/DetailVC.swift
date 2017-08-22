@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailVC: UIViewController {
+class DetailVC: UIViewController, UIScrollViewDelegate {
 
     // MARK: - Outlets -
     @IBOutlet weak var imgView: UIImageView!
@@ -16,6 +16,8 @@ class DetailVC: UIViewController {
     
     // MARK: - Properties -
     var product: Product?
+    var scrollView: UIScrollView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +26,9 @@ class DetailVC: UIViewController {
         navigationItem.title = "\((product?.name)!), Артикул \((product?.id)!)"
         
         // set imageView
-        imgView.image = UIImage(data: product?.featuredImg! as! Data)
+        imgView.image = UIImage(data: (product?.featuredImg)! as Data)
         imgView.image? = (imgView.image?.imageByAddingRoundCorners(border: 2, color: UIColor.CustomColors.yellow))!
-        
+
         // set ratingView
         if product?.rating != 0 {
             ratingView.rating = Double((product?.rating)!)
@@ -52,7 +54,19 @@ class DetailVC: UIViewController {
 
     
     @IBAction func tapToBack(_ sender: UIButton) {
-        _ = self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func pinchImage(_ sender: UIPinchGestureRecognizer) {
+        let lastScaleFactor:CGFloat = 1
+        let factor:CGFloat = sender.scale
+        if (factor > 1) {
+            imgView.transform = CGAffineTransform(scaleX: (lastScaleFactor + (factor - 1)), y: lastScaleFactor + (factor - 1))
+            
+        } else {
+            imgView.transform = CGAffineTransform(scaleX: lastScaleFactor * factor, y: lastScaleFactor * factor)
+        }
+    
     }
     
     private func didTouchRatingView(_ rating: Double) {
@@ -60,7 +74,7 @@ class DetailVC: UIViewController {
         let productInBD = Product.findProductBy(Int(product!.id))
         productInBD.rating = Int16(rating)
 
-        try? CoreDataStack.instance.saveContext()
+        CoreDataStack.instance.saveContext()
         
     }
 }

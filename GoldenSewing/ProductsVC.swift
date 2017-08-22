@@ -26,14 +26,16 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     var categoryID = 0
     var categoryTitle = ""
     var productsArray = [Product]()
+    var searchArray = [Product]()
     var kbFrameSize: CGRect?
+    var isSearch: Bool = false
     var isKBShown: Bool = false
     var cellHeights = [CGFloat]()
     var hidingNavBarManager: HidingNavigationBarManager?
     lazy var searchBar: UISearchBar = UISearchBar()
     var value: IndexPath?
     var refresh = UIRefreshControl()
-    var sound: AVAudioPlayer!
+    //var sound: AVAudioPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,15 +95,14 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         hidingNavBarManager?.addExtensionView(extensionView)
         
         // set sound
-        let path = Bundle.main.path(forResource: "pop", ofType: "mp3")
-        let soundURL = URL(fileURLWithPath: path!)
-        
-        do {
-            try sound = AVAudioPlayer(contentsOf: soundURL)
-            sound.prepareToPlay()
-        } catch let err as NSError {
-            print(err.debugDescription)
-        }
+//        let path = Bundle.main.path(forResource: "pop", ofType: "mp3")
+//        let soundURL = URL(fileURLWithPath: path!)
+//        do {
+//            try sound = AVAudioPlayer(contentsOf: soundURL)
+//            sound.prepareToPlay()
+//        } catch let err as NSError {
+//            print(err.debugDescription)
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -166,13 +167,22 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productsArray.count
+        if isSearch {
+            return searchArray.count
+        } else {
+            return productsArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath) as! UnfoldingCell
-        cell.configureCell(productsArray[indexPath.row], category: categoryID)
+        
+        if isSearch {
+            cell.configureCell(searchArray[indexPath.row], category: categoryID)
+        } else {
+            cell.configureCell(productsArray[indexPath.row], category: categoryID)
+        }
         return cell
     }
     
@@ -229,6 +239,7 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     // MARK: - SearchBar -
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        isSearch = true
         searchBar.showsCancelButton = true
         tableView.reloadData()
         return true
@@ -237,15 +248,16 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchBar.text == nil || searchBar.text == "" {
+            isSearch = false
             self.searchBar.endEditing(true)
             tableView.reloadData()
             
         } else {
             
             if (searchBar.text?.isNumber)! {
-                productsArray = Product.findProductBy(categoryID: categoryID, ID: Int(searchBar.text!)!, orString: "")
+                searchArray = Product.findProductBy(categoryID: categoryID, ID: Int(searchBar.text!)!, orString: "")
             } else {
-                productsArray = Product.findProductBy(categoryID: categoryID, ID: 0, orString: searchBar.text!)
+                searchArray = Product.findProductBy(categoryID: categoryID, ID: 0, orString: searchBar.text!)
             }
             
             tableView.reloadData()
@@ -258,6 +270,7 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearch = false
         self.searchBar.endEditing(true)
         searchBar.text = ""
         loadData()
@@ -277,16 +290,16 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             self.productsArray.sort { ($0.edited)! > ($1.edited)! }
             self.tableView.reloadData()
         }
-        playSound()
+        //playSound()
         refresh.endRefreshing()
     }
     
-    func playSound() {
-        if sound.isPlaying {
-            sound.stop()
-        }
-        sound.play()
-    }
+//    func playSound() {
+//        if sound.isPlaying {
+//            sound.stop()
+//        }
+//        sound.play()
+//    }
     
     func backButtonTapped() {
         _ = navigationController?.popViewController(animated: true)
@@ -295,9 +308,10 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
         searchBar.endEditing(true)
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as! DetailVC
-        let product = productsArray[(gestureRecognizer.view?.tag)!]
+        let product = isSearch ? searchArray[(gestureRecognizer.view?.tag)!] : productsArray[(gestureRecognizer.view?.tag)!]
         vc.product = product
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        present(vc, animated: true, completion: nil)
     }
     
     
