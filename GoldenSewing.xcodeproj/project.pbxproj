@@ -43,6 +43,7 @@
 		5726DB131F48975E0019C984 /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726DB121F48975E0019C984 /* ProductsVC.swift */; };
 		5726DB151F48BA970019C984 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726DB141F48BA970019C984 /* CosmosDistrib.swift */; };
 		573B0CF31F49C76B00BD6121 /* pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 573B0CF21F49C76B00BD6121 /* pop.mp3 */; };
+		57CAB2AE1F4B597000861C6A /* CustomScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CAB2AD1F4B597000861C6A /* CustomScroll.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		5726DB121F48975E0019C984 /* ProductsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsVC.swift; sourceTree = "<group>"; };
 		5726DB141F48BA970019C984 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		573B0CF21F49C76B00BD6121 /* pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pop.mp3; sourceTree = "<group>"; };
+		57CAB2AD1F4B597000861C6A /* CustomScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScroll.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				525108541F3087360044804C /* Models */,
 				525108531F30872B0044804C /* Services */,
+				57CAB2AC1F4B592000861C6A /* Views */,
 				525108521F30871E0044804C /* Controllers */,
 				523ED3081F29CA9400BE20E5 /* LaunchScreen.storyboard */,
 				525108551F3087430044804C /* Supported */,
@@ -196,6 +199,14 @@
 				523ED3061F29CA9400BE20E5 /* Assets.xcassets */,
 			);
 			name = Supported;
+			sourceTree = "<group>";
+		};
+		57CAB2AC1F4B592000861C6A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57CAB2AD1F4B597000861C6A /* CustomScroll.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				525108441F307DC50044804C /* CoreDataStack.swift in Sources */,
+				57CAB2AE1F4B597000861C6A /* CustomScroll.swift in Sources */,
 				5250C92B1F42DF6600153E65 /* FoldingCell.swift in Sources */,
 				525108421F2FB35F0044804C /* PersistentService.swift in Sources */,
 				5726DB131F48975E0019C984 /* ProductsVC.swift in Sources */,

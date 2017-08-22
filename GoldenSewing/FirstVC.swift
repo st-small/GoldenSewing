@@ -214,9 +214,11 @@ class FirstVC: UIViewController {
     
     // check even category is full
     func isCategoryHasAllPosts() {
+        print("Log to fetch data if last time it wasn't\n**************************\n\n")
         PersistentService.getProductCategories { (categories, count) in
             for category in categories {
                 let posts = Product.getProductsByParentCategory(productCatID: Int(category.id))
+                print("there are \(posts.count) in category \(category.id)")
                 // check if category doesn't has all posts or last update was more than 10 days ago
                 let checkDate10DaysAgo = NSDate().addingTimeInterval(-10*24*60*60)
                 if category.lastUpdate == nil {
