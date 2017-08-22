@@ -9,24 +9,16 @@
 import UIKit
 
 class DetailVC: UIViewController, UIScrollViewDelegate {
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 036f68613112e918be851d7c3f8e852ceb135cc5
     // MARK: - Outlets -
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var ratingView: CosmosView!
     
     // MARK: - Properties -
     var product: Product?
-<<<<<<< HEAD
-    var scrollView: UIScrollView!
-    
-=======
     var imageView: UIImageView!
     var scrollView: UIScrollView!
->>>>>>> 036f68613112e918be851d7c3f8e852ceb135cc5
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +27,11 @@ class DetailVC: UIViewController, UIScrollViewDelegate {
         navigationItem.title = "\((product?.name)!), Артикул \((product?.id)!)"
         
         // set imageView
-<<<<<<< HEAD
         imgView.image = UIImage(data: (product?.featuredImg)! as Data)
         imgView.image? = (imgView.image?.imageByAddingRoundCorners(border: 2, color: UIColor.CustomColors.yellow))!
 
-=======
         imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 20, height: view.frame.height - view.frame.height/3))
-        imageView.image = UIImage(data: product?.featuredImg as! Data)
+        imageView.image = UIImage(data: product?.featuredImg! as! Data)
         imageView.contentMode = .scaleAspectFit
         
         // получаю новый размер сжатой картинки под аспектфит
@@ -56,7 +46,6 @@ class DetailVC: UIViewController, UIScrollViewDelegate {
         
         scrollView.delegate = self
         
->>>>>>> 036f68613112e918be851d7c3f8e852ceb135cc5
         // set ratingView
         if product?.rating != 0 {
             ratingView.rating = Double((product?.rating)!)
@@ -141,13 +130,8 @@ class DetailVC: UIViewController, UIScrollViewDelegate {
         ratingView.rating = rating
         let productInBD = Product.findProductBy(Int(product!.id))
         productInBD.rating = Int16(rating)
-<<<<<<< HEAD
 
         CoreDataStack.instance.saveContext()
-=======
-        
-        try? CoreDataStack.instance.saveContext()
->>>>>>> 036f68613112e918be851d7c3f8e852ceb135cc5
         
     }
 }
