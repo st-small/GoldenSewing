@@ -11,15 +11,17 @@ import UIKit
 class DetailVC: UIViewController, UIScrollViewDelegate {
 
     // MARK: - Outlets -
-    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var ratingView: CosmosView!
     
     // MARK: - Properties -
     var product: Product?
     var imageView: UIImageView!
     var scrollView: UIScrollView!
+    var maxScrollHeight: CGFloat {
+        return (view.frame.height - view.frame.height/3)
+    }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,18 +29,16 @@ class DetailVC: UIViewController, UIScrollViewDelegate {
         navigationItem.title = "\((product?.name)!), Артикул \((product?.id)!)"
         
         // set imageView
-        imgView.image = UIImage(data: (product?.featuredImg)! as Data)
-        imgView.image? = (imgView.image?.imageByAddingRoundCorners(border: 2, color: UIColor.CustomColors.yellow))!
-
-        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 20, height: view.frame.height - view.frame.height/3))
-        imageView.image = UIImage(data: product?.featuredImg! as! Data)
+        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 20, height: maxScrollHeight))
+        imageView.image = UIImage(data: (product?.featuredImg)! as Data)
         imageView.contentMode = .scaleAspectFit
         
         // получаю новый размер сжатой картинки под аспектфит
         let newSize = imageSizeAfterAspectFit(imgView: imageView)
         
         // задаю скроллу нужный фрейм
-        scrollView = CustomScroll(frame: CGRect(x: (view.frame.width - newSize.width)/2, y: 60, width: newSize.width, height: newSize.height))
+        //print("view height \(view.frame.height) view height 2|3 \(maxScrollHeight + 60) newSize height \(newSize.height) y == \((maxScrollHeight - newSize.height)/2)")
+        scrollView = CustomScroll(frame: CGRect(x: (view.frame.width - newSize.width)/2, y: max(30.0, (maxScrollHeight - newSize.height)/2), width: newSize.width, height: newSize.height))
         scrollView.backgroundColor = .clear
         scrollView.contentSize = newSize
         scrollView.addSubview(imageView)
@@ -114,25 +114,12 @@ class DetailVC: UIViewController, UIScrollViewDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func pinchImage(_ sender: UIPinchGestureRecognizer) {
-        let lastScaleFactor:CGFloat = 1
-        let factor:CGFloat = sender.scale
-        if (factor > 1) {
-            imgView.transform = CGAffineTransform(scaleX: (lastScaleFactor + (factor - 1)), y: lastScaleFactor + (factor - 1))
-            
-        } else {
-            imgView.transform = CGAffineTransform(scaleX: lastScaleFactor * factor, y: lastScaleFactor * factor)
-        }
-    
-    }
-    
     private func didTouchRatingView(_ rating: Double) {
         ratingView.rating = rating
         let productInBD = Product.findProductBy(Int(product!.id))
         productInBD.rating = Int16(rating)
 
         CoreDataStack.instance.saveContext()
-        
     }
 }
 

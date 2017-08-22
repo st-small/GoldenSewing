@@ -19,8 +19,8 @@ class CustomScroll: UIScrollView {
         self.maximumZoomScale = 4.0
         self.zoomScale = 1.0
         
-        self.layer.borderColor = UIColor.green.cgColor
-        self.layer.borderWidth = 2.0
+        self.layer.borderColor = UIColor.CustomColors.yellow.cgColor
+        self.layer.borderWidth = 1.0
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
     }
