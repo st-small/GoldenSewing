@@ -26,12 +26,12 @@
                   moduleName = "GoldenSewing"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
-                  timestampString = "525125834.146663"
+                  timestampString = "525198652.824429"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "624"
                   endingLineNumber = "624"
-                  offsetFromSymbolStart = "3227">
+                  offsetFromSymbolStart = "2480">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "GoldenSewing"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
-                  timestampString = "525125834.148732"
+                  timestampString = "525198652.825675"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "624"
                   endingLineNumber = "624"
-                  offsetFromSymbolStart = "3672">
+                  offsetFromSymbolStart = "2800">
                </Location>
             </Locations>
          </BreakpointContent>

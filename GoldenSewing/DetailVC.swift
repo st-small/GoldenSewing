@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class DetailVC: UIViewController, UIScrollViewDelegate {
+class DetailVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControllerDelegate {
 
     // MARK: - Outlets -
     @IBOutlet weak var scroll: UIScrollView!
@@ -113,6 +114,66 @@ class DetailVC: UIViewController, UIScrollViewDelegate {
     @IBAction func tapToBack(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func orderInfBtn(_ sender: UIButton) {
+        
+        let mailCompose = MFMailComposeViewController()
+        mailCompose.mailComposeDelegate = self
+        mailCompose.setToRecipients(["info@zolotoe-shitvo.kr.ua"])
+        mailCompose.setSubject("ЗАКАЗ ИНФОРМАЦИИ по артикулу \(product?.id ?? 777), \(product?.name ?? "noName")")
+        mailCompose.setMessageBody("Добрый день! Интересует подробная информация по данному изделию. Сроки и стоимость изготовления. Заранее благодарны.\n\n\nОтправлено из приложения \"Золотое шитье\" v.1.0", isHTML: false)
+        
+        if MFMailComposeViewController.canSendMail() {
+            
+            self.present(mailCompose, animated: true, completion: nil)
+            
+        } else {
+            
+            print("Отправка письма: ошибка!")
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        var str = ""
+        switch result {
+        case .cancelled:
+            str = "Отправка письма была отменена!"
+            break
+        case .saved:
+            str = "Письмо было сохранено!"
+            break
+        case .sent:
+            str = "Письмо было успешно отправлено!"
+            break
+        case .failed:
+            str = "Отправка письма закончилась неудачей!"
+            break
+        }
+        
+        let alert = UIAlertController(title: "Сообщение", message: str, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+        alertWindow.rootViewController = UIViewController()
+        alertWindow.windowLevel = UIWindowLevelAlert + 1;
+        alertWindow.makeKeyAndVisible()
+        alertWindow.rootViewController?.present(alert, animated: true, completion: nil)
+            
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func orderBtn(_ sender: UIButton) {
+        
+        guard let number = URL(string: "telprompt://+380505254567") else { return }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(number)
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.openURL(number)
+        }
+    }
+    
+    
     
     private func didTouchRatingView(_ rating: Double) {
         ratingView.rating = rating

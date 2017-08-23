@@ -913,10 +913,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQX-zb-Gag">
                                         <rect key="frame" x="0.0" y="0.0" width="177" height="35"/>
                                         <state key="normal" image="OrderInf"/>
+                                        <connections>
+                                            <action selector="orderInfBtn:" destination="5Tl-iE-YQI" eventType="touchUpInside" id="keW-cM-62t"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HE-Zr-hpm">
                                         <rect key="frame" x="187" y="0.0" width="178" height="35"/>
                                         <state key="normal" image="OrderProd"/>
+                                        <connections>
+                                            <action selector="orderBtn:" destination="5Tl-iE-YQI" eventType="touchUpInside" id="Zz6-Db-mnQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
