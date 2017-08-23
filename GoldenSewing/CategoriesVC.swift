@@ -64,11 +64,17 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: tableView)
         hidingNavBarManager?.addExtensionView(extensionView)
+        
+        if let tabBar = navigationController?.tabBarController?.tabBar {
+            hidingNavBarManager?.manageBottomBar(tabBar)
+            tabBar.barTintColor = UIColor.CustomColors.burgundy
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hidingNavBarManager?.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
     
     
@@ -80,6 +86,7 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         hidingNavBarManager?.viewWillDisappear(animated)
+        //tabBarController?.tabBar.isHidden = true
     }
 
     

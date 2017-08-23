@@ -33,6 +33,7 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     var cellHeights = [CGFloat]()
     var hidingNavBarManager: HidingNavigationBarManager?
     lazy var searchBar: UISearchBar = UISearchBar()
+    var extensionView: UIView!
     var value: IndexPath?
     var refresh = UIRefreshControl()
     //var sound: AVAudioPlayer!
@@ -76,7 +77,7 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         registerForKeyboardNotifications()
         
         // set view for searchBar
-        let extensionView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 40))
+        extensionView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 40))
         extensionView.backgroundColor = UIColor.CustomColors.burgundy
         
         // set UISearchBar
@@ -93,6 +94,11 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: tableView)
         hidingNavBarManager?.addExtensionView(extensionView)
+        
+        if let tabBar = navigationController?.tabBarController?.tabBar {
+            hidingNavBarManager?.manageBottomBar(tabBar)
+            tabBar.barTintColor = UIColor.CustomColors.burgundy
+        }
         
         // set sound
 //        let path = Bundle.main.path(forResource: "pop", ofType: "mp3")
@@ -200,15 +206,22 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         var duration = 0.0
         if cellHeights[indexPath.row] == C.CellHeight.close { // open cell
-            let offsetValue: CGFloat = (hidingNavBarManager?.currentState)! == HidingNavigationBarState.Open ? 104 : 24
+            hideShowTabBar()
+            let offsetValue: CGFloat = (hidingNavBarManager?.currentState)! == HidingNavigationBarState.Open ? 64 : 24
             cellHeights[indexPath.row] = C.CellHeight.open
             cell.unfold(true, animated: true, completion: { _ in
+                self.extensionView.isHidden = true
                 let offset = CGPoint(x: 0, y: cell.frame.minY - offsetValue)
                 self.tableView.setContentOffset(offset, animated: true)
                 self.value = indexPath
             })
             duration = 0.5
         } else {// close cell
+            hideShowTabBar()
+            self.extensionView.isHidden = false
+            let offsetValue: CGFloat = (hidingNavBarManager?.currentState)! == HidingNavigationBarState.Open ? 104 : 24
+            let offset = CGPoint(x: 0, y: cell.frame.minY - offsetValue)
+            self.tableView.setContentOffset(offset, animated: true)
             cellHeights[indexPath.row] = C.CellHeight.close
             cell.unfold(false, animated: true, completion: nil)
             duration = 1.1
@@ -314,6 +327,11 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         vc.product = product
         vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         present(vc, animated: true, completion: nil)
+    }
+    
+    func hideShowTabBar() {
+        let boolValue = (tabBarController?.tabBar.isHidden)!
+        tabBarController?.tabBar.isHidden = boolValue ? false : true
     }
     
     

@@ -26,9 +26,6 @@ class DetailVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set title
-        navigationItem.title = "\((product?.name)!), Артикул \((product?.id)!)"
-        
         // set imageView
         imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 20, height: maxScrollHeight))
         imageView.image = UIImage(data: (product?.featuredImg)! as Data)
@@ -56,22 +53,14 @@ class DetailVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControl
         
         ratingView.didTouchCosmos = didTouchRatingView
         
-        // set custom back button
-        let customButton = UIBarButtonItem(image: UIImage(named: "back button"), style: .plain, target: self, action: nil)
-        customButton.tintColor = .clear
-        self.navigationItem.leftBarButtonItem = customButton
-        
-        // set custom back button2
-        let customButton2 = UIBarButtonItem(image: UIImage(named: "back button"), style: .plain, target: self, action: nil)
-        customButton2.tintColor = .clear
-        self.navigationItem.rightBarButtonItem = customButton2
-        
-        navigationController?.isNavigationBarHidden = false
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        print("\(imageView.frame.size)")
+        //print("\(imageView.frame.size)")
         imageView.frame.size = imageSizeAfterAspectFit(imgView: imageView)
         return imageView
     }

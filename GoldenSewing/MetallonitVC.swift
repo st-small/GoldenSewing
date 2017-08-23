@@ -97,7 +97,8 @@ class MetallonitVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as! DetailVC
         vc.product = productsArray[indexPath.row]
         vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: true, completion: nil)
+        //self.present(vc, animated: true, completion: nil)
+        self.tabBarController?.present(vc, animated: true, completion: nil)
     }
     
     private func loadData() {
@@ -105,7 +106,10 @@ class MetallonitVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         self.collectionView.reloadData()
     }
     
-    
+    func hideShowTabBar() {
+        let boolValue = (tabBarController?.tabBar.isHidden)!
+        tabBarController?.tabBar.isHidden = boolValue ? false : true
+    }
     
     // MARK: - Navigation -
     func backButtonTapped() {

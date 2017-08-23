@@ -26,12 +26,12 @@
                   moduleName = "GoldenSewing"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
-                  timestampString = "525198652.824429"
+                  timestampString = "525206717.632136"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "624"
                   endingLineNumber = "624"
-                  offsetFromSymbolStart = "2480">
+                  offsetFromSymbolStart = "3227">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "GoldenSewing"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
-                  timestampString = "525198652.825675"
+                  timestampString = "525206717.634863"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "624"
                   endingLineNumber = "624"
-                  offsetFromSymbolStart = "2800">
+                  offsetFromSymbolStart = "3672">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -97,22 +97,6 @@
                   offsetFromSymbolStart = "19">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GoldenSewing/CategoriesVC.swift"
-            timestampString = "524737224.168543"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "searchBarCancelButtonClicked(_:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

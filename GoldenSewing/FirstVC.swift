@@ -47,19 +47,15 @@ class FirstVC: UIViewController {
     
     func openCategoriesVC() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vC = storyboard.instantiateViewController(withIdentifier: "CategoriesVC") as! CategoriesVC
-        let nav = UINavigationController(rootViewController: vC)
-        UIApplication.topViewController()?.present(nav, animated: true, completion: nil)
-        //self.present(nav, animated: true, completion: nil)
+        let tabbarVC = storyboard.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
+        self.present(tabbarVC, animated: false, completion: nil)
+        
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let vC = storyboard.instantiateViewController(withIdentifier: "CategoriesVC") as! CategoriesVC
+        //let nav = UINavigationController(rootViewController: vC)
+        //UIApplication.topViewController()?.present(nav, animated: true, completion: nil)
     }
-    
-    func tempVC() {
-        let vC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsTVC") as! ProductsTVC
-        let nav = UINavigationController(rootViewController: vC)
-        self.present(nav, animated: true, completion: nil)
-    }
-    
-    
+
     // MARK: - Private Methods -
     override var prefersStatusBarHidden: Bool {
         return true

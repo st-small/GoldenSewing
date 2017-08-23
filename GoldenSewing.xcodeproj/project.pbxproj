@@ -20,7 +20,6 @@
 		523ED3051F29CA9400BE20E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523ED3031F29CA9400BE20E5 /* Main.storyboard */; };
 		523ED3071F29CA9400BE20E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523ED3061F29CA9400BE20E5 /* Assets.xcassets */; };
 		523ED30A1F29CA9400BE20E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523ED3081F29CA9400BE20E5 /* LaunchScreen.storyboard */; };
-		523ED3121F2F6BDA00BE20E5 /* ProductsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ED3111F2F6BDA00BE20E5 /* ProductsTVC.swift */; };
 		523ED3141F2F723700BE20E5 /* ProductTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ED3131F2F723700BE20E5 /* ProductTVCell.swift */; };
 		5250C9291F42CC2900153E65 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250C9281F42CC2800153E65 /* UIApplication+Extension.swift */; };
 		5250C92B1F42DF6600153E65 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250C92A1F42DF6600153E65 /* FoldingCell.swift */; };
@@ -62,7 +61,6 @@
 		523ED3061F29CA9400BE20E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		523ED3091F29CA9400BE20E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		523ED30B1F29CA9400BE20E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		523ED3111F2F6BDA00BE20E5 /* ProductsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsTVC.swift; sourceTree = "<group>"; };
 		523ED3131F2F723700BE20E5 /* ProductTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTVCell.swift; sourceTree = "<group>"; };
 		5250C9281F42CC2800153E65 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		5250C92A1F42DF6600153E65 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				5251083F1F2FA8040044804C /* FirstVC.swift */,
 				52253B251F38DAC8009DF046 /* CategoriesVC.swift */,
 				5726DB121F48975E0019C984 /* ProductsVC.swift */,
-				523ED3111F2F6BDA00BE20E5 /* ProductsTVC.swift */,
 				5251083D1F2F9D650044804C /* DetailVC.swift */,
 				5236B2711F3B69C70072594D /* MetallonitVC.swift */,
 			);
@@ -294,7 +291,6 @@
 				525108471F307E1F0044804C /* Model.xcdatamodeld in Sources */,
 				5251083E1F2F9D650044804C /* DetailVC.swift in Sources */,
 				52526DEF1F3F46D400621B87 /* NSDate+Extension.swift in Sources */,
-				523ED3121F2F6BDA00BE20E5 /* ProductsTVC.swift in Sources */,
 				52253B2A1F39EAEE009DF046 /* UITableViewCell+Extension.swift in Sources */,
 				5236B2721F3B69C70072594D /* MetallonitVC.swift in Sources */,
 				52C6B6961F3F5F02009171DC /* RaznoeCell.swift in Sources */,
