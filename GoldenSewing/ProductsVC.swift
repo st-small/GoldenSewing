@@ -153,7 +153,7 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         let userInfo = notification.userInfo
         let kbFrameSize = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         self.kbFrameSize = kbFrameSize
-        tableViewBottom.constant = kbFrameSize.height
+        tableViewBottom.constant = kbFrameSize.height - 49
         UIView.animate(withDuration:0.3) {
             self.view.layoutIfNeeded()
         }
@@ -229,6 +229,9 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { _ in
             tableView.beginUpdates()
+            if duration > 1.0 {
+                self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+            }
             tableView.endUpdates()
         }, completion: nil)
         // - end -
@@ -324,6 +327,7 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         searchBar.endEditing(true)
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as! DetailVC
         let product = isSearch ? searchArray[(gestureRecognizer.view?.tag)!] : productsArray[(gestureRecognizer.view?.tag)!]
+        //print("tag is \(gestureRecognizer.view?.tag)")
         vc.product = product
         vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         present(vc, animated: true, completion: nil)

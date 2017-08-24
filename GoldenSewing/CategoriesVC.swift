@@ -67,7 +67,6 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         if let tabBar = navigationController?.tabBarController?.tabBar {
             hidingNavBarManager?.manageBottomBar(tabBar)
-            tabBar.barTintColor = UIColor.CustomColors.burgundy
         }
     }
     
@@ -86,7 +85,6 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         hidingNavBarManager?.viewWillDisappear(animated)
-        //tabBarController?.tabBar.isHidden = true
     }
 
     
@@ -109,7 +107,7 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let userInfo = notification.userInfo
         let kbFrameSize = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         self.kbFrameSize = kbFrameSize
-        tableViewBottom.constant = kbFrameSize.height
+        tableViewBottom.constant = kbFrameSize.height - 49
         UIView.animate(withDuration:0.3) {
             self.view.layoutIfNeeded()
         }
@@ -171,7 +169,6 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             } else {
                 searchResults = Product.findProductBy(categoryID: 0, ID: 0, orString: searchBar.text!)
             }
-
             tableView.reloadData()
         }
     }

@@ -178,7 +178,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="612"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WmV-Fy-Jfl" id="ViH-ss-MwL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="611.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nto-Xi-hGk" customClass="RotatedView" customModule="GoldenSewing" customModuleProvider="target">
@@ -220,7 +220,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xLP-HI-3hJ" customClass="CosmosView" customModule="GoldenSewing" customModuleProvider="target">
-                                                            <rect key="frame" x="233" y="62" width="120" height="20"/>
+                                                            <rect key="frame" x="278" y="67" width="75" height="15"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
@@ -236,6 +236,12 @@
                                                                     <real key="value" value="0.0"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                                    <real key="value" value="15"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                                                    <real key="value" value="0.0"/>
+                                                                </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                     </subviews>
@@ -839,28 +845,188 @@
             </objects>
             <point key="canvasLocation" x="-1050" y="251"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar Controller-->
         <scene sceneID="aeI-Es-mRy">
             <objects>
-                <tabBarController storyboardIdentifier="TabBar" id="Sqd-Me-eK5" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" id="Sqd-Me-eK5" customClass="CustomTabBarController" customModule="GoldenSewing" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="zln-32-eHn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.99607843139999996" green="0.84705882349999995" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.3294117647" green="0.0" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="F64-cI-ric" kind="relationship" relationship="viewControllers" id="6kd-Yc-q6b"/>
+                        <segue destination="7KU-qp-vWB" kind="relationship" relationship="viewControllers" id="geZ-cr-Pg4"/>
+                        <segue destination="PC5-ri-UuS" kind="relationship" relationship="viewControllers" id="C9o-pt-575"/>
+                        <segue destination="3ye-0q-P4b" kind="relationship" relationship="viewControllers" id="N9T-NI-MXB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqO-Al-nfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-350" y="251"/>
         </scene>
-        <!--Item-->
+        <!--О нас-->
+        <scene sceneID="eAa-4M-MK5">
+            <objects>
+                <viewController id="7KU-qp-vWB" customClass="AboutUsVC" customModule="GoldenSewing" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xl8-MA-bnG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bnp-gf-cTY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l9G-Xw-tEl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="О нас" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp5-vZ-QZM">
+                                <rect key="frame" x="16" y="28" width="343" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.84705882349999995" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eCC-fN-iXd">
+                                <rect key="frame" x="16" y="57" width="343" height="553"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.99607843139999996" green="0.84705882349999995" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eCC-fN-iXd" firstAttribute="top" secondItem="Bp5-vZ-QZM" secondAttribute="bottom" constant="8" id="2Sq-HH-mRC"/>
+                            <constraint firstItem="eCC-fN-iXd" firstAttribute="leading" secondItem="l9G-Xw-tEl" secondAttribute="leading" constant="16" id="9zc-Yk-cZO"/>
+                            <constraint firstAttribute="trailing" secondItem="eCC-fN-iXd" secondAttribute="trailing" constant="16" id="YRY-is-Dp0"/>
+                            <constraint firstItem="Bp5-vZ-QZM" firstAttribute="top" secondItem="xl8-MA-bnG" secondAttribute="bottom" constant="8" id="gao-eK-KgW"/>
+                            <constraint firstItem="Bnp-gf-cTY" firstAttribute="top" secondItem="eCC-fN-iXd" secondAttribute="bottom" constant="8" id="nVh-SV-Rzk"/>
+                            <constraint firstItem="Bp5-vZ-QZM" firstAttribute="leading" secondItem="l9G-Xw-tEl" secondAttribute="leading" constant="16" id="r20-kG-ttO"/>
+                            <constraint firstAttribute="trailing" secondItem="Bp5-vZ-QZM" secondAttribute="trailing" constant="16" id="z90-jx-gi5"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="О нас" image="AboutUsTabBarIcon" id="qOr-H7-XV7"/>
+                    <connections>
+                        <outlet property="textView" destination="eCC-fN-iXd" id="XSO-fq-4YY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iQX-sv-fSG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="384.80000000000001" y="52.623688155922046"/>
+        </scene>
+        <!--Контакты-->
+        <scene sceneID="MhE-4I-n4G">
+            <objects>
+                <viewController id="PC5-ri-UuS" customClass="ContactsVC" customModule="GoldenSewing" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z6p-Eh-c9I"/>
+                        <viewControllerLayoutGuide type="bottom" id="RHo-k1-G62"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0sr-vt-LKW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Контакты" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0c7-5Q-LZs">
+                                <rect key="frame" x="16" y="28" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.84705882349999995" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xWP-PT-5kw">
+                                <rect key="frame" x="5" y="78.5" width="365" height="509.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мы находимся в Украине по адресу:25006, г. Кировоград, ул.Михайловская, 53,ХПП «Золотое шитье»." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZE-e6-ACX">
+                                        <rect key="frame" x="19" y="0.0" width="327.5" height="49"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.99607843139999996" green="0.84705882349999995" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2hI-b2-cY0">
+                                        <rect key="frame" x="25" y="79" width="315" height="365.5"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </mapView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y0T-KR-HMI">
+                                        <rect key="frame" x="5" y="474.5" width="355" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMF-0y-k2u">
+                                                <rect key="frame" x="0.0" y="0.0" width="172" height="35"/>
+                                                <state key="normal" image="MailToUs"/>
+                                                <connections>
+                                                    <action selector="mailBtn:" destination="PC5-ri-UuS" eventType="touchUpInside" id="InT-6Z-UdM"/>
+                                                    <action selector="orderInfBtn:" destination="5Tl-iE-YQI" eventType="touchUpInside" id="20f-nS-yUK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ny-ew-Kno">
+                                                <rect key="frame" x="182" y="0.0" width="173" height="35"/>
+                                                <state key="normal" image="CallToUs"/>
+                                                <connections>
+                                                    <action selector="callBtn:" destination="PC5-ri-UuS" eventType="touchUpInside" id="wRM-L4-M0y"/>
+                                                    <action selector="orderBtn:" destination="5Tl-iE-YQI" eventType="touchUpInside" id="SEp-fw-WN3"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="6DE-oh-TIa"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="y0T-KR-HMI" firstAttribute="leading" secondItem="xWP-PT-5kw" secondAttribute="leading" constant="5" id="9bq-kY-Ddh"/>
+                                    <constraint firstAttribute="trailing" secondItem="2hI-b2-cY0" secondAttribute="trailing" constant="25" id="DJh-Dx-gr2"/>
+                                    <constraint firstItem="2hI-b2-cY0" firstAttribute="leading" secondItem="xWP-PT-5kw" secondAttribute="leading" constant="25" id="adt-dY-Y7C"/>
+                                    <constraint firstAttribute="trailing" secondItem="y0T-KR-HMI" secondAttribute="trailing" constant="5" id="qP1-Ez-Bue"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xWP-PT-5kw" firstAttribute="leading" secondItem="0sr-vt-LKW" secondAttribute="leading" constant="5" id="6i7-F8-G2z"/>
+                            <constraint firstAttribute="trailing" secondItem="xWP-PT-5kw" secondAttribute="trailing" constant="5" id="BTX-P9-t56"/>
+                            <constraint firstItem="RHo-k1-G62" firstAttribute="top" secondItem="xWP-PT-5kw" secondAttribute="bottom" constant="30" id="GAB-SO-OXd"/>
+                            <constraint firstItem="xWP-PT-5kw" firstAttribute="top" secondItem="0c7-5Q-LZs" secondAttribute="bottom" constant="30" id="Sh1-NI-tOM"/>
+                            <constraint firstItem="0c7-5Q-LZs" firstAttribute="top" secondItem="Z6p-Eh-c9I" secondAttribute="bottom" constant="8" id="UTP-nv-KjS"/>
+                            <constraint firstAttribute="trailing" secondItem="0c7-5Q-LZs" secondAttribute="trailing" constant="16" id="ZQO-LO-vBk"/>
+                            <constraint firstItem="0c7-5Q-LZs" firstAttribute="leading" secondItem="0sr-vt-LKW" secondAttribute="leading" constant="16" id="vG8-ii-jwB"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Контакты" image="ContactsTabBarIcon" id="Rzk-Jj-xzQ"/>
+                    <connections>
+                        <outlet property="label" destination="xZE-e6-ACX" id="ew0-6J-jgj"/>
+                        <outlet property="mapView" destination="2hI-b2-cY0" id="Sz8-nN-tAd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Esn-VQ-VRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="384.80000000000001" y="756.97151424287858"/>
+        </scene>
+        <!--Избранное-->
+        <scene sceneID="n1Q-Pm-05b">
+            <objects>
+                <viewController id="3ye-0q-P4b" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1El-NG-qd9"/>
+                        <viewControllerLayoutGuide type="bottom" id="oaa-MK-1iC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zNH-2Q-ACX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Избранное" image="PopularTabBarIcon" id="6DR-0o-1l1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PVf-vm-hC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="385" y="1433"/>
+        </scene>
+        <!--Категории-->
         <scene sceneID="OIz-84-rik">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F64-cI-ric" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="WAf-hK-b3G"/>
+                    <tabBarItem key="tabBarItem" title="Категории" image="CategoriesTabBarIcon" id="WAf-hK-b3G"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pNy-BP-pUD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -878,12 +1044,18 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AboutUsTabBarIcon" width="24" height="23"/>
+        <image name="CallToUs" width="154" height="35"/>
         <image name="CategoriesBtn" width="302" height="53"/>
+        <image name="CategoriesTabBarIcon" width="19" height="20"/>
         <image name="CollectionCell background" width="116" height="80"/>
+        <image name="ContactsTabBarIcon" width="23" height="23"/>
         <image name="Econom" width="72" height="67"/>
         <image name="Econom big" width="104" height="104"/>
         <image name="LaunchScreen" width="375" height="667"/>
+        <image name="MailToUs" width="154" height="35"/>
         <image name="OrderInf" width="154" height="35"/>
         <image name="OrderProd" width="154" height="35"/>
+        <image name="PopularTabBarIcon" width="24" height="23"/>
     </resources>
 </document>

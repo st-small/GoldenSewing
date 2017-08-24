@@ -37,6 +37,10 @@
 		52526DEF1F3F46D400621B87 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52526DEE1F3F46D400621B87 /* NSDate+Extension.swift */; };
 		52C6B6961F3F5F02009171DC /* RaznoeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6B6951F3F5F02009171DC /* RaznoeCell.swift */; };
 		52C6B6981F3F820E009171DC /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6B6971F3F820E009171DC /* UIImageView+Extension.swift */; };
+		52D23C561F4EC92900A91ADD /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D23C551F4EC92900A91ADD /* CustomTabBarController.swift */; };
+		52D23C581F4ECDA700A91ADD /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D23C571F4ECDA700A91ADD /* AboutUsVC.swift */; };
+		52D23C5A1F4F28C600A91ADD /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D23C591F4F28C600A91ADD /* ContactsVC.swift */; };
+		52D23C5D1F4F320100A91ADD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D23C5C1F4F320100A91ADD /* MapKit.framework */; };
 		52F293111F437BBB00D07842 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293101F437BBB00D07842 /* UIViewX.swift */; };
 		52F293131F4445BD00D07842 /* UnfoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293121F4445BD00D07842 /* UnfoldingCell.swift */; };
 		5726DB131F48975E0019C984 /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726DB121F48975E0019C984 /* ProductsVC.swift */; };
@@ -78,6 +82,10 @@
 		52526DEE1F3F46D400621B87 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		52C6B6951F3F5F02009171DC /* RaznoeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaznoeCell.swift; sourceTree = "<group>"; };
 		52C6B6971F3F820E009171DC /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		52D23C551F4EC92900A91ADD /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		52D23C571F4ECDA700A91ADD /* AboutUsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
+		52D23C591F4F28C600A91ADD /* ContactsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
+		52D23C5C1F4F320100A91ADD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		52F293101F437BBB00D07842 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		52F293121F4445BD00D07842 /* UnfoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnfoldingCell.swift; sourceTree = "<group>"; };
 		5726DB121F48975E0019C984 /* ProductsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsVC.swift; sourceTree = "<group>"; };
@@ -91,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52D23C5D1F4F320100A91ADD /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +124,7 @@
 				523ED2FE1F29CA9400BE20E5 /* GoldenSewing */,
 				521492CC1F45DE5A00A75BE1 /* PodsFiles */,
 				523ED2FD1F29CA9400BE20E5 /* Products */,
+				52D23C5B1F4F320100A91ADD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +158,8 @@
 				5726DB121F48975E0019C984 /* ProductsVC.swift */,
 				5251083D1F2F9D650044804C /* DetailVC.swift */,
 				5236B2711F3B69C70072594D /* MetallonitVC.swift */,
+				52D23C571F4ECDA700A91ADD /* AboutUsVC.swift */,
+				52D23C591F4F28C600A91ADD /* ContactsVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -198,10 +210,19 @@
 			name = Supported;
 			sourceTree = "<group>";
 		};
+		52D23C5B1F4F320100A91ADD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52D23C5C1F4F320100A91ADD /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		57CAB2AC1F4B592000861C6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				57CAB2AD1F4B597000861C6A /* CustomScroll.swift */,
+				52D23C551F4EC92900A91ADD /* CustomTabBarController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -240,6 +261,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 3PTYV272Z4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -280,11 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52D23C581F4ECDA700A91ADD /* AboutUsVC.swift in Sources */,
 				525108441F307DC50044804C /* CoreDataStack.swift in Sources */,
 				57CAB2AE1F4B597000861C6A /* CustomScroll.swift in Sources */,
 				5250C92B1F42DF6600153E65 /* FoldingCell.swift in Sources */,
 				525108421F2FB35F0044804C /* PersistentService.swift in Sources */,
 				5726DB131F48975E0019C984 /* ProductsVC.swift in Sources */,
+				52D23C561F4EC92900A91ADD /* CustomTabBarController.swift in Sources */,
 				5236B2761F3C8BC60072594D /* CollViewCell.swift in Sources */,
 				52F293111F437BBB00D07842 /* UIViewX.swift in Sources */,
 				523ED3001F29CA9400BE20E5 /* AppDelegate.swift in Sources */,
@@ -297,6 +325,7 @@
 				5251085D1F31C4B40044804C /* CategoriesTVCell.swift in Sources */,
 				521492CF1F45DE8C00A75BE1 /* HidingNavigationBarManager.swift in Sources */,
 				5236AC5E1F32F3470077AC80 /* Product+CoreDataClass.swift in Sources */,
+				52D23C5A1F4F28C600A91ADD /* ContactsVC.swift in Sources */,
 				52526DED1F3F29CC00621B87 /* Date+Extension.swift in Sources */,
 				525108401F2FA8040044804C /* FirstVC.swift in Sources */,
 				5726DB151F48BA970019C984 /* CosmosDistrib.swift in Sources */,
@@ -440,6 +469,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SiS.GoldenSewing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -454,6 +484,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SiS.GoldenSewing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
