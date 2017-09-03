@@ -22,9 +22,18 @@ class ContactsVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Контакты"
+        
         view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         
-        label.text = "Мы находимся в Украине по адресу:\n25006, г. Кировоград, ул.Михайловская, 73,\nХПП «Золотое шитье»."
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 2.0
+        paragraphStyle.alignment = .center
+        
+        let attrString = NSMutableAttributedString(string: "Мы находимся в Украине по адресу:\n25006, г. Кропивницкий (Кировоград), ул.Михайловская, 73,\nХПП «Золотое шитье».")
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        
+        label.attributedText = attrString
         
         // set mapView
         

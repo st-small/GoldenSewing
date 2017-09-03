@@ -12,7 +12,7 @@ class CustomTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tabBar.barStyle = UIBarStyle.black
         self.tabBar.barTintColor = UIColor.CustomColors.burgundy
         self.tabBar.tintColor = UIColor.CustomColors.yellow
         self.tabBar.unselectedItemTintColor = UIColor.CustomColors.lightYellow

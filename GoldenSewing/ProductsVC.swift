@@ -350,7 +350,7 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 let veryEndElement = min(Int(productsArray.count)-1, endElement)
                 if !productsArray.isEmpty {
                     for product in productsArray[startElement...veryEndElement] {
-                        PersistentService.getServerPostBy(Int(product.id), callback: {
+                        PersistentService.getServerPostBy(Int(product.id), category: categoryID, callback: {
                             index += 1
                             print("index \(index)")
                             if index == 10 && Int(self.productsArray.count) > veryEndElement {

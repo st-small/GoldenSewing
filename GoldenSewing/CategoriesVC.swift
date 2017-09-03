@@ -26,15 +26,13 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // navigation controller customization
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = UIColor.CustomColors.burgundy
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.CustomColors.yellow, NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 15.0)!]
-        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        navigationController?.navigationBar.layer.shadowRadius = 4.0
-        navigationController?.navigationBar.layer.shadowOpacity = 1.0
-        navigationController?.navigationBar.layer.masksToBounds = false
+        
+        self.navigationItem.title = "Категории"
+        
+        // set custom button to show app guide again
+        let customButton = UIBarButtonItem(image: UIImage(named: "info"), style: .plain, target: self, action: #selector(infoButtonAlert))
+        customButton.tintColor = UIColor.CustomColors.yellow
+        self.navigationItem.rightBarButtonItem = customButton
         
         // tableView customization
         tableView.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
@@ -189,6 +187,14 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
         hidingNavBarManager?.shouldScrollToTop()
         return true
+    }
+    
+    func infoButtonAlert() {
+        let alert = UIAlertController(title: "Знакомство с приложением", message: "Вы действительно хотите ознакомиться с возможностями приложения вновь?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Да", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Navigation

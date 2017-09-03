@@ -12,6 +12,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pattern" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="seen" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="subName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="width" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductCategory" inverseName="products" inverseEntity="ProductCategory" syncable="YES"/>
@@ -24,7 +25,7 @@
         <relationship name="products" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Product" inverseName="category" inverseEntity="Product" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Product" positionX="115" positionY="-18" width="128" height="253"/>
+        <element name="Product" positionX="115" positionY="-18" width="128" height="268"/>
         <element name="ProductCategory" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

@@ -35,7 +35,7 @@ class DetailVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControl
         let newSize = imageSizeAfterAspectFit(imgView: imageView)
         
         // задаю скроллу нужный фрейм
-        print("view height \(view.frame.height) view height 2|3 \(maxScrollHeight + 60) newSize height \(newSize.height) y == \((maxScrollHeight - newSize.height)/2)")
+        //print("view height \(view.frame.height) view height 2|3 \(maxScrollHeight + 60) newSize height \(newSize.height) y == \((maxScrollHeight - newSize.height)/2)")
         scrollView = CustomScroll(frame: CGRect(x: (view.frame.width - newSize.width)/2, y: max(30.0, (maxScrollHeight - newSize.height)/2), width: newSize.width, height: newSize.height))
         scrollView.backgroundColor = .clear
         scrollView.contentSize = newSize
@@ -53,6 +53,9 @@ class DetailVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControl
         
         ratingView.didTouchCosmos = didTouchRatingView
         
+        // add product to history list
+        seenProduct()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +66,9 @@ class DetailVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControl
         super.viewWillLayoutSubviews()
         
         let newSize = imageSizeAfterAspectFit(imgView: imageView)
-        scrollView.frame = CGRect(x: (view.frame.width - newSize.width)/2, y: max(30.0, (maxScrollHeight - newSize.height)/2), width: newSize.width, height: newSize.height)
+        if newSize.height < maxScrollHeight {
+            scrollView.frame = CGRect(x: (view.frame.width - newSize.width)/2, y: max(30.0, (maxScrollHeight - newSize.height)/2), width: newSize.width, height: newSize.height)
+        }
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -102,7 +107,7 @@ class DetailVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControl
             }
         }
         
-        print("image after aspect fit: width = \(newWidth) height = \(newHeight)")
+        //print("image after aspect fit: width = \(newWidth) height = \(newHeight)")
         
         return CGSize(width: newWidth, height: newHeight)
     }
@@ -172,9 +177,16 @@ class DetailVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControl
     
     private func didTouchRatingView(_ rating: Double) {
         ratingView.rating = rating
-        let productInBD = Product.findProductBy(Int(product!.id))
+        let productInBD = Product.findProductBy(Int(product!.id), category: Int((product!.category?.id)!))
         productInBD.rating = Int16(rating)
 
+        CoreDataStack.instance.saveContext()
+    }
+    
+    private func seenProduct() {
+        let productInBD = Product.findProductBy(Int(product!.id), category: Int((product!.category?.id)!))
+        productInBD.seen = NSDate()
+        
         CoreDataStack.instance.saveContext()
     }
 }

@@ -591,13 +591,13 @@ class PersistentService {
         task.resume()
     }
     
-    static func getServerPostBy(_ postID: Int, callback:@escaping ()->()) {
+    static func getServerPostBy(_ postID: Int, category: Int, callback:@escaping ()->()) {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         let str = "posts/\(postID)"
         let url = URL(string: "\(BASE_URL)"+"\(str)")!
         let moc = CoreDataStack.instance.persistentContainer.viewContext
-        let post = Product.findProductBy(postID)
+        let post = Product.findProductBy(postID, category: category)
         
         let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
             if error != nil {

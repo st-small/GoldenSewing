@@ -64,6 +64,5 @@ class ProductTVCell: UITableViewCell {
         
         showSeparator()
     }
-
 }
 

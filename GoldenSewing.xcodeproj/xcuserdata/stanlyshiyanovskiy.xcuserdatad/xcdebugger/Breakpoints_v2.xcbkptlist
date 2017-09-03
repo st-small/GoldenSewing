@@ -17,6 +17,38 @@
             endingLineNumber = "623"
             landmarkName = "getServerPostBy(_:callback:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static GoldenSewing.PersistentService.(getServerPostBy (Swift.Int, category : Swift.Int, callback : () -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "GoldenSewing"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
+                  timestampString = "525949255.698071"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "624"
+                  endingLineNumber = "624"
+                  offsetFromSymbolStart = "3227">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static GoldenSewing.PersistentService.(getServerPostBy (Swift.Int, category : Swift.Int, callback : () -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "GoldenSewing"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
+                  timestampString = "525949255.700751"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "624"
+                  endingLineNumber = "624"
+                  offsetFromSymbolStart = "3672">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

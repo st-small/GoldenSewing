@@ -15,6 +15,8 @@ class AboutUsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "О нас"
 
         view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         
@@ -22,8 +24,19 @@ class AboutUsVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         textView.setContentOffset(CGPoint.zero, animated: true)
     }

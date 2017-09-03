@@ -88,10 +88,10 @@ public class Product: NSManagedObject {
         }
     }
     
-    internal static func findProductBy(_ ID: Int) -> Product {
+    internal static func findProductBy(_ ID: Int, category: Int) -> Product {
         let context = CoreDataStack.instance.persistentContainer.viewContext
         let request: NSFetchRequest<Product> = Product.fetchRequest()
-        request.predicate = NSPredicate(format: "id = %d", ID)
+        request.predicate = NSPredicate(format: "id = %d AND category.id = %d", ID, category)
 
         do {
             let products = try context.fetch(request)
