@@ -26,7 +26,7 @@
                   moduleName = "GoldenSewing"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
-                  timestampString = "525949255.698071"
+                  timestampString = "526208553.552792"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "624"
@@ -41,7 +41,7 @@
                   moduleName = "GoldenSewing"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
-                  timestampString = "525949255.700751"
+                  timestampString = "526208553.55511"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "624"
@@ -97,6 +97,22 @@
                   offsetFromSymbolStart = "19">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoldenSewing/TutorialPageVC.swift"
+            timestampString = "526208592.610109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "pageViewController(_:viewControllerAfter:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

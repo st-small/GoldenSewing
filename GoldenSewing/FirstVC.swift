@@ -29,6 +29,7 @@ class FirstVC: UIViewController {
         if isFirstLaunch() {
             if isConnectedToNetwork() {
                 getAllPosts()
+                startOnboardingTutorial()
             } else {
                 warningAlert()
             }
@@ -42,7 +43,9 @@ class FirstVC: UIViewController {
     
     // MARK: - Navigation -
     func startOnboardingTutorial() {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tutorialVC = storyboard.instantiateViewController(withIdentifier: "TutorialPageVC") as! TutorialPageVC
+        self.present(tutorialVC, animated: true, completion: nil)
     }
     
     func openCategoriesVC() {

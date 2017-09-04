@@ -57,6 +57,14 @@ class MetallonitVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if productsArray.isEmpty {
+            showActivityIndicator()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     // MARK: - CollectionView -
@@ -114,6 +122,35 @@ class MetallonitVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     // MARK: - Navigation -
     func backButtonTapped() {
         _ = navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - Private methods -
+    func showActivityIndicator() {
+        textLabel.isHidden = true
+        let viewForActivityIndicator = UIView()
+        let activityIndicatorView = UIActivityIndicatorView()
+        let loadingTextLabel = UILabel()
+        
+        viewForActivityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        viewForActivityIndicator.backgroundColor = UIColor.clear
+        view.addSubview(viewForActivityIndicator)
+        
+        activityIndicatorView.center = CGPoint(x: self.view.frame.size.width / 2.0, y: (self.view.frame.size.height - (self.tabBarController?.tabBar.frame.height)! - (self.navigationController?.navigationBar.frame.height)!) / 2.0)
+        
+        loadingTextLabel.textColor = UIColor.CustomColors.yellow
+        loadingTextLabel.text = "\nИдет загрузка данных с сервера...\nЭто может занять какое-то время..."
+        loadingTextLabel.textAlignment = .center
+        loadingTextLabel.numberOfLines = 0
+        loadingTextLabel.font = UIFont(name: "Helvetica Neue", size: 14)
+        loadingTextLabel.sizeToFit()
+        loadingTextLabel.center = CGPoint(x: activityIndicatorView.center.x, y: activityIndicatorView.center.y + 30)
+        viewForActivityIndicator.addSubview(loadingTextLabel)
+        
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.activityIndicatorViewStyle = .whiteLarge
+        activityIndicatorView.color = UIColor.CustomColors.yellow
+        viewForActivityIndicator.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
     }
 
 }

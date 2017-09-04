@@ -192,7 +192,11 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func infoButtonAlert() {
         let alert = UIAlertController(title: "Знакомство с приложением", message: "Вы действительно хотите ознакомиться с возможностями приложения вновь?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertActionStyle.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Да", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Да", style: UIAlertActionStyle.default, handler:  { (action) ->
+            Void in
+            let tutorialVC = self.storyboard?.instantiateViewController(withIdentifier: "TutorialPageVC") as! TutorialPageVC
+            self.tabBarController?.present(tutorialVC, animated: true, completion: nil)
+        }))
         
         self.present(alert, animated: true, completion: nil)
     }
