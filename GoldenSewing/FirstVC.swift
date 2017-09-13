@@ -214,6 +214,7 @@ class FirstVC: UIViewController {
     // check even category is full
     func isCategoryHasAllPosts() {
         print("Log to fetch data if last time it wasn't\n**************************\n\n")
+
         PersistentService.getProductCategories { (categories, count) in
             for category in categories {
                 let posts = Product.getProductsByParentCategory(productCatID: Int(category.id))
