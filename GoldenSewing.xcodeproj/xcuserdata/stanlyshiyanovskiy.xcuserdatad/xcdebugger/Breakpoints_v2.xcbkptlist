@@ -26,7 +26,7 @@
                   moduleName = "GoldenSewing"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
-                  timestampString = "526759213.955958"
+                  timestampString = "527093163.276093"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "624"
@@ -41,7 +41,7 @@
                   moduleName = "GoldenSewing"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/PersistentService.swift"
-                  timestampString = "526759213.958475"
+                  timestampString = "527093163.278672"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "624"
@@ -105,46 +105,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GoldenSewing/TutorialPageVC.swift"
-            timestampString = "526765540.213011"
+            filePath = "GoldenSewing/PersistentService.swift"
+            timestampString = "529000681.35736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "contentImages"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GoldenSewing.TutorialPageVC.init (transitionStyle : __C.UIPageViewControllerTransitionStyle, navigationOrientation : __C.UIPageViewControllerNavigationOrientation, options : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; GoldenSewing.TutorialPageVC"
-                  moduleName = "GoldenSewing"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/TutorialPageVC.swift"
-                  timestampString = "526765540.802455"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GoldenSewing.TutorialPageVC.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;GoldenSewing.TutorialPageVC&gt;"
-                  moduleName = "GoldenSewing"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/stanlyshiyanovskiy/Git/GoldenSewing/GoldenSewing/TutorialPageVC.swift"
-                  timestampString = "526765540.805767"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
+            startingLineNumber = "296"
+            endingLineNumber = "296"
+            landmarkName = "getServerAllPostsInCategory(_:withOffset:callback:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

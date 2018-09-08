@@ -45,7 +45,7 @@ enum AttributesEnum: String {
                             "cloth_7" : "Лен", "cloth_8" : "Муар",
                             "cloth_9" : "Органза", "cloth_10": "Парча",
                             "cloth_11": "Ткань заказчика", "cloth_12" : "Х/б бархат",
-                            "cloth_13" : "Хлопок", "cloth_14" : "Церковный жаккард", "cloth_15" : "Шелк"]
+                            "cloth_13" : "Хлопок", "cloth_14" : "Церковный жаккард", "cloth_15" : "Шелк", "cloth_16" : "Оксфорд"]
 
 // default_value_product
     static let methodValDict = ["product_1" : "Гладь по настилу", "product_2" : "Золотая и серебряная канитель",
@@ -53,7 +53,7 @@ enum AttributesEnum: String {
                                 "product_5" : "Золотая, серебряная и цветная канитель", "product_6" : "Машинная вышивка",
                                 "product_7" : "Метанит", "product_8" : "Ручная инкрустация канителью",
                                 "product_9" : "Ручное шитье", "product_10": "Серебряная канитель",
-                                "product_12": "Трунцал", "product_13": "Цветной метатнит", "product_14": "Шелк"]
+                                "product_12": "Трунцал", "product_13": "Цветной метатнит", "product_14": "Шелк", "product_15": "Тканная вышивка", "product_16": "Акрил"]
 
 // default_value_inlay
     
