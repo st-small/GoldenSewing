@@ -52,16 +52,16 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.navigationItem.titleView = label
         
         // add refreshControl to tableView
-        refresh.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
+        refresh.addTarget(self, action: #selector(loadData), for: UIControl.Event.valueChanged)
         refresh.tintColor = UIColor.CustomColors.yellow
-        refresh.attributedTitle = NSAttributedString(string: "Обновляем данные", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 13), NSForegroundColorAttributeName:UIColor.CustomColors.yellow])
+        refresh.attributedTitle = NSAttributedString(string: "Обновляем данные", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: 13), convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor):UIColor.CustomColors.yellow]))
         hidingNavBarManager?.refreshControl = refresh
         tableView.addSubview(refresh)
         
         tableView.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         tableView.tableFooterView = UIView()
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = C.CellHeight.close
         
         // set custom back button
@@ -81,7 +81,7 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         extensionView.backgroundColor = UIColor.CustomColors.burgundy
         
         // set UISearchBar
-        searchBar.searchBarStyle = UISearchBarStyle.prominent
+        searchBar.searchBarStyle = UISearchBar.Style.prominent
         
         //searchBar.searchText
         searchBar.placeholder = " Поиск по артикулу или наименованию..."
@@ -144,18 +144,18 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     // MARK: - Keyboard methods -
     func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func removeKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    func kbWillShow(_ notification: Notification) {
+    @objc func kbWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo
-        let kbFrameSize = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let kbFrameSize = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         self.kbFrameSize = kbFrameSize
         tableViewBottom.constant = kbFrameSize.height - 49
         UIView.animate(withDuration:0.3) {
@@ -165,7 +165,7 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         isKBShown = true
     }
     
-    func kbWillHide() {
+    @objc func kbWillHide() {
         UIView.animate(withDuration:0.3) {
             if self.isKBShown {
                 self.tableViewBottom.constant -= CGFloat((self.kbFrameSize?.height)!)
@@ -213,7 +213,7 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             hideShowTabBar()
             let offsetValue: CGFloat = (hidingNavBarManager?.currentState)! == HidingNavigationBarState.Open ? 64 : 24
             cellHeights[indexPath.row] = C.CellHeight.open
-            cell.unfold(true, animated: true, completion: { _ in
+            cell.unfold(true, animated: true, completion: { () in
                 self.extensionView.isHidden = true
                 let offset = CGPoint(x: 0, y: cell.frame.minY - offsetValue)
                 self.tableView.setContentOffset(offset, animated: true)
@@ -231,10 +231,10 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             duration = 1.1
         }
         
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { _ in
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { 
             tableView.beginUpdates()
             if duration > 1.0 {
-                self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+                self.tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
             }
             tableView.endUpdates()
         }, completion: nil)
@@ -321,11 +321,11 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 //        sound.play()
 //    }
     
-    func backButtonTapped() {
+    @objc func backButtonTapped() {
         _ = navigationController?.popViewController(animated: true)
     }
     
-    func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
+    @objc func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
         searchBar.endEditing(true)
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as! DetailVC
         let product = isSearch ? searchArray[(gestureRecognizer.view?.tag)!] : productsArray[(gestureRecognizer.view?.tag)!]
@@ -361,7 +361,7 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         viewForActivityIndicator.addSubview(loadingTextLabel)
         
         activityIndicatorView.hidesWhenStopped = true
-        activityIndicatorView.activityIndicatorViewStyle = .whiteLarge
+        activityIndicatorView.style = .whiteLarge
         activityIndicatorView.color = UIColor.CustomColors.yellow
         viewForActivityIndicator.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
@@ -396,4 +396,15 @@ class ProductsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
     }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

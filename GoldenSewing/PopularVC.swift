@@ -43,7 +43,7 @@ class PopularVC: UIViewController, UITableViewDataSource, UITableViewDelegate, P
         
         // Auto resizing the height of the cell
         tableView.estimatedRowHeight = 85.0
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         
     }
     
@@ -117,7 +117,7 @@ class PopularVC: UIViewController, UITableViewDataSource, UITableViewDelegate, P
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return sections[(indexPath as NSIndexPath).section].collapsed ? 0 : UITableViewAutomaticDimension
+        return sections[(indexPath as NSIndexPath).section].collapsed ? 0 : UITableView.automaticDimension
     }
     
     // Header

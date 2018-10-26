@@ -83,7 +83,7 @@ class PopularHeader: UITableViewHeaderFooterView {
         ))
     }
     
-    func tapHeader(_ gestureRecognizer: UITapGestureRecognizer) {
+    @objc func tapHeader(_ gestureRecognizer: UITapGestureRecognizer) {
         guard let cell = gestureRecognizer.view as? PopularHeader else {
             return
         }

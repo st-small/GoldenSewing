@@ -120,7 +120,7 @@ class MetallonitVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     // MARK: - Navigation -
-    func backButtonTapped() {
+    @objc func backButtonTapped() {
         _ = navigationController?.popViewController(animated: true)
     }
     
@@ -147,7 +147,7 @@ class MetallonitVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         viewForActivityIndicator.addSubview(loadingTextLabel)
         
         activityIndicatorView.hidesWhenStopped = true
-        activityIndicatorView.activityIndicatorViewStyle = .whiteLarge
+        activityIndicatorView.style = .whiteLarge
         activityIndicatorView.color = UIColor.CustomColors.yellow
         viewForActivityIndicator.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()

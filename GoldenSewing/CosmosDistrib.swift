@@ -31,7 +31,7 @@ struct CosmosAccessibility {
     view.isAccessibilityElement = true
     
     view.accessibilityTraits = settings.updateOnTouch ?
-      UIAccessibilityTraitAdjustable :UIAccessibilityTraitNone
+      UIAccessibilityTraits.adjustable :UIAccessibilityTraits.none
     
     var accessibilityLabel = CosmosLocalizedRating.ratingTranslation
     
@@ -199,7 +199,7 @@ struct CosmosDefaultSettings {
   static let textColor = UIColor(red: 127/255, green: 127/255, blue: 127/255, alpha: 1)
   
   /// Font for the text.
-  static let textFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.footnote)
+  static let textFont = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote)
   
   /// Distance between the text and the stars.
   static let textMargin: Double = 5
@@ -245,7 +245,7 @@ class CosmosLayerHelper {
   
   */
   class func createTextLayer(_ text: String, font: UIFont, color: UIColor) -> CATextLayer {
-    let size = NSString(string: text).size(attributes: [NSFontAttributeName: font])
+    let size = NSString(string: text).size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): font]))
     
     let layer = CATextLayer()
     layer.bounds = CGRect(origin: CGPoint(), size: size)
@@ -1454,7 +1454,7 @@ struct StarLayer {
 
     containerLayer.addSublayer(imageLayer)
     imageLayer.contents = image.cgImage
-    imageLayer.contentsGravity = kCAGravityResizeAspect
+    imageLayer.contentsGravity = CALayerContentsGravity.resizeAspect
     
     return containerLayer
   }
@@ -1561,3 +1561,14 @@ struct StarLayer {
 }
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
