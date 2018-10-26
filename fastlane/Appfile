@@ -1,0 +1,5 @@
+app_identifier("ua.kr.zolotoe-shitvo.GoldenSewing") # The bundle identifier of your app
+apple_id("st-small@rambler.ru") # Your Apple email address
+
+itc_team_id("118800248") # App Store Connect Team ID
+team_id("3PTYV272Z4") # Developer Portal Team ID
