@@ -49,11 +49,11 @@ class HidingViewController {
 	}
 	
 	func isContracted() -> Bool {
-		return Float(fabs(view.center.y - contractedCenterValue().y)) < Float.ulpOfOne
+        return Float(abs(view.center.y - contractedCenterValue().y)) < Float.ulpOfOne
 	}
 	
 	func isExpanded() -> Bool {
-		return Float(fabs(view.center.y - expandedCenterValue().y)) < Float.ulpOfOne
+        return Float(abs(view.center.y - expandedCenterValue().y)) < Float.ulpOfOne
 	}
 	
 	func totalHeight() -> CGFloat {

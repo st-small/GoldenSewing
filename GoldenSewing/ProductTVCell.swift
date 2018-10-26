@@ -39,7 +39,7 @@ class ProductTVCell: UITableViewCell {
             for val in product.cloth! {
                 str += "\(val), "
             }
-            typeLabel.text = String(str.characters.dropLast(2))
+            typeLabel.text = "\(str.dropLast(2))"
         } else {
             typeLabel.text = product.subName?.capitalized
         }
