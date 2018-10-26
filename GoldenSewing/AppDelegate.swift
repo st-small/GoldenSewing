@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
 import CoreData
 
 @UIApplicationMain
@@ -18,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         print(paths[0])
+        
+        Fabric.with([Crashlytics.self])
         
         return true
     }

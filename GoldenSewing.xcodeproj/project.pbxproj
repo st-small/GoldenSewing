@@ -55,9 +55,11 @@
 		5726DB151F48BA970019C984 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726DB141F48BA970019C984 /* CosmosDistrib.swift */; };
 		573B0CF31F49C76B00BD6121 /* pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 573B0CF21F49C76B00BD6121 /* pop.mp3 */; };
 		57CAB2AE1F4B597000861C6A /* CustomScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CAB2AD1F4B597000861C6A /* CustomScroll.swift */; };
+		E62974629E9D796E3587EB58 /* Pods_GoldenSewing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9880B3529D71262B7DE151 /* Pods_GoldenSewing.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190674E63E3D99AE2F535BE5 /* Pods-GoldenSewing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenSewing.release.xcconfig"; path = "Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing.release.xcconfig"; sourceTree = "<group>"; };
 		521492CD1F45DE8C00A75BE1 /* HidingNavigationBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingNavigationBarManager.swift; sourceTree = "<group>"; };
 		521492CE1F45DE8C00A75BE1 /* HidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingViewController.swift; sourceTree = "<group>"; };
 		52253B251F38DAC8009DF046 /* CategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
@@ -108,6 +110,8 @@
 		5726DB141F48BA970019C984 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		573B0CF21F49C76B00BD6121 /* pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pop.mp3; sourceTree = "<group>"; };
 		57CAB2AD1F4B597000861C6A /* CustomScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScroll.swift; sourceTree = "<group>"; };
+		A5044A20EF76C115143A4897 /* Pods-GoldenSewing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenSewing.debug.xcconfig"; path = "Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing.debug.xcconfig"; sourceTree = "<group>"; };
+		DA9880B3529D71262B7DE151 /* Pods_GoldenSewing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoldenSewing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D23C5D1F4F320100A91ADD /* MapKit.framework in Frameworks */,
+				E62974629E9D796E3587EB58 /* Pods_GoldenSewing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +146,7 @@
 				521492CC1F45DE5A00A75BE1 /* PodsFiles */,
 				523ED2FD1F29CA9400BE20E5 /* Products */,
 				52D23C5B1F4F320100A91ADD /* Frameworks */,
+				9C6F75A632D5258A44715697 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -229,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				52D23C5C1F4F320100A91ADD /* MapKit.framework */,
+				DA9880B3529D71262B7DE151 /* Pods_GoldenSewing.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,6 +258,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		9C6F75A632D5258A44715697 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5044A20EF76C115143A4897 /* Pods-GoldenSewing.debug.xcconfig */,
+				190674E63E3D99AE2F535BE5 /* Pods-GoldenSewing.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,9 +274,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 523ED30E1F29CA9400BE20E5 /* Build configuration list for PBXNativeTarget "GoldenSewing" */;
 			buildPhases = (
+				074AD0CC1BA21508679EB402 /* [CP] Check Pods Manifest.lock */,
 				523ED2F81F29CA9400BE20E5 /* Sources */,
 				523ED2F91F29CA9400BE20E5 /* Frameworks */,
 				523ED2FA1F29CA9400BE20E5 /* Resources */,
+				52F372EC2183707700C1FAEE /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -326,6 +344,50 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		074AD0CC1BA21508679EB402 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoldenSewing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52F372EC2183707700C1FAEE /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = Fabric;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b9c975543d293ab652770d1e7bb9ba11ed1c440b 41ea80d0efd0b374f780f4aba6f69e91511088f9aa2a287ea48fdb324ab8bfe9\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		523ED2F81F29CA9400BE20E5 /* Sources */ = {
@@ -512,9 +574,11 @@
 		};
 		523ED30F1F29CA9400BE20E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5044A20EF76C115143A4897 /* Pods-GoldenSewing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = GoldenSewing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -529,6 +593,7 @@
 		};
 		523ED3101F29CA9400BE20E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 190674E63E3D99AE2F535BE5 /* Pods-GoldenSewing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
