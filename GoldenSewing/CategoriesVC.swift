@@ -37,7 +37,7 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         // tableView customization
         tableView.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         tableView.tableFooterView = UIView()
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 85.0
         
         // get datasource for tableView
@@ -50,7 +50,7 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         extensionView.backgroundColor = UIColor.CustomColors.burgundy
         
         // set UISearchBar
-        searchBar.searchBarStyle = UISearchBarStyle.prominent
+        searchBar.searchBarStyle = UISearchBar.Style.prominent
         
         //searchBar.searchText
         searchBar.placeholder = " Поиск по артикулу или наименованию..."
@@ -92,18 +92,18 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     // MARK: - Keyboard methods -
     func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func removeKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    func kbWillShow(_ notification: Notification) {
+    @objc func kbWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo
-        let kbFrameSize = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let kbFrameSize = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         self.kbFrameSize = kbFrameSize
         tableViewBottom.constant = kbFrameSize.height - 49
         UIView.animate(withDuration:0.3) {
@@ -113,7 +113,7 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         isKBShown = true
     }
     
-    func kbWillHide() {
+    @objc func kbWillHide() {
         UIView.animate(withDuration:0.3) {
             if self.isKBShown {
                 self.tableViewBottom.constant -= CGFloat((self.kbFrameSize?.height)!)
@@ -189,10 +189,10 @@ class CategoriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         return true
     }
     
-    func infoButtonAlert() {
-        let alert = UIAlertController(title: "Знакомство с приложением", message: "Вы действительно хотите ознакомиться с возможностями приложения вновь?", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertActionStyle.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Да", style: UIAlertActionStyle.default, handler:  { (action) ->
+    @objc func infoButtonAlert() {
+        let alert = UIAlertController(title: "Знакомство с приложением", message: "Вы действительно хотите ознакомиться с возможностями приложения вновь?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Да", style: UIAlertAction.Style.default, handler:  { (action) ->
             Void in
             let tutorialVC = self.storyboard?.instantiateViewController(withIdentifier: "TutorialPageVC") as! TutorialPageVC
             self.tabBarController?.present(tutorialVC, animated: true, completion: nil)

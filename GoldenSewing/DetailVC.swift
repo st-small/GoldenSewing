@@ -152,12 +152,12 @@ class DetailVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControl
             break
         }
         
-        let alert = UIAlertController(title: "Сообщение", message: str, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: "Сообщение", message: str, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
         let alertWindow = UIWindow(frame: UIScreen.main.bounds)
         alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = UIWindowLevelAlert + 1;
+        alertWindow.windowLevel = UIWindow.Level.alert + 1;
         alertWindow.makeKeyAndVisible()
         alertWindow.rootViewController?.present(alert, animated: true, completion: nil)
             

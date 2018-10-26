@@ -31,7 +31,7 @@ class ContactsVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         paragraphStyle.alignment = .center
         
         let attrString = NSMutableAttributedString(string: "Мы находимся в Украине по адресу:\n25006, г. Кропивницкий (Кировоград), ул.Михайловская, 73,\nХПП «Золотое шитье».")
-        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
         
         label.attributedText = attrString
         
@@ -64,13 +64,13 @@ class ContactsVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         
     }
     
-    func openMapApp(recognizer: UITapGestureRecognizer) {
+    @objc func openMapApp(recognizer: UITapGestureRecognizer) {
         let latitude: CLLocationDegrees = 48.504931
         let longitude: CLLocationDegrees = 32.269919
         
         let regionDistance:CLLocationDistance = 10000
         let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let regionSpan = MKCoordinateRegion.init(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
         let placemarkMap = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let options = [
             MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
@@ -116,12 +116,12 @@ class ContactsVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
             break
         }
         
-        let alert = UIAlertController(title: "Сообщение", message: str, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: "Сообщение", message: str, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
         let alertWindow = UIWindow(frame: UIScreen.main.bounds)
         alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = UIWindowLevelAlert + 1;
+        alertWindow.windowLevel = UIWindow.Level.alert + 1;
         alertWindow.makeKeyAndVisible()
         alertWindow.rootViewController?.present(alert, animated: true, completion: nil)
         

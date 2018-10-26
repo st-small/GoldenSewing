@@ -309,7 +309,7 @@ class PersistentService {
             task.resume()
             let postsFetch = offset + 10
             if Int((category?.postsCount)!) > postsFetch {
-                getServerAllPostsInCategory(categoryID, withOffset: postsFetch, callback: { (product) in
+                getServerAllPostsInCategory(categoryID, withOffset: postsFetch, callback: { (product, value) in
                     
                 })
             }
@@ -385,7 +385,7 @@ class PersistentService {
             task.resume()
             let postsFetch = offset + 10
             if Int((category?.postsCount)!) > postsFetch {
-                getServerAllMetallonitPosts(withOffset: postsFetch, callback: { (product) in
+                getServerAllMetallonitPosts(withOffset: postsFetch, callback: { (product, value) in
                     
                 })
             }

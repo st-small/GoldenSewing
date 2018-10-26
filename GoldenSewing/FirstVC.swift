@@ -275,8 +275,8 @@ class FirstVC: UIViewController {
     }
     
     func warningAlert() {
-        let alert = UIAlertController(title: "Ошибка доступности", message: "Отсутствует интернет-соединение или сервер временно недоступен! Мы с радостью предложим Вам каталог нашей продукции позже.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+        let alert = UIAlertController(title: "Ошибка доступности", message: "Отсутствует интернет-соединение или сервер временно недоступен! Мы с радостью предложим Вам каталог нашей продукции позже.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
             action in
             UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
         }))

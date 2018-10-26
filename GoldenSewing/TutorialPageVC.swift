@@ -32,7 +32,7 @@ class TutorialPageVC: UIPageViewController, UIPageViewControllerDelegate, UIPage
         if contentImages.count > 0 {
             let firstController = getItemController(0)!
             let startingViewControllers = [firstController]
-            self.setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
+            self.setViewControllers(startingViewControllers, direction: UIPageViewController.NavigationDirection.forward, animated: false, completion: nil)
         }
         
         setupPageControl()
