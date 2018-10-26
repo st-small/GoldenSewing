@@ -1,0 +1,75 @@
+default_platform(:ios)
+
+###################################
+########### Constants #############
+###################################
+project = './GoldenSewing.xcodeproj'
+certificate_folder = './build/_profiles/'
+
+# Fabric
+api_token = "b9c975543d293ab652770d1e7bb9ba11ed1c440b"
+build_secret = "41ea80d0efd0b374f780f4aba6f69e91511088f9aa2a287ea48fdb324ab8bfe9"
+
+###################################
+
+platform :ios do
+  desc "Push a new release build to the App Store"
+  lane :release do
+
+	# define constants
+	target = "GoldenSewing"
+	version_type = ENV["VERSION_TYPE"] # set Major/Minor here Patch value is default
+
+  # get certificate
+	cert(output_path: "#{certificate_folder}")
+	sigh(output_path: "#{certificate_folder}")
+
+	# increment build and version depends of the version_type
+	increment_build_number(
+  		xcodeproj: project
+	)
+
+	if version_type == 'Major'
+    	increment_version_number(
+    		xcodeproj: project,
+  			bump_type: "major"
+		)
+  elsif version_type == 'Minor'
+    	increment_version_number(
+    		xcodeproj: project,
+  			bump_type: "minor"
+		)
+	elsif version_type == 'Patch'
+    increment_version_number(
+    		xcodeproj: project,
+  			bump_type: "patch"
+		)
+  end
+
+  puts "TARGET_NAME_ is #{target}"
+  puts "VERSION_TYPE is #{version_type}"
+
+  # compile new build of the app to send into APC
+	gym(
+		workspace: "GoldenSewing.xcworkspace",
+        scheme: target,
+      	configuration: "Release",
+      	clean: true,
+      	output_directory: "./build/#{target}",
+      	output_name: "#{target}.ipa",
+	)
+
+	# upload to APC
+	upload_to_testflight(
+           skip_submission: true,
+           skip_waiting_for_build_processing: true
+    )
+
+  # upload dSym into the Crashlytics service
+  crashlytics(
+  	api_token: api_token,
+  	build_secret: build_secret
+	)
+
+  end
+end

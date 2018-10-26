@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import Firebase
 import CoreData
 
 @UIApplicationMain
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(paths[0])
         
         Fabric.with([Crashlytics.self])
+        FirebaseApp.configure()
         
         return true
     }
