@@ -68,7 +68,7 @@ class UnfoldingCell: FoldingCell {
                 str += "\(val), "
             }
             
-            clothBig.text = "Ткань: \(String(str.characters.dropLast(2)))"
+            clothBig.text = "Ткань: \(str.dropLast(2))"
             clothBig.isHidden = false
         } else {
             clothBig.isHidden = true
@@ -76,8 +76,8 @@ class UnfoldingCell: FoldingCell {
         
         if category == 103 {
             clothBig.isHidden = true
-            subNameLbl.text = String(str.characters.dropLast(2))
-            subnameBig.text = String(str.characters.dropLast(2))
+            subNameLbl.text = "\(str.dropLast(2))"
+            subnameBig.text = "\(str.dropLast(2))"
         } else {
             if product.subName != nil || product.subName != "" {
                 subNameLbl.text = product.subName?.capitalized
@@ -98,7 +98,7 @@ class UnfoldingCell: FoldingCell {
             for val in product.methodVal! {
                 str3 += "\(val), "
             }
-            tempString = "Способ изготовления: \(String(str3.characters.dropLast(2)))\n\n"
+            tempString = "Способ изготовления: \(str3.dropLast(2))\n\n"
         }
         
         // set inlayProperties
@@ -107,7 +107,7 @@ class UnfoldingCell: FoldingCell {
             for val in product.inlay! {
                 str2 += "\(val), "
             }
-            tempString += "Инкрустация: \(String(str2.characters.dropLast(2)))"
+            tempString += "Инкрустация: \(str2.dropLast(2))"
         }
         
         // for fabricsProperties
@@ -124,7 +124,7 @@ class UnfoldingCell: FoldingCell {
             for val in product.color! {
                 str4 += "\(val), "
             }
-            tempString += "Цветовая гамма: \(String(str4.characters.dropLast(2)))"
+            tempString += "Цветовая гамма: \(str4.dropLast(2))"
         }
         
         if tempString != "" {
