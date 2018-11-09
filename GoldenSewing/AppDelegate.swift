@@ -10,13 +10,17 @@ import UIKit
 import Fabric
 import Crashlytics
 import Firebase
+import UserNotifications
 import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let center = UNUserNotificationCenter.current()
+    let application = UIApplication.shared
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
@@ -24,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
+        
+        registerPushNotifications()
         
         return true
     }
