@@ -52,6 +52,7 @@
 		52F293111F437BBB00D07842 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293101F437BBB00D07842 /* UIViewX.swift */; };
 		52F293131F4445BD00D07842 /* UnfoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293121F4445BD00D07842 /* UnfoldingCell.swift */; };
 		52F372EE2183889E00C1FAEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52F372ED2183889E00C1FAEE /* GoogleService-Info.plist */; };
+		52F372F1218397E000C1FAEE /* AppDelegate+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F372F0218397E000C1FAEE /* AppDelegate+Notifications.swift */; };
 		5726DB131F48975E0019C984 /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726DB121F48975E0019C984 /* ProductsVC.swift */; };
 		5726DB151F48BA970019C984 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726DB141F48BA970019C984 /* CosmosDistrib.swift */; };
 		573B0CF31F49C76B00BD6121 /* pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 573B0CF21F49C76B00BD6121 /* pop.mp3 */; };
@@ -108,6 +109,8 @@
 		52F293101F437BBB00D07842 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		52F293121F4445BD00D07842 /* UnfoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnfoldingCell.swift; sourceTree = "<group>"; };
 		52F372ED2183889E00C1FAEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		52F372EF2183968800C1FAEE /* GoldenSewing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoldenSewing.entitlements; sourceTree = "<group>"; };
+		52F372F0218397E000C1FAEE /* AppDelegate+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Notifications.swift"; sourceTree = "<group>"; };
 		5726DB121F48975E0019C984 /* ProductsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsVC.swift; sourceTree = "<group>"; };
 		5726DB141F48BA970019C984 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		573B0CF21F49C76B00BD6121 /* pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pop.mp3; sourceTree = "<group>"; };
@@ -226,8 +229,10 @@
 				52C6B6971F3F820E009171DC /* UIImageView+Extension.swift */,
 				52F293101F437BBB00D07842 /* UIViewX.swift */,
 				523ED2FF1F29CA9400BE20E5 /* AppDelegate.swift */,
+				52F372F0218397E000C1FAEE /* AppDelegate+Notifications.swift */,
 				52F372ED2183889E00C1FAEE /* GoogleService-Info.plist */,
 				523ED30B1F29CA9400BE20E5 /* Info.plist */,
+				52F372EF2183968800C1FAEE /* GoldenSewing.entitlements */,
 				573B0CF21F49C76B00BD6121 /* pop.mp3 */,
 				523ED3061F29CA9400BE20E5 /* Assets.xcassets */,
 			);
@@ -309,7 +314,13 @@
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -438,6 +449,7 @@
 				5226D6551F57E7E500AD7812 /* UIView+Extension.swift in Sources */,
 				5251083E1F2F9D650044804C /* DetailVC.swift in Sources */,
 				52526DEF1F3F46D400621B87 /* NSDate+Extension.swift in Sources */,
+				52F372F1218397E000C1FAEE /* AppDelegate+Notifications.swift in Sources */,
 				52253B2A1F39EAEE009DF046 /* UITableViewCell+Extension.swift in Sources */,
 				5236B2721F3B69C70072594D /* MetallonitVC.swift in Sources */,
 				52C6B6961F3F5F02009171DC /* RaznoeCell.swift in Sources */,
@@ -606,6 +618,7 @@
 			baseConfigurationReference = A5044A20EF76C115143A4897 /* Pods-GoldenSewing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GoldenSewing/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
@@ -629,6 +642,7 @@
 			baseConfigurationReference = 190674E63E3D99AE2F535BE5 /* Pods-GoldenSewing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GoldenSewing/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
