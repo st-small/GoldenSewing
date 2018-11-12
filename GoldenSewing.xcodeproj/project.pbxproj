@@ -38,6 +38,8 @@
 		5251085D1F31C4B40044804C /* CategoriesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251085C1F31C4B40044804C /* CategoriesTVCell.swift */; };
 		52526DED1F3F29CC00621B87 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52526DEC1F3F29CC00621B87 /* Date+Extension.swift */; };
 		52526DEF1F3F46D400621B87 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52526DEE1F3F46D400621B87 /* NSDate+Extension.swift */; };
+		52B47963219A0CA20099698C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B47962219A0CA20099698C /* NotificationService.swift */; };
+		52B47967219A0CA20099698C /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		52B8F4B71F57FEC500A0CD37 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8F4B51F57FEC500A0CD37 /* ProductCell.swift */; };
 		52B8F4B81F57FEC500A0CD37 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52B8F4B61F57FEC500A0CD37 /* ProductCell.xib */; };
 		52B8F4BA1F58405D00A0CD37 /* CustomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8F4B91F58405D00A0CD37 /* CustomNavigation.swift */; };
@@ -57,8 +59,33 @@
 		5726DB151F48BA970019C984 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726DB141F48BA970019C984 /* CosmosDistrib.swift */; };
 		573B0CF31F49C76B00BD6121 /* pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 573B0CF21F49C76B00BD6121 /* pop.mp3 */; };
 		57CAB2AE1F4B597000861C6A /* CustomScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CAB2AD1F4B597000861C6A /* CustomScroll.swift */; };
+		BCDAC5875C33442E96446B0E /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB4AEFED8A00C3FF84EC710 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		E62974629E9D796E3587EB58 /* Pods_GoldenSewing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9880B3529D71262B7DE151 /* Pods_GoldenSewing.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52B47965219A0CA20099698C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 523ED2F41F29CA9400BE20E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B4795F219A0CA20099698C;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		52B4796B219A0CA20099698C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				52B47967219A0CA20099698C /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		190674E63E3D99AE2F535BE5 /* Pods-GoldenSewing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenSewing.release.xcconfig"; path = "Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +122,9 @@
 		5251085C1F31C4B40044804C /* CategoriesTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTVCell.swift; sourceTree = "<group>"; };
 		52526DEC1F3F29CC00621B87 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		52526DEE1F3F46D400621B87 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
+		52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		52B47962219A0CA20099698C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		52B47964219A0CA20099698C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52B8F4B51F57FEC500A0CD37 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		52B8F4B61F57FEC500A0CD37 /* ProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		52B8F4B91F58405D00A0CD37 /* CustomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigation.swift; sourceTree = "<group>"; };
@@ -116,6 +146,9 @@
 		573B0CF21F49C76B00BD6121 /* pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pop.mp3; sourceTree = "<group>"; };
 		57CAB2AD1F4B597000861C6A /* CustomScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScroll.swift; sourceTree = "<group>"; };
 		A5044A20EF76C115143A4897 /* Pods-GoldenSewing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenSewing.debug.xcconfig"; path = "Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing.debug.xcconfig"; sourceTree = "<group>"; };
+		B89BE709A6075A851F6FE7DA /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		C47162C9E1E50A5D406D7A98 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		CDB4AEFED8A00C3FF84EC710 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9880B3529D71262B7DE151 /* Pods_GoldenSewing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoldenSewing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -126,6 +159,14 @@
 			files = (
 				52D23C5D1F4F320100A91ADD /* MapKit.framework in Frameworks */,
 				E62974629E9D796E3587EB58 /* Pods_GoldenSewing.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52B4795D219A0CA20099698C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDAC5875C33442E96446B0E /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +190,7 @@
 			children = (
 				523ED2FE1F29CA9400BE20E5 /* GoldenSewing */,
 				521492CC1F45DE5A00A75BE1 /* PodsFiles */,
+				52B47961219A0CA20099698C /* OneSignalNotificationServiceExtension */,
 				523ED2FD1F29CA9400BE20E5 /* Products */,
 				52D23C5B1F4F320100A91ADD /* Frameworks */,
 				9C6F75A632D5258A44715697 /* Pods */,
@@ -159,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				523ED2FC1F29CA9400BE20E5 /* GoldenSewing.app */,
+				52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,11 +282,21 @@
 			name = Supported;
 			sourceTree = "<group>";
 		};
+		52B47961219A0CA20099698C /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				52B47962219A0CA20099698C /* NotificationService.swift */,
+				52B47964219A0CA20099698C /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
 		52D23C5B1F4F320100A91ADD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				52D23C5C1F4F320100A91ADD /* MapKit.framework */,
 				DA9880B3529D71262B7DE151 /* Pods_GoldenSewing.framework */,
+				CDB4AEFED8A00C3FF84EC710 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -271,6 +324,8 @@
 			children = (
 				A5044A20EF76C115143A4897 /* Pods-GoldenSewing.debug.xcconfig */,
 				190674E63E3D99AE2F535BE5 /* Pods-GoldenSewing.release.xcconfig */,
+				B89BE709A6075A851F6FE7DA /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				C47162C9E1E50A5D406D7A98 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -288,15 +343,35 @@
 				523ED2FA1F29CA9400BE20E5 /* Resources */,
 				52F372EC2183707700C1FAEE /* Fabric */,
 				BF9FAB1965CF3C0E5D2CB0C5 /* [CP] Embed Pods Frameworks */,
+				52B4796B219A0CA20099698C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				52B47966219A0CA20099698C /* PBXTargetDependency */,
 			);
 			name = GoldenSewing;
 			productName = GoldenSewing;
 			productReference = 523ED2FC1F29CA9400BE20E5 /* GoldenSewing.app */;
 			productType = "com.apple.product-type.application";
+		};
+		52B4795F219A0CA20099698C /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52B4796A219A0CA20099698C /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				14730003BB874670EE5E71C2 /* [CP] Check Pods Manifest.lock */,
+				52B4795C219A0CA20099698C /* Sources */,
+				52B4795D219A0CA20099698C /* Frameworks */,
+				52B4795E219A0CA20099698C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -304,7 +379,8 @@
 		523ED2F41F29CA9400BE20E5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				DefaultBuildSystemTypeForWorkspace = Original;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Stanly Shiyanovskiy";
 				TargetAttributes = {
@@ -325,6 +401,11 @@
 							};
 						};
 					};
+					52B4795F219A0CA20099698C = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = 3PTYV272Z4;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 523ED2F71F29CA9400BE20E5 /* Build configuration list for PBXProject "GoldenSewing" */;
@@ -341,6 +422,7 @@
 			projectRoot = "";
 			targets = (
 				523ED2FB1F29CA9400BE20E5 /* GoldenSewing */,
+				52B4795F219A0CA20099698C /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -356,6 +438,13 @@
 				523ED3071F29CA9400BE20E5 /* Assets.xcassets in Resources */,
 				523ED3051F29CA9400BE20E5 /* Main.storyboard in Resources */,
 				52F372EE2183889E00C1FAEE /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52B4795E219A0CA20099698C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +467,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-GoldenSewing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		14730003BB874670EE5E71C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -480,7 +591,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52B4795C219A0CA20099698C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52B47963219A0CA20099698C /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52B47966219A0CA20099698C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52B4795F219A0CA20099698C /* OneSignalNotificationServiceExtension */;
+			targetProxy = 52B47965219A0CA20099698C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		523ED3031F29CA9400BE20E5 /* Main.storyboard */ = {
@@ -617,6 +744,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A5044A20EF76C115143A4897 /* Pods-GoldenSewing.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GoldenSewing/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -641,6 +769,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 190674E63E3D99AE2F535BE5 /* Pods-GoldenSewing.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GoldenSewing/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -657,6 +786,53 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		52B47968219A0CA20099698C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B89BE709A6075A851F6FE7DA /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3PTYV272Z4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing.OneSignalNotificationServiceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52B47969219A0CA20099698C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C47162C9E1E50A5D406D7A98 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3PTYV272Z4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing.OneSignalNotificationServiceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -677,6 +853,15 @@
 			buildConfigurations = (
 				523ED30F1F29CA9400BE20E5 /* Debug */,
 				523ED3101F29CA9400BE20E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52B4796A219A0CA20099698C /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52B47968219A0CA20099698C /* Debug */,
+				52B47969219A0CA20099698C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
