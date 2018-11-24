@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoriesView" customModule="GoldenSewing" customModuleProvider="target">
+            <connections>
+                <outlet property="categoriesTable" destination="ZeO-gp-rp6" id="Zph-WL-e3t"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="xkq-t1-M8N">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZeO-gp-rp6">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.99607843139999996" green="0.73333333329999995" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xkq-t1-M8N" secondAttribute="trailing" id="52s-gu-HMJ"/>
+                <constraint firstItem="xkq-t1-M8N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KaB-Ge-2Ka"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xkq-t1-M8N" secondAttribute="bottom" id="XTm-4D-ORp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZeO-gp-rp6" secondAttribute="bottom" id="ct9-88-vLT"/>
+                <constraint firstItem="xkq-t1-M8N" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-20" id="gOu-Ar-cBq"/>
+                <constraint firstItem="ZeO-gp-rp6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kBT-Qp-gdS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZeO-gp-rp6" secondAttribute="trailing" id="pom-eA-LhF"/>
+                <constraint firstItem="ZeO-gp-rp6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xTR-Wb-49g"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.40000000000001" y="116.49175412293854"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Background" width="320" height="337"/>
+    </resources>
+</document>
