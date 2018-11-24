@@ -9,35 +9,38 @@
 import UIKit
 import SystemConfiguration
 
-class FirstVC: UIViewController {
+public class FirstVC: UIViewController {
     
     //MARK: - Properties -
     var start = Date()
     
-    // MARK: - Outlets -
-    @IBOutlet weak var activity: UIActivityIndicatorView!
+    public var onCompleteHandler: Trigger?
     
-    override func viewDidLoad() {
+    // MARK: - Outlets -
+    @IBOutlet private var activity: UIActivityIndicatorView!
+    
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        activity.startAnimating()
-
+        
+        activity = UIActivityIndicatorView(style: .whiteLarge)
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // ask to preload all data by category
-        if isFirstLaunch() {
-            if isConnectedToNetwork() {
-                getAllPosts()
-                startOnboardingTutorial()
-            } else {
-                warningAlert()
-            }
-        } else {
-            openCategoriesVC()
-            isCategoryHasAllPosts()
-            
-        }
+//        if isFirstLaunch() {
+//            if isConnectedToNetwork() {
+//                getAllPosts()
+//                startOnboardingTutorial()
+//            } else {
+//                warningAlert()
+//            }
+//        } else {
+//            openCategoriesVC()
+//            isCategoryHasAllPosts()
+//            
+//        }
     }
     
     
@@ -52,15 +55,10 @@ class FirstVC: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabbarVC = storyboard.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
         self.present(tabbarVC, animated: false, completion: nil)
-        
-        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //let vC = storyboard.instantiateViewController(withIdentifier: "CategoriesVC") as! CategoriesVC
-        //let nav = UINavigationController(rootViewController: vC)
-        //UIApplication.topViewController()?.present(nav, animated: true, completion: nil)
     }
 
     // MARK: - Private Methods -
-    override var prefersStatusBarHidden: Bool {
+    public override var prefersStatusBarHidden: Bool {
         return true
     }
     
@@ -283,4 +281,13 @@ class FirstVC: UIViewController {
             
         self.present(alert, animated: true, completion: nil)
     }
+}
+
+extension FirstVC: LaunchControllerDelegate {
+    
+    public var notNeedDisplay: Bool {
+        return false
+    }
+    
+    public func hiddenProcessing() {}
 }

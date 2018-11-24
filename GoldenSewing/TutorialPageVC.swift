@@ -10,6 +10,10 @@ import UIKit
 
 class TutorialPageVC: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
+    public var onCompleteHandler: Trigger?
+    
+    private var properties = UserDefaults.standard
+    
     fileprivate let contentImages = [("Onboard_1", "Мы рады приветствовать Вас в нашем приложении. Предлагаем ознакомиться с основными возможностями!"),
                                      ("Onboard_2", "Экран «Категории» предлагает Вам выбор разделов с нашей продукцией. Выбирайте интересующий раздел."),
                                      ("Onboard_3", "Используйте «Поиск» для удобного и быстрого отображения, интересующих Вас изделий."),
@@ -37,6 +41,7 @@ class TutorialPageVC: UIPageViewController, UIPageViewControllerDelegate, UIPage
         
         setupPageControl()
     
+        properties.set(true, forKey: "onboardingIsShown")
     }
     
     fileprivate func setupPageControl() {
@@ -80,7 +85,8 @@ class TutorialPageVC: UIPageViewController, UIPageViewControllerDelegate, UIPage
     fileprivate func getItemController(_ itemIndex: Int) -> PageItemVC? {
         
         if itemIndex < contentImages.count {
-            let pageItemVC = self.storyboard!.instantiateViewController(withIdentifier: "PageItemVC") as! PageItemVC
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let pageItemVC = storyboard.instantiateViewController(withIdentifier: "PageItemVC") as! PageItemVC
             pageItemVC.itemIndex = itemIndex
             pageItemVC.contentModel = contentImages[itemIndex]
             return pageItemVC
@@ -118,4 +124,13 @@ class TutorialPageVC: UIPageViewController, UIPageViewControllerDelegate, UIPage
         
         return nil
     }
+}
+
+extension TutorialPageVC: LaunchControllerDelegate {
+    
+    var notNeedDisplay: Bool {
+        return properties.bool(forKey: "onboardingIsShown")
+    }
+    
+    func hiddenProcessing() { }
 }
