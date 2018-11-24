@@ -8,6 +8,7 @@ target 'GoldenSewing' do
     pod 'Crashlytics'
     pod 'Firebase/Core'
     pod 'OneSignal', '>= 2.6.2', '< 3.0'
+    pod 'RealmSwift'
 
 end
 

@@ -51,6 +51,7 @@
 		52D23C581F4ECDA700A91ADD /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D23C571F4ECDA700A91ADD /* AboutUsVC.swift */; };
 		52D23C5A1F4F28C600A91ADD /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D23C591F4F28C600A91ADD /* ContactsVC.swift */; };
 		52D23C5D1F4F320100A91ADD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D23C5C1F4F320100A91ADD /* MapKit.framework */; };
+		52D7858D21A97A3400D5999E /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7858C21A97A3400D5999E /* CategoryModel.swift */; };
 		52F293111F437BBB00D07842 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293101F437BBB00D07842 /* UIViewX.swift */; };
 		52F293131F4445BD00D07842 /* UnfoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293121F4445BD00D07842 /* UnfoldingCell.swift */; };
 		52F372EE2183889E00C1FAEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52F372ED2183889E00C1FAEE /* GoogleService-Info.plist */; };
@@ -136,6 +137,7 @@
 		52D23C571F4ECDA700A91ADD /* AboutUsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		52D23C591F4F28C600A91ADD /* ContactsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		52D23C5C1F4F320100A91ADD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		52D7858C21A97A3400D5999E /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		52F293101F437BBB00D07842 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		52F293121F4445BD00D07842 /* UnfoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnfoldingCell.swift; sourceTree = "<group>"; };
 		52F372ED2183889E00C1FAEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -254,6 +256,7 @@
 				5251084C1F307EF60044804C /* ProductCategory+CoreDataClass.swift */,
 				5251084D1F307EF60044804C /* ProductCategory+CoreDataProperties.swift */,
 				525108451F307E1F0044804C /* Model.xcdatamodeld */,
+				52D7858C21A97A3400D5999E /* CategoryModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -524,6 +527,8 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -531,6 +536,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,6 +563,7 @@
 				5236B2761F3C8BC60072594D /* CollViewCell.swift in Sources */,
 				52F293111F437BBB00D07842 /* UIViewX.swift in Sources */,
 				523ED3001F29CA9400BE20E5 /* AppDelegate.swift in Sources */,
+				52D7858D21A97A3400D5999E /* CategoryModel.swift in Sources */,
 				525108471F307E1F0044804C /* Model.xcdatamodeld in Sources */,
 				5226D6551F57E7E500AD7812 /* UIView+Extension.swift in Sources */,
 				5251083E1F2F9D650044804C /* DetailVC.swift in Sources */,
