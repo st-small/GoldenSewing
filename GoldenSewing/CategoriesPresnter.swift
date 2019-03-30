@@ -21,7 +21,7 @@ public class CategoriesPresenter {
     
     public var delegate: CategoriesViewDelegate
     
-    private var categories = ["Митры", "Облачения", "Скрижали", "Иконы", "Иконостасы", "Разное", "Митры", "Облачения", "Скрижали", "Иконы", "Иконостасы", "Разное"]
+    private var categories = [CategoryModel]()
     private var interactor: CategoriesInteractor!
     
     public init(with delegate: CategoriesViewDelegate) {
@@ -31,21 +31,35 @@ public class CategoriesPresenter {
     }
     
     // MARK: Interface
-    public func load() { }
+    public func load() {
+        interactor.load()
+    }
+    
     public func countOfCategories() -> Int {
         return categories.count
     }
-    public func categoryAt(_ index: Int) -> String {
+    
+    public func categoryAt(_ index: Int) -> CategoryModel {
         return categories[index]
     }
+    
     public func select(_ category: String) {
         interactor.toCategory(1345)
     }
 }
 
 extension CategoriesPresenter: CategoriesPresenterDelegate {
-    public func update(with data: [String]) {
+    public func update(with data: [CategoryModel]) {
+        categories = data.sorted(by: { $0.title < $1.title })
         
+        DispatchQueue.main.async { [weak self] in
+            
+            guard let this = self else {
+                return
+            }
+            
+            this.delegate.reload()
+        }
     }
     
     public func problemWithRequest() {

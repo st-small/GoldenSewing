@@ -28,11 +28,12 @@ public class CategoriesCell: UITableViewCell {
         super.awakeFromNib()
         
         action.setTitleColor(colors.yellow, for: .normal)
+        action.titleLabel?.textAlignment = .center
     }
     
-    public func update(category: String) {
+    public func update(category: CategoryModel) {
         
-        action.setTitle(category, for: .normal)
+        action.setTitle(category.title, for: .normal)
     }
     
 }

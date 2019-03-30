@@ -34,4 +34,11 @@ extension String  {
         //print(date ?? "") //Convert String to Date
         return date!
     }
+    
+    public static func tag(_ type: Any) -> String {
+        
+        let type =  String(describing: Swift.type(of: type))
+        
+        return type.components(separatedBy: ".").first!
+    }
 }

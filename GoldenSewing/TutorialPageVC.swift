@@ -73,9 +73,7 @@ class TutorialPageVC: UIPageViewController, UIPageViewControllerDelegate, UIPage
         
         if itemController.itemIndex == contentImages.count - 1 {
             UIView.animate(withDuration: 3.0, animations: {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabbarVC = storyboard.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
-                self.present(tabbarVC, animated: true, completion: nil)
+                self.onCompleteHandler?()
             })
         }
         
@@ -89,6 +87,7 @@ class TutorialPageVC: UIPageViewController, UIPageViewControllerDelegate, UIPage
             let pageItemVC = storyboard.instantiateViewController(withIdentifier: "PageItemVC") as! PageItemVC
             pageItemVC.itemIndex = itemIndex
             pageItemVC.contentModel = contentImages[itemIndex]
+            pageItemVC.delegate = self
             return pageItemVC
         }
         
@@ -124,6 +123,7 @@ class TutorialPageVC: UIPageViewController, UIPageViewControllerDelegate, UIPage
         
         return nil
     }
+
 }
 
 extension TutorialPageVC: LaunchControllerDelegate {
@@ -133,4 +133,11 @@ extension TutorialPageVC: LaunchControllerDelegate {
     }
     
     func hiddenProcessing() { }
+}
+
+
+extension TutorialPageVC: PageItemVCDelegate {
+    public func skipTutorial() {
+        onCompleteHandler?()
+    }
 }
