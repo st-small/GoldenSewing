@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension Date {
+    
     func toString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" //Your date format
@@ -40,4 +41,6 @@ extension Date {
     func isYesterday() -> Bool {
         return Calendar.current.isDateInYesterday(self)
     }
+    
+    
 }

@@ -8,7 +8,9 @@
 
 import UIKit
 
-class Constants {
+public class Constants {
+    
+    public static let baseUrl = "http://zolotoe-shitvo.kr.ua/wp-json/wp/v2"
 
 enum Category: Int {
     case ikonostasy = 3             // 9 posts

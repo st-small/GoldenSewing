@@ -18,6 +18,7 @@ public class NavigationController: UINavigationController {
         navigationBar.barTintColor = UIColor.CustomColors.burgundy
         
         navigationBar.titleTextAttributes = convertToOptionalNSAttributedStringKeyDictionary([NSAttributedString.Key.foregroundColor.rawValue: UIColor.CustomColors.yellow, NSAttributedString.Key.font.rawValue: UIFont(name: "HelveticaNeue-Medium", size: 15.0)!])
+        self.setNavigationBarHidden(false, animated: true)
         
         addShadowToBar()
     }

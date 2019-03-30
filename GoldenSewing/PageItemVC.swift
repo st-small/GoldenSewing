@@ -8,7 +8,11 @@
 
 import UIKit
 
-class PageItemVC: UIViewController {
+protocol PageItemVCDelegate {
+    func skipTutorial()
+}
+
+public class PageItemVC: UIViewController {
     
     // MARK: - Properties -
     var itemIndex: Int = 0
@@ -23,12 +27,14 @@ class PageItemVC: UIViewController {
         }
     }
     
+    var delegate: PageItemVCDelegate!
+    
     // MARK: - Outlets -
     @IBOutlet var contentView: UIView?
     @IBOutlet var contentImageView: UIImageView?
     @IBOutlet var contentLabel: UILabel?
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         
@@ -37,5 +43,9 @@ class PageItemVC: UIViewController {
         contentView?.layer.cornerRadius = (contentView?.frame.size.height)!/20
         contentImageView!.image = UIImage(named: contentModel.0)
         contentLabel?.text = contentModel.1
+    }
+    
+    @IBAction func skipTutorial(_ sender: UIButton) {
+        delegate.skipTutorial()
     }
 }

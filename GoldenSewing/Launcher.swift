@@ -26,7 +26,7 @@ public class Launcher {
         self.launchOptions = launchOptions
         
         self.navigator = NavigationController()
-        navigator.setNavigationBarHidden(true, animated: false)
+        //navigator.setNavigationBarHidden(true, animated: false)
         
         self.controllers = [{GreetingController()}, 
                             {TutorialPageVC()}]

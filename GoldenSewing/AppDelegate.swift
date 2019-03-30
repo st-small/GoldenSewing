@@ -12,6 +12,7 @@ import Crashlytics
 import Firebase
 import UserNotifications
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -39,6 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = launcher.window
         launcher.start()
+        
+        let realmFilePath = Realm.Configuration.defaultConfiguration.fileURL
+        print("Realm File Path", realmFilePath!)
         
         return true
     }

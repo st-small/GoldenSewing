@@ -40,7 +40,7 @@
                                                     <inset key="titleEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                                                     <state key="normal" backgroundImage="CategoriesBtn">
                                                         <string key="title">Category Title CategoryTitle Category Title CategoryTitle Category Title CategoryTitle Category Title CategoryTitle Category Title CategoryTitle Category Title CategoryTitle Category Title CategoryTitle Category Title CategoryTitle</string>
-                                                        <color key="titleColor" red="0.99607999999999997" green="0.84706000000000004" blue="0.59216000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.99607843137254903" green="0.84705882352941175" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="btnPressed:" destination="E0G-VY-8HX" eventType="touchUpInside" id="byc-Js-223"/>
@@ -1092,13 +1092,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESU-YH-vqN">
-                                <rect key="frame" x="16" y="40" width="343" height="597"/>
+                                <rect key="frame" x="16" y="40" width="343" height="553"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mxs-ZD-P9r">
-                                        <rect key="frame" x="8" y="20" width="327" height="454"/>
+                                        <rect key="frame" x="8" y="20" width="327" height="410"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBz-C9-dhM">
-                                        <rect key="frame" x="12" y="482" width="319" height="107"/>
+                                        <rect key="frame" x="12" y="438" width="319" height="107"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="107" id="7OW-4C-0qJ"/>
                                         </constraints>
@@ -1120,13 +1120,39 @@
                                     <constraint firstItem="UBz-C9-dhM" firstAttribute="leading" secondItem="ESU-YH-vqN" secondAttribute="leading" constant="12" id="tUe-6S-4zg"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDV-j9-skN">
+                                <rect key="frame" x="16" y="608" width="343" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs6-mP-Jtc">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <state key="normal" title="Пропустить" backgroundImage="CategoriesBtn">
+                                            <color key="titleColor" red="0.99607843137254903" green="0.84705882352941175" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="skipTutorial:" destination="34R-id-fxi" eventType="touchUpInside" id="cFh-eL-St6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gs6-mP-Jtc" secondAttribute="trailing" id="2rM-Jb-OPr"/>
+                                    <constraint firstItem="gs6-mP-Jtc" firstAttribute="leading" secondItem="yDV-j9-skN" secondAttribute="leading" id="97E-eB-6bQ"/>
+                                    <constraint firstItem="gs6-mP-Jtc" firstAttribute="top" secondItem="yDV-j9-skN" secondAttribute="top" id="Aoj-vj-YqR"/>
+                                    <constraint firstAttribute="bottom" secondItem="gs6-mP-Jtc" secondAttribute="bottom" id="Z4O-24-xEj"/>
+                                    <constraint firstAttribute="height" constant="44" id="yXX-Ed-811"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hoR-kg-Par" firstAttribute="top" secondItem="yDV-j9-skN" secondAttribute="bottom" constant="15" id="5Xq-iz-kKR"/>
+                            <constraint firstAttribute="trailing" secondItem="yDV-j9-skN" secondAttribute="trailing" constant="16" id="7ty-pI-7hI"/>
                             <constraint firstAttribute="trailing" secondItem="ESU-YH-vqN" secondAttribute="trailing" constant="16" id="BUx-rh-EAt"/>
                             <constraint firstItem="ESU-YH-vqN" firstAttribute="top" secondItem="s5I-Mc-Vma" secondAttribute="bottom" constant="20" id="JLj-vU-d66"/>
                             <constraint firstItem="ESU-YH-vqN" firstAttribute="leading" secondItem="IJD-oY-vJS" secondAttribute="leading" constant="16" id="gS4-Sf-Vgf"/>
-                            <constraint firstItem="hoR-kg-Par" firstAttribute="top" secondItem="ESU-YH-vqN" secondAttribute="bottom" constant="30" id="nUb-Ym-kRl"/>
+                            <constraint firstItem="yDV-j9-skN" firstAttribute="top" secondItem="ESU-YH-vqN" secondAttribute="bottom" constant="15" id="t0F-82-au0"/>
+                            <constraint firstItem="yDV-j9-skN" firstAttribute="leading" secondItem="IJD-oY-vJS" secondAttribute="leading" constant="16" id="uPL-by-urp"/>
                         </constraints>
                     </view>
                     <connections>
