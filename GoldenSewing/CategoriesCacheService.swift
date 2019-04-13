@@ -1,5 +1,5 @@
 //
-//  CacheService.swift
+//  CategoriesCacheService.swift
 //  GoldenSewing
 //
 //  Created by Stanly Shiyanovskiy on 11/25/18.
@@ -10,9 +10,9 @@ import Foundation
 import Gloss
 import RealmSwift
 
-public class CacheService {
+public class CategoriesCacheService {
     
-    public let tag = "CacheService"
+    public let tag = "CategoriesCacheService"
     
     private let api: ApiRequestService
     private let apiQueue: AsyncQueue
@@ -20,7 +20,7 @@ public class CacheService {
     
     public init() {
         
-        api = ApiRequestService(area: "categories", type: CacheService.self)
+        api = ApiRequestService(area: "categories", type: CategoriesCacheService.self)
         apiQueue = AsyncQueue.createForApi(for: tag)
     }
     

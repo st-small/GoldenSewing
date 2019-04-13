@@ -47,10 +47,14 @@ public class ApiRequestService {
     }
     
     // Products
-    public func products() -> RequestResult<CategoryModel> {
+    public func products(categoryId: Int, offset: Int = 0) -> RequestResult<ProductModel> {
         let parameters = CollectParameters([
-            "page": 1,
-            "per_page": 50])
+            "categories": categoryId,
+            "offset": offset])
         return client.request(action: "", method: .get, type: ProductModel.self, parameters: parameters)
+    }
+    
+    public func productBy(id: Int) -> RequestResult<ProductModel> {
+        return client.request(action: "\(id)", method: .get, type: ProductModel.self, parameters: nil)
     }
 }

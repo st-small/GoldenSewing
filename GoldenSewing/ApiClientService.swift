@@ -54,12 +54,22 @@ public class ApiClientService {
                     print(self.tag, "Response from \(url)")
                     
                     let content = String(data: response.data!, encoding: .utf8)!
-                    let json = response.value as! [[String:AnyObject]]
-                    
-                    for jsonValue in json {
-                        let apiResponse = ApiResponse<TData>(json: jsonValue, response: response, content: content)
+                    if let json = response.value as? [[String:AnyObject]] {
+                        
+                        for jsonValue in json {
+                            let apiResponse = ApiResponse<TData>(json: jsonValue, response: response, content: content)
+                            if (apiResponse.statusCode == .OK) {
+                                apiResponse.data = parser(jsonValue)
+                            }
+                            
+                            handler(apiResponse)
+                        }
+                        
+                    } else if let json = response.value as? [String:AnyObject] {
+                        
+                        let apiResponse = ApiResponse<TData>(json: json, response: response, content: content)
                         if (apiResponse.statusCode == .OK) {
-                            apiResponse.data = parser(jsonValue)
+                            apiResponse.data = parser(json)
                         }
                         
                         handler(apiResponse)

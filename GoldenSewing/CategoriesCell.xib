@@ -24,6 +24,9 @@
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                         <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                         <state key="normal" title="Button" backgroundImage="CategoriesBtn"/>
+                        <connections>
+                            <action selector="categoryTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="szD-dE-BA5"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

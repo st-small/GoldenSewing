@@ -45,7 +45,6 @@ public class CategoriesView: UIViewController {
 
         presenter.load()
     }
-
 }
 
 extension CategoriesView: CategoriesViewDelegate {
@@ -77,9 +76,16 @@ extension CategoriesView: UITableViewDataSource {
         let category = presenter.categoryAt(indexPath.row)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoriesCell.identifier) as! CategoriesCell
-        cell.update(category: category)
+        cell.update(category: category, with: self)
         
         return cell
     }
 }
+
 extension CategoriesView: UITableViewDelegate { }
+extension CategoriesView: CategoriesCellDelegate {
+    public func didSelectCategory(with id: Int) {
+        presenter.select(id)
+    }
+}
+
