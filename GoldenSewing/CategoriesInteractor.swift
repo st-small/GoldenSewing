@@ -21,7 +21,7 @@ public class CategoriesInteractor {
     private var categories = [CategoryModel]()
     
     // Services
-    private let service = CacheService()
+    private let service = CategoriesCacheService()
     
     // Tools
     private var apiQueue: AsyncQueue!
@@ -39,14 +39,12 @@ public class CategoriesInteractor {
         service.load()
         let cached = service.cache
         delegate.update(with: cached)
-
     }
     
     private func loadData() {
         
-        var request: RequestResult<CategoryModel>? = nil
-        request = service.all()
-        request?.async(apiQueue, completion: { (response) in
+        let request = service.all()
+        request.async(apiQueue, completion: { (response) in
             
             DispatchQueue.main.async { [weak self] in
                 
@@ -59,15 +57,16 @@ public class CategoriesInteractor {
                     return
                 }
                 
-                guard let category = response.data else {
-                    return
-                }
+                guard let category = response.data else { return }
                 this.categories.append(category)
                 this.delegate.update(with: this.categories)
             }
             
         })
     }
-    public func updateFromCache() { }
-    public func toCategory(_ id: Int) { }
+    
+    public func toCategory(_ id: Int) {
+        let router = Router.shared
+        router.openProductsWithCategory(id)
+    }
 }

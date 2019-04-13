@@ -8,6 +8,10 @@
 
 import UIKit
 
+public protocol CategoriesCellDelegate {
+    func didSelectCategory(with id: Int)
+}
+
 public class CategoriesCell: UITableViewCell {
     
     // UI elements
@@ -17,6 +21,9 @@ public class CategoriesCell: UITableViewCell {
     
     public static let identifier = "CategoriesCell"
     private static let nibName = "CategoriesCell"
+    
+    private var category: CategoryModel!
+    private var delegate: CategoriesCellDelegate!
     
     public static func register(in table: UITableView) {
         
@@ -31,9 +38,17 @@ public class CategoriesCell: UITableViewCell {
         action.titleLabel?.textAlignment = .center
     }
     
-    public func update(category: CategoryModel) {
+    public func update(category: CategoryModel, with delegate: CategoriesCellDelegate) {
+        
+        self.category = category
+        self.delegate = delegate
         
         action.setTitle(category.title, for: .normal)
+        
     }
     
+    @IBAction private func categoryTapped(_ sender: UIButton) {
+        guard let delegate = delegate, let category = category else { return }
+        delegate.didSelectCategory(with: category.id)
+    }
 }

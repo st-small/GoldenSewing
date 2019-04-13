@@ -13,7 +13,8 @@ import Gloss
 
 private let relevance: Double = 5 * 60
 
-public class CategoryModel: ICached {
+public class CategoryModel: Glossy {
+    
     public var id = 0
     public var title = ""
     public var count = 0

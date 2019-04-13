@@ -16,4 +16,13 @@ public class Router {
     
     public var navigator: NavigationController!
     public var tabs: (TabsControllerProtocol & UITabBarController)!
+    
+    public func goBack(animated: Bool = true) {
+        navigator?.popViewController(animated: animated)
+    }
+    
+    public func openProductsWithCategory(_ id: Int) {
+        let products = ProductsView(categoryId: id)
+        navigator?.pushViewController(products, animated: true)
+    }
 }

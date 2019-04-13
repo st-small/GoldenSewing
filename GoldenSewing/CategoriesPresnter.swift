@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public protocol CategoriesViewDelegate { 
     func reload()
     func problemWithRequest()
@@ -43,8 +42,8 @@ public class CategoriesPresenter {
         return categories[index]
     }
     
-    public func select(_ category: String) {
-        interactor.toCategory(1345)
+    public func select(_ category: Int) {
+        interactor.toCategory(category)
     }
 }
 

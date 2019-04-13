@@ -56,16 +56,19 @@
 		525FB77221AAC4E800F451C8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB76B21AAC4E800F451C8 /* Task.swift */; };
 		525FB77421AAC59400F451C8 /* AsyncQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB77321AAC59400F451C8 /* AsyncQueueExtension.swift */; };
 		525FB77621AACC8900F451C8 /* ApiRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB77521AACC8900F451C8 /* ApiRequestService.swift */; };
-		525FB77821AACF0F00F451C8 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB77721AACF0F00F451C8 /* CacheService.swift */; };
-		525FB77B21AAD17E00F451C8 /* CacheAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB77A21AAD17E00F451C8 /* CacheAdapter.swift */; };
-		525FB77D21AAD1A900F451C8 /* ICached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB77C21AAD1A900F451C8 /* ICached.swift */; };
-		525FB77F21AAD1DC00F451C8 /* IIdentified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB77E21AAD1DC00F451C8 /* IIdentified.swift */; };
+		525FB77821AACF0F00F451C8 /* CategoriesCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB77721AACF0F00F451C8 /* CategoriesCacheService.swift */; };
 		525FB78121AAD24300F451C8 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB78021AAD24300F451C8 /* ArrayExtension.swift */; };
-		525FB78321AAD2EF00F451C8 /* CacheAdapterExtender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB78221AAD2EF00F451C8 /* CacheAdapterExtender.swift */; };
 		525FB78521AAD6A300F451C8 /* CacheContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB78421AAD6A300F451C8 /* CacheContainer.swift */; };
 		525FB78721AAD90600F451C8 /* Guid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB78621AAD90600F451C8 /* Guid.swift */; };
 		525FB78921AAF4DB00F451C8 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB78821AAF4DB00F451C8 /* ApiResponse.swift */; };
 		525FB78B21AAF53E00F451C8 /* HttpStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB78A21AAF53E00F451C8 /* HttpStatusCode.swift */; };
+		526E36E2224FCCC500E7B67B /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E36E0224FCCC500E7B67B /* ProductsView.swift */; };
+		526E36E3224FCCC500E7B67B /* ProductsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526E36E1224FCCC500E7B67B /* ProductsView.xib */; };
+		526E36E5224FCCEB00E7B67B /* ProductsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E36E4224FCCEB00E7B67B /* ProductsPresenter.swift */; };
+		526E36E7224FCCFA00E7B67B /* ProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E36E6224FCCFA00E7B67B /* ProductsInteractor.swift */; };
+		526E36E9224FD99500E7B67B /* GSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E36E8224FD99500E7B67B /* GSViewController.swift */; };
+		526E36EC224FE98300E7B67B /* ProductsCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E36EB224FE98300E7B67B /* ProductsCacheService.swift */; };
+		526E36EE224FEF7000E7B67B /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E36ED224FEF7000E7B67B /* ProductModel.swift */; };
 		52B47963219A0CA20099698C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B47962219A0CA20099698C /* NotificationService.swift */; };
 		52B47967219A0CA20099698C /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		52B8F4B71F57FEC500A0CD37 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8F4B51F57FEC500A0CD37 /* ProductCell.swift */; };
@@ -175,16 +178,19 @@
 		525FB76B21AAC4E800F451C8 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		525FB77321AAC59400F451C8 /* AsyncQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncQueueExtension.swift; sourceTree = "<group>"; };
 		525FB77521AACC8900F451C8 /* ApiRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestService.swift; sourceTree = "<group>"; };
-		525FB77721AACF0F00F451C8 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
-		525FB77A21AAD17E00F451C8 /* CacheAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAdapter.swift; sourceTree = "<group>"; };
-		525FB77C21AAD1A900F451C8 /* ICached.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICached.swift; sourceTree = "<group>"; };
-		525FB77E21AAD1DC00F451C8 /* IIdentified.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IIdentified.swift; sourceTree = "<group>"; };
+		525FB77721AACF0F00F451C8 /* CategoriesCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCacheService.swift; sourceTree = "<group>"; };
 		525FB78021AAD24300F451C8 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
-		525FB78221AAD2EF00F451C8 /* CacheAdapterExtender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAdapterExtender.swift; sourceTree = "<group>"; };
 		525FB78421AAD6A300F451C8 /* CacheContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheContainer.swift; sourceTree = "<group>"; };
 		525FB78621AAD90600F451C8 /* Guid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guid.swift; sourceTree = "<group>"; };
 		525FB78821AAF4DB00F451C8 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		525FB78A21AAF53E00F451C8 /* HttpStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpStatusCode.swift; sourceTree = "<group>"; };
+		526E36E0224FCCC500E7B67B /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
+		526E36E1224FCCC500E7B67B /* ProductsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsView.xib; sourceTree = "<group>"; };
+		526E36E4224FCCEB00E7B67B /* ProductsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPresenter.swift; sourceTree = "<group>"; };
+		526E36E6224FCCFA00E7B67B /* ProductsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsInteractor.swift; sourceTree = "<group>"; };
+		526E36E8224FD99500E7B67B /* GSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSViewController.swift; sourceTree = "<group>"; };
+		526E36EB224FE98300E7B67B /* ProductsCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCacheService.swift; sourceTree = "<group>"; };
+		526E36ED224FEF7000E7B67B /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B47962219A0CA20099698C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		52B47964219A0CA20099698C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -279,6 +285,7 @@
 		523ED2FE1F29CA9400BE20E5 /* GoldenSewing */ = {
 			isa = PBXGroup;
 			children = (
+				525FB76121AABF3F00F451C8 /* Services */,
 				525108541F3087360044804C /* Models */,
 				525108531F30872B0044804C /* Services */,
 				57CAB2AC1F4B592000861C6A /* Views */,
@@ -287,7 +294,6 @@
 				525108551F3087430044804C /* Supported */,
 				525C38B421A48D10003FE500 /* Routing */,
 				525C38AC21A4874C003FE500 /* Tools */,
-				525FB76121AABF3F00F451C8 /* Services */,
 			);
 			path = GoldenSewing;
 			sourceTree = "<group>";
@@ -295,9 +301,11 @@
 		525108521F30871E0044804C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				526E36E8224FD99500E7B67B /* GSViewController.swift */,
 				525C38AF21A487C8003FE500 /* Launcher */,
 				525C38C021A4AA3E003FE500 /* Onboarding */,
 				52D7857E21A8A20C00D5999E /* Categories */,
+				526E36DF224FCC7500E7B67B /* Products */,
 				523ED3031F29CA9400BE20E5 /* Main.storyboard */,
 				5251083F1F2FA8040044804C /* FirstVC.swift */,
 				52253B251F38DAC8009DF046 /* CategoriesVC.swift */,
@@ -329,6 +337,7 @@
 				5251084D1F307EF60044804C /* ProductCategory+CoreDataProperties.swift */,
 				525108451F307E1F0044804C /* Model.xcdatamodeld */,
 				52D7858C21A97A3400D5999E /* CategoryModel.swift */,
+				526E36ED224FEF7000E7B67B /* ProductModel.swift */,
 				525FB78421AAD6A300F451C8 /* CacheContainer.swift */,
 			);
 			name = Models;
@@ -414,9 +423,8 @@
 				525FB76221AABF7400F451C8 /* ApiClientService.swift */,
 				525FB78821AAF4DB00F451C8 /* ApiResponse.swift */,
 				525FB77521AACC8900F451C8 /* ApiRequestService.swift */,
-				525FB77721AACF0F00F451C8 /* CacheService.swift */,
+				526E36EA224FE94800E7B67B /* CashServices */,
 				525FB78A21AAF53E00F451C8 /* HttpStatusCode.swift */,
-				525FB77921AAD15100F451C8 /* CacheAdapter */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -435,15 +443,24 @@
 			path = AsyncTask;
 			sourceTree = "<group>";
 		};
-		525FB77921AAD15100F451C8 /* CacheAdapter */ = {
+		526E36DF224FCC7500E7B67B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				525FB77A21AAD17E00F451C8 /* CacheAdapter.swift */,
-				525FB78221AAD2EF00F451C8 /* CacheAdapterExtender.swift */,
-				525FB77C21AAD1A900F451C8 /* ICached.swift */,
-				525FB77E21AAD1DC00F451C8 /* IIdentified.swift */,
+				526E36E0224FCCC500E7B67B /* ProductsView.swift */,
+				526E36E4224FCCEB00E7B67B /* ProductsPresenter.swift */,
+				526E36E6224FCCFA00E7B67B /* ProductsInteractor.swift */,
+				526E36E1224FCCC500E7B67B /* ProductsView.xib */,
 			);
-			name = CacheAdapter;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		526E36EA224FE94800E7B67B /* CashServices */ = {
+			isa = PBXGroup;
+			children = (
+				525FB77721AACF0F00F451C8 /* CategoriesCacheService.swift */,
+				526E36EB224FE98300E7B67B /* ProductsCacheService.swift */,
+			);
+			name = CashServices;
 			sourceTree = "<group>";
 		};
 		52B47961219A0CA20099698C /* OneSignalNotificationServiceExtension */ = {
@@ -625,6 +642,7 @@
 				523ED3051F29CA9400BE20E5 /* Main.storyboard in Resources */,
 				52F372EE2183889E00C1FAEE /* GoogleService-Info.plist in Resources */,
 				525C38BF21A4A467003FE500 /* GreetingController.xib in Resources */,
+				526E36E3224FCCC500E7B67B /* ProductsView.xib in Resources */,
 				52D7858B21A96AA500D5999E /* CategoriesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,7 +760,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				525C38BB21A492B2003FE500 /* TabsPages.swift in Sources */,
-				525FB77D21AAD1A900F451C8 /* ICached.swift in Sources */,
 				52D23C581F4ECDA700A91ADD /* AboutUsVC.swift in Sources */,
 				525108441F307DC50044804C /* CoreDataStack.swift in Sources */,
 				57CAB2AE1F4B597000861C6A /* CustomScroll.swift in Sources */,
@@ -752,8 +769,8 @@
 				5226D6511F51CDF300AD7812 /* PopularVC.swift in Sources */,
 				52D23C561F4EC92900A91ADD /* CustomTabBarController.swift in Sources */,
 				525FB76D21AAC4E800F451C8 /* Collection.swift in Sources */,
-				525FB77F21AAD1DC00F451C8 /* IIdentified.swift in Sources */,
-				525FB77821AACF0F00F451C8 /* CacheService.swift in Sources */,
+				526E36E7224FCCFA00E7B67B /* ProductsInteractor.swift in Sources */,
+				525FB77821AACF0F00F451C8 /* CategoriesCacheService.swift in Sources */,
 				52D7858A21A96AA500D5999E /* CategoriesCell.swift in Sources */,
 				5236B2761F3C8BC60072594D /* CollViewCell.swift in Sources */,
 				52F293111F437BBB00D07842 /* UIViewX.swift in Sources */,
@@ -761,6 +778,7 @@
 				523ED3001F29CA9400BE20E5 /* AppDelegate.swift in Sources */,
 				52D7858D21A97A3400D5999E /* CategoryModel.swift in Sources */,
 				525108471F307E1F0044804C /* Model.xcdatamodeld in Sources */,
+				526E36E2224FCCC500E7B67B /* ProductsView.swift in Sources */,
 				525FB76F21AAC4E800F451C8 /* Config.swift in Sources */,
 				5226D6551F57E7E500AD7812 /* UIView+Extension.swift in Sources */,
 				5251083E1F2F9D650044804C /* DetailVC.swift in Sources */,
@@ -781,9 +799,10 @@
 				52D23C5A1F4F28C600A91ADD /* ContactsVC.swift in Sources */,
 				52526DED1F3F29CC00621B87 /* Date+Extension.swift in Sources */,
 				525FB76C21AAC4E800F451C8 /* ThrowableTask.swift in Sources */,
-				525FB77B21AAD17E00F451C8 /* CacheAdapter.swift in Sources */,
+				526E36EE224FEF7000E7B67B /* ProductModel.swift in Sources */,
 				525FB78921AAF4DB00F451C8 /* ApiResponse.swift in Sources */,
 				525C38B321A488C6003FE500 /* Launcher.swift in Sources */,
+				526E36E5224FCCEB00E7B67B /* ProductsPresenter.swift in Sources */,
 				525108401F2FA8040044804C /* FirstVC.swift in Sources */,
 				5226D6531F57E6F200AD7812 /* PopularHeader.swift in Sources */,
 				525C38B121A487E9003FE500 /* LaunchControllerDelegate.swift in Sources */,
@@ -809,12 +828,13 @@
 				52D7858421A9605000D5999E /* CategoriesPresnter.swift in Sources */,
 				5236AC5F1F32F3470077AC80 /* Product+CoreDataProperties.swift in Sources */,
 				5250C9291F42CC2900153E65 /* UIApplication+Extension.swift in Sources */,
-				525FB78321AAD2EF00F451C8 /* CacheAdapterExtender.swift in Sources */,
+				526E36E9224FD99500E7B67B /* GSViewController.swift in Sources */,
 				525C38AE21A48773003FE500 /* Delegates.swift in Sources */,
 				525108571F30E5140044804C /* Constants.swift in Sources */,
 				52B8F4BC1F5C387F00A0CD37 /* TutorialPageVC.swift in Sources */,
 				525C38BE21A4A467003FE500 /* GreetingController.swift in Sources */,
 				525FB77221AAC4E800F451C8 /* Task.swift in Sources */,
+				526E36EC224FE98300E7B67B /* ProductsCacheService.swift in Sources */,
 				52F293131F4445BD00D07842 /* UnfoldingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
