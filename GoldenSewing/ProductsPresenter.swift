@@ -9,7 +9,10 @@
 import Foundation
 
 public protocol ProductsViewDelegate {
+    func showLoader()
+    func hideLoader()
     func reload()
+    func problemWithRequest()
 }
 
 public class ProductsPresenter {
@@ -30,6 +33,7 @@ public class ProductsPresenter {
     }
     
     public func load() {
+        showLoader()
         interactor.load()
     }
     
@@ -48,6 +52,13 @@ public class ProductsPresenter {
     public func select(_ product: ProductModel) {
         
     }
+    
+    private func showLoader() {
+        DispatchQueue.main.async { [weak self] in
+            guard let this = self else { return }
+            this.delegate.showLoader()
+        }
+    }
 }
 
 extension ProductsPresenter: ProductsPresenterDelegate {
@@ -61,8 +72,17 @@ extension ProductsPresenter: ProductsPresenterDelegate {
             }
             
             this.delegate.reload()
+            
+            guard !data.isEmpty else { return }
+            this.delegate.hideLoader()
         }
     }
     
-    public func problemWithRequest() { }
+    public func problemWithRequest() {
+        DispatchQueue.main.async { [weak self] in
+            guard let this = self else { return }
+            this.delegate.problemWithRequest()
+            this.delegate.hideLoader()
+        }
+    }
 }

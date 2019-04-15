@@ -35,6 +35,7 @@ public class ProductsCacheService {
     
     //Hooks
     public var onUpdate: Action<ProductModel>?
+    public var onFail: Trigger?
     
     private init() {
         
@@ -124,6 +125,10 @@ public class ProductsCacheService {
                 }
                 
                 this.addOrUpdate(product)
+            }
+            
+            if response.isFail {
+                this.onFail?()
             }
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 typealias VCCtor = () -> LaunchControllerDelegate & UIViewController
 
@@ -26,10 +27,10 @@ public class Launcher {
         self.launchOptions = launchOptions
         
         self.navigator = NavigationController()
-        //navigator.setNavigationBarHidden(true, animated: false)
         
         self.controllers = [{GreetingController()}, 
                             {TutorialPageVC()}]
+        self.configureToast()
     }
     
     public var window: UIWindow {
@@ -44,6 +45,17 @@ public class Launcher {
     
     public func start() {
         continueLaunch(from: 0)
+    }
+    
+    private func configureToast() {
+        var style = ToastStyle()
+        style.activityBackgroundColor = .clear
+        style.activityIndicatorColor = UIColor.CustomColors.yellow
+        
+        style.backgroundColor = UIColor.CustomColors.burgundy.withAlphaComponent(0.7)
+        style.messageColor = UIColor.CustomColors.yellow
+        style.messageAlignment = .center
+        ToastManager.shared.style = style
     }
     
     private func continueLaunch(from step: Int) {

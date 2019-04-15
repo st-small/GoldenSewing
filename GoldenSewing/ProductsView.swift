@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Toast_Swift
 
 public class ProductsView: UIViewController {
     
@@ -59,11 +60,6 @@ public class ProductsView: UIViewController {
             make.size.equalToSuperview()
         }
     }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,9 +73,20 @@ public class ProductsView: UIViewController {
 }
 
 extension ProductsView: ProductsViewDelegate {
+    public func showLoader() {
+        self.view.makeToastActivity(.center)
+    }
+    
+    public func hideLoader() {
+        self.view.hideToastActivity()
+    }
     
     public func reload() {
         collectionView.reloadData()
     }
     
+    public func problemWithRequest() {
+        let errorMessage = "Проблемы с получением данных. Проверьте подключение интернет."
+        self.view.makeToast(errorMessage)
+    }
 }

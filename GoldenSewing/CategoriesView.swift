@@ -53,15 +53,16 @@ extension CategoriesView: CategoriesViewDelegate {
     }
     
     public func problemWithRequest() {
-        #warning("Стас! Добавить показ сообщения с ошибкой")
+        let errorMessage = "Проблемы с получением данных. Проверьте подключение интернет."
+        self.view.makeToast(errorMessage)
     }
     
     public func showLoader() {
-        #warning("Стас! Добавить показ загрузчика")
+        self.view.makeToastActivity(.center)
     }
     
     public func hideLoader() {
-        #warning("Стас! Добавить скрытие загрузчика")
+        self.view.hideToastActivity()
     }
 }
 
