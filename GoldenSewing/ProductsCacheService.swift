@@ -20,43 +20,45 @@ private enum QueryActionType {
 public class ProductsCacheService {
     
     public let tag = "ProductsCacheService"
+    public static let shared = ProductsCacheService()
     
     private let api: ApiRequestService
     private let apiQueue: AsyncQueue
     private let realm = try! Realm()
     
-    private let categoryId: Int
-    private let category: CategoryModelRealmItem?
+    private var categoryId: Int?
+    private var category: CategoryModelRealmItem?
     
     private var requestsQuery = [QueryAction]()
     private var queryCounter = 0
-    private let relevance: Double = 10 * 60
+    private let relevance: Double = 60 * 60 * 24 * 10
     
     //Hooks
     public var onUpdate: Action<ProductModel>?
     
-    public init(id: Int) {
+    private init() {
         
         api = ApiRequestService(area: "posts", type: ProductsCacheService.self)
         apiQueue = AsyncQueue.createForApi(for: tag)
-        categoryId = id
-        category = realm.objects(CategoryModelRealmItem.self).filter({ $0.id == id }).first
     }
     
-    public func load() {
+    public func load(id: Int) {
+        categoryId = id
+        category = realm.objects(CategoryModelRealmItem.self).filter({ $0.id == id }).first
+        cache.removeAll()
         loadCached()
     }
     
     public var cache = [ProductModel]()
     
     public func all() {
-        loadCached()
         prepareTask()
     }
     
     private func loadCached() {
-        let array = realm.objects(ProductModelRealmItem.self).filter({ $0.category == self.categoryId })
-        cache = array.map({ ProductModel(item: $0) })
+        let array = realm.objects(ProductModelRealmItem.self)
+        let currentItems = array.filter({ $0.category == self.categoryId })
+        cache = currentItems.map({ ProductModel(item: $0) })
     }
     
     private func prepareTask() {
@@ -72,7 +74,7 @@ public class ProductsCacheService {
     private func prepareLoadQueries() {
         var index = 0
         while index < category?.count ?? 0 {
-            let request = self.api.products(categoryId: categoryId, offset: index)
+            let request = self.api.products(categoryId: categoryId!, offset: index)
             let action = QueryAction(request, .allItems)
             requestsQuery.append(action)
             index += 10

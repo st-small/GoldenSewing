@@ -11,6 +11,8 @@ target 'GoldenSewing' do
     pod 'RealmSwift'
     pod 'Alamofire'
     pod 'Gloss'
+    pod 'SnapKit', '~> 4.0.0'
+    pod 'SDWebImage', '~> 5.0.0'
 
 end
 

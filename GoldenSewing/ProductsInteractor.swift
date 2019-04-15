@@ -22,7 +22,7 @@ public class ProductsInteractor {
     
     // Services
     private let realm = try! Realm()
-    private let service: ProductsCacheService
+    private let service = ProductsCacheService.shared
     
     // Tools
     private var apiQueue: AsyncQueue!
@@ -35,13 +35,13 @@ public class ProductsInteractor {
         self.categoryId = categoryId
         self.delegate = delegate
         apiQueue = AsyncQueue.createForApi(for: "ProductsInteractor")
-        service = ProductsCacheService(id: categoryId)
+        
+        service.load(id: categoryId)
     }
     
     public func load() {
         loadData()
-        
-        service.load()
+
         let cached = service.cache
         delegate.update(with: cached)
     }
@@ -53,24 +53,11 @@ public class ProductsInteractor {
     
     private func loadData() {
         service.all()
-        service.onUpdate = { products in
-            
+        service.onUpdate = { [weak self] product in
+            guard let this = self else { return }
+            this.products.append(product)
+            this.delegate.update(with: this.products)
         }
-        
-//        let request = service.all()
-//        request.async(apiQueue) { (response) in
-//
-//            DispatchQueue.main.async { [weak self] in
-//
-//                guard let this = self else { return }
-//                if response.isFail {
-//                    this.delegate.problemWithRequest()
-//                    return
-//                }
-//
-//
-//            }
-//        }
     }
     
     public func goBack() {

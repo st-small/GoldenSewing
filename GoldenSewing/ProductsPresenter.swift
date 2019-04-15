@@ -8,13 +8,15 @@
 
 import Foundation
 
-public protocol ProductsViewDelegate { }
+public protocol ProductsViewDelegate {
+    func reload()
+}
 
 public class ProductsPresenter {
     
     public var delegate: ProductsViewDelegate
     
-    private var products = [String]()
+    private var products = [ProductModel]()
     private var interactor: ProductsInteractor!
     
     public init(with categoryId: Int, delegate: ProductsViewDelegate) {
@@ -39,16 +41,28 @@ public class ProductsPresenter {
         return products.count
     }
     
-    public func productAt(_ index: Int) -> String {
+    public func productAt(_ index: Int) -> ProductModel {
         return products[index]
     }
     
-    public func select(_ product: String) {
+    public func select(_ product: ProductModel) {
         
     }
 }
 
 extension ProductsPresenter: ProductsPresenterDelegate {
-    public func update(with data: [ProductModel]) { }
+    public func update(with data: [ProductModel]) {
+        self.products = data.sorted(by: { $0.id > $1.id })
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            guard let this = self else {
+                return
+            }
+            
+            this.delegate.reload()
+        }
+    }
+    
     public func problemWithRequest() { }
 }
