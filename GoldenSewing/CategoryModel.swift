@@ -11,7 +11,7 @@ import Realm
 import RealmSwift
 import Gloss
 
-private let relevance: Double = 5 * 60
+private let relevance: Double = 60 * 60 * 24 * 5
 
 public class CategoryModel: Glossy {
     

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SnapKit
 
 public class ProductsView: UIViewController {
     
     // UI elements
+    private var collectionView: ProductsCollectionView!
     
     // Data
     private var categoryId: Int!
@@ -21,6 +23,8 @@ public class ProductsView: UIViewController {
         
         self.categoryId = categoryId
         presenter = ProductsPresenter(with: categoryId, delegate: self)
+        
+        collectionView = ProductsCollectionView(presenter: presenter)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -31,6 +35,7 @@ public class ProductsView: UIViewController {
         super.loadView()
         
         configureNavigationBar()
+        configureCollectionView()
     }
     
     private func configureNavigationBar() {
@@ -46,6 +51,13 @@ public class ProductsView: UIViewController {
         label.textColor = UIColor.CustomColors.yellow
         label.text = presenter.categoryTitle()
         self.navigationItem.titleView = label
+    }
+    
+    private func configureCollectionView() {
+        self.view.addSubview(collectionView)
+        collectionView.snp.remakeConstraints { make in
+            make.size.equalToSuperview()
+        }
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -65,5 +77,9 @@ public class ProductsView: UIViewController {
 }
 
 extension ProductsView: ProductsViewDelegate {
+    
+    public func reload() {
+        collectionView.reloadData()
+    }
     
 }
