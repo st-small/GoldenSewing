@@ -58,6 +58,11 @@ public class ProductsInteractor {
             this.products.append(product)
             this.delegate.update(with: this.products)
         }
+        
+        service.onFail = { [weak self] in
+            guard let this = self else { return }
+            this.delegate.problemWithRequest()
+        }
     }
     
     public func goBack() {

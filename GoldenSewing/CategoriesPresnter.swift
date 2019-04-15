@@ -31,6 +31,7 @@ public class CategoriesPresenter {
     
     // MARK: Interface
     public func load() {
+        showLoader()
         interactor.load()
     }
     
@@ -45,6 +46,13 @@ public class CategoriesPresenter {
     public func select(_ category: Int) {
         interactor.toCategory(category)
     }
+    
+    private func showLoader() {
+        DispatchQueue.main.async { [weak self] in
+            guard let this = self else { return }
+            this.delegate.showLoader()
+        }
+    }
 }
 
 extension CategoriesPresenter: CategoriesPresenterDelegate {
@@ -58,10 +66,17 @@ extension CategoriesPresenter: CategoriesPresenterDelegate {
             }
             
             this.delegate.reload()
+            
+            guard !data.isEmpty else { return }
+            this.delegate.hideLoader()
         }
     }
     
     public func problemWithRequest() {
-        
+        DispatchQueue.main.async { [weak self] in
+            guard let this = self else { return }
+            this.delegate.problemWithRequest()
+            this.delegate.hideLoader()
+        }
     }
 }

@@ -51,7 +51,7 @@ public class CategoriesInteractor {
                 guard let this = self else {
                     return
                 }
-                
+    
                 if (response.isFail) {
                     this.delegate.problemWithRequest()
                     return
