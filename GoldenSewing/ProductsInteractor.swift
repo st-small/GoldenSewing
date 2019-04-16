@@ -11,6 +11,7 @@ import RealmSwift
 
 public protocol ProductsPresenterDelegate {
     func update(with data: [ProductModel])
+    func updateSearchResults(with data: [ProductModel])
     func problemWithRequest()
 }
 
@@ -43,6 +44,7 @@ public class ProductsInteractor {
         loadData()
 
         let cached = service.cache
+        products = cached
         delegate.update(with: cached)
     }
     
@@ -55,14 +57,30 @@ public class ProductsInteractor {
         service.all()
         service.onUpdate = { [weak self] product in
             guard let this = self else { return }
-            this.products.append(product)
-            this.delegate.update(with: this.products)
+            
+            if this.categoryId == product.id {
+                this.products.append(product)
+                this.delegate.update(with: this.products)
+            }
         }
         
         service.onFail = { [weak self] in
             guard let this = self else { return }
             this.delegate.problemWithRequest()
         }
+    }
+    
+    public func search(with text: String) {
+        let text = text.lowercased()
+        let data = products.filter { (product) -> Bool in
+            if "\(product.id)".contains(text) || product.title.lowercased().contains(text) {
+                return true
+            }
+            
+            return false
+        }
+        
+        delegate.updateSearchResults(with: data)
     }
     
     public func goBack() {

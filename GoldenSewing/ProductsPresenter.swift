@@ -13,6 +13,8 @@ public protocol ProductsViewDelegate {
     func hideLoader()
     func reload()
     func problemWithRequest()
+    func showNoResult(_ text: String)
+    func hideToasts()
 }
 
 public class ProductsPresenter {
@@ -20,6 +22,7 @@ public class ProductsPresenter {
     public var delegate: ProductsViewDelegate
     
     private var products = [ProductModel]()
+    private var searchText = ""
     private var interactor: ProductsInteractor!
     
     public init(with categoryId: Int, delegate: ProductsViewDelegate) {
@@ -53,16 +56,19 @@ public class ProductsPresenter {
         
     }
     
+    public func search(with text: String) {
+        searchText = text
+        interactor.search(with: text)
+    }
+    
     private func showLoader() {
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
             this.delegate.showLoader()
         }
     }
-}
-
-extension ProductsPresenter: ProductsPresenterDelegate {
-    public func update(with data: [ProductModel]) {
+    
+    private func update(_ data: [ProductModel]) {
         self.products = data.sorted(by: { $0.id > $1.id })
         
         DispatchQueue.main.async { [weak self] in
@@ -78,11 +84,37 @@ extension ProductsPresenter: ProductsPresenterDelegate {
         }
     }
     
+    private func hideToasts() {
+        DispatchQueue.main.async { [weak self] in
+            guard let this = self else { return }
+            this.delegate.hideToasts()
+        }
+    }
+}
+
+extension ProductsPresenter: ProductsPresenterDelegate {
+    public func update(with data: [ProductModel]) {
+        hideToasts()
+        update(data)
+    }
+    
     public func problemWithRequest() {
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
             this.delegate.problemWithRequest()
             this.delegate.hideLoader()
         }
+    }
+    
+    public func updateSearchResults(with data: [ProductModel]) {
+        hideToasts()
+        products.removeAll()
+        if data.isEmpty {
+            DispatchQueue.main.async { [weak self] in
+                guard let this = self else { return }
+                this.delegate.showNoResult(this.searchText)
+            }
+        }
+        update(data)
     }
 }
