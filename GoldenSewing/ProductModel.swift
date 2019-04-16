@@ -25,6 +25,8 @@ public class ProductModel: Glossy {
     
     public var imageContainer: ImageContainerModel?
     
+    public var bestOffer = false
+    
     public init(item: ProductModelRealmItem) {
         self.id = item.id
         self.title = item.title
@@ -37,6 +39,8 @@ public class ProductModel: Glossy {
         self.imageData = item.imageData
         
         self.imageContainer = ImageContainerModel(item: item.imageContainer)
+        
+        self.bestOffer = item.bestOffer
     }
     
     public required init?(json: JSON) {
@@ -57,15 +61,16 @@ public class ProductModel: Glossy {
         self.modified = modifiedDate.timeIntervalSince1970
         
         // image
-//        let media: [String: Any] = (Keys.better_featured_image <~~ json)!
-//        self.imageLink = media["source_url"] as! String
-        
         let media: [String: Any] = (Keys.better_featured_image <~~ json)!
         let mediaDetails: [String: Any] = (Keys.media_details <~~ media)!
         let sizes: [String: Any] = (Keys.sizes <~~ mediaDetails)!
         let thumbnail: [String: Any] = (Keys.thumbnail <~~ sizes)!
         let sourceUrl: String = (Keys.source_url <~~ thumbnail)!
         self.imageContainer = ImageContainerModel(id: id, thumb: sourceUrl)
+        
+        // tags
+        let acf: [String: Any] = (Keys.acf <~~ json)!
+        self.bestOffer = (Keys.best_offer <~~ acf)!
     }
     
     public func toJSON() -> JSON? {
@@ -87,6 +92,10 @@ public class ProductModel: Glossy {
         public static let sizes = "sizes"
         public static let thumbnail = "thumbnail"
         public static let source_url = "source_url"
+        
+        // tags
+        public static let acf = "acf"
+        public static let best_offer = "best_offer"
     }
 }
 
@@ -104,6 +113,8 @@ public class ProductModelRealmItem: Object {
     
     @objc dynamic var imageContainer: ImageContainerModelRealmItem? = nil
     
+    @objc dynamic var bestOffer = false
+    
     public convenience init(item: ProductModel) {
         self.init()
         
@@ -118,5 +129,7 @@ public class ProductModelRealmItem: Object {
         self.imageData = item.imageData
         
         self.imageContainer = ImageContainerModelRealmItem(item: item.imageContainer)
+        
+        self.bestOffer = item.bestOffer
     }
 }

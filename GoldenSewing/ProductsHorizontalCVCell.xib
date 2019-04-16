@@ -40,9 +40,17 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money-bag" translatesAutoresizingMaskIntoConstraints="NO" id="9V9-wc-PMV">
+                        <rect key="frame" x="263" y="5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="0GE-e2-6eB"/>
+                            <constraint firstAttribute="height" constant="20" id="cmr-gz-BU3"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="9V9-wc-PMV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="06G-gY-cJR"/>
                 <constraint firstItem="gLW-Dl-NOk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="6A1-1i-xmm"/>
                 <constraint firstAttribute="bottom" secondItem="ydg-98-yfA" secondAttribute="bottom" constant="15" id="A7C-Qs-4yp"/>
                 <constraint firstItem="cAe-4n-mXw" firstAttribute="leading" secondItem="gLW-Dl-NOk" secondAttribute="trailing" constant="15" id="FsL-LH-ivI"/>
@@ -51,16 +59,21 @@
                 <constraint firstItem="ydg-98-yfA" firstAttribute="top" secondItem="cAe-4n-mXw" secondAttribute="bottom" constant="5" id="TvC-wT-4r3"/>
                 <constraint firstAttribute="trailing" secondItem="ydg-98-yfA" secondAttribute="trailing" constant="15" id="YSz-Ul-EFN"/>
                 <constraint firstItem="ydg-98-yfA" firstAttribute="leading" secondItem="gLW-Dl-NOk" secondAttribute="trailing" constant="15" id="ktl-l6-caz"/>
+                <constraint firstAttribute="trailing" secondItem="9V9-wc-PMV" secondAttribute="trailing" constant="5" id="mdF-ug-Rhb"/>
                 <constraint firstAttribute="trailing" secondItem="cAe-4n-mXw" secondAttribute="trailing" constant="15" id="vUF-8c-OSJ"/>
                 <constraint firstAttribute="bottom" secondItem="gLW-Dl-NOk" secondAttribute="bottom" constant="15" id="x9k-jf-Qgz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="productBestOffer" destination="9V9-wc-PMV" id="lcg-hh-M30"/>
                 <outlet property="productImage" destination="gLW-Dl-NOk" id="L2W-q6-xGl"/>
                 <outlet property="productName" destination="cAe-4n-mXw" id="dhF-nG-DWK"/>
                 <outlet property="productVendorCode" destination="ydg-98-yfA" id="09d-Ps-Wo5"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="80.357142857142847"/>
+            <point key="canvasLocation" x="137.68115942028987" y="79.6875"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="money-bag" width="60" height="60"/>
+    </resources>
 </document>

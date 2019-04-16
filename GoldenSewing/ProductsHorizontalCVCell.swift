@@ -14,6 +14,7 @@ public class ProductsHorizontalCVCell: UICollectionViewCell {
     @IBOutlet private weak var productImage: CachedImage!
     @IBOutlet private weak var productName: UILabel!
     @IBOutlet private weak var productVendorCode: UILabel!
+    @IBOutlet private weak var productBestOffer: UIImageView!
     
     // Services
     
@@ -63,6 +64,7 @@ public class ProductsHorizontalCVCell: UICollectionViewCell {
         }
         productName.text = product.title
         productVendorCode.text = "Артикул \(product.id)"
+        productBestOffer.isHidden = !product.bestOffer
     }
 }
 
