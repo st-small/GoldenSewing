@@ -102,6 +102,7 @@
 		5282E5B2226763840089A1FD /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E5B0226763830089A1FD /* ProductDetailView.swift */; };
 		5282E5B3226763840089A1FD /* ProductDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5282E5B1226763830089A1FD /* ProductDetailView.xib */; };
 		5282E5B522676B1E0089A1FD /* OneItemCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E5B422676B1E0089A1FD /* OneItemCacheService.swift */; };
+		5282E5B7226792B10089A1FD /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E5B6226792B10089A1FD /* PopAnimator.swift */; };
 		52B47963219A0CA20099698C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B47962219A0CA20099698C /* NotificationService.swift */; };
 		52B47967219A0CA20099698C /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		52B8F4B71F57FEC500A0CD37 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8F4B51F57FEC500A0CD37 /* ProductCell.swift */; };
@@ -247,6 +248,7 @@
 		5282E5B0226763830089A1FD /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		5282E5B1226763830089A1FD /* ProductDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailView.xib; sourceTree = "<group>"; };
 		5282E5B422676B1E0089A1FD /* OneItemCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneItemCacheService.swift; sourceTree = "<group>"; };
+		5282E5B6226792B10089A1FD /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopAnimator.swift; path = Views/PopAnimator.swift; sourceTree = "<group>"; };
 		52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B47962219A0CA20099698C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		52B47964219A0CA20099698C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -623,6 +625,7 @@
 				525C38B921A4929F003FE500 /* CustomTabBarController */,
 				52B8F4B91F58405D00A0CD37 /* CustomNavigation.swift */,
 				5226D6521F57E6F200AD7812 /* PopularHeader.swift */,
+				5282E5B6226792B10089A1FD /* PopAnimator.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				5282E5A9226760C60089A1FD /* OtherProductsView.swift in Sources */,
 				525FB76D21AAC4E800F451C8 /* Collection.swift in Sources */,
 				5282E5942267606B0089A1FD /* ProductsView.swift in Sources */,
+				5282E5B7226792B10089A1FD /* PopAnimator.swift in Sources */,
 				5236B2761F3C8BC60072594D /* CollViewCell.swift in Sources */,
 				52F293111F437BBB00D07842 /* UIViewX.swift in Sources */,
 				525C38B621A48D41003FE500 /* NavigationController.swift in Sources */,

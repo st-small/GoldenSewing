@@ -38,4 +38,11 @@ public class Router {
         let detailVC = ProductDetailView(productId: productId)
         navigator?.pushViewController(detailVC, animated: true)
     }
+    
+    public func showImagePreview(_ image: Data, with transitionDelegate: UIViewControllerTransitioningDelegate) {
+        let herbDetails = UIViewController()
+        herbDetails.view.backgroundColor = .red
+        herbDetails.transitioningDelegate = transitionDelegate
+        navigator?.present(herbDetails, animated: true, completion: nil)
+    }
 }

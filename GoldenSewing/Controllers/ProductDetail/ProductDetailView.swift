@@ -17,6 +17,8 @@ public class ProductDetailView: UIViewController {
     private var productId: Int!
     private var presenter: ProductDetailPresenter!
     
+    private let transition = PopAnimator()
+    
     public init(productId: Int) {
         super.init(nibName: "ProductDetailView", bundle: Bundle.main)
         
@@ -37,6 +39,8 @@ public class ProductDetailView: UIViewController {
         productImage.layer.cornerRadius = 10.0
         productImage.layer.borderWidth = 1.0
         productImage.layer.borderColor = UIColor.CustomColors.yellow.cgColor
+        productImage.isUserInteractionEnabled = true
+        productImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapImageView)))
     }
     
     private func configureNavigationBar() {
@@ -58,6 +62,14 @@ public class ProductDetailView: UIViewController {
         super.viewDidLoad()
         
         presenter.load()
+    }
+    
+    @objc func didTapImageView(_ tap: UITapGestureRecognizer) {
+        presenter.showImagePreview(with: self)
+//        let herbDetails = UIViewController()
+//        herbDetails.view.backgroundColor = .red
+//        herbDetails.transitioningDelegate = self
+//        present(herbDetails, animated: true, completion: nil)
     }
     
     @objc private func goBack() {
@@ -86,5 +98,21 @@ extension ProductDetailView: ProductDetailViewDelegate {
     
     public func hideToasts() {
         self.view.hideAllToasts()
+    }
+}
+
+extension ProductDetailView: UIViewControllerTransitioningDelegate {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.originFrame = productImage.superview!.convert(productImage.frame, to: nil)
+        
+        transition.presenting = true
+        productImage.isHidden = true
+        
+        return transition
+    }
+    
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = false
+        return transition
     }
 }

@@ -21,18 +21,21 @@ public class ProductDetailInteractor {
     // Services
     private let realm = try! Realm()
     private let service = OneItemCacheService.shared
+    private let router = Router.shared
     
     // Tools
     private var apiQueue: AsyncQueue!
     
     // Data
     private var productId: Int!
+    private var product: ProductModel
     
     public init(with productId: Int, delegate: ProductDetailPresenterDelegate) {
         
         self.productId = productId
         self.delegate = delegate
         apiQueue = AsyncQueue.createForApi(for: "ProductDetailInteractor")
+        product = ProductModel()
         
         service.load(id: productId)
     }
@@ -44,7 +47,8 @@ public class ProductDetailInteractor {
     
     private func loadCached() {
         service.load(id: productId)
-        delegate.update(with: service.cache)
+        product = service.cache
+        delegate.update(with: product)
     }
     
     private func loadData() {
@@ -65,8 +69,12 @@ public class ProductDetailInteractor {
         return "\(product.title), \(product.id)"
     }
     
+    public func showImagePreview(with transitionDelegate: UIViewControllerTransitioningDelegate) {
+        guard let image = product.imageContainer?.imageData else { return }
+        router.showImagePreview(image, with: transitionDelegate)
+    }
+    
     public func goBack() {
-        let router = Router.shared
         router.goBack()
     }
 }

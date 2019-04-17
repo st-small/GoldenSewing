@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol ProductDetailViewDelegate {
     func showLoader()
@@ -34,6 +35,10 @@ public class ProductDetailPresenter {
     
     public func productTitle() -> String {
         return interactor.productTitle()
+    }
+    
+    public func showImagePreview(with transitionDelegate: UIViewControllerTransitioningDelegate) {
+        interactor.showImagePreview(with: transitionDelegate)
     }
     
     public func goBack() {
