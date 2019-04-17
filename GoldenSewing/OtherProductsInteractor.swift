@@ -1,28 +1,27 @@
 //
-//  ProductsInteractor.swift
+//  OtherProductsInteractor.swift
 //  GoldenSewing
 //
-//  Created by Stanly Shiyanovskiy on 3/30/19.
+//  Created by Stanly Shiyanovskiy on 4/16/19.
 //  Copyright © 2019 Stanly Shiyanovskiy. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
-public protocol ProductsPresenterDelegate {
-    func update(with data: [ProductModel])
-    func updateSearchResults(with data: [ProductModel])
+public protocol OtherProductsPresenterDelegate {
+    func update(with data: OtherProductModel)
     func problemWithRequest()
 }
 
-public class ProductsInteractor {
+public class OtherProductsInteractor {
     
-    public var delegate: ProductsPresenterDelegate
-    private var products = [ProductModel]()
+    public var delegate: OtherProductsPresenterDelegate
+    private var products: OtherProductModel?
     
     // Services
     private let realm = try! Realm()
-    private let service = ProductsCacheService.shared
+    private let service = OtherProductsCacheService.shared
     
     // Tools
     private var apiQueue: AsyncQueue!
@@ -30,11 +29,11 @@ public class ProductsInteractor {
     // Data
     private var categoryId: Int!
     
-    public init(with categoryId: Int, delegate: ProductsPresenterDelegate) {
+    public init(with categoryId: Int, delegate: OtherProductsPresenterDelegate) {
         
         self.categoryId = categoryId
         self.delegate = delegate
-        apiQueue = AsyncQueue.createForApi(for: "ProductsInteractor")
+        apiQueue = AsyncQueue.createForApi(for: "OtherProductsInteractor")
         
         service.load(id: categoryId)
     }
@@ -47,7 +46,6 @@ public class ProductsInteractor {
     private func loadCached() {
         service.load(id: categoryId)
         let cached = service.cache
-        products = cached
         delegate.update(with: cached)
     }
     
@@ -60,11 +58,7 @@ public class ProductsInteractor {
         service.all()
         service.onUpdate = { [weak self] product in
             guard let this = self else { return }
-            this.loadCached()
-//            if this.categoryId == product.id {
-//                this.products.append(product)
-//                this.delegate.update(with: this.products)
-//            }
+            this.delegate.update(with: product)
         }
         
         service.onFail = { [weak self] in
@@ -73,17 +67,15 @@ public class ProductsInteractor {
         }
     }
     
-    public func search(with text: String) {
-        let text = text.lowercased()
-        let data = products.filter { (product) -> Bool in
-            if "\(product.id)".contains(text) || product.title.lowercased().contains(text) {
-                return true
-            }
-            
-            return false
+    public func getDescription() -> String {
+        switch categoryId {
+        case 1:
+            return Constants.DescriptionText.others.textValue
+        case 18:
+            return Constants.DescriptionText.heraldry.textValue
+        default:
+            return ""
         }
-        
-        delegate.updateSearchResults(with: data)
     }
     
     public func goBack() {

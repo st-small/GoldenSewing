@@ -58,6 +58,21 @@ public class CategoriesCacheService {
     private func loadCached() {
         let array = realm.objects(CategoryModelRealmItem.self)
         cache = array.map({ CategoryModel(item: $0) })
+        
+        let heraldry = cache.filter({ $0.id == 18 })
+        if heraldry.isEmpty {
+            addHeraldry()
+        }
+    }
+    
+    private func addHeraldry() {
+        let json = ["id": 18, "count": 0, "name": "Геральдика"] as [String : Any]
+        guard let category = CategoryModel(json: json) else { return }
+        cache.append(category)
+        try! self.realm.write {
+            let item = CategoryModelRealmItem(item: category)
+            self.realm.add(item)
+        }
     }
     
     private func clearOldCached() {

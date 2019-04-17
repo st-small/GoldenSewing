@@ -22,7 +22,15 @@ public class Router {
     }
     
     public func openProductsWithCategory(_ id: Int) {
-        let products = ProductsView(categoryId: id)
-        navigator?.pushViewController(products, animated: true)
+        var productsView: UIViewController
+        
+        switch id {
+        case 1, 18:
+            productsView = OtherProductsView(categoryId: id)
+        default:
+            productsView = ProductsView(categoryId: id)
+        }
+        
+        navigator?.pushViewController(productsView, animated: true)
     }
 }

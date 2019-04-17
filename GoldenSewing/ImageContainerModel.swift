@@ -17,9 +17,13 @@ public class ImageContainerModel: Glossy {
     public var thumbnailLink: String?
     public var thumbnailData: Data?
     
-    public required init?(id: Int, thumb: String) {
+    public var imageLink: String?
+    public var imageData: Data?
+    
+    public required init(id: Int, thumb: String? = nil, image: String? = nil) {
         self.id = id
         self.thumbnailLink = thumb
+        self.imageLink = image
     }
     
     public init(item: ImageContainerModelRealmItem?) {
@@ -28,6 +32,8 @@ public class ImageContainerModel: Glossy {
         self.id = item.id
         self.thumbnailLink = item.thumbnailLink
         self.thumbnailData = item.thumbnailData
+        self.imageLink = item.imageLink
+        self.imageData = item.imageData
     }
     
     public required init?(json: JSON) {
@@ -54,6 +60,9 @@ public class ImageContainerModelRealmItem: Object {
     @objc dynamic var thumbnailLink: String? = nil
     @objc dynamic var thumbnailData: Data? = nil
     
+    @objc dynamic var imageLink: String? = nil
+    @objc dynamic var imageData: Data? = nil
+    
     public convenience init(item: ImageContainerModel?) {
         self.init()
         
@@ -61,5 +70,7 @@ public class ImageContainerModelRealmItem: Object {
         self.id = item.id
         self.thumbnailLink = item.thumbnailLink
         self.thumbnailData = item.thumbnailData
+        self.imageLink = item.imageLink
+        self.imageData = item.imageData
     }
 }

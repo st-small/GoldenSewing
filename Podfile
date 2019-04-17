@@ -14,6 +14,7 @@ target 'GoldenSewing' do
     pod 'SnapKit', '~> 4.0.0'
     pod 'SDWebImage', '~> 5.0.0'
     pod 'Toast-Swift', '~> 4.0.0'
+    pod 'SwiftSoup', '~> 1.7.4'
 
 end
 
