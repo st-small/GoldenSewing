@@ -27,6 +27,11 @@ public class ProductModel: Glossy {
     
     public var bestOffer = false
     
+    public init() {
+        self.id = 0
+        self.title = ""
+    }
+    
     public init(item: ProductModelRealmItem) {
         self.id = item.id
         self.title = item.title

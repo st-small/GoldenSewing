@@ -33,4 +33,9 @@ public class Router {
         
         navigator?.pushViewController(productsView, animated: true)
     }
+    
+    public func openDetailView(productId: Int) {
+        let detailVC = ProductDetailView(productId: productId)
+        navigator?.pushViewController(detailVC, animated: true)
+    }
 }

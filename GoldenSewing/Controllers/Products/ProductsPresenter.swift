@@ -61,6 +61,10 @@ public class ProductsPresenter {
         interactor.search(with: text)
     }
     
+    public func handleCellAction(with productId: Int) {
+        interactor.handleCellAction(with: productId)
+    }
+    
     private func showLoader() {
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }

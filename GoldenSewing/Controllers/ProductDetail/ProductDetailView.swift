@@ -1,0 +1,84 @@
+//
+//  ProductDetailView.swift
+//  GoldenSewing
+//
+//  Created by Stanly Shiyanovskiy on 4/17/19.
+//  Copyright © 2019 Stanly Shiyanovskiy. All rights reserved.
+//
+
+import UIKit
+
+public class ProductDetailView: UIViewController {
+
+    // UI elements
+    
+    
+    // Data
+    private var productId: Int!
+    private var presenter: ProductDetailPresenter!
+    
+    public init(productId: Int) {
+        super.init(nibName: "ProductDetailView", bundle: Bundle.main)
+        
+        self.productId = productId
+        presenter = ProductDetailPresenter(with: productId, delegate: self)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public override func loadView() {
+        super.loadView()
+        
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Back", in: Bundle.main, compatibleWith: nil), style: .plain, target: self, action: #selector(goBack))
+        
+        let screenWidth = UIScreen.main.bounds.width
+        let labelWidth = screenWidth - 110
+        let label = UILabel(frame: CGRect(x:(screenWidth/2) - (labelWidth/2), y:0, width: labelWidth, height: 50.0))
+        label.backgroundColor = .clear
+        label.numberOfLines = 2
+        label.font = UIFont.boldSystemFont(ofSize: 13.0)
+        label.textAlignment = .center
+        label.textColor = UIColor.CustomColors.yellow
+        label.text = presenter.productTitle()
+        self.navigationItem.titleView = label
+    }
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        presenter.load()
+    }
+    
+    @objc private func goBack() {
+        presenter.goBack()
+    }
+}
+
+extension ProductDetailView: ProductDetailViewDelegate {
+    public func showLoader() {
+        self.view.makeToastActivity(.center)
+    }
+    
+    public func hideLoader() {
+        self.view.hideToastActivity()
+    }
+    
+    public func reload(data: ProductModel) {
+        
+    }
+    
+    public func problemWithRequest() {
+        let errorMessage = "Проблемы с получением данных. Проверьте подключение интернет."
+        self.view.makeToast(errorMessage)
+    }
+    
+    public func hideToasts() {
+        self.view.hideAllToasts()
+    }
+}
