@@ -11,7 +11,7 @@ import UIKit
 public class ProductDetailView: UIViewController {
 
     // UI elements
-    
+    @IBOutlet private weak var productImage: CachedImage!
     
     // Data
     private var productId: Int!
@@ -32,6 +32,11 @@ public class ProductDetailView: UIViewController {
         super.loadView()
         
         configureNavigationBar()
+        
+        productImage.backgroundColor = .clear
+        productImage.layer.cornerRadius = 10.0
+        productImage.layer.borderWidth = 1.0
+        productImage.layer.borderColor = UIColor.CustomColors.yellow.cgColor
     }
     
     private func configureNavigationBar() {
@@ -70,7 +75,8 @@ extension ProductDetailView: ProductDetailViewDelegate {
     }
     
     public func reload(data: ProductModel) {
-        
+        guard let container = data.imageContainer else { return }
+        self.productImage.setupImage(id: data.id, url: container.imageLink)
     }
     
     public func problemWithRequest() {

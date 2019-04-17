@@ -47,14 +47,6 @@ public class ProductDetailPresenter {
         }
     }
     
-    public func update(_ data: ProductModel) {
-        DispatchQueue.main.async { [weak self] in
-            guard let this = self else { return }
-            this.delegate.reload(data: data)
-            this.delegate.hideLoader()
-        }
-    }
-    
     private func hideToasts() {
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
@@ -66,10 +58,18 @@ public class ProductDetailPresenter {
 extension ProductDetailPresenter: ProductDetailPresenterDelegate {
     
     public func update(with data: ProductModel) {
-        
+        DispatchQueue.main.async { [weak self] in
+            guard let this = self else { return }
+            this.delegate.reload(data: data)
+            this.delegate.hideLoader()
+        }
     }
     
     public func problemWithRequest() {
-        
+        DispatchQueue.main.async { [weak self] in
+            guard let this = self else { return }
+            this.delegate.problemWithRequest()
+            this.delegate.hideLoader()
+        }
     }
 }

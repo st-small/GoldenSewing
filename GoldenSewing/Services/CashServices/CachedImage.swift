@@ -96,7 +96,7 @@ extension CachedImage {
     
     public func setupImage(id: Int, url: String?) {
         guard let url = url, !url.isEmpty else { return }
-        if let image = getThumbImageFromDB(id: id) {
+        if let image = getImageFromDB(id: id) {
             self.image = image
         } else {
             let urlValue = URL(string: url)
@@ -105,7 +105,7 @@ extension CachedImage {
                 guard let this = self else { return }
                 guard
                     let image = image,
-                    let data = this.resize(image: image, maxHeight: this.imageSize, maxWidth: this.imageSize, compressionQuality: 1.0) else { return }
+                    let data = image.pngData() else { return }
                 this.saveImageToDB(id: id, data: data)
             }
         }

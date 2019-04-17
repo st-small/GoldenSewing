@@ -52,10 +52,6 @@ public class ProductsPresenter {
         return products[index]
     }
     
-    public func select(_ product: ProductModel) {
-        
-    }
-    
     public func search(with text: String) {
         searchText = text
         interactor.search(with: text)

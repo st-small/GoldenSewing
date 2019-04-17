@@ -72,6 +72,8 @@ public class ProductModel: Glossy {
         let thumbnail: [String: Any] = (Keys.thumbnail <~~ sizes)!
         let sourceUrl: String = (Keys.source_url <~~ thumbnail)!
         self.imageContainer = ImageContainerModel(id: id, thumb: sourceUrl)
+        let imageLink: String = (Keys.source_url <~~ media)!
+        self.imageContainer?.imageLink = imageLink
         
         // tags
         let acf: [String: Any] = (Keys.acf <~~ json)!
