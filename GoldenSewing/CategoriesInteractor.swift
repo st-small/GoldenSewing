@@ -18,7 +18,6 @@ public protocol CategoriesPresenterDelegate {
 public class CategoriesInteractor {
     
     public var delegate: CategoriesPresenterDelegate
-    private var categories = [CategoryModel]()
     
     // Services
     private let service = CategoriesCacheService()
@@ -32,10 +31,12 @@ public class CategoriesInteractor {
         apiQueue = AsyncQueue.createForApi(for: "CategoriesInteractor")
     }
     
-    public func load() { 
-        
+    public func load() {
         loadData()
-        
+        loadCached()
+    }
+    
+    private func loadCached() {
         service.load()
         let cached = service.cache
         delegate.update(with: cached)
@@ -57,9 +58,7 @@ public class CategoriesInteractor {
                     return
                 }
                 
-                guard let category = response.data else { return }
-                this.categories.append(category)
-                this.delegate.update(with: this.categories)
+                this.loadCached()
             }
             
         })

@@ -36,7 +36,7 @@ public class CategoryModel: Glossy {
         self.count = (Keys.count <~~ json)!
         
         self.title = (Keys.title <~~ json)!
-        self.link = (Keys.link <~~ json)!
+        self.link = (Keys.link <~~ json) ?? ""
         self.timestamp = Date().timeIntervalSince1970
     }
     

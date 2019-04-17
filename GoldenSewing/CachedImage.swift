@@ -19,6 +19,12 @@ public class CachedImage: UIImageView {
     private var defaultImage: UIImage {
         return #imageLiteral(resourceName: "Placeholder")
     }
+    private var thumbSize: Float {
+        return 60.0
+    }
+    private var imageSize: Float {
+        return Float(UIScreen.main.bounds.width)
+    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,9 +49,12 @@ public class CachedImage: UIImageView {
     public func clear() {
         self.image = defaultImage
     }
+}
+
+// MARK: - Thumb methods
+extension CachedImage {
     
     public func setupThumb(id: Int, url: String?) {
-        
         // Проверить, если для этого продукта в базе есть картинка, то показать, если нет, то грузить по сети
         guard let url = url else { return }
         if let image = getThumbImageFromDB(id: id) {
@@ -53,11 +62,12 @@ public class CachedImage: UIImageView {
         } else {
             let urlValue = URL(string: url)
             self.sd_imageIndicator = SDWebImageActivityIndicator.gray
-            self.sd_setImage(with: urlValue) { (image, _, _, _) in
+            self.sd_setImage(with: urlValue) { [weak self] (image, _, _, _) in
+                guard let this = self else { return }
                 guard
                     let image = image,
-                    let data = self.resize(image: image, maxHeight: 60.0, maxWidth: 60.0, compressionQuality: 1.0) else { return }
-                self.saveThumbImageToDB(id: id, data: data)
+                    let data = this.resize(image: image, maxHeight: this.thumbSize, maxWidth: this.thumbSize, compressionQuality: 1.0) else { return }
+                this.saveThumbImageToDB(id: id, data: data)
             }
         }
     }
@@ -79,9 +89,30 @@ public class CachedImage: UIImageView {
             currentImage.thumbnailData = data
         }
     }
+}
+
+// MARK: - Image methods
+extension CachedImage {
+    
+    public func setupImage(id: Int, url: String?) {
+        guard let url = url, !url.isEmpty else { return }
+        if let image = getThumbImageFromDB(id: id) {
+            self.image = image
+        } else {
+            let urlValue = URL(string: url)
+            self.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            self.sd_setImage(with: urlValue) { [weak self] (image, _, _, _) in
+                guard let this = self else { return }
+                guard
+                    let image = image,
+                    let data = this.resize(image: image, maxHeight: this.imageSize, maxWidth: this.imageSize, compressionQuality: 1.0) else { return }
+                this.saveImageToDB(id: id, data: data)
+            }
+        }
+    }
     
     private func getImageFromDB(id: Int) -> UIImage? {
-        guard let currentProduct = realm.objects(ProductModelRealmItem.self).filter({ $0.id == id }).first, let imageData = currentProduct.imageData else { return nil }
+        guard let currentContainer = realm.objects(ImageContainerModelRealmItem.self).filter({ $0.id == id }).first, let imageData = currentContainer.imageData else { return nil }
         
         guard let uiImage: UIImage = UIImage(data: imageData) else { return nil }
         return uiImage
@@ -90,12 +121,15 @@ public class CachedImage: UIImageView {
     private func saveImageToDB(id: Int, data: Data?) {
         guard
             let data = data,
-            let currentItem = realm.objects(ProductModelRealmItem.self).filter({ $0.id == id }).first else { return }
+            let currentImage = realm.objects(ImageContainerModelRealmItem.self).filter({ $0.id == id }).first else { return }
         try! self.realm.write {
-            currentItem.imageData = data
+            currentImage.imageData = data
         }
     }
-    
+}
+
+// MARK: - Helper methods
+extension CachedImage {
     private func resize(image: UIImage, maxHeight: Float = 500.0, maxWidth: Float = 500.0, compressionQuality: Float = 0.5) -> Data? {
         var actualHeight: Float = Float(image.size.height)
         var actualWidth: Float = Float(image.size.width)

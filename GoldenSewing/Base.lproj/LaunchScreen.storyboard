@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,25 +14,26 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="EHR-QQ-lJb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.3294117647" green="0.0" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="EHR-QQ-lJb" secondAttribute="trailing" id="IKk-Qt-cTM"/>
-                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="iWz-mq-0Eq"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="EHR-QQ-lJb" secondAttribute="bottom" id="nuq-bG-5f7"/>
+                            <constraint firstItem="AM4-nH-R5Y" firstAttribute="bottom" secondItem="EHR-QQ-lJb" secondAttribute="bottom" id="7lI-of-miP"/>
+                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="AvG-2c-Oxs"/>
+                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="leading" secondItem="AM4-nH-R5Y" secondAttribute="leading" id="EE5-kx-2s2"/>
+                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Uf2-bv-oOo"/>
+                            <constraint firstItem="AM4-nH-R5Y" firstAttribute="trailing" secondItem="EHR-QQ-lJb" secondAttribute="trailing" id="Xy2-uM-2Qr"/>
+                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="leading" secondItem="AM4-nH-R5Y" secondAttribute="leading" id="iWz-mq-0Eq"/>
                             <constraint firstItem="EHR-QQ-lJb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="rVo-cl-MZK"/>
+                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="leading" secondItem="AM4-nH-R5Y" secondAttribute="leading" id="yGF-DV-KyE"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="AM4-nH-R5Y"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

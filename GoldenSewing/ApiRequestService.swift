@@ -57,4 +57,8 @@ public class ApiRequestService {
     public func productBy(id: Int) -> RequestResult<ProductModel> {
         return client.request(action: "\(id)", method: .get, type: ProductModel.self, parameters: nil)
     }
+    
+    public func otherProducts(categoryId: Int, offset: Int = 0) -> RequestResult<OtherProductModel> {
+        return client.request(action: "\(categoryId)", method: .get, type: OtherProductModel.self, parameters: nil)
+    }
 }
