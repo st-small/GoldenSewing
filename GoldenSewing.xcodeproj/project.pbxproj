@@ -19,6 +19,8 @@
 		5236AC5F1F32F3470077AC80 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236AC5D1F32F3470077AC80 /* Product+CoreDataProperties.swift */; };
 		5236B2721F3B69C70072594D /* MetallonitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236B2711F3B69C70072594D /* MetallonitVC.swift */; };
 		5236B2761F3C8BC60072594D /* CollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236B2751F3C8BC60072594D /* CollViewCell.swift */; };
+		5238A46A2268F13E00243892 /* ImageModalViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5238A4682268F13E00243892 /* ImageModalViewer.swift */; };
+		5238A46B2268F13E00243892 /* ImageModalViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5238A4692268F13E00243892 /* ImageModalViewer.xib */; };
 		523ED3001F29CA9400BE20E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ED2FF1F29CA9400BE20E5 /* AppDelegate.swift */; };
 		523ED3051F29CA9400BE20E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523ED3031F29CA9400BE20E5 /* Main.storyboard */; };
 		523ED3071F29CA9400BE20E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523ED3061F29CA9400BE20E5 /* Assets.xcassets */; };
@@ -163,6 +165,8 @@
 		5236AC5D1F32F3470077AC80 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5236B2711F3B69C70072594D /* MetallonitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetallonitVC.swift; sourceTree = "<group>"; };
 		5236B2751F3C8BC60072594D /* CollViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollViewCell.swift; sourceTree = "<group>"; };
+		5238A4682268F13E00243892 /* ImageModalViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModalViewer.swift; sourceTree = "<group>"; };
+		5238A4692268F13E00243892 /* ImageModalViewer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageModalViewer.xib; sourceTree = "<group>"; };
 		523ED2FC1F29CA9400BE20E5 /* GoldenSewing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenSewing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523ED2FF1F29CA9400BE20E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		523ED3041F29CA9400BE20E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -578,6 +582,8 @@
 				5282E5B1226763830089A1FD /* ProductDetailView.xib */,
 				5282E5AE226760FD0089A1FD /* ProductDetailPresenter.swift */,
 				5282E5AC226760EA0089A1FD /* ProductDetailInteractor.swift */,
+				5238A4682268F13E00243892 /* ImageModalViewer.swift */,
+				5238A4692268F13E00243892 /* ImageModalViewer.xib */,
 			);
 			name = ProductDetail;
 			path = Controllers/ProductDetail;
@@ -751,6 +757,7 @@
 				52B8F4B81F57FEC500A0CD37 /* ProductCell.xib in Resources */,
 				523ED3071F29CA9400BE20E5 /* Assets.xcassets in Resources */,
 				5282E57122675F580089A1FD /* GreetingController.xib in Resources */,
+				5238A46B2268F13E00243892 /* ImageModalViewer.xib in Resources */,
 				523ED3051F29CA9400BE20E5 /* Main.storyboard in Resources */,
 				52F372EE2183889E00C1FAEE /* GoogleService-Info.plist in Resources */,
 				5282E57F226760030089A1FD /* CategoriesView.xib in Resources */,
@@ -962,6 +969,7 @@
 				525C38B821A491B5003FE500 /* Router.swift in Sources */,
 				5251084F1F307EF60044804C /* ProductCategory+CoreDataProperties.swift in Sources */,
 				5282E5902267606B0089A1FD /* ProductCardProtocol.swift in Sources */,
+				5238A46A2268F13E00243892 /* ImageModalViewer.swift in Sources */,
 				5236AC5F1F32F3470077AC80 /* Product+CoreDataProperties.swift in Sources */,
 				5250C9291F42CC2900153E65 /* UIApplication+Extension.swift in Sources */,
 				5282E5B2226763840089A1FD /* ProductDetailView.swift in Sources */,

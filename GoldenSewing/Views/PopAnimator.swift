@@ -8,58 +8,80 @@
 
 import UIKit
 
+public protocol ImageTransitionProtocol {
+    func tranisitionSetup()
+    func tranisitionCleanup()
+    func imageWindowFrame() -> CGRect
+}
+
 public class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    public var presenting = true
-    public var originFrame = CGRect.zero
+    private var image: UIImage?
+    private var fromDelegate: ImageTransitionProtocol?
+    private var toDelegate: ImageTransitionProtocol?
     
-    private let duration = 1.0
-    private var dismissCompletion: (()->Void)?
+    public func setupImageTransition(image: UIImage, fromDelegate: ImageTransitionProtocol, toDelegate: ImageTransitionProtocol) {
+        self.image = image
+        self.fromDelegate = fromDelegate
+        self.toDelegate = toDelegate
+    }
     
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return duration
+        return 1
     }
     
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
         let containerView = transitionContext.containerView
-        let toView = transitionContext.view(forKey: .to)!
-        let childView = presenting ? toView : transitionContext.view(forKey: .from)!
-        
-        let initialFrame = presenting ? originFrame : childView.frame
-        let finalFrame = presenting ? childView.frame : originFrame
-        
-        let xScaleFactor = presenting ?
-            initialFrame.width / finalFrame.width :
-            finalFrame.width / initialFrame.width
-        
-        let yScaleFactor = presenting ?
-            initialFrame.height / finalFrame.height :
-            finalFrame.height / initialFrame.height
-        
-        let scaleTransform = CGAffineTransform(scaleX: xScaleFactor, y: yScaleFactor)
-        
-        if presenting {
-            childView.transform = scaleTransform
-            childView.center = CGPoint(
-                x: initialFrame.midX,
-                y: initialFrame.midY)
-            childView.clipsToBounds = true
+        guard
+            let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+            else {
+                return
         }
         
-        containerView.addSubview(toView)
-        containerView.bringSubviewToFront(childView)
+        toVC.view.frame = fromVC.view.frame
         
-        UIView.animate(withDuration: duration, delay:0.0,
-                       usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0,
-                       animations: {
-                        childView.transform = self.presenting ? CGAffineTransform.identity : scaleTransform
-                        childView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
-        }, completion: { _ in
-            if !self.presenting {
-                self.dismissCompletion?()
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFill
+        imageView.frame = (fromDelegate == nil) ? CGRect.zero : fromDelegate!.imageWindowFrame()
+        imageView.clipsToBounds = true
+        containerView.addSubview(imageView)
+        
+        fromDelegate!.tranisitionSetup()
+        toDelegate!.tranisitionSetup()
+        
+        guard let fromSnapshot = fromVC.view.snapshotView(afterScreenUpdates: true) else { return }
+        fromSnapshot.frame = fromVC.view.frame
+        containerView.addSubview(fromSnapshot)
+        
+        guard let toSnapshot = toVC.view.snapshotView(afterScreenUpdates: true) else { return }
+        toSnapshot.frame = fromVC.view.frame
+        containerView.addSubview(toSnapshot)
+        toSnapshot.alpha = 0
+        
+        containerView.bringSubviewToFront(imageView)
+        let toFrame = (self.toDelegate == nil) ? CGRect.zero : self.toDelegate!.imageWindowFrame()
+        
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0.85, initialSpringVelocity: 0.8, options: .curveEaseOut, animations: {
+            toSnapshot.alpha = 1
+            imageView.frame = toFrame
+            
+        }, completion:{ [weak self] (finished) in
+            
+            self?.toDelegate!.tranisitionCleanup()
+            self?.fromDelegate!.tranisitionCleanup()
+            
+            imageView.removeFromSuperview()
+            fromSnapshot.removeFromSuperview()
+            toSnapshot.removeFromSuperview()
+            
+            if !transitionContext.transitionWasCancelled {
+                containerView.addSubview(toVC.view)
             }
-            transitionContext.completeTransition(true)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }
 }
+
 

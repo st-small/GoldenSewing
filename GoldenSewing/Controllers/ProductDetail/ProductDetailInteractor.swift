@@ -70,8 +70,7 @@ public class ProductDetailInteractor {
     }
     
     public func showImagePreview(with transitionDelegate: UIViewControllerTransitioningDelegate) {
-        guard let image = product.imageContainer?.imageData else { return }
-        router.showImagePreview(image, with: transitionDelegate)
+        router.showImagePreview(productId, with: transitionDelegate)
     }
     
     public func goBack() {

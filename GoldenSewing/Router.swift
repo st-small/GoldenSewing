@@ -39,10 +39,9 @@ public class Router {
         navigator?.pushViewController(detailVC, animated: true)
     }
     
-    public func showImagePreview(_ image: Data, with transitionDelegate: UIViewControllerTransitioningDelegate) {
-        let herbDetails = UIViewController()
-        herbDetails.view.backgroundColor = .red
-        herbDetails.transitioningDelegate = transitionDelegate
-        navigator?.present(herbDetails, animated: true, completion: nil)
+    public func showImagePreview(_ id: Int, with transitionDelegate: UIViewControllerTransitioningDelegate) {
+        let imagePreview = ImageModalViewer(productId: id)
+        imagePreview.transitioningDelegate = transitionDelegate
+        navigator?.present(imagePreview, animated: true, completion: nil)
     }
 }

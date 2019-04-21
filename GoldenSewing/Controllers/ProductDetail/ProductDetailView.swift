@@ -18,6 +18,7 @@ public class ProductDetailView: UIViewController {
     private var presenter: ProductDetailPresenter!
     
     private let transition = PopAnimator()
+    private var hideSelectedCell: Bool = false
     
     public init(productId: Int) {
         super.init(nibName: "ProductDetailView", bundle: Bundle.main)
@@ -64,12 +65,13 @@ public class ProductDetailView: UIViewController {
         presenter.load()
     }
     
+    private func updateImage(_ isShow: Bool) {
+        self.productImage.alpha = isShow ? 1.0 : 0.25
+    }
+    
     @objc func didTapImageView(_ tap: UITapGestureRecognizer) {
+        guard let _ = productImage.image else { return }
         presenter.showImagePreview(with: self)
-//        let herbDetails = UIViewController()
-//        herbDetails.view.backgroundColor = .red
-//        herbDetails.transitioningDelegate = self
-//        present(herbDetails, animated: true, completion: nil)
     }
     
     @objc private func goBack() {
@@ -103,16 +105,36 @@ extension ProductDetailView: ProductDetailViewDelegate {
 
 extension ProductDetailView: UIViewControllerTransitioningDelegate {
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.originFrame = productImage.superview!.convert(productImage.frame, to: nil)
-        
-        transition.presenting = true
-        productImage.isHidden = true
-        
+        let previewView = presented as! ImageModalViewer
+        guard let image = productImage.image else { return nil }
+        transition.setupImageTransition(image: image, fromDelegate: self, toDelegate: previewView)
         return transition
     }
     
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.presenting = false
+        let previewView = dismissed as! ImageModalViewer
+        guard let image = productImage.image else { return nil }
+        transition.setupImageTransition(image: image, fromDelegate: previewView, toDelegate: self)
         return transition
+    }
+}
+
+extension ProductDetailView: ImageTransitionProtocol {
+    
+    public func tranisitionSetup() {
+        updateImage(false)
+        //photosCollectionView.reloadData()
+    }
+    
+    public func tranisitionCleanup() {
+        updateImage(true)
+        //photosCollectionView.reloadData()
+    }
+    
+    public func imageWindowFrame() -> CGRect {
+        let current = self.view.convert(productImage.frame, to: self.view.superview)
+//        let customY = current.minY + 64.0
+//        let rect = CGRect(x: current.minX, y: customY, width: current.width, height: current.height)
+        return current
     }
 }
