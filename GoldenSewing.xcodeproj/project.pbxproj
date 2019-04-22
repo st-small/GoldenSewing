@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		521492CF1F45DE8C00A75BE1 /* HidingNavigationBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521492CD1F45DE8C00A75BE1 /* HidingNavigationBarManager.swift */; };
 		521492D01F45DE8C00A75BE1 /* HidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521492CE1F45DE8C00A75BE1 /* HidingViewController.swift */; };
+		52214341226E3AF200CE79EE /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5221433F226E3AF200CE79EE /* AboutUsView.swift */; };
+		52214342226E3AF200CE79EE /* AboutUsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52214340226E3AF200CE79EE /* AboutUsView.xib */; };
 		52253B261F38DAC8009DF046 /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52253B251F38DAC8009DF046 /* CategoriesVC.swift */; };
 		52253B281F39A134009DF046 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52253B271F39A134009DF046 /* String+Extension.swift */; };
 		52253B2A1F39EAEE009DF046 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52253B291F39EAEE009DF046 /* UITableViewCell+Extension.swift */; };
@@ -155,6 +157,8 @@
 		190674E63E3D99AE2F535BE5 /* Pods-GoldenSewing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenSewing.release.xcconfig"; path = "Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing.release.xcconfig"; sourceTree = "<group>"; };
 		521492CD1F45DE8C00A75BE1 /* HidingNavigationBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingNavigationBarManager.swift; sourceTree = "<group>"; };
 		521492CE1F45DE8C00A75BE1 /* HidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingViewController.swift; sourceTree = "<group>"; };
+		5221433F226E3AF200CE79EE /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
+		52214340226E3AF200CE79EE /* AboutUsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUsView.xib; sourceTree = "<group>"; };
 		52253B251F38DAC8009DF046 /* CategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		52253B271F39A134009DF046 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		52253B291F39EAEE009DF046 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
@@ -322,6 +326,15 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
+		5221433E226E3ABB00CE79EE /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				5221433F226E3AF200CE79EE /* AboutUsView.swift */,
+				52214340226E3AF200CE79EE /* AboutUsView.xib */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
 		523ED2F31F29CA9400BE20E5 = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +379,7 @@
 				525C38AF21A487C8003FE500 /* Launcher */,
 				525C38C021A4AA3E003FE500 /* Onboarding */,
 				5282E577226760030089A1FD /* Categories */,
+				5221433E226E3ABB00CE79EE /* AboutUs */,
 				5282E5852267606B0089A1FD /* Products */,
 				5282E597226760C60089A1FD /* OtherProducts */,
 				5282E5AB226760EA0089A1FD /* ProductDetail */,
@@ -772,6 +786,7 @@
 				5282E580226760030089A1FD /* CategoriesCell.xib in Resources */,
 				5282E5A8226760C60089A1FD /* OtherProductsView.xib in Resources */,
 				5282E5932267606B0089A1FD /* ProductsView.xib in Resources */,
+				52214342226E3AF200CE79EE /* AboutUsView.xib in Resources */,
 				5282E5B3226763840089A1FD /* ProductDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -903,6 +918,7 @@
 				57CAB2AE1F4B597000861C6A /* CustomScroll.swift in Sources */,
 				5250C92B1F42DF6600153E65 /* FoldingCell.swift in Sources */,
 				525108421F2FB35F0044804C /* PersistentService.swift in Sources */,
+				52214341226E3AF200CE79EE /* AboutUsView.swift in Sources */,
 				5726DB131F48975E0019C984 /* ProductsVC.swift in Sources */,
 				5226D6511F51CDF300AD7812 /* PopularVC.swift in Sources */,
 				5282E56422675E590089A1FD /* OtherProductModel.swift in Sources */,
