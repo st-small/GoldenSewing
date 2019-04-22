@@ -60,7 +60,7 @@ public class CategoriesCacheService {
         cache = array.map({ CategoryModel(item: $0) })
         
         let heraldry = cache.filter({ $0.id == 18 })
-        if heraldry.isEmpty {
+        if !cache.isEmpty && heraldry.isEmpty {
             addHeraldry()
         }
     }

@@ -33,4 +33,15 @@ public class Router {
         
         navigator?.pushViewController(productsView, animated: true)
     }
+    
+    public func openDetailView(productId: Int) {
+        let detailVC = ProductDetailView(productId: productId)
+        navigator?.pushViewController(detailVC, animated: true)
+    }
+    
+    public func showImagePreview(_ id: Int, with transitionDelegate: UIViewControllerTransitioningDelegate) {
+        let imagePreview = ImageModalViewer(productId: id)
+        imagePreview.transitioningDelegate = transitionDelegate
+        navigator?.present(imagePreview, animated: true, completion: nil)
+    }
 }

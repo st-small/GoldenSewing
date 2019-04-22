@@ -23,6 +23,7 @@ public class ProductsInteractor {
     // Services
     private let realm = try! Realm()
     private let service = ProductsCacheService.shared
+    private let router = Router.shared
     
     // Tools
     private var apiQueue: AsyncQueue!
@@ -86,8 +87,11 @@ public class ProductsInteractor {
         delegate.updateSearchResults(with: data)
     }
     
+    public func handleCellAction(with productId: Int) {
+        router.openDetailView(productId: productId)
+    }
+    
     public func goBack() {
-        let router = Router.shared
         router.goBack()
     }
 }

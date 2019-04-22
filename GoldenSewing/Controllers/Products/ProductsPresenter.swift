@@ -52,13 +52,13 @@ public class ProductsPresenter {
         return products[index]
     }
     
-    public func select(_ product: ProductModel) {
-        
-    }
-    
     public func search(with text: String) {
         searchText = text
         interactor.search(with: text)
+    }
+    
+    public func handleCellAction(with productId: Int) {
+        interactor.handleCellAction(with: productId)
     }
     
     private func showLoader() {

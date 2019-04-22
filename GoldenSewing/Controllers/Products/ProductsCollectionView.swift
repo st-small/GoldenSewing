@@ -50,7 +50,7 @@ public class ProductsCollectionView: UICollectionView {
 extension ProductsCollectionView: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = presenter.productAt(indexPath.row)
-        //presenter.handleCellAction(with: place.id)
+        presenter.handleCellAction(with: product.id)
     }
 }
 
