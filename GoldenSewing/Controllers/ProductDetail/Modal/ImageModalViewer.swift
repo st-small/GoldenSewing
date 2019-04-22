@@ -75,7 +75,7 @@ public class ImageModalViewer: UIViewController {
         self.view.addSubview(scrollView)
         
         scrollView.snp.remakeConstraints { make in
-            make.size.equalToSuperview()
+            make.top.bottom.leading.trailing.equalToSuperview()
         }
         
         let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(backButtonTapped))

@@ -313,6 +313,15 @@
 			path = GoldenSewing;
 			sourceTree = "<group>";
 		};
+		5221433D226E387B00CE79EE /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				5238A4682268F13E00243892 /* ImageModalViewer.swift */,
+				5238A4692268F13E00243892 /* ImageModalViewer.xib */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		523ED2F31F29CA9400BE20E5 = {
 			isa = PBXGroup;
 			children = (
@@ -582,8 +591,7 @@
 				5282E5B1226763830089A1FD /* ProductDetailView.xib */,
 				5282E5AE226760FD0089A1FD /* ProductDetailPresenter.swift */,
 				5282E5AC226760EA0089A1FD /* ProductDetailInteractor.swift */,
-				5238A4682268F13E00243892 /* ImageModalViewer.swift */,
-				5238A4692268F13E00243892 /* ImageModalViewer.xib */,
+				5221433D226E387B00CE79EE /* Modal */,
 			);
 			name = ProductDetail;
 			path = Controllers/ProductDetail;

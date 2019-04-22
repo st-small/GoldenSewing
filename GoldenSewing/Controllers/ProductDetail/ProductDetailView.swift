@@ -11,10 +11,17 @@ import UIKit
 public class ProductDetailView: UIViewController {
 
     // UI elements
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var productImage: CachedImage!
+    @IBOutlet private weak var productTitle: UILabel!
+    @IBOutlet private weak var productVendorCode: UILabel!
+    @IBOutlet private weak var productEmbroideryType: UILabel!
+    @IBOutlet private weak var productClothTags: UILabel!
+    @IBOutlet private weak var productInlayTags: UILabel!
     
     // Data
     private var productId: Int!
+    private var productItem: ProductModel?
     private var presenter: ProductDetailPresenter!
     
     private let transition = PopAnimator()
@@ -42,6 +49,12 @@ public class ProductDetailView: UIViewController {
         productImage.layer.borderColor = UIColor.CustomColors.yellow.cgColor
         productImage.isUserInteractionEnabled = true
         productImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapImageView)))
+        
+        productTitle.textColor = UIColor.CustomColors.yellow
+        productVendorCode.textColor = UIColor.CustomColors.yellow
+        productEmbroideryType.textColor = UIColor.CustomColors.yellow
+        productClothTags.textColor = UIColor.CustomColors.yellow
+        productInlayTags.textColor = UIColor.CustomColors.yellow
     }
     
     private func configureNavigationBar() {
@@ -59,10 +72,57 @@ public class ProductDetailView: UIViewController {
         self.navigationItem.titleView = label
     }
     
+    private func configureTitle() {
+        productTitle.isHidden = true
+        guard let title = productItem?.title else { return }
+        productTitle.text = "Наименование: \(title)"
+        productTitle.isHidden = false
+    }
+    
+    private func configureVendorCode() {
+        productVendorCode.isHidden = true
+        guard let id = productId else { return }
+        productVendorCode.text = "Артикул: \(id)"
+        productVendorCode.isHidden = false
+    }
+    
+    private func configureEmbroideryType() {
+        productEmbroideryType.isHidden = true
+        guard
+            let type = productItem?.embroideryType,
+            !type.isEmpty else { return }
+        productEmbroideryType.text = type
+        productEmbroideryType.isHidden = false
+    }
+    
+    private func configureClothTags() {
+        productClothTags.isHidden = true
+        guard
+            let clothType = productItem?.clothType, !clothType.isEmpty else { return }
+        let tags = clothType.joined(separator: ", ").lowercased()
+        productClothTags.text = "Ткань: \(tags)"
+        productClothTags.isHidden = false
+    }
+    
+    private func configureInlayTags() {
+        productInlayTags.isHidden = true
+        guard
+            let inlayType = productItem?.inlayType, !inlayType.isEmpty else { return }
+        let tags = inlayType.joined(separator: ", ")
+        productInlayTags.text = "Инкрустация: \(tags)"
+        productInlayTags.isHidden = false
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         presenter.load()
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        scrollView.setContentOffset(.zero, animated: false)
     }
     
     private func updateImage(_ isShow: Bool) {
@@ -89,8 +149,14 @@ extension ProductDetailView: ProductDetailViewDelegate {
     }
     
     public func reload(data: ProductModel) {
+        productItem = data
         guard let container = data.imageContainer else { return }
-        self.productImage.setupImage(id: data.id, url: container.imageLink)
+        productImage.setupImage(id: data.id, url: container.imageLink)
+        configureTitle()
+        configureVendorCode()
+        configureEmbroideryType()
+        configureClothTags()
+        configureInlayTags()
     }
     
     public func problemWithRequest() {
@@ -133,8 +199,6 @@ extension ProductDetailView: ImageTransitionProtocol {
     
     public func imageWindowFrame() -> CGRect {
         let current = self.view.convert(productImage.frame, to: self.view.superview)
-//        let customY = current.minY + 64.0
-//        let rect = CGRect(x: current.minX, y: customY, width: current.width, height: current.height)
         return current
     }
 }
