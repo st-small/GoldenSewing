@@ -26,10 +26,15 @@ public class CustomTabBarController: UITabBarController {
         categories.tabBarItem = buildTabItem(icon: "categories", title: "Категории")
         tabs[.categories] = categories
         
+        let about = AboutUsView()
+        about.tabBarItem = buildTabItem(icon: "AboutUsTabBarIcon", title: "О нас")
+        tabs[.aboutUs] = about
+        
         self.viewControllers = [
-            categories]
+            categories, about]
         
         downTabLabels()
+        focusOn(.categories)
     }
     
     private func buildTabItem(icon: String, title: String) -> UITabBarItem {
