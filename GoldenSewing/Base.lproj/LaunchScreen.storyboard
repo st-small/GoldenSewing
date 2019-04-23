@@ -19,18 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="EHR-QQ-lJb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="24" width="414" height="838"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.3294117647" green="0.0" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="top" secondItem="AM4-nH-R5Y" secondAttribute="top" constant="-20" id="1HW-wT-2aa"/>
                             <constraint firstItem="AM4-nH-R5Y" firstAttribute="bottom" secondItem="EHR-QQ-lJb" secondAttribute="bottom" id="7lI-of-miP"/>
-                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="AvG-2c-Oxs"/>
-                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="leading" secondItem="AM4-nH-R5Y" secondAttribute="leading" id="EE5-kx-2s2"/>
-                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Uf2-bv-oOo"/>
                             <constraint firstItem="AM4-nH-R5Y" firstAttribute="trailing" secondItem="EHR-QQ-lJb" secondAttribute="trailing" id="Xy2-uM-2Qr"/>
-                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="leading" secondItem="AM4-nH-R5Y" secondAttribute="leading" id="iWz-mq-0Eq"/>
-                            <constraint firstItem="EHR-QQ-lJb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="rVo-cl-MZK"/>
                             <constraint firstItem="EHR-QQ-lJb" firstAttribute="leading" secondItem="AM4-nH-R5Y" secondAttribute="leading" id="yGF-DV-KyE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AM4-nH-R5Y"/>
