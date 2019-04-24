@@ -19,7 +19,11 @@ public class ContactsView: UIViewController {
     @IBOutlet private weak var webAction: UIButton!
     @IBOutlet private weak var phoneAction: UIButton!
     @IBOutlet private weak var mailAction: UIButton!
+    @IBOutlet private weak var naviAction: UIButton!
     @IBOutlet private weak var stack: UIStackView!
+    
+    private var locationManager: CLLocationManager!
+    private var currentLocation: CLLocation?
     
     public init() {
         super.init(nibName: "ContactsView", bundle: Bundle.main)
@@ -49,7 +53,7 @@ public class ContactsView: UIViewController {
         configureToast()
         
         stack.snp.remakeConstraints { make in
-            let width = UIScreen.main.bounds.width - 64.0
+            let width = UIScreen.main.bounds.width - 32.0
             make.width.equalTo(width)
         }
     }
@@ -59,36 +63,36 @@ public class ContactsView: UIViewController {
         mapView.layer.cornerRadius = 10.0
         mapView.layer.borderWidth = 1.0
         mapView.layer.borderColor = UIColor.CustomColors.yellow.cgColor
-        
+        mapView.showsUserLocation = true
         mapView.delegate = self
         
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString("город Кропивницький, улица Михайловская, 73") { (placemarks, error) in
-            
-            guard error == nil else { return }
-            guard let placemarks = placemarks else { return }
-            
-            let placemark = placemarks.first!
-            
-            let annotation = MKPointAnnotation()
-            annotation.title = "ХПП «Золотое шитье»"
-            annotation.subtitle = "Ручная и машинная вышивка"
-            
-            guard let location = placemark.location else { return }
-            annotation.coordinate = location.coordinate
-            
-            self.mapView.showAnnotations([annotation], animated: true)
-            self.mapView.selectAnnotation(annotation, animated: true)
-        }
+        let showroom = MKPointAnnotation()
+        showroom.title = "ХПП «Золотое шитье»"
+        showroom.subtitle = "Ручная и машинная вышивка"
+        showroom.coordinate = CLLocationCoordinate2D(latitude: 48.5054913, longitude: 32.270159)
+        mapView.addAnnotation(showroom)
         
-        let tapRecognizer = UITapGestureRecognizer(target: self, action:#selector(openMapApp(recognizer:)))
-        mapView.addGestureRecognizer(tapRecognizer)
+        let factory = MKPointAnnotation()
+        factory.title = "ХПП «Золотое шитье»"
+        factory.subtitle = "Мастерские, прием заказов"
+        factory.coordinate = CLLocationCoordinate2D(latitude: 48.515395, longitude:  32.276808)
+        mapView.addAnnotation(factory)
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        }
     }
     
     private func configureActions() {
         webAction.addTarget(self, action: #selector(openUrl), for: .touchUpInside)
         phoneAction.addTarget(self, action: #selector(makeCall), for: .touchUpInside)
         mailAction.addTarget(self, action: #selector(sendEmail), for: .touchUpInside)
+        naviAction.addTarget(self, action: #selector(openMapApp), for: .touchUpInside)
     }
     
     private func configureToast() {
@@ -104,26 +108,28 @@ public class ContactsView: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-    @objc private func openMapApp(recognizer: UITapGestureRecognizer) {
-        let latitude: CLLocationDegrees = 48.504931
-        let longitude: CLLocationDegrees = 32.269919
+    @objc private func openMapApp() {
+
+        let items: [MKMapItem] = mapView.annotations.compactMap({ anno in
+            guard
+                let title = anno.title,
+                title == "ХПП «Золотое шитье»" else { return nil }
+            let coordinates = CLLocationCoordinate2DMake(anno.coordinate.latitude, anno.coordinate.longitude)
+            let mark = MKPlacemark(coordinate: coordinates)
+            let mapItem = MKMapItem(placemark: mark)
+            
+            if let name = anno.subtitle {
+                mapItem.name = name
+            }
+            
+            return mapItem
+        })
         
-        let regionDistance:CLLocationDistance = 10000
-        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        let regionSpan = MKCoordinateRegion.init(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
-        let placemarkMap = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let mapItem = MKMapItem(placemark: placemarkMap)
-        mapItem.name = "ХПП «Золотое шитье»"
-        mapItem.openInMaps(launchOptions: options)
+        MKMapItem.openMaps(with: items, launchOptions: nil)
     }
+
     
     @objc private func openUrl() {
         if let url = URL(string: "http://www.zolotoe-shitvo.kr.ua") {
@@ -169,8 +175,21 @@ public class ContactsView: UIViewController {
     }
 }
 
-extension ContactsView: MKMapViewDelegate {
+extension ContactsView: MKMapViewDelegate { }
+
+extension ContactsView: CLLocationManagerDelegate {
     
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        defer { currentLocation = locations.last }
+        
+        if currentLocation == nil {
+            if let userLocation = locations.last {
+                let viewRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
+                mapView.setRegion(viewRegion, animated: false)
+            }
+            mapView.showAnnotations(mapView.annotations, animated: true)
+        }
+    }
 }
 
 extension ContactsView: MFMailComposeViewControllerDelegate {

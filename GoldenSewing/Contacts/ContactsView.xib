@@ -15,6 +15,7 @@
                 <outlet property="descriptionText" destination="Vhk-we-Tsg" id="VxQ-Dp-5oV"/>
                 <outlet property="mailAction" destination="I13-c4-3om" id="c0E-vQ-6hw"/>
                 <outlet property="mapView" destination="gDb-Vb-rXe" id="Ks6-yz-uJv"/>
+                <outlet property="naviAction" destination="dGr-oe-RdG" id="kBl-R7-sm8"/>
                 <outlet property="phoneAction" destination="chR-a3-z93" id="Hvt-8I-SnY"/>
                 <outlet property="stack" destination="feE-RQ-7nm" id="2IE-Xj-Zsx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -45,32 +46,37 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gDb-Vb-rXe">
                     <rect key="frame" x="16" y="96.5" width="382" height="689.5"/>
                 </mapView>
-                <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="feE-RQ-7nm">
-                    <rect key="frame" x="91" y="802" width="232" height="44"/>
+                <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalCentering" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="feE-RQ-7nm">
+                    <rect key="frame" x="54.5" y="802" width="305" height="44"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rc2-fd-hXO">
                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="8Ar-9z-JOR"/>
-                                <constraint firstAttribute="width" constant="44" id="Mrt-Pe-UzU"/>
+                                <constraint firstAttribute="width" constant="44" id="Yq7-R7-RE0"/>
                             </constraints>
                             <state key="normal" image="web"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chR-a3-z93">
-                            <rect key="frame" x="94" y="0.0" width="44" height="44"/>
+                            <rect key="frame" x="84" y="0.0" width="50" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="VFn-ai-98P"/>
-                                <constraint firstAttribute="width" constant="44" id="fdZ-LF-XCn"/>
+                                <constraint firstAttribute="width" constant="50" id="Grm-gU-i6T"/>
                             </constraints>
                             <state key="normal" image="call"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I13-c4-3om">
-                            <rect key="frame" x="188" y="0.0" width="44" height="44"/>
+                            <rect key="frame" x="164" y="2" width="64" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="MN0-jH-SXN"/>
-                                <constraint firstAttribute="width" constant="44" id="bD7-8j-XRz"/>
+                                <constraint firstAttribute="width" constant="64" id="YW9-pu-tUP"/>
+                                <constraint firstAttribute="height" constant="40" id="mtG-C2-3jx"/>
                             </constraints>
                             <state key="normal" image="mail"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGr-oe-RdG">
+                            <rect key="frame" x="261" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="gYQ-us-LIa"/>
+                            </constraints>
+                            <state key="normal" image="navi"/>
                         </button>
                     </subviews>
                     <constraints>
@@ -100,8 +106,9 @@
     </objects>
     <resources>
         <image name="Background" width="320" height="337"/>
-        <image name="call" width="100" height="100"/>
-        <image name="mail" width="100" height="100"/>
+        <image name="call" width="112" height="100"/>
+        <image name="mail" width="135.5" height="100"/>
+        <image name="navi" width="100" height="100"/>
         <image name="web" width="100" height="100"/>
     </resources>
 </document>
