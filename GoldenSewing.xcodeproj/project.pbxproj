@@ -11,6 +11,8 @@
 		521492D01F45DE8C00A75BE1 /* HidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521492CE1F45DE8C00A75BE1 /* HidingViewController.swift */; };
 		52214341226E3AF200CE79EE /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5221433F226E3AF200CE79EE /* AboutUsView.swift */; };
 		52214342226E3AF200CE79EE /* AboutUsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52214340226E3AF200CE79EE /* AboutUsView.xib */; };
+		52214346226E46BB00CE79EE /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52214344226E46BB00CE79EE /* ContactsView.swift */; };
+		52214347226E46BB00CE79EE /* ContactsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52214345226E46BB00CE79EE /* ContactsView.xib */; };
 		52253B261F38DAC8009DF046 /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52253B251F38DAC8009DF046 /* CategoriesVC.swift */; };
 		52253B281F39A134009DF046 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52253B271F39A134009DF046 /* String+Extension.swift */; };
 		52253B2A1F39EAEE009DF046 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52253B291F39EAEE009DF046 /* UITableViewCell+Extension.swift */; };
@@ -159,6 +161,8 @@
 		521492CE1F45DE8C00A75BE1 /* HidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingViewController.swift; sourceTree = "<group>"; };
 		5221433F226E3AF200CE79EE /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
 		52214340226E3AF200CE79EE /* AboutUsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUsView.xib; sourceTree = "<group>"; };
+		52214344226E46BB00CE79EE /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		52214345226E46BB00CE79EE /* ContactsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsView.xib; sourceTree = "<group>"; };
 		52253B251F38DAC8009DF046 /* CategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		52253B271F39A134009DF046 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		52253B291F39EAEE009DF046 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
@@ -335,6 +339,15 @@
 			path = AboutUs;
 			sourceTree = "<group>";
 		};
+		52214343226E469C00CE79EE /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				52214344226E46BB00CE79EE /* ContactsView.swift */,
+				52214345226E46BB00CE79EE /* ContactsView.xib */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
 		523ED2F31F29CA9400BE20E5 = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +393,7 @@
 				525C38C021A4AA3E003FE500 /* Onboarding */,
 				5282E577226760030089A1FD /* Categories */,
 				5221433E226E3ABB00CE79EE /* AboutUs */,
+				52214343226E469C00CE79EE /* Contacts */,
 				5282E5852267606B0089A1FD /* Products */,
 				5282E597226760C60089A1FD /* OtherProducts */,
 				5282E5AB226760EA0089A1FD /* ProductDetail */,
@@ -776,6 +790,7 @@
 				573B0CF31F49C76B00BD6121 /* pop.mp3 in Resources */,
 				523ED30A1F29CA9400BE20E5 /* LaunchScreen.storyboard in Resources */,
 				5282E5A4226760C60089A1FD /* OtherProductsCVCell.xib in Resources */,
+				52214347226E46BB00CE79EE /* ContactsView.xib in Resources */,
 				52B8F4B81F57FEC500A0CD37 /* ProductCell.xib in Resources */,
 				523ED3071F29CA9400BE20E5 /* Assets.xcassets in Resources */,
 				5282E57122675F580089A1FD /* GreetingController.xib in Resources */,
@@ -994,6 +1009,7 @@
 				5251084F1F307EF60044804C /* ProductCategory+CoreDataProperties.swift in Sources */,
 				5282E5902267606B0089A1FD /* ProductCardProtocol.swift in Sources */,
 				5238A46A2268F13E00243892 /* ImageModalViewer.swift in Sources */,
+				52214346226E46BB00CE79EE /* ContactsView.swift in Sources */,
 				5236AC5F1F32F3470077AC80 /* Product+CoreDataProperties.swift in Sources */,
 				5250C9291F42CC2900153E65 /* UIApplication+Extension.swift in Sources */,
 				5282E5B2226763840089A1FD /* ProductDetailView.swift in Sources */,
