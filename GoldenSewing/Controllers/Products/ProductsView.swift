@@ -16,6 +16,8 @@ public class ProductsView: UIViewController {
     private var collectionView: ProductsCollectionView!
     private var searchBar: UISearchBar!
     
+    private var refresh: CustomRefreshControl!
+    
     // Data
     private var categoryId: Int!
     private var presenter: ProductsPresenter!
@@ -39,6 +41,7 @@ public class ProductsView: UIViewController {
         configureNavigationBar()
         configureSearchBar()
         configureCollectionView()
+        configureRefresh()
     }
     
     private func configureNavigationBar() {
@@ -79,6 +82,14 @@ public class ProductsView: UIViewController {
             make.trailing.leading.bottom.equalToSuperview()
         }
     }
+    
+    private func configureRefresh() {
+        refresh = CustomRefreshControl()
+        refresh.setTitle("Обновление данных")
+        collectionView.refreshControl = refresh
+        
+        refresh.addTarget(self, action: #selector(needReload), for: .valueChanged)
+    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +118,10 @@ public class ProductsView: UIViewController {
             }
             self?.searchBar.superview?.layoutIfNeeded()
         }
+    }
+    
+    @objc private func needReload() {
+        presenter.needReload()
     }
 }
 
@@ -143,6 +158,7 @@ extension ProductsView: ProductsViewDelegate {
     }
     
     public func reload() {
+        refresh.endRefreshing()
         collectionView.reloadData()
     }
     

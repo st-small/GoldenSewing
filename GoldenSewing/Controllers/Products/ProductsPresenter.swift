@@ -40,6 +40,10 @@ public class ProductsPresenter {
         interactor.load()
     }
     
+    public func needReload() {
+        interactor.needReload()
+    }
+    
     public func goBack() {
         interactor.goBack()
     }

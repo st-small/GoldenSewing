@@ -36,6 +36,10 @@ public class CategoriesInteractor {
         loadCached()
     }
     
+    public func needReload() {
+        delegate.update(with: service.cache)
+    }
+    
     private func loadCached() {
         service.load()
         let cached = service.cache

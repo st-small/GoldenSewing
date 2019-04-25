@@ -13,6 +13,7 @@ public class CategoriesView: UIViewController {
     // UI elements
     @IBOutlet private weak var categoriesTable: UITableView!
     
+    private var refresh: CustomRefreshControl!
     private var presenter: CategoriesPresenter!
     
     public init() {
@@ -32,6 +33,16 @@ public class CategoriesView: UIViewController {
         categoriesTable.delegate = self
         
         CategoriesCell.register(in: categoriesTable)
+        
+        configureRefresh()
+    }
+    
+    private func configureRefresh() {
+        refresh = CustomRefreshControl()
+        refresh.setTitle("Обновляем список категорий")
+        categoriesTable.refreshControl = refresh
+        
+        refresh.addTarget(self, action: #selector(needReload), for: .valueChanged)
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -45,10 +56,15 @@ public class CategoriesView: UIViewController {
 
         presenter.load()
     }
+    
+    @objc private func needReload() {
+        presenter.needReload()
+    }
 }
 
 extension CategoriesView: CategoriesViewDelegate {
     public func reload() {
+        refresh.endRefreshing()
         categoriesTable.reloadData()
     }
     
