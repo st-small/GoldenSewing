@@ -119,6 +119,7 @@
 		52D23C581F4ECDA700A91ADD /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D23C571F4ECDA700A91ADD /* AboutUsVC.swift */; };
 		52D23C5A1F4F28C600A91ADD /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D23C591F4F28C600A91ADD /* ContactsVC.swift */; };
 		52D23C5D1F4F320100A91ADD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D23C5C1F4F320100A91ADD /* MapKit.framework */; };
+		52E202EE2271A1C9001CBE3C /* CustomRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E202ED2271A1C9001CBE3C /* CustomRefreshControl.swift */; };
 		52F293111F437BBB00D07842 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293101F437BBB00D07842 /* UIViewX.swift */; };
 		52F293131F4445BD00D07842 /* UnfoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F293121F4445BD00D07842 /* UnfoldingCell.swift */; };
 		52F372EE2183889E00C1FAEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52F372ED2183889E00C1FAEE /* GoogleService-Info.plist */; };
@@ -272,6 +273,7 @@
 		52D23C571F4ECDA700A91ADD /* AboutUsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		52D23C591F4F28C600A91ADD /* ContactsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		52D23C5C1F4F320100A91ADD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		52E202ED2271A1C9001CBE3C /* CustomRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomRefreshControl.swift; path = Views/CustomRefreshControl.swift; sourceTree = "<group>"; };
 		52F293101F437BBB00D07842 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		52F293121F4445BD00D07842 /* UnfoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnfoldingCell.swift; sourceTree = "<group>"; };
 		52F372ED2183889E00C1FAEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -547,8 +549,8 @@
 				5282E578226760030089A1FD /* CategoriesView.xib */,
 				5282E579226760030089A1FD /* Cells */,
 				5282E57C226760030089A1FD /* CategoriesView.swift */,
-				5282E57D226760030089A1FD /* CategoriesInteractor.swift */,
 				5282E57E226760030089A1FD /* CategoriesPresnter.swift */,
+				5282E57D226760030089A1FD /* CategoriesInteractor.swift */,
 			);
 			name = Categories;
 			path = Controllers/Categories;
@@ -666,6 +668,7 @@
 				57CAB2AD1F4B597000861C6A /* CustomScroll.swift */,
 				525C38B921A4929F003FE500 /* CustomTabBarController */,
 				52B8F4B91F58405D00A0CD37 /* CustomNavigation.swift */,
+				52E202ED2271A1C9001CBE3C /* CustomRefreshControl.swift */,
 				5226D6521F57E6F200AD7812 /* PopularHeader.swift */,
 				5282E5B6226792B10089A1FD /* PopAnimator.swift */,
 			);
@@ -960,6 +963,7 @@
 				52F372F1218397E000C1FAEE /* AppDelegate+Notifications.swift in Sources */,
 				5282E54922675D0D0089A1FD /* ApiResponse.swift in Sources */,
 				52253B2A1F39EAEE009DF046 /* UITableViewCell+Extension.swift in Sources */,
+				52E202EE2271A1C9001CBE3C /* CustomRefreshControl.swift in Sources */,
 				5282E583226760030089A1FD /* CategoriesInteractor.swift in Sources */,
 				5236B2721F3B69C70072594D /* MetallonitVC.swift in Sources */,
 				5282E57522675F920089A1FD /* PageItemVC.swift in Sources */,

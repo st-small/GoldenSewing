@@ -35,6 +35,10 @@ public class CategoriesPresenter {
         interactor.load()
     }
     
+    public func needReload() {
+        interactor.needReload()
+    }
+    
     public func countOfCategories() -> Int {
         return categories.count
     }

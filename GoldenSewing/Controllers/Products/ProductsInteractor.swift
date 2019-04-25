@@ -45,6 +45,10 @@ public class ProductsInteractor {
         loadCached()
     }
     
+    public func needReload() {
+        delegate.update(with: service.cache)
+    }
+    
     private func loadCached() {
         service.load(id: categoryId)
         let cached = service.cache
