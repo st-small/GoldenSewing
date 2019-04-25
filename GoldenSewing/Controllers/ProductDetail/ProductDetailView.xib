@@ -80,16 +80,32 @@
                             </subviews>
                             <color key="backgroundColor" red="0.99607843139999996" green="0.84705882349999995" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98n-Sh-2dF">
+                            <rect key="frame" x="57" y="616" width="300" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="300" id="0p2-LJ-hA7"/>
+                                <constraint firstAttribute="height" constant="44" id="YrN-oH-lKz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Заказать информацию" backgroundImage="CategoriesBtn">
+                                <color key="titleColor" red="0.99607843139999996" green="0.84705882349999995" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="getInfoAboutProduct" destination="-1" eventType="touchUpInside" id="Xbn-CL-DIJ"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="aCz-cl-VnA" secondAttribute="trailing" constant="16" id="04l-NE-PDO"/>
                         <constraint firstItem="qJ9-R2-xMj" firstAttribute="top" secondItem="Zv5-vY-Bnr" secondAttribute="top" constant="16" id="Amb-t1-TTM"/>
-                        <constraint firstAttribute="bottom" secondItem="aCz-cl-VnA" secondAttribute="bottom" constant="32" id="Bpj-EZ-oKH"/>
                         <constraint firstAttribute="trailing" secondItem="qJ9-R2-xMj" secondAttribute="trailing" constant="16" id="FlN-g7-50C"/>
+                        <constraint firstItem="98n-Sh-2dF" firstAttribute="top" secondItem="JOA-BK-wAg" secondAttribute="bottom" constant="16" id="KMA-DB-Mu6"/>
+                        <constraint firstAttribute="bottom" secondItem="98n-Sh-2dF" secondAttribute="bottom" constant="16" id="LA2-aN-9ol"/>
                         <constraint firstItem="JOA-BK-wAg" firstAttribute="top" secondItem="qJ9-R2-xMj" secondAttribute="bottom" constant="16" id="b2N-IB-2qd"/>
                         <constraint firstItem="aCz-cl-VnA" firstAttribute="leading" secondItem="Zv5-vY-Bnr" secondAttribute="leading" constant="16" id="e60-ra-Xbr"/>
                         <constraint firstItem="aCz-cl-VnA" firstAttribute="top" secondItem="qJ9-R2-xMj" secondAttribute="bottom" constant="32" id="eck-n9-KOg"/>
-                        <constraint firstAttribute="bottom" secondItem="JOA-BK-wAg" secondAttribute="bottom" constant="16" id="tdm-9p-h9g"/>
+                        <constraint firstItem="98n-Sh-2dF" firstAttribute="top" secondItem="aCz-cl-VnA" secondAttribute="bottom" constant="32" id="jND-QB-I5f"/>
+                        <constraint firstItem="98n-Sh-2dF" firstAttribute="centerX" secondItem="Zv5-vY-Bnr" secondAttribute="centerX" id="nb9-xc-fUL"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -114,5 +130,6 @@
     </objects>
     <resources>
         <image name="Background" width="320" height="337"/>
+        <image name="CategoriesBtn" width="302" height="53"/>
     </resources>
 </document>

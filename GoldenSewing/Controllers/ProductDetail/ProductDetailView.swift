@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 public class ProductDetailView: UIViewController {
 
@@ -137,6 +138,20 @@ public class ProductDetailView: UIViewController {
     @objc private func goBack() {
         presenter.goBack()
     }
+    
+    @IBAction private func getInfoAboutProduct() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["info@zolotoe-shitvo.kr.ua"])
+            mail.setSubject("Предварительный запрос по артикулу \(productId ?? 3333)")
+            mail.setMessageBody("Добрый день! Интересует подробная информация по изделию \(productItem?.title ?? "No value")...\n\n\nОтправлено из приложения \"Золотое шитье\" v.2.1.0", isHTML: false)
+            
+            present(mail, animated: true)
+        } else {
+            self.view.makeToast("Проблемы с составлением письма, перейдите в почтовый клиент!")
+        }
+    }
 }
 
 extension ProductDetailView: ProductDetailViewDelegate {
@@ -200,5 +215,32 @@ extension ProductDetailView: ImageTransitionProtocol {
     public func imageWindowFrame() -> CGRect {
         let current = self.view.convert(productImage.frame, to: self.view.superview)
         return current
+    }
+}
+
+extension ProductDetailView: MFMailComposeViewControllerDelegate {
+    public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        var errorValue = ""
+        switch result {
+        case .cancelled:
+            errorValue = "Отправка письма была отменена!"
+            break
+        case .saved:
+            errorValue = "Письмо было сохранено!"
+            break
+        case .sent:
+            errorValue = "Письмо было успешно отправлено!"
+            break
+        case .failed:
+            errorValue = "Отправка письма закончилась неудачей!"
+            break
+        }
+        
+        if !errorValue.isEmpty {
+            self.view.makeToast(errorValue)
+        }
+        
+        controller.dismiss(animated: true)
     }
 }
