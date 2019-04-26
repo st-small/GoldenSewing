@@ -20,7 +20,14 @@ public class CachedImage: UIImageView {
         return #imageLiteral(resourceName: "Placeholder")
     }
     private var thumbSize: Float {
-        return 60.0
+        switch UIScreen.main.bounds.width {
+        case 320.0, 375.0:
+            return 60.0
+        case 414.0:
+            return 175.0
+        default:
+            return 60.0
+        }
     }
     private var imageSize: Float {
         return Float(UIScreen.main.bounds.width)

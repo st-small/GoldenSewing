@@ -79,14 +79,15 @@ public class ProductsView: UIViewController {
         self.view.addSubview(collectionView)
         collectionView.snp.remakeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom)
-            make.trailing.leading.bottom.equalToSuperview()
+            make.trailing.leading.equalToSuperview()
+            make.bottom.equalTo(bottomLayoutGuide.snp.top)
         }
     }
     
     private func configureRefresh() {
         refresh = CustomRefreshControl()
         refresh.setTitle("Обновление данных")
-        collectionView.refreshControl = refresh
+        collectionView.backgroundView = refresh
         
         refresh.addTarget(self, action: #selector(needReload), for: .valueChanged)
     }
