@@ -76,6 +76,6 @@ extension CustomTabBarController: TabsControllerProtocol {
     public func focusOn(_ tab: TabsPages) {
         
         let vc = tabs[tab]!
-        self.selectedIndex = (self.viewControllers?.index(where: { $0 === vc })!)!
+        self.selectedIndex = (self.viewControllers?.firstIndex(where: { $0 === vc })!)!
     }
 }

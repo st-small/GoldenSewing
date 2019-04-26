@@ -7,18 +7,18 @@ target 'GoldenSewing' do
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'Firebase/Core'
-    pod 'OneSignal', '>= 2.6.2', '< 3.0'
+    pod 'OneSignal', '>= 2.10.0', '< 3.0'
     pod 'RealmSwift'
     pod 'Alamofire'
-    pod 'Gloss'
-    pod 'SnapKit', '~> 4.0.0'
-    pod 'SDWebImage', '~> 5.0.0'
-    pod 'Toast-Swift', '~> 4.0.0'
-    pod 'SwiftSoup', '~> 1.7.4'
+    pod 'Gloss', '~> 2.1.1'
+    pod 'SnapKit', '~> 5.0.0'
+    pod 'SDWebImage', '~> 5.0.2'
+    pod 'Toast-Swift', '~> 5.0.0'
+    pod 'SwiftSoup', '~> 2.0.0'
 
 end
 
 target 'OneSignalNotificationServiceExtension' do
   use_frameworks!
-  pod 'OneSignal', '>= 2.6.2', '< 3.0'
+  pod 'OneSignal', '>= 2.10.0', '< 3.0'
 end

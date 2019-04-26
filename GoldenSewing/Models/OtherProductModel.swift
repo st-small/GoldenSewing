@@ -99,9 +99,9 @@ public class OtherProductModelRealmItem: Object {
         self.title = item.title
         self.modified = item.modified
         
-        item.imageContainers.each({ model in
+        item.imageContainers.forEach { model in
             let container = ImageContainerModelRealmItem(item: model)
             self.imageContainers.append(container)
-        })
+        }
     }
 }

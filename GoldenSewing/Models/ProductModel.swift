@@ -210,8 +210,8 @@ public class ProductModelRealmItem: Object {
         self.bestOffer = item.bestOffer
         
         self.embroideryType = item.embroideryType
-        item.clothType.each({ self.clothType.append($0) })
-        item.productType.each({ self.productType.append($0) })
-        item.inlayType.each({ self.inlayType.append($0) })
+        item.clothType.forEach({ self.clothType.append($0) })
+        item.productType.forEach({ self.productType.append($0) })
+        item.inlayType.forEach({ self.inlayType.append($0) })
     }
 }
