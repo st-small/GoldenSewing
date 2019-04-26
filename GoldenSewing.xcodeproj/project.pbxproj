@@ -57,6 +57,8 @@
 		525FB77421AAC59400F451C8 /* AsyncQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB77321AAC59400F451C8 /* AsyncQueueExtension.swift */; };
 		525FB78121AAD24300F451C8 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB78021AAD24300F451C8 /* ArrayExtension.swift */; };
 		525FB78721AAD90600F451C8 /* Guid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525FB78621AAD90600F451C8 /* Guid.swift */; };
+		5273F2C42272206A00B75BE9 /* ProductsSquareCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5273F2C22272206A00B75BE9 /* ProductsSquareCVCell.swift */; };
+		5273F2C52272206A00B75BE9 /* ProductsSquareCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5273F2C32272206A00B75BE9 /* ProductsSquareCVCell.xib */; };
 		5282E54222675CB10089A1FD /* OtherProductsCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E54022675CB00089A1FD /* OtherProductsCellFactory.swift */; };
 		5282E54322675CB10089A1FD /* ProductsCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E54122675CB10089A1FD /* ProductsCellFactory.swift */; };
 		5282E54722675D0D0089A1FD /* ApiClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E54422675D0C0089A1FD /* ApiClientService.swift */; };
@@ -210,6 +212,8 @@
 		525FB77321AAC59400F451C8 /* AsyncQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncQueueExtension.swift; sourceTree = "<group>"; };
 		525FB78021AAD24300F451C8 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		525FB78621AAD90600F451C8 /* Guid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guid.swift; sourceTree = "<group>"; };
+		5273F2C22272206A00B75BE9 /* ProductsSquareCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsSquareCVCell.swift; sourceTree = "<group>"; };
+		5273F2C32272206A00B75BE9 /* ProductsSquareCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsSquareCVCell.xib; sourceTree = "<group>"; };
 		5282E54022675CB00089A1FD /* OtherProductsCellFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OtherProductsCellFactory.swift; path = Factories/OtherProductsCellFactory.swift; sourceTree = "<group>"; };
 		5282E54122675CB10089A1FD /* ProductsCellFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductsCellFactory.swift; path = Factories/ProductsCellFactory.swift; sourceTree = "<group>"; };
 		5282E54422675D0C0089A1FD /* ApiClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiClientService.swift; path = Services/ApiClientService.swift; sourceTree = "<group>"; };
@@ -582,9 +586,11 @@
 		5282E5862267606B0089A1FD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				5282E5872267606B0089A1FD /* ProductsHorizontalCVCell.xib */,
 				5282E5882267606B0089A1FD /* ProductCardProtocol.swift */,
+				5282E5872267606B0089A1FD /* ProductsHorizontalCVCell.xib */,
 				5282E5892267606B0089A1FD /* ProductsHorizontalCVCell.swift */,
+				5273F2C32272206A00B75BE9 /* ProductsSquareCVCell.xib */,
+				5273F2C22272206A00B75BE9 /* ProductsSquareCVCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -796,6 +802,7 @@
 				52214347226E46BB00CE79EE /* ContactsView.xib in Resources */,
 				52B8F4B81F57FEC500A0CD37 /* ProductCell.xib in Resources */,
 				523ED3071F29CA9400BE20E5 /* Assets.xcassets in Resources */,
+				5273F2C52272206A00B75BE9 /* ProductsSquareCVCell.xib in Resources */,
 				5282E57122675F580089A1FD /* GreetingController.xib in Resources */,
 				5238A46B2268F13E00243892 /* ImageModalViewer.xib in Resources */,
 				523ED3051F29CA9400BE20E5 /* Main.storyboard in Resources */,
@@ -1020,6 +1027,7 @@
 				5282E55822675DA40089A1FD /* OtherProductsCacheService.swift in Sources */,
 				525C38AE21A48773003FE500 /* Delegates.swift in Sources */,
 				525108571F30E5140044804C /* Constants.swift in Sources */,
+				5273F2C42272206A00B75BE9 /* ProductsSquareCVCell.swift in Sources */,
 				5282E56A22675F4E0089A1FD /* GSViewController.swift in Sources */,
 				525FB77221AAC4E800F451C8 /* Task.swift in Sources */,
 				5282E55722675DA40089A1FD /* CategoriesCacheService.swift in Sources */,

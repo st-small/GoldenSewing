@@ -13,12 +13,14 @@ public class ProductsCollectionView: UICollectionView {
     public var heightValue: CGFloat {
         let height = cellsFactory.size.height
         let count = CGFloat(presenter.countOfProducts())
-        return count * (height + minimumLineSpacing) + minimumLineSpacing
+        let spacing = getCurrentLineSpacing()
+        return count * (height + spacing) + spacing
     }
     
     private var presenter: ProductsPresenter!
     private let cellsFactory = ProductsCellFactory()
-    private let minimumLineSpacing: CGFloat = 12.0
+    private let smallLineSpacing: CGFloat = 12.0
+    private let bigLineSpacing: CGFloat = 16.0
     
     public init(presenter: ProductsPresenter) {
         
@@ -33,13 +35,27 @@ public class ProductsCollectionView: UICollectionView {
         dataSource = self
         
         ProductsHorizontalCVCell.register(in: self)
+        ProductsSquareCVCell.register(in: self)
         
         translatesAutoresizingMaskIntoConstraints = false
-        layout.minimumLineSpacing = minimumLineSpacing
-        contentInset = UIEdgeInsets(top: minimumLineSpacing, left: 0, bottom: minimumLineSpacing, right: 0)
+        let spacing = getCurrentLineSpacing()
+        layout.minimumLineSpacing = spacing
+        contentInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
+    }
+    
+    private func getCurrentLineSpacing() -> CGFloat {
+        let width = UIScreen.main.bounds.width
+        switch width {
+        case 320.0, 375.0:
+            return smallLineSpacing
+        case 414.0:
+            return bigLineSpacing
+        default:
+            return smallLineSpacing
+        }
     }
     
     public required init?(coder aDecoder: NSCoder) {

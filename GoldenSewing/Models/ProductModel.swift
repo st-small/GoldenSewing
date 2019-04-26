@@ -79,9 +79,17 @@ public class ProductModel: Glossy {
         let media: [String: Any] = (Keys.better_featured_image <~~ json)!
         let mediaDetails: [String: Any] = (Keys.media_details <~~ media)!
         let sizes: [String: Any] = (Keys.sizes <~~ mediaDetails)!
-        let thumbnail: [String: Any] = (Keys.thumbnail <~~ sizes)!
-        let sourceUrl: String = (Keys.source_url <~~ thumbnail)!
-        self.imageContainer = ImageContainerModel(id: id, thumb: sourceUrl)
+        
+        if UIScreen.main.bounds.width == 414.0 {
+            let thumbnail: [String: Any] = (Keys.medium <~~ sizes)!
+            let sourceUrl: String = (Keys.source_url <~~ thumbnail)!
+            self.imageContainer = ImageContainerModel(id: id, thumb: sourceUrl)
+        } else {
+            let thumbnail: [String: Any] = (Keys.thumbnail <~~ sizes)!
+            let sourceUrl: String = (Keys.source_url <~~ thumbnail)!
+            self.imageContainer = ImageContainerModel(id: id, thumb: sourceUrl)
+        }
+        
         let imageLink: String = (Keys.source_url <~~ media)!
         self.imageContainer?.imageLink = imageLink
         
@@ -155,6 +163,7 @@ public class ProductModel: Glossy {
         public static let media_details = "media_details"
         public static let sizes = "sizes"
         public static let thumbnail = "thumbnail"
+        public static let medium = "medium"
         public static let source_url = "source_url"
         
         // tags

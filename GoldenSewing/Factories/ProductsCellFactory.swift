@@ -13,17 +13,29 @@ public class ProductsCellFactory {
     public var size: CGSize {
         let width = UIScreen.main.bounds.width - 32
         switch UIScreen.main.bounds.width {
-        case 320.0:
+        case 320.0, 375.0:
             return CGSize(width: width, height: 90)
+        case 414.0:
+            return CGSize(width: 175.0, height: 233.0)
         default: return CGSize.zero
         }
     }
     
     public func createInCollection(_ collection: UICollectionView, for path: IndexPath) -> UICollectionViewCell {
-        let cell = collection.dequeueReusableCell(withReuseIdentifier: ProductsHorizontalCVCell.identifier, for: path) as! ProductsHorizontalCVCell
-        cell.heightAnchor.constraint(equalToConstant: size.height).isActive = true
-        cell.widthAnchor.constraint(equalToConstant: size.width).isActive = true
-        return cell
+        switch UIScreen.main.bounds.width {
+        case 320.0, 375.0:
+            let cell = collection.dequeueReusableCell(withReuseIdentifier: ProductsHorizontalCVCell.identifier, for: path) as! ProductsHorizontalCVCell
+            cell.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+            cell.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+            return cell
+        case 414.0:
+            let cell = collection.dequeueReusableCell(withReuseIdentifier: ProductsSquareCVCell.identifier, for: path) as! ProductsSquareCVCell
+            cell.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+            cell.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
     }
 }
 

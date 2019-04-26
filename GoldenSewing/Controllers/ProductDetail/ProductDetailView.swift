@@ -16,6 +16,7 @@ public class ProductDetailView: UIViewController {
     @IBOutlet private weak var productImage: CachedImage!
     @IBOutlet private weak var productTitle: UILabel!
     @IBOutlet private weak var productVendorCode: UILabel!
+    @IBOutlet private weak var productBestOffer: UILabel!
     @IBOutlet private weak var productEmbroideryType: UILabel!
     @IBOutlet private weak var productClothTags: UILabel!
     @IBOutlet private weak var productInlayTags: UILabel!
@@ -53,6 +54,7 @@ public class ProductDetailView: UIViewController {
         
         productTitle.textColor = UIColor.CustomColors.yellow
         productVendorCode.textColor = UIColor.CustomColors.yellow
+        productBestOffer.textColor = UIColor.CustomColors.yellow
         productEmbroideryType.textColor = UIColor.CustomColors.yellow
         productClothTags.textColor = UIColor.CustomColors.yellow
         productInlayTags.textColor = UIColor.CustomColors.yellow
@@ -85,6 +87,14 @@ public class ProductDetailView: UIViewController {
         guard let id = productId else { return }
         productVendorCode.text = "Артикул: \(id)"
         productVendorCode.isHidden = false
+    }
+    
+    private func configureBestOffer() {
+        productBestOffer.isHidden = true
+        guard
+            let bestOffer = productItem?.bestOffer, bestOffer == true else { return }
+        productBestOffer.text = "Эконом предложение"
+        productBestOffer.isHidden = false
     }
     
     private func configureEmbroideryType() {
@@ -169,6 +179,7 @@ extension ProductDetailView: ProductDetailViewDelegate {
         productImage.setupImage(id: data.id, url: container.imageLink)
         configureTitle()
         configureVendorCode()
+        configureBestOffer()
         configureEmbroideryType()
         configureClothTags()
         configureInlayTags()
