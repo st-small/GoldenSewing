@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="sfI-ba-07u">
-                    <rect key="frame" x="0.0" y="24" width="414" height="838"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                 </imageView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Y5u-Oa-Doc">
                     <rect key="frame" x="188.66666666666666" y="740" width="37" height="37"/>
@@ -31,15 +31,16 @@
             </subviews>
             <color key="backgroundColor" red="0.3294117647" green="0.0" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="sfI-ba-07u" secondAttribute="bottom" id="BIf-Ng-1S9"/>
-                <constraint firstItem="sfI-ba-07u" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Byd-8g-45J"/>
-                <constraint firstItem="sfI-ba-07u" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-20" id="Mcd-qe-PKA"/>
+                <constraint firstItem="sfI-ba-07u" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="06H-d2-5nO"/>
+                <constraint firstItem="sfI-ba-07u" firstAttribute="centerX" secondItem="Y5u-Oa-Doc" secondAttribute="centerX" id="7QR-wU-fSo"/>
+                <constraint firstItem="Y5u-Oa-Doc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="696" id="Mcd-qe-PKA"/>
+                <constraint firstItem="sfI-ba-07u" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="S3V-vf-YNG"/>
+                <constraint firstItem="sfI-ba-07u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="X06-Mt-bT6"/>
                 <constraint firstItem="Y5u-Oa-Doc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jXe-kB-Xj2"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sfI-ba-07u" secondAttribute="trailing" id="kHQ-47-7Ce"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Y5u-Oa-Doc" secondAttribute="bottom" constant="85" id="pnr-CQ-tz3"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="138.40000000000001" y="116.49175412293854"/>
+            <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
         </view>
     </objects>
     <resources>

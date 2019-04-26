@@ -67,7 +67,7 @@ extension ThrowableTaskType {
 
 open class ThrowableTask<ReturnType> : ThrowableTaskType {
 
-    open let action: (@escaping ( Result<ReturnType>) -> ()) -> ()
+    public let action: (@escaping ( Result<ReturnType>) -> ()) -> ()
 
     open func action(_ completion: @escaping (Result<ReturnType>) -> ()) {
         action(completion)
