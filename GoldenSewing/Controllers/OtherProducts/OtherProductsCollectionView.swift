@@ -52,7 +52,7 @@ public class OtherProductsCollectionView: UICollectionView {
 
 extension OtherProductsCollectionView: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let product = presenter.imageAt(indexPath.row)
+        //let product = presenter.imageAt(indexPath.row)
         //presenter.handleCellAction(with: place.id)
     }
 }

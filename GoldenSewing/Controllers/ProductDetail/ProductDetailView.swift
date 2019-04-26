@@ -246,6 +246,9 @@ extension ProductDetailView: MFMailComposeViewControllerDelegate {
         case .failed:
             errorValue = "Отправка письма закончилась неудачей!"
             break
+        @unknown default:
+            errorValue = "Отправка письма закончилась неудачей!"
+            break
         }
         
         if !errorValue.isEmpty {

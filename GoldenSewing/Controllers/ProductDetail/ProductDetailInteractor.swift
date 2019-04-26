@@ -65,7 +65,9 @@ public class ProductDetailInteractor {
     }
     
     public func productTitle() -> String {
-        guard let product = realm.objects(ProductModelRealmItem.self).filter("id == %d", productId).first else { return "" }
+        guard
+            let id = productId,
+            let product = realm.objects(ProductModelRealmItem.self).filter("id == %d", id).first else { return "" }
         return "\(product.title), \(product.id)"
     }
     
