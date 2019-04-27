@@ -31,8 +31,11 @@
 		522C26152273000600436B6A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C260C2273000600436B6A /* Helper.swift */; };
 		522C26162273000600436B6A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C260D2273000600436B6A /* Task.swift */; };
 		522C26172273000600436B6A /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C260E2273000600436B6A /* Delegates.swift */; };
+		522C262D22730B9D00436B6A /* GoldenSewingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C262C22730B9D00436B6A /* GoldenSewingUITests.swift */; };
+		522C263522730C2A00436B6A /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C263422730C2A00436B6A /* SnapshotHelper.swift */; };
 		5238A46A2268F13E00243892 /* ImageModalViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5238A4682268F13E00243892 /* ImageModalViewer.swift */; };
 		5238A46B2268F13E00243892 /* ImageModalViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5238A4692268F13E00243892 /* ImageModalViewer.xib */; };
+		523D73B12274A7400091D10A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523D73B02274A7400091D10A /* Main.storyboard */; };
 		523ED30A1F29CA9400BE20E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523ED3081F29CA9400BE20E5 /* LaunchScreen.storyboard */; };
 		5273F2C42272206A00B75BE9 /* ProductsSquareCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5273F2C22272206A00B75BE9 /* ProductsSquareCVCell.swift */; };
 		5273F2C52272206A00B75BE9 /* ProductsSquareCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5273F2C32272206A00B75BE9 /* ProductsSquareCVCell.xib */; };
@@ -95,6 +98,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		522C262F22730B9D00436B6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 523ED2F41F29CA9400BE20E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 523ED2FB1F29CA9400BE20E5;
+			remoteInfo = GoldenSewing;
+		};
 		52B47965219A0CA20099698C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 523ED2F41F29CA9400BE20E5 /* Project object */;
@@ -146,8 +156,13 @@
 		522C260C2273000600436B6A /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		522C260D2273000600436B6A /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		522C260E2273000600436B6A /* Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
+		522C262A22730B9C00436B6A /* GoldenSewingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenSewingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		522C262C22730B9D00436B6A /* GoldenSewingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenSewingUITests.swift; sourceTree = "<group>"; };
+		522C262E22730B9D00436B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		522C263422730C2A00436B6A /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		5238A4682268F13E00243892 /* ImageModalViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModalViewer.swift; sourceTree = "<group>"; };
 		5238A4692268F13E00243892 /* ImageModalViewer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageModalViewer.xib; sourceTree = "<group>"; };
+		523D73B02274A7400091D10A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Supported/Main.storyboard; sourceTree = "<group>"; };
 		523ED2FC1F29CA9400BE20E5 /* GoldenSewing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenSewing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523ED3091F29CA9400BE20E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5273F2C22272206A00B75BE9 /* ProductsSquareCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsSquareCVCell.swift; sourceTree = "<group>"; };
@@ -215,6 +230,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		522C262722730B9C00436B6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		523ED2F91F29CA9400BE20E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,11 +318,22 @@
 			path = AsyncTask;
 			sourceTree = "<group>";
 		};
+		522C262B22730B9D00436B6A /* GoldenSewingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				522C263422730C2A00436B6A /* SnapshotHelper.swift */,
+				522C262C22730B9D00436B6A /* GoldenSewingUITests.swift */,
+				522C262E22730B9D00436B6A /* Info.plist */,
+			);
+			path = GoldenSewingUITests;
+			sourceTree = "<group>";
+		};
 		523ED2F31F29CA9400BE20E5 = {
 			isa = PBXGroup;
 			children = (
 				523ED2FE1F29CA9400BE20E5 /* GoldenSewing */,
 				52B47961219A0CA20099698C /* OneSignalNotificationServiceExtension */,
+				522C262B22730B9D00436B6A /* GoldenSewingUITests */,
 				523ED2FD1F29CA9400BE20E5 /* Products */,
 				52D23C5B1F4F320100A91ADD /* Frameworks */,
 				9C6F75A632D5258A44715697 /* Pods */,
@@ -312,6 +345,7 @@
 			children = (
 				523ED2FC1F29CA9400BE20E5 /* GoldenSewing.app */,
 				52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */,
+				522C262A22730B9C00436B6A /* GoldenSewingUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -362,6 +396,7 @@
 		525108551F3087430044804C /* Supported */ = {
 			isa = PBXGroup;
 			children = (
+				523D73B02274A7400091D10A /* Main.storyboard */,
 				522C25E82272FAD500436B6A /* Constants.swift */,
 				522C25EF2272FD2B00436B6A /* AsyncQueueExtension.swift */,
 				522C25F12272FEF000436B6A /* AppDelegate.swift */,
@@ -569,6 +604,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		522C262922730B9C00436B6A /* GoldenSewingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 522C263122730B9D00436B6A /* Build configuration list for PBXNativeTarget "GoldenSewingUITests" */;
+			buildPhases = (
+				522C262622730B9C00436B6A /* Sources */,
+				522C262722730B9C00436B6A /* Frameworks */,
+				522C262822730B9C00436B6A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				522C263022730B9D00436B6A /* PBXTargetDependency */,
+			);
+			name = GoldenSewingUITests;
+			productName = GoldenSewingUITests;
+			productReference = 522C262A22730B9C00436B6A /* GoldenSewingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		523ED2FB1F29CA9400BE20E5 /* GoldenSewing */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 523ED30E1F29CA9400BE20E5 /* Build configuration list for PBXNativeTarget "GoldenSewing" */;
@@ -616,10 +669,16 @@
 			isa = PBXProject;
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Original;
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Stanly Shiyanovskiy";
 				TargetAttributes = {
+					522C262922730B9C00436B6A = {
+						CreatedOnToolsVersion = 10.2.1;
+						DevelopmentTeam = 3PTYV272Z4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 523ED2FB1F29CA9400BE20E5;
+					};
 					523ED2FB1F29CA9400BE20E5 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 3PTYV272Z4;
@@ -641,7 +700,7 @@
 						CreatedOnToolsVersion = 10.1;
 						DevelopmentTeam = 3PTYV272Z4;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -661,11 +720,19 @@
 			targets = (
 				523ED2FB1F29CA9400BE20E5 /* GoldenSewing */,
 				52B4795F219A0CA20099698C /* OneSignalNotificationServiceExtension */,
+				522C262922730B9C00436B6A /* GoldenSewingUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		522C262822730B9C00436B6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		523ED2FA1F29CA9400BE20E5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -681,6 +748,7 @@
 				522C26032272FF5900436B6A /* GoogleService-Info.plist in Resources */,
 				5282E580226760030089A1FD /* CategoriesCell.xib in Resources */,
 				5282E5A8226760C60089A1FD /* OtherProductsView.xib in Resources */,
+				523D73B12274A7400091D10A /* Main.storyboard in Resources */,
 				5282E5932267606B0089A1FD /* ProductsView.xib in Resources */,
 				522C25E12272FA3800436B6A /* AboutUsView.xib in Resources */,
 				522C25FD2272FF1400436B6A /* Assets.xcassets in Resources */,
@@ -804,6 +872,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		522C262622730B9C00436B6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				522C262D22730B9D00436B6A /* GoldenSewingUITests.swift in Sources */,
+				522C263522730C2A00436B6A /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		523ED2F81F29CA9400BE20E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -887,6 +964,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		522C263022730B9D00436B6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 523ED2FB1F29CA9400BE20E5 /* GoldenSewing */;
+			targetProxy = 522C262F22730B9D00436B6A /* PBXContainerItemProxy */;
+		};
 		52B47966219A0CA20099698C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 52B4795F219A0CA20099698C /* OneSignalNotificationServiceExtension */;
@@ -906,6 +988,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		522C263222730B9D00436B6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3PTYV272Z4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = GoldenSewingUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ua.kr.ssh.GoldenSewingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GoldenSewing;
+			};
+			name = Debug;
+		};
+		522C263322730B9D00436B6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3PTYV272Z4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = GoldenSewingUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ua.kr.ssh.GoldenSewingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GoldenSewing;
+			};
+			name = Release;
+		};
 		523ED30C1F29CA9400BE20E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1027,7 +1154,7 @@
 				CODE_SIGN_ENTITLEMENTS = GoldenSewing/Supported/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = GoldenSewing/Supported/Info.plist;
@@ -1050,7 +1177,7 @@
 				CODE_SIGN_ENTITLEMENTS = GoldenSewing/Supported/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = GoldenSewing/Supported/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1072,7 +1199,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
@@ -1082,6 +1209,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "OneSignal Development";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1096,7 +1224,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
@@ -1105,6 +1233,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "OneSignal Distribution";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1114,6 +1243,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		522C263122730B9D00436B6A /* Build configuration list for PBXNativeTarget "GoldenSewingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				522C263222730B9D00436B6A /* Debug */,
+				522C263322730B9D00436B6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		523ED2F71F29CA9400BE20E5 /* Build configuration list for PBXProject "GoldenSewing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

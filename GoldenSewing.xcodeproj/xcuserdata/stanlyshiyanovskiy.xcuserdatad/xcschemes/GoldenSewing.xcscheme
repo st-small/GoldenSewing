@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "522C261B22730B7000436B6A"
+               BuildableName = "&#x417;&#x43e;&#x43b;&#x43e;&#x442;&#x43e;&#x435; &#x448;&#x438;&#x442;&#x44c;&#x435; UITests.xctest"
+               BlueprintName = "&#x417;&#x43e;&#x43b;&#x43e;&#x442;&#x43e;&#x435; &#x448;&#x438;&#x442;&#x44c;&#x435; UITests"
+               ReferencedContainer = "container:GoldenSewing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "522C262922730B9C00436B6A"
+               BuildableName = "GoldenSewingUITests.xctest"
+               BlueprintName = "GoldenSewingUITests"
+               ReferencedContainer = "container:GoldenSewing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
