@@ -33,7 +33,6 @@
             <constraints>
                 <constraint firstItem="sfI-ba-07u" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="06H-d2-5nO"/>
                 <constraint firstItem="sfI-ba-07u" firstAttribute="centerX" secondItem="Y5u-Oa-Doc" secondAttribute="centerX" id="7QR-wU-fSo"/>
-                <constraint firstItem="Y5u-Oa-Doc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="696" id="Mcd-qe-PKA"/>
                 <constraint firstItem="sfI-ba-07u" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="S3V-vf-YNG"/>
                 <constraint firstItem="sfI-ba-07u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="X06-Mt-bT6"/>
                 <constraint firstItem="Y5u-Oa-Doc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jXe-kB-Xj2"/>

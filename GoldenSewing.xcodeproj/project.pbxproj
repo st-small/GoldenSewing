@@ -89,6 +89,8 @@
 		5282E5B3226763840089A1FD /* ProductDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5282E5B1226763830089A1FD /* ProductDetailView.xib */; };
 		5282E5B522676B1E0089A1FD /* OneItemCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E5B422676B1E0089A1FD /* OneItemCacheService.swift */; };
 		5282E5B7226792B10089A1FD /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E5B6226792B10089A1FD /* PopAnimator.swift */; };
+		52A710C5227DF76A00D57DF5 /* OtherProductsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710C4227DF76A00D57DF5 /* OtherProductsModal.swift */; };
+		52A710C6227F0F8B00D57DF5 /* OtherProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E5A0226760C60089A1FD /* OtherProductsView.swift */; };
 		52B47963219A0CA20099698C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B47962219A0CA20099698C /* NotificationService.swift */; };
 		52B47967219A0CA20099698C /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		52D23C5D1F4F320100A91ADD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D23C5C1F4F320100A91ADD /* MapKit.framework */; };
@@ -217,6 +219,7 @@
 		5282E5B1226763830089A1FD /* ProductDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailView.xib; sourceTree = "<group>"; };
 		5282E5B422676B1E0089A1FD /* OneItemCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneItemCacheService.swift; sourceTree = "<group>"; };
 		5282E5B6226792B10089A1FD /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopAnimator.swift; path = Views/PopAnimator.swift; sourceTree = "<group>"; };
+		52A710C4227DF76A00D57DF5 /* OtherProductsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProductsModal.swift; sourceTree = "<group>"; };
 		52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B47962219A0CA20099698C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		52B47964219A0CA20099698C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -523,6 +526,7 @@
 				5282E59F226760C60089A1FD /* OtherProductsView.xib */,
 				5282E5A0226760C60089A1FD /* OtherProductsView.swift */,
 				5282E5A1226760C60089A1FD /* OtherProductsPresenter.swift */,
+				52A710C3227DF4AF00D57DF5 /* Modal */,
 			);
 			name = OtherProducts;
 			path = Controllers/OtherProducts;
@@ -549,6 +553,14 @@
 			);
 			name = ProductDetail;
 			path = Controllers/ProductDetail;
+			sourceTree = "<group>";
+		};
+		52A710C3227DF4AF00D57DF5 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				52A710C4227DF76A00D57DF5 /* OtherProductsModal.swift */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 		52B47961219A0CA20099698C /* OneSignalNotificationServiceExtension */ = {
@@ -876,6 +888,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A710C6227F0F8B00D57DF5 /* OtherProductsView.swift in Sources */,
 				522C262D22730B9D00436B6A /* GoldenSewingUITests.swift in Sources */,
 				522C263522730C2A00436B6A /* SnapshotHelper.swift in Sources */,
 			);
@@ -915,6 +928,7 @@
 				522C25E22272FA3800436B6A /* AboutUsView.swift in Sources */,
 				522C25F02272FD2C00436B6A /* AsyncQueueExtension.swift in Sources */,
 				5282E581226760030089A1FD /* CategoriesCell.swift in Sources */,
+				52A710C5227DF76A00D57DF5 /* OtherProductsModal.swift in Sources */,
 				522C25F32272FEF000436B6A /* AppDelegate.swift in Sources */,
 				522C25E92272FAD500436B6A /* Constants.swift in Sources */,
 				5282E54822675D0D0089A1FD /* ApiRequestService.swift in Sources */,
