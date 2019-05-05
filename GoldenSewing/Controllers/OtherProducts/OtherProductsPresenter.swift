@@ -6,7 +6,7 @@
 //  Copyright © 2019 Stanly Shiyanovskiy. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public protocol OtherProductsViewDelegate {
     func showLoader()
@@ -14,11 +14,13 @@ public protocol OtherProductsViewDelegate {
     func reload()
     func problemWithRequest()
     func hideToasts()
+    func showPreview(product: [ImageContainerModel], index: Int)
 }
 
 public class OtherProductsPresenter {
     
     public var delegate: OtherProductsViewDelegate
+    public var selectedIndex: Int!
     
     private var product = OtherProductModel()
     private var interactor: OtherProductsInteractor!
@@ -50,8 +52,16 @@ public class OtherProductsPresenter {
         return product.imageContainers[index]
     }
     
-    public func select(_ product: ProductModel) {
-        
+    public func currentImage() -> UIImage? {
+        guard
+            let imageData = product.imageContainers[selectedIndex].imageData,
+            let image = UIImage(data: imageData) else { return nil }
+        return image
+    }
+    
+    public func select(_ productIndex: Int) {
+        selectedIndex = productIndex
+        delegate.showPreview(product: product.imageContainers, index: selectedIndex)
     }
     
     public func getDescription() -> String {
@@ -76,7 +86,10 @@ public class OtherProductsPresenter {
 extension OtherProductsPresenter: OtherProductsPresenterDelegate {
     public func update(with data: OtherProductModel) {
         hideToasts()
-        self.product = data
+        
+        if self.product.modified < data.modified {
+            self.product = data
+        }
 
         DispatchQueue.main.async { [weak self] in
 
@@ -97,5 +110,11 @@ extension OtherProductsPresenter: OtherProductsPresenterDelegate {
             this.delegate.problemWithRequest()
             this.delegate.hideLoader()
         }
+    }
+}
+
+extension OtherProductsPresenter: OtherProductsModalDelegate {
+    public func updateSelectedIndex(newIndex: Int) {
+        selectedIndex = newIndex
     }
 }

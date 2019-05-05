@@ -21,6 +21,9 @@ public class OtherProductsView: UIViewController {
     private var categoryId: Int!
     private var presenter: OtherProductsPresenter!
     
+    private let transition = PopAnimator()
+    private var hideSelectedCell: Bool = false
+    
     public init(categoryId: Int) {
         super.init(nibName: "OtherProductsView", bundle: Bundle.main)
         
@@ -64,7 +67,9 @@ public class OtherProductsView: UIViewController {
         scrollView.showsVerticalScrollIndicator = false
         self.view.addSubview(scrollView)
         scrollView.snp.remakeConstraints { make in
-            make.size.equalToSuperview()
+            make.top.equalTo(topLayoutGuide.snp.bottom)
+            make.bottom.equalTo(bottomLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
         }
     }
     
@@ -120,5 +125,52 @@ extension OtherProductsView: OtherProductsViewDelegate {
     
     public func hideToasts() {
         self.view.hideAllToasts()
+    }
+    
+    public func showPreview(product: [ImageContainerModel], index: Int) {
+        let previewView = OtherProductsModal()
+        previewView.transitioningDelegate = self
+        previewView.setupWithPhotos(photos: product, selectedPhotoIndex: index, delegate: presenter)
+        present(previewView, animated: true, completion: nil)
+    }
+}
+
+extension OtherProductsView: UIViewControllerTransitioningDelegate {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let previewView = presented as! OtherProductsModal
+        guard let image = presenter.currentImage() else { return nil }
+        transition.setupImageTransition(image: image, fromDelegate: self, toDelegate: previewView)
+        return transition
+    }
+
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let previewView = dismissed as! OtherProductsModal
+        guard let image = presenter.currentImage() else { return nil }
+        transition.setupImageTransition(image: image, fromDelegate: previewView, toDelegate: self)
+        return transition
+    }
+}
+
+extension OtherProductsView: ImageTransitionProtocol {
+    public func tranisitionSetup() {
+        hideSelectedCell = true
+        //collectionView.reloadData()
+    }
+    
+    public func tranisitionCleanup() {
+        hideSelectedCell = false
+        //collectionView.reloadData()
+    }
+    
+    public func imageWindowFrame() -> CGRect {
+        let indexPath = IndexPath(row: presenter.selectedIndex!, section: 0)
+        let attributes = collectionView.layoutAttributesForItem(at: indexPath as IndexPath)
+        var cellRect = collectionView.convert(attributes!.frame, to: collectionView.superview)
+        
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let navBarHeight = navigationController?.navigationBar.bounds.height ?? 0
+        let value = (statusBarHeight + navBarHeight) - scrollView.contentOffset.y
+        cellRect.origin.y += value
+        return cellRect
     }
 }
