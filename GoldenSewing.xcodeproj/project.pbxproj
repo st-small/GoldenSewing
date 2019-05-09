@@ -91,6 +91,13 @@
 		5282E5B7226792B10089A1FD /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E5B6226792B10089A1FD /* PopAnimator.swift */; };
 		52A710C5227DF76A00D57DF5 /* OtherProductsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710C4227DF76A00D57DF5 /* OtherProductsModal.swift */; };
 		52A710C6227F0F8B00D57DF5 /* OtherProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E5A0226760C60089A1FD /* OtherProductsView.swift */; };
+		52A710CA227F6B1C00D57DF5 /* LikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710C9227F6B1C00D57DF5 /* LikeService.swift */; };
+		52A710E622820D1E00D57DF5 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710E422820D1E00D57DF5 /* KeychainWrapper.swift */; };
+		52A710E722820D1E00D57DF5 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710E522820D1E00D57DF5 /* KeychainItemAccessibility.swift */; };
+		52A710EB2282112600D57DF5 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710E92282112600D57DF5 /* FavouritesView.swift */; };
+		52A710EC2282112600D57DF5 /* FavouritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A710EA2282112600D57DF5 /* FavouritesView.xib */; };
+		52A710EE2282151200D57DF5 /* FavouritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710ED2282151200D57DF5 /* FavouritesInteractor.swift */; };
+		52A710F02282152100D57DF5 /* FavouritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710EF2282152100D57DF5 /* FavouritesPresenter.swift */; };
 		52B47963219A0CA20099698C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B47962219A0CA20099698C /* NotificationService.swift */; };
 		52B47967219A0CA20099698C /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		52D23C5D1F4F320100A91ADD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D23C5C1F4F320100A91ADD /* MapKit.framework */; };
@@ -220,6 +227,13 @@
 		5282E5B422676B1E0089A1FD /* OneItemCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneItemCacheService.swift; sourceTree = "<group>"; };
 		5282E5B6226792B10089A1FD /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopAnimator.swift; path = Views/PopAnimator.swift; sourceTree = "<group>"; };
 		52A710C4227DF76A00D57DF5 /* OtherProductsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProductsModal.swift; sourceTree = "<group>"; };
+		52A710C9227F6B1C00D57DF5 /* LikeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LikeService.swift; path = Services/LikeService.swift; sourceTree = "<group>"; };
+		52A710E422820D1E00D57DF5 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		52A710E522820D1E00D57DF5 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		52A710E92282112600D57DF5 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		52A710EA2282112600D57DF5 /* FavouritesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouritesView.xib; sourceTree = "<group>"; };
+		52A710ED2282151200D57DF5 /* FavouritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesInteractor.swift; sourceTree = "<group>"; };
+		52A710EF2282152100D57DF5 /* FavouritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPresenter.swift; sourceTree = "<group>"; };
 		52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B47962219A0CA20099698C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		52B47964219A0CA20099698C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -381,6 +395,7 @@
 				5282E5852267606B0089A1FD /* Products */,
 				5282E597226760C60089A1FD /* OtherProducts */,
 				5282E5AB226760EA0089A1FD /* ProductDetail */,
+				52A710E82282110800D57DF5 /* Favourites */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -446,11 +461,13 @@
 		525FB76121AABF3F00F451C8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				52A710C9227F6B1C00D57DF5 /* LikeService.swift */,
 				5282E54422675D0C0089A1FD /* ApiClientService.swift */,
 				5282E54522675D0C0089A1FD /* ApiRequestService.swift */,
 				5282E54622675D0D0089A1FD /* ApiResponse.swift */,
 				5282E55B22675DCA0089A1FD /* HttpStatusCode.swift */,
 				5282E55222675DA40089A1FD /* CashServices */,
+				52A710E322820D1E00D57DF5 /* KeyChainService */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -561,6 +578,28 @@
 				52A710C4227DF76A00D57DF5 /* OtherProductsModal.swift */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		52A710E322820D1E00D57DF5 /* KeyChainService */ = {
+			isa = PBXGroup;
+			children = (
+				52A710E422820D1E00D57DF5 /* KeychainWrapper.swift */,
+				52A710E522820D1E00D57DF5 /* KeychainItemAccessibility.swift */,
+			);
+			name = KeyChainService;
+			path = Services/KeyChainService;
+			sourceTree = "<group>";
+		};
+		52A710E82282110800D57DF5 /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				52A710E92282112600D57DF5 /* FavouritesView.swift */,
+				52A710EA2282112600D57DF5 /* FavouritesView.xib */,
+				52A710EF2282152100D57DF5 /* FavouritesPresenter.swift */,
+				52A710ED2282151200D57DF5 /* FavouritesInteractor.swift */,
+			);
+			name = Favourites;
+			path = Controllers/Favourites;
 			sourceTree = "<group>";
 		};
 		52B47961219A0CA20099698C /* OneSignalNotificationServiceExtension */ = {
@@ -706,6 +745,9 @@
 							com.apple.Push = {
 								enabled = 1;
 							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
 						};
 					};
 					52B4795F219A0CA20099698C = {
@@ -756,6 +798,7 @@
 				5273F2C52272206A00B75BE9 /* ProductsSquareCVCell.xib in Resources */,
 				5282E57122675F580089A1FD /* GreetingController.xib in Resources */,
 				5238A46B2268F13E00243892 /* ImageModalViewer.xib in Resources */,
+				52A710EC2282112600D57DF5 /* FavouritesView.xib in Resources */,
 				5282E57F226760030089A1FD /* CategoriesView.xib in Resources */,
 				522C26032272FF5900436B6A /* GoogleService-Info.plist in Resources */,
 				5282E580226760030089A1FD /* CategoriesCell.xib in Resources */,
@@ -909,10 +952,12 @@
 				5282E5B7226792B10089A1FD /* PopAnimator.swift in Sources */,
 				522C26162273000600436B6A /* Task.swift in Sources */,
 				5282E5962267606B0089A1FD /* ProductsPresenter.swift in Sources */,
+				52A710E722820D1E00D57DF5 /* KeychainItemAccessibility.swift in Sources */,
 				522C26172273000600436B6A /* Delegates.swift in Sources */,
 				5282E57022675F580089A1FD /* LaunchControllerDelegate.swift in Sources */,
 				5282E5AA226760C60089A1FD /* OtherProductsPresenter.swift in Sources */,
 				5282E5A2226760C60089A1FD /* OtherProductCardProtocol.swift in Sources */,
+				52A710EE2282151200D57DF5 /* FavouritesInteractor.swift in Sources */,
 				5282E54922675D0D0089A1FD /* ApiResponse.swift in Sources */,
 				52E202EE2271A1C9001CBE3C /* CustomRefreshControl.swift in Sources */,
 				5282E583226760030089A1FD /* CategoriesInteractor.swift in Sources */,
@@ -923,6 +968,7 @@
 				5282E57622675F920089A1FD /* TutorialPageVC.swift in Sources */,
 				5282E55922675DA40089A1FD /* CachedImage.swift in Sources */,
 				522C25DD2272F9B500436B6A /* CustomNavigation.swift in Sources */,
+				52A710E622820D1E00D57DF5 /* KeychainWrapper.swift in Sources */,
 				5282E56122675E590089A1FD /* CategoryModel.swift in Sources */,
 				522C260F2273000600436B6A /* Guid.swift in Sources */,
 				522C25E22272FA3800436B6A /* AboutUsView.swift in Sources */,
@@ -939,6 +985,7 @@
 				522C26132273000600436B6A /* Config.swift in Sources */,
 				5282E56222675E590089A1FD /* ProductModel.swift in Sources */,
 				5282E5952267606B0089A1FD /* ProductsCollectionView.swift in Sources */,
+				52A710F02282152100D57DF5 /* FavouritesPresenter.swift in Sources */,
 				522C25F42272FEF000436B6A /* AppDelegate+Notifications.swift in Sources */,
 				522C26142273000600436B6A /* DispatchQueue.swift in Sources */,
 				522C26012272FF3500436B6A /* NavigationController.swift in Sources */,
@@ -955,6 +1002,7 @@
 				5282E5B2226763840089A1FD /* ProductDetailView.swift in Sources */,
 				5282E55822675DA40089A1FD /* OtherProductsCacheService.swift in Sources */,
 				522C25FB2272FF0000436B6A /* String+Extension.swift in Sources */,
+				52A710CA227F6B1C00D57DF5 /* LikeService.swift in Sources */,
 				5273F2C42272206A00B75BE9 /* ProductsSquareCVCell.swift in Sources */,
 				5282E56A22675F4E0089A1FD /* GSViewController.swift in Sources */,
 				5282E55722675DA40089A1FD /* CategoriesCacheService.swift in Sources */,
@@ -963,6 +1011,7 @@
 				5282E55C22675DCB0089A1FD /* HttpStatusCode.swift in Sources */,
 				5282E56F22675F580089A1FD /* Launcher.swift in Sources */,
 				5282E5AD226760EA0089A1FD /* ProductDetailInteractor.swift in Sources */,
+				52A710EB2282112600D57DF5 /* FavouritesView.swift in Sources */,
 				5282E5912267606B0089A1FD /* ProductsHorizontalCVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1168,11 +1217,11 @@
 				CODE_SIGN_ENTITLEMENTS = GoldenSewing/Supported/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 26;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = GoldenSewing/Supported/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1191,10 +1240,10 @@
 				CODE_SIGN_ENTITLEMENTS = GoldenSewing/Supported/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = GoldenSewing/Supported/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing";
 				PRODUCT_NAME = "$(TARGET_NAME)";

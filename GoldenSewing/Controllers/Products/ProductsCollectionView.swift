@@ -8,21 +8,27 @@
 
 import UIKit
 
+public protocol PresenterProtocol {
+    var countOfProducts: Int { get }
+    func productAt(_ index: Int) -> ProductModel
+    func handleCellAction(with productId: Int)
+}
+
 public class ProductsCollectionView: UICollectionView {
     
     public var heightValue: CGFloat {
         let height = cellsFactory.size.height
-        let count = CGFloat(presenter.countOfProducts())
+        let count = CGFloat(presenter.countOfProducts)
         let spacing = getCurrentLineSpacing()
         return count * (height + spacing) + spacing
     }
     
-    private var presenter: ProductsPresenter!
+    private var presenter: PresenterProtocol!
     private let cellsFactory = ProductsCellFactory()
     private let smallLineSpacing: CGFloat = 12.0
     private let bigLineSpacing: CGFloat = 16.0
     
-    public init(presenter: ProductsPresenter) {
+    public init(presenter: PresenterProtocol) {
         
         self.presenter = presenter
         
@@ -72,7 +78,7 @@ extension ProductsCollectionView: UICollectionViewDelegate {
 
 extension ProductsCollectionView: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.countOfProducts()
+        return presenter.countOfProducts
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

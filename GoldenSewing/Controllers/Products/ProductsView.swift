@@ -80,7 +80,7 @@ public class ProductsView: UIViewController {
         collectionView.snp.remakeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom)
             make.trailing.leading.equalToSuperview()
-            make.bottom.equalTo(bottomLayoutGuide.snp.top)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     

@@ -58,6 +58,8 @@ public class ProductDetailView: UIViewController {
         productEmbroideryType.textColor = UIColor.CustomColors.yellow
         productClothTags.textColor = UIColor.CustomColors.yellow
         productInlayTags.textColor = UIColor.CustomColors.yellow
+        
+        configureLikeButton()
     }
     
     private func configureNavigationBar() {
@@ -124,6 +126,32 @@ public class ProductDetailView: UIViewController {
         productInlayTags.isHidden = false
     }
     
+    private func configureLikeButton(_ isLiked: Bool = false) {
+        
+        productImage.subviews.forEach({ $0.removeFromSuperview() })
+        
+        let like = UIButton()
+        let likedImage = isLiked ? UIImage(named: "like") : UIImage(named: "emptyLike")
+        like.setImage(likedImage, for: .normal)
+        like.imageView?.contentMode = .scaleAspectFit
+        productImage.addSubview(like)
+        
+        like.addTarget(self, action: #selector(likeAction), for: .touchUpInside)
+        
+        like.translatesAutoresizingMaskIntoConstraints = false
+        like.snp.remakeConstraints { make in
+            make.size.equalTo(44.0)
+            make.bottom.equalToSuperview().offset(-10.0)
+            make.trailing.equalToSuperview().offset(-10.0)
+        }
+        
+        like.layer.shadowColor = UIColor.black.cgColor
+        like.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        like.layer.shadowRadius = 4.0
+        like.layer.shadowOpacity = 1.0
+        like.layer.masksToBounds = false
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -143,6 +171,10 @@ public class ProductDetailView: UIViewController {
     @objc func didTapImageView(_ tap: UITapGestureRecognizer) {
         guard let _ = productImage.image else { return }
         presenter.showImagePreview(with: self)
+    }
+    
+    @objc private func likeAction() {
+        presenter.like()
     }
     
     @objc private func goBack() {
@@ -183,6 +215,10 @@ extension ProductDetailView: ProductDetailViewDelegate {
         configureEmbroideryType()
         configureClothTags()
         configureInlayTags()
+    }
+    
+    public func updateLike(_ isLiked: Bool) {
+        configureLikeButton(isLiked)
     }
     
     public func problemWithRequest() {

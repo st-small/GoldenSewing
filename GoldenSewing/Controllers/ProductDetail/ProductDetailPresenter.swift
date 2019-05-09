@@ -13,6 +13,7 @@ public protocol ProductDetailViewDelegate {
     func showLoader()
     func hideLoader()
     func reload(data: ProductModel)
+    func updateLike(_ isLiked: Bool)
     func problemWithRequest()
     func hideToasts()
 }
@@ -31,6 +32,7 @@ public class ProductDetailPresenter {
     public func load() {
         showLoader()
         interactor.load()
+        interactor.checkIsLiked()
     }
     
     public func productTitle() -> String {
@@ -39,6 +41,10 @@ public class ProductDetailPresenter {
     
     public func showImagePreview(with transitionDelegate: UIViewControllerTransitioningDelegate) {
         interactor.showImagePreview(with: transitionDelegate)
+    }
+    
+    public func like() {
+        interactor.like()
     }
     
     public func goBack() {
@@ -67,6 +73,13 @@ extension ProductDetailPresenter: ProductDetailPresenterDelegate {
             guard let this = self else { return }
             this.delegate.reload(data: data)
             this.delegate.hideLoader()
+        }
+    }
+    
+    public func updateLike(_ isLiked: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            guard let this = self else { return }
+            this.delegate.updateLike(isLiked)
         }
     }
     
