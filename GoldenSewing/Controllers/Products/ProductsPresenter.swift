@@ -48,21 +48,9 @@ public class ProductsPresenter {
         interactor.goBack()
     }
     
-    public func countOfProducts() -> Int {
-        return products.count
-    }
-    
-    public func productAt(_ index: Int) -> ProductModel {
-        return products[index]
-    }
-    
     public func search(with text: String) {
         searchText = text
         interactor.search(with: text)
-    }
-    
-    public func handleCellAction(with productId: Int) {
-        interactor.handleCellAction(with: productId)
     }
     
     private func showLoader() {
@@ -120,5 +108,19 @@ extension ProductsPresenter: ProductsPresenterDelegate {
             }
         }
         update(data)
+    }
+}
+
+extension ProductsPresenter: PresenterProtocol {
+    public var countOfProducts: Int {
+        return products.count
+    }
+    
+    public func productAt(_ index: Int) -> ProductModel {
+        return products[index]
+    }
+    
+    public func handleCellAction(with productId: Int) {
+        interactor.handleCellAction(with: productId)
     }
 }

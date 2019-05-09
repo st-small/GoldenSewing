@@ -11,6 +11,7 @@ import RealmSwift
 
 public protocol ProductDetailPresenterDelegate {
     func update(with data: ProductModel)
+    func updateLike(_ isLiked: Bool)
     func problemWithRequest()
 }
 
@@ -22,6 +23,7 @@ public class ProductDetailInteractor {
     private let realm = try! Realm()
     private let service = OneItemCacheService.shared
     private let router = Router.shared
+    private let likes = LikeService.shared
     
     // Tools
     private var apiQueue: AsyncQueue!
@@ -43,6 +45,7 @@ public class ProductDetailInteractor {
     public func load() {
         loadData()
         loadCached()
+        likes.load()
     }
     
     private func loadCached() {
@@ -73,6 +76,19 @@ public class ProductDetailInteractor {
     
     public func showImagePreview(with transitionDelegate: UIViewControllerTransitioningDelegate) {
         router.showImagePreview(productId, with: transitionDelegate)
+    }
+    
+    public func checkIsLiked() {
+        guard let id = productId else { return }
+        let liked = likes.checkLike(id)
+        delegate.updateLike(liked)
+    }
+    
+    public func like() {
+        guard let id = productId else { return }
+        likes.updateLike(id)
+        
+        checkIsLiked()
     }
     
     public func goBack() {

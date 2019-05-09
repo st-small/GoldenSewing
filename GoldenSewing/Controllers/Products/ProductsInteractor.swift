@@ -68,10 +68,6 @@ public class ProductsInteractor {
         service.onUpdate = { [weak self] product in
             guard let this = self else { return }
             this.loadCached()
-//            if this.categoryId == product.id {
-//                this.products.append(product)
-//                this.delegate.update(with: this.products)
-//            }
         }
         
         service.onFail = { [weak self] in
