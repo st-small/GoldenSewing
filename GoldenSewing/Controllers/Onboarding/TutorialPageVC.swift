@@ -129,7 +129,8 @@ class TutorialPageVC: UIPageViewController, UIPageViewControllerDelegate, UIPage
 extension TutorialPageVC: LaunchControllerDelegate {
     
     var notNeedDisplay: Bool {
-        return properties.bool(forKey: "onboardingIsShown")
+        return false
+        //return properties.bool(forKey: "onboardingIsShown")
     }
     
     func hiddenProcessing() { }

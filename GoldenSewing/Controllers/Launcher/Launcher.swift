@@ -29,7 +29,7 @@ public class Launcher {
         self.navigator = NavigationController()
         
         self.controllers = [{GreetingController()}, 
-                            {TutorialPageVC()}]
+                            {OnboardingView()}]
         self.configureToast()
     }
     

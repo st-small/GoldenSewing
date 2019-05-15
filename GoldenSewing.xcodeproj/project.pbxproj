@@ -100,6 +100,7 @@
 		52A710F02282152100D57DF5 /* FavouritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710EF2282152100D57DF5 /* FavouritesPresenter.swift */; };
 		52B47963219A0CA20099698C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B47962219A0CA20099698C /* NotificationService.swift */; };
 		52B47967219A0CA20099698C /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		52B4A81E228C72E8006F636A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4A81D228C72E8006F636A /* OnboardingView.swift */; };
 		52D23C5D1F4F320100A91ADD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D23C5C1F4F320100A91ADD /* MapKit.framework */; };
 		52E202EE2271A1C9001CBE3C /* CustomRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E202ED2271A1C9001CBE3C /* CustomRefreshControl.swift */; };
 		BCDAC5875C33442E96446B0E /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB4AEFED8A00C3FF84EC710 /* Pods_OneSignalNotificationServiceExtension.framework */; };
@@ -237,6 +238,7 @@
 		52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B47962219A0CA20099698C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		52B47964219A0CA20099698C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52B4A81D228C72E8006F636A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingView.swift; path = Controllers/Onboarding/OnboardingView.swift; sourceTree = "<group>"; };
 		52D23C5C1F4F320100A91ADD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		52E202ED2271A1C9001CBE3C /* CustomRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomRefreshControl.swift; path = Views/CustomRefreshControl.swift; sourceTree = "<group>"; };
 		A5044A20EF76C115143A4897 /* Pods-GoldenSewing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenSewing.debug.xcconfig"; path = "Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing.debug.xcconfig"; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			children = (
 				5282E57322675F920089A1FD /* PageItemVC.swift */,
 				5282E57422675F920089A1FD /* TutorialPageVC.swift */,
+				52B4A81D228C72E8006F636A /* OnboardingView.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B4A81E228C72E8006F636A /* OnboardingView.swift in Sources */,
 				5282E54222675CB10089A1FD /* OtherProductsCellFactory.swift in Sources */,
 				5282E57222675F580089A1FD /* GreetingController.swift in Sources */,
 				5282E56422675E590089A1FD /* OtherProductModel.swift in Sources */,
