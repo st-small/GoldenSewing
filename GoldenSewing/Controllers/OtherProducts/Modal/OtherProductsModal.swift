@@ -57,8 +57,8 @@ public class OtherProductsModal: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView.snp.remakeConstraints { make in
-            make.top.equalTo(self.topLayoutGuide.snp.bottom)
-            make.bottom.equalTo(self.bottomLayoutGuide.snp.top)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
         
