@@ -22,6 +22,9 @@ public class ProductsView: UIViewController {
     private var categoryId: Int!
     private var presenter: ProductsPresenter!
     
+    // Services
+    private let notificationCenter = NotificationCenter.default
+    
     public init(categoryId: Int) {
         super.init(nibName: "ProductsView", bundle: Bundle.main)
         
@@ -91,11 +94,32 @@ public class ProductsView: UIViewController {
         
         refresh.addTarget(self, action: #selector(needReload), for: .valueChanged)
     }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let searchText = searchBar.text ?? ""
+        presenter.load(searchText)
+    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter.load()
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        let userInfo = notification.userInfo!
+        
+        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            collectionView.contentInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        } else {
+            collectionView.contentInset = UIEdgeInsets(top: 12, left: 12, bottom: keyboardViewEndFrame.height + 12, right: 12)
+        }
     }
     
     @objc private func goBack() {
@@ -106,6 +130,7 @@ public class ProductsView: UIViewController {
         let show = !(searchBar.frame.height > 0)
         if !show {
             presenter.load()
+            view.endEditing(true)
         }
         updateSearchBarConstraints(show)
     }
@@ -136,7 +161,7 @@ extension ProductsView: UISearchBarDelegate {
     }
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        presenter.load()
+        presenter.load(searchBar.text ?? "")
     }
     
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -144,7 +169,7 @@ extension ProductsView: UISearchBarDelegate {
             presenter.load()
             return
         }
-        presenter.search(with: searchText)
+        presenter.load(searchText)
     }
 }
 
