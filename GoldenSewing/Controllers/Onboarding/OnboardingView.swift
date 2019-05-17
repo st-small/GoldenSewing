@@ -15,11 +15,14 @@ public class OnboardingView: UIViewController {
     // UI elements
     private var scrollView: UIScrollView!
     private var contentView: UIView!
+    private var enterAction: UIButton!
     
     // Data
     private var imagesArray = [UIImage]()
     private var labelsArray = [String]()
     private var allImagesScrollViews = [UIScrollView]()
+    
+    private var properties = UserDefaults.standard
     
     private var screen: CGSize {
         let app = UIApplication.shared
@@ -58,10 +61,12 @@ public class OnboardingView: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        properties.set(true, forKey: "onboardingIsShown")
     }
     
     private func preapreImages() {
-        let imageNames = ["Onboard_1", "Onboard_2", "Onboard_3", "Onboard_4"]
+        let imageNames = Constants.onboardingImages
         
         imageNames.forEach { name in
             guard let image = UIImage(named: name) else { return }
@@ -70,14 +75,14 @@ public class OnboardingView: UIViewController {
     }
     
     private func preapreLabels() {
-        labelsArray = [
-            "Мы рады приветствовать Вас в нашем приложении. Предлагаем ознакомиться с основными возможностями!", "Экран «Категории» предлагает Вам выбор разделов с нашей продукцией. Выбирайте интересующий раздел.", "Используйте «Поиск» для удобного и быстрого отображения, интересующих Вас изделий.", "Используйте «Поиск» в выбранной категории, используя название или номер артикула."]
+        labelsArray = Constants.onboardingLabels
     }
     
     private func configureScrollView() {
         scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.delegate = self
         self.view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -181,19 +186,19 @@ public class OnboardingView: UIViewController {
     }
     
     private func addSkipButton() {
-        let buttonView = UIButton()
-        buttonView.backgroundColor = UIColor.CustomColors.burgundy
-        buttonView.layer.borderWidth = 1.0
-        buttonView.layer.borderColor = UIColor.CustomColors.yellow.cgColor
-        buttonView.layer.cornerRadius = corners
+        enterAction = UIButton()
+        enterAction.backgroundColor = UIColor.CustomColors.burgundy
+        enterAction.layer.borderWidth = 1.0
+        enterAction.layer.borderColor = UIColor.CustomColors.yellow.cgColor
+        enterAction.layer.cornerRadius = corners
         
         let title = attributesForString("Пропустить")
-        buttonView.setAttributedTitle(title, for: .normal)
-        buttonView.addTarget(self, action: #selector(skipTutorial), for: .touchUpInside)
-        self.view.addSubview(buttonView)
+        enterAction.setAttributedTitle(title, for: .normal)
+        enterAction.addTarget(self, action: #selector(skipTutorial), for: .touchUpInside)
+        self.view.addSubview(enterAction)
         
-        buttonView.translatesAutoresizingMaskIntoConstraints = false
-        buttonView.snp.remakeConstraints { make in
+        enterAction.translatesAutoresizingMaskIntoConstraints = false
+        enterAction.snp.remakeConstraints { make in
             make.width.equalTo(screen.width - 32.0)
             make.height.equalTo(44.0)
             make.centerX.equalToSuperview()
@@ -204,7 +209,14 @@ public class OnboardingView: UIViewController {
     private func attributesForString(_ text: String) -> NSAttributedString {
         
         // font
-        let font = UIFont.systemFont(ofSize: 17.0)
+        var font = UIFont()
+        if screen.width == 320.0 {
+            font = UIFont.systemFont(ofSize: 13.0)
+        } else if screen.width == 375.0 {
+            font = UIFont.systemFont(ofSize: 15.0)
+        } else {
+            font = UIFont.systemFont(ofSize: 17.0)
+        }
         
         // shadow
         let shadow = NSShadow()
@@ -227,20 +239,33 @@ public class OnboardingView: UIViewController {
         return NSAttributedString(string: text, attributes: attributes)
     }
     
+    private func updateEnterActionTitle() {
+        UIView.animate(withDuration: 0.9) {
+            let title = self.attributesForString("Вход")
+            self.enterAction.setAttributedTitle(title, for: .normal)
+        }
+    }
+    
     @objc public func skipTutorial() {
         onCompleteHandler?()
     }
 }
 
 extension OnboardingView: UIScrollViewDelegate {
-    
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let widthValue: CGFloat = CGFloat(imagesArray.count) * screen.width - screen.width
+        if scrollView == self.scrollView {
+            if scrollView.contentOffset.x >= widthValue {
+                updateEnterActionTitle()
+            }
+        }
+    }
 }
 
 extension OnboardingView: LaunchControllerDelegate {
     
     public var notNeedDisplay: Bool {
-        return false
-        //return properties.bool(forKey: "onboardingIsShown")
+        return properties.bool(forKey: "onboardingIsShown")
     }
     
     public func hiddenProcessing() { }

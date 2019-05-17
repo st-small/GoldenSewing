@@ -35,7 +35,6 @@
 		522C263522730C2A00436B6A /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C263422730C2A00436B6A /* SnapshotHelper.swift */; };
 		5238A46A2268F13E00243892 /* ImageModalViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5238A4682268F13E00243892 /* ImageModalViewer.swift */; };
 		5238A46B2268F13E00243892 /* ImageModalViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5238A4692268F13E00243892 /* ImageModalViewer.xib */; };
-		523D73B12274A7400091D10A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523D73B02274A7400091D10A /* Main.storyboard */; };
 		523ED30A1F29CA9400BE20E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523ED3081F29CA9400BE20E5 /* LaunchScreen.storyboard */; };
 		5273F2C42272206A00B75BE9 /* ProductsSquareCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5273F2C22272206A00B75BE9 /* ProductsSquareCVCell.swift */; };
 		5273F2C52272206A00B75BE9 /* ProductsSquareCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5273F2C32272206A00B75BE9 /* ProductsSquareCVCell.xib */; };
@@ -58,8 +57,6 @@
 		5282E57022675F580089A1FD /* LaunchControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E56C22675F580089A1FD /* LaunchControllerDelegate.swift */; };
 		5282E57122675F580089A1FD /* GreetingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5282E56D22675F580089A1FD /* GreetingController.xib */; };
 		5282E57222675F580089A1FD /* GreetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E56E22675F580089A1FD /* GreetingController.swift */; };
-		5282E57522675F920089A1FD /* PageItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E57322675F920089A1FD /* PageItemVC.swift */; };
-		5282E57622675F920089A1FD /* TutorialPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E57422675F920089A1FD /* TutorialPageVC.swift */; };
 		5282E57F226760030089A1FD /* CategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5282E578226760030089A1FD /* CategoriesView.xib */; };
 		5282E580226760030089A1FD /* CategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5282E57A226760030089A1FD /* CategoriesCell.xib */; };
 		5282E581226760030089A1FD /* CategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E57B226760030089A1FD /* CategoriesCell.swift */; };
@@ -172,7 +169,6 @@
 		522C263422730C2A00436B6A /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		5238A4682268F13E00243892 /* ImageModalViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModalViewer.swift; sourceTree = "<group>"; };
 		5238A4692268F13E00243892 /* ImageModalViewer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageModalViewer.xib; sourceTree = "<group>"; };
-		523D73B02274A7400091D10A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Supported/Main.storyboard; sourceTree = "<group>"; };
 		523ED2FC1F29CA9400BE20E5 /* GoldenSewing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenSewing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523ED3091F29CA9400BE20E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5273F2C22272206A00B75BE9 /* ProductsSquareCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsSquareCVCell.swift; sourceTree = "<group>"; };
@@ -196,8 +192,6 @@
 		5282E56C22675F580089A1FD /* LaunchControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchControllerDelegate.swift; path = Controllers/Launcher/LaunchControllerDelegate.swift; sourceTree = "<group>"; };
 		5282E56D22675F580089A1FD /* GreetingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GreetingController.xib; path = Controllers/Launcher/GreetingController.xib; sourceTree = "<group>"; };
 		5282E56E22675F580089A1FD /* GreetingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GreetingController.swift; path = Controllers/Launcher/GreetingController.swift; sourceTree = "<group>"; };
-		5282E57322675F920089A1FD /* PageItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageItemVC.swift; path = Controllers/Onboarding/PageItemVC.swift; sourceTree = "<group>"; };
-		5282E57422675F920089A1FD /* TutorialPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialPageVC.swift; path = Controllers/Onboarding/TutorialPageVC.swift; sourceTree = "<group>"; };
 		5282E578226760030089A1FD /* CategoriesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesView.xib; sourceTree = "<group>"; };
 		5282E57A226760030089A1FD /* CategoriesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesCell.xib; sourceTree = "<group>"; };
 		5282E57B226760030089A1FD /* CategoriesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
@@ -416,7 +410,6 @@
 		525108551F3087430044804C /* Supported */ = {
 			isa = PBXGroup;
 			children = (
-				523D73B02274A7400091D10A /* Main.storyboard */,
 				522C25E82272FAD500436B6A /* Constants.swift */,
 				522C25EF2272FD2B00436B6A /* AsyncQueueExtension.swift */,
 				522C25F12272FEF000436B6A /* AppDelegate.swift */,
@@ -454,8 +447,6 @@
 		525C38C021A4AA3E003FE500 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				5282E57322675F920089A1FD /* PageItemVC.swift */,
-				5282E57422675F920089A1FD /* TutorialPageVC.swift */,
 				52B4A81D228C72E8006F636A /* OnboardingView.swift */,
 			);
 			name = Onboarding;
@@ -806,7 +797,6 @@
 				522C26032272FF5900436B6A /* GoogleService-Info.plist in Resources */,
 				5282E580226760030089A1FD /* CategoriesCell.xib in Resources */,
 				5282E5A8226760C60089A1FD /* OtherProductsView.xib in Resources */,
-				523D73B12274A7400091D10A /* Main.storyboard in Resources */,
 				5282E5932267606B0089A1FD /* ProductsView.xib in Resources */,
 				522C25E12272FA3800436B6A /* AboutUsView.xib in Resources */,
 				522C25FD2272FF1400436B6A /* Assets.xcassets in Resources */,
@@ -965,11 +955,9 @@
 				5282E54922675D0D0089A1FD /* ApiResponse.swift in Sources */,
 				52E202EE2271A1C9001CBE3C /* CustomRefreshControl.swift in Sources */,
 				5282E583226760030089A1FD /* CategoriesInteractor.swift in Sources */,
-				5282E57522675F920089A1FD /* PageItemVC.swift in Sources */,
 				522C26152273000600436B6A /* Helper.swift in Sources */,
 				5282E55A22675DA40089A1FD /* ProductsCacheService.swift in Sources */,
 				5282E5A3226760C60089A1FD /* OtherProductsCVCell.swift in Sources */,
-				5282E57622675F920089A1FD /* TutorialPageVC.swift in Sources */,
 				5282E55922675DA40089A1FD /* CachedImage.swift in Sources */,
 				522C25DD2272F9B500436B6A /* CustomNavigation.swift in Sources */,
 				52A710E622820D1E00D57DF5 /* KeychainWrapper.swift in Sources */,
