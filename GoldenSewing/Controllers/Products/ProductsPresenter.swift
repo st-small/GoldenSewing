@@ -35,9 +35,16 @@ public class ProductsPresenter {
         return interactor.categoryTitle()
     }
     
-    public func load() {
+    public func load(_ searchValue: String = "") {
         showLoader()
-        interactor.load()
+        
+        searchText = searchValue
+        guard !searchValue.isEmpty else {
+            interactor.load()
+            return
+        }
+        
+        interactor.search(with: searchValue)
     }
     
     public func needReload() {
@@ -46,11 +53,6 @@ public class ProductsPresenter {
     
     public func goBack() {
         interactor.goBack()
-    }
-    
-    public func search(with text: String) {
-        searchText = text
-        interactor.search(with: text)
     }
     
     private func showLoader() {
@@ -87,6 +89,14 @@ public class ProductsPresenter {
 extension ProductsPresenter: ProductsPresenterDelegate {
     public func update(with data: [ProductModel]) {
         hideToasts()
+        
+        guard searchText.isEmpty else {
+            DispatchQueue.main.async { [weak self] in
+                guard let this = self else { return }
+                this.delegate.hideLoader()
+            }
+            return
+        }
         update(data)
     }
     
@@ -101,12 +111,6 @@ extension ProductsPresenter: ProductsPresenterDelegate {
     public func updateSearchResults(with data: [ProductModel]) {
         hideToasts()
         products.removeAll()
-        if data.isEmpty {
-            DispatchQueue.main.async { [weak self] in
-                guard let this = self else { return }
-                this.delegate.showNoResult(this.searchText)
-            }
-        }
         update(data)
     }
 }
