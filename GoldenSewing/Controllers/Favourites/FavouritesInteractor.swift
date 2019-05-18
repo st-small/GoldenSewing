@@ -18,7 +18,7 @@ public class FavouritesInteractor {
     public var delegate: FavouritesPresenterDelegate
     
     // Services
-    private let service = ProductsCacheService.shared
+    private let service = OneItemCacheService.shared
     private let likeService = LikeService.shared
     private let router = Router.shared
     private let realm = try! Realm()
@@ -44,13 +44,16 @@ public class FavouritesInteractor {
     
     private func getItemsByIds(_ values: [Int]) {
         values.forEach { [weak self] value in
+            service.load(id: value)
             guard let this = self else { return }
-            let array = realm.objects(ProductModelRealmItem.self)
-            if let productItem = array.first(where: { $0.id == value }) {
-                let item = ProductModel(item: productItem)
+            if let item = this.service.cache, item.id == value {
                 this.delegate.update(item)
             } else {
-                
+                this.service.synchronize()
+                this.service.onUpdate = { [weak self] product in
+                    guard let this = self else { return }
+                    this.delegate.update(product)
+                }
             }
         }
     }
