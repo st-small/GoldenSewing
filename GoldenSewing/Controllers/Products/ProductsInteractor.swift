@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import StoreKit
 
 public protocol ProductsPresenterDelegate {
     func update(with data: [ProductModel])
@@ -24,6 +25,7 @@ public class ProductsInteractor {
     private let realm = try! Realm()
     private let service = ProductsCacheService.shared
     private let router = Router.shared
+    private let device = DeviceService.shared
     
     // Tools
     private var apiQueue: AsyncQueue!
@@ -43,6 +45,14 @@ public class ProductsInteractor {
     public func load() {
         loadData()
         loadCached()
+        
+        showRequestReview()
+    }
+    
+    private func showRequestReview() {
+        if device.launchIndex % 10 == 0 {
+            SKStoreReviewController.requestReview()
+        }
     }
     
     public func needReload() {
