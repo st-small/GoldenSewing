@@ -84,7 +84,9 @@ public class OtherProductsPresenter {
 }
 
 extension OtherProductsPresenter: OtherProductsPresenterDelegate {
-    public func update(with data: OtherProductModel) {
+    public func update(with data: OtherProductModel?) {
+        
+        guard let data = data else { return }
         hideToasts()
         
         if self.product.modified < data.modified {

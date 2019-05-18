@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 public protocol ProductDetailPresenterDelegate {
-    func update(with data: ProductModel)
+    func update(with data: ProductModel?)
     func updateLike(_ isLiked: Bool)
     func problemWithRequest()
 }
@@ -30,14 +30,13 @@ public class ProductDetailInteractor {
     
     // Data
     private var productId: Int!
-    private var product: ProductModel
+    private var product: ProductModel?
     
     public init(with productId: Int, delegate: ProductDetailPresenterDelegate) {
         
         self.productId = productId
         self.delegate = delegate
         apiQueue = AsyncQueue.createForApi(for: "ProductDetailInteractor")
-        product = ProductModel()
         
         service.load(id: productId)
     }
@@ -58,7 +57,7 @@ public class ProductDetailInteractor {
         service.synchronize()
         service.onUpdate = { [weak self] product in
             guard let this = self else { return }
-            this.loadCached()
+            this.delegate.update(with: product)
         }
         
         service.onFail = { [weak self] in

@@ -30,16 +30,19 @@ public class OneItemCacheService {
         
         api = ApiRequestService(area: "posts", type: ProductsCacheService.self)
         apiQueue = AsyncQueue.createForApi(for: tag)
-        cache = ProductModel()
     }
     
     public func load(id: Int) {
         productId = id
-        product = realm.objects(ProductModelRealmItem.self).filter({ $0.id == id }).first
+        let objects = realm.objects(ProductModelRealmItem.self).filter({ $0.id == id })
+        if !objects.isEmpty {
+            product = objects.first
+        }
+        
         loadCached()
     }
     
-    public var cache: ProductModel
+    public var cache: ProductModel?
     
     public func synchronize() {
         guard let id = productId else { return }

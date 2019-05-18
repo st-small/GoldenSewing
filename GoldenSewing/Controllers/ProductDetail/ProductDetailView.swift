@@ -20,6 +20,8 @@ public class ProductDetailView: UIViewController {
     @IBOutlet private weak var productEmbroideryType: UILabel!
     @IBOutlet private weak var productClothTags: UILabel!
     @IBOutlet private weak var productInlayTags: UILabel!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var infoRequest: UIButton!
     
     // Data
     private var productId: Int!
@@ -45,21 +47,35 @@ public class ProductDetailView: UIViewController {
         
         configureNavigationBar()
         
+        productImage.isHidden = true
         productImage.backgroundColor = .clear
         productImage.layer.cornerRadius = 10.0
         productImage.layer.borderWidth = 1.0
         productImage.layer.borderColor = UIColor.CustomColors.yellow.cgColor
         productImage.isUserInteractionEnabled = true
+        productImage.clear()
         productImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapImageView)))
         
+        productTitle.isHidden = true
         productTitle.textColor = UIColor.CustomColors.yellow
+        
+        productVendorCode.isHidden = true
         productVendorCode.textColor = UIColor.CustomColors.yellow
+        
+        productBestOffer.isHidden = true
         productBestOffer.textColor = UIColor.CustomColors.yellow
+        
+        productEmbroideryType.isHidden = true
         productEmbroideryType.textColor = UIColor.CustomColors.yellow
+        
+        productClothTags.isHidden = true
         productClothTags.textColor = UIColor.CustomColors.yellow
+        
+        productInlayTags.isHidden = true
         productInlayTags.textColor = UIColor.CustomColors.yellow
         
-        configureLikeButton()
+        containerView.isHidden = true
+        infoRequest.isHidden = true
     }
     
     private func configureNavigationBar() {
@@ -208,6 +224,7 @@ extension ProductDetailView: ProductDetailViewDelegate {
     public func reload(data: ProductModel) {
         productItem = data
         guard let container = data.imageContainer else { return }
+        productImage.isHidden = false
         productImage.setupImage(id: data.id, url: container.imageLink)
         configureTitle()
         configureVendorCode()
@@ -215,6 +232,14 @@ extension ProductDetailView: ProductDetailViewDelegate {
         configureEmbroideryType()
         configureClothTags()
         configureInlayTags()
+        containerView.isHidden = false
+        updateInfoRequestButton()
+    }
+    
+    private func updateInfoRequestButton() {
+        UIView.animate(withDuration: 1.5) {
+            self.infoRequest.isHidden = false
+        }
     }
     
     public func updateLike(_ isLiked: Bool) {
@@ -251,12 +276,10 @@ extension ProductDetailView: ImageTransitionProtocol {
     
     public func tranisitionSetup() {
         updateImage(false)
-        //photosCollectionView.reloadData()
     }
     
     public func tranisitionCleanup() {
         updateImage(true)
-        //photosCollectionView.reloadData()
     }
     
     public func imageWindowFrame() -> CGRect {

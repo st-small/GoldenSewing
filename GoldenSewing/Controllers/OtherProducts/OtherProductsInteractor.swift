@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 public protocol OtherProductsPresenterDelegate {
-    func update(with data: OtherProductModel)
+    func update(with data: OtherProductModel?)
     func problemWithRequest()
 }
 

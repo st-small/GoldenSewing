@@ -32,12 +32,11 @@ public class OtherProductsCacheService {
     //Hooks
     public var onUpdate: Action<OtherProductModel>?
     public var onFail: Trigger?
-    public var cache: OtherProductModel
+    public var cache: OtherProductModel?
     
     private init() {
         api = ApiRequestService(area: "pages", type: ProductsCacheService.self)
         apiQueue = AsyncQueue.createForApi(for: tag)
-        cache = OtherProductModel()
     }
     
     public func load(id: Int) {
