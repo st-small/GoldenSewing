@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailView" customModule="GoldenSewing" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="JOA-BK-wAg" id="b4r-tq-2BR"/>
+                <outlet property="infoRequest" destination="98n-Sh-2dF" id="yRN-5T-qvS"/>
                 <outlet property="productBestOffer" destination="KI1-X1-5cq" id="ucM-3L-OhF"/>
                 <outlet property="productClothTags" destination="s5c-Xn-1AC" id="LIf-NR-Jsm"/>
                 <outlet property="productEmbroideryType" destination="fsq-Pz-YXe" id="Xxb-bE-Wn7"/>

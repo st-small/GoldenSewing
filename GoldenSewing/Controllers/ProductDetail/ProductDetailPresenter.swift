@@ -68,10 +68,12 @@ public class ProductDetailPresenter {
 
 extension ProductDetailPresenter: ProductDetailPresenterDelegate {
     
-    public func update(with data: ProductModel) {
+    public func update(with data: ProductModel?) {
+        guard let product = data else { return }
+        print("product \(product.title)")
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
-            this.delegate.reload(data: data)
+            this.delegate.reload(data: product)
             this.delegate.hideLoader()
         }
     }
@@ -87,7 +89,7 @@ extension ProductDetailPresenter: ProductDetailPresenterDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
             this.delegate.problemWithRequest()
-            this.delegate.hideLoader()
+            //this.delegate.hideLoader()
         }
     }
 }

@@ -13,6 +13,8 @@ typealias VCCtor = () -> LaunchControllerDelegate & UIViewController
 
 public class Launcher {
     
+    public var pushValue: Int?
+    
     private var completeLaunch: Bool = false
     private var completeHandler: Trigger? = nil
     
@@ -94,7 +96,7 @@ public class Launcher {
     }
     
     private func complete() {
-        if (completeLaunch) {
+        if (completeLaunch && pushValue == nil) {
             return
         }
         
@@ -121,6 +123,10 @@ public class Launcher {
         
         if (!completeLaunch) {
             return
+        }
+        
+        if let notification = pushValue {
+            Router.shared.openDetailView(productId: notification)
         }
     }
 }

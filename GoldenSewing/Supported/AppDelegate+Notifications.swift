@@ -11,7 +11,7 @@ import UIKit
 import UserNotifications
 import OneSignal
 
-extension AppDelegate {
+extension AppDelegate: UNUserNotificationCenterDelegate {
     
     public func registerOneSignal(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         
@@ -32,8 +32,9 @@ extension AppDelegate {
         })
     }
     
-    func registerPushNotifications() {
-       
+    public func registerPushNotifications() {
+        
+        center.delegate = self
         center.requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in 
             
             print("Permission granted: \(granted)")
@@ -43,7 +44,7 @@ extension AppDelegate {
         }
     }
     
-    func getNotificationSettings() {
+    public func getNotificationSettings() {
         center.getNotificationSettings { (settings) in
             print("Notification settings: \(settings)")
             
@@ -59,21 +60,39 @@ extension AppDelegate {
         }
     }
     
-    func application(_ application: UIApplication,
+    public func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register: \(error)")
     }
     
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         print("APNs device token: \(token)")
-        //let service = ExchangeService()
-        //service.registerPushToken(token: token)
     }
     
     // MARK: - Notifications processing
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        print("didReceiveRemoteNotification applicationState:", application.applicationState.rawValue)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.sound, .alert])
+    }
+    
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void)  {
+        if let userInfo = response.notification.request.content.userInfo as? [String : AnyObject] {
+            guard let value = notificationTextCheckVendor(userInfo: userInfo) else { return }
+            if (UIApplication.shared.applicationState == .inactive) {
+                // recieved push in background
+                launcher?.pushValue = value
+                launcher?.start()
+            } else {
+                // recieved push in foreground
+                Router.shared.openDetailView(productId: value)
+            }
+        }
+        completionHandler()
+    }
+    
+    public func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                            fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+            print("didReceiveRemoteNotification applicationState:", application.applicationState.rawValue)
     }
     
     // MARK: - Private
@@ -102,5 +121,13 @@ extension AppDelegate {
             alertText = result
         }
         return alertText
+    }
+    
+    private func notificationTextCheckVendor(userInfo: [AnyHashable : Any]) -> Int? {
+        print("user info \(userInfo)")
+        guard let custom = userInfo["custom"] as? [String : Any],
+            let aValue =  custom["a"] as? [String : Any],
+            let vendor = aValue["vendorCode"] as? String else { return nil }
+        return Int(vendor)
     }
 }
