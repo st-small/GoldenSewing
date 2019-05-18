@@ -22,7 +22,8 @@ public class OnboardingView: UIViewController {
     private var labelsArray = [String]()
     private var allImagesScrollViews = [UIScrollView]()
     
-    private var properties = UserDefaults.standard
+    // Services
+    private let deviceService = DeviceService.shared
     
     private var screen: CGSize {
         let app = UIApplication.shared
@@ -61,8 +62,6 @@ public class OnboardingView: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
-        properties.set(true, forKey: "onboardingIsShown")
     }
     
     private func preapreImages() {
@@ -265,7 +264,7 @@ extension OnboardingView: UIScrollViewDelegate {
 extension OnboardingView: LaunchControllerDelegate {
     
     public var notNeedDisplay: Bool {
-        return properties.bool(forKey: "onboardingIsShown")
+        return deviceService.launchIndex != 0
     }
     
     public func hiddenProcessing() { }

@@ -44,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let realmFilePath = Realm.Configuration.defaultConfiguration.fileURL
         print("Realm File Path", realmFilePath!)
         
+        let deviceService = DeviceService.shared
+        deviceService.start()
+        
         return true
     }
 
