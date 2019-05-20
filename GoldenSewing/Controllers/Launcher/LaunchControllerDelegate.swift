@@ -12,6 +12,4 @@ public protocol LaunchControllerDelegate {
     
     var notNeedDisplay: Bool { get }
     var onCompleteHandler: Trigger? { get set }
-    
-    func hiddenProcessing()
 }

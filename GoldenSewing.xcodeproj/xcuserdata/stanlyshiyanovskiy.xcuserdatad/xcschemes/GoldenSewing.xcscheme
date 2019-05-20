@@ -26,7 +26,18 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "523ED2FB1F29CA9400BE20E5"
+            BuildableName = "GoldenSewing.app"
+            BlueprintName = "GoldenSewing"
+            ReferencedContainer = "container:GoldenSewing.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -45,6 +56,16 @@
                BlueprintIdentifier = "522C262922730B9C00436B6A"
                BuildableName = "GoldenSewingUITests.xctest"
                BlueprintName = "GoldenSewingUITests"
+               ReferencedContainer = "container:GoldenSewing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "52172FF32293005300529DE5"
+               BuildableName = "Golden Sewing Tests.xctest"
+               BlueprintName = "Golden Sewing Tests"
                ReferencedContainer = "container:GoldenSewing.xcodeproj">
             </BuildableReference>
          </TestableReference>
