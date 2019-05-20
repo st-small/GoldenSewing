@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 import Toast_Swift
 
 public class OtherProductsView: UIViewController {
@@ -67,8 +66,8 @@ public class OtherProductsView: UIViewController {
         scrollView.showsVerticalScrollIndicator = false
         self.view.addSubview(scrollView)
         scrollView.snp.remakeConstraints { make in
-            make.top.equalTo(topLayoutGuide.snp.bottom)
-            make.bottom.equalTo(bottomLayoutGuide.snp.top)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
     }

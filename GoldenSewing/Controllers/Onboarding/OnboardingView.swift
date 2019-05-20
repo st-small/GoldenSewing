@@ -90,6 +90,9 @@ public class OnboardingView: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
+        
+        scrollView.accessibilityElementsHidden = false
+        scrollView.accessibilityIdentifier = "OnboardingScroll"
     }
     
     private func configureContentView() {
@@ -266,6 +269,4 @@ extension OnboardingView: LaunchControllerDelegate {
     public var notNeedDisplay: Bool {
         return deviceService.launchIndex != 0
     }
-    
-    public func hiddenProcessing() { }
 }

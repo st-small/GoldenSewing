@@ -54,6 +54,4 @@ extension GreetingController: LaunchControllerDelegate {
     public var notNeedDisplay: Bool {
         return false
     }
-    
-    public func hiddenProcessing() {}
 }

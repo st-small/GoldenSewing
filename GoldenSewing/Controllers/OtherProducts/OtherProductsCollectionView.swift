@@ -43,6 +43,9 @@ public class OtherProductsCollectionView: UICollectionView {
         
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
+        
+        self.accessibilityElementsHidden = false
+        self.accessibilityIdentifier = "OtherProducts"
     }
     
     public required init?(coder aDecoder: NSCoder) {

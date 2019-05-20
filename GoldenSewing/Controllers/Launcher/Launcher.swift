@@ -72,7 +72,6 @@ public class Launcher {
         let nextStep = step + 1
         
         if (vc.notNeedDisplay) {
-            vc.hiddenProcessing()
             continueLaunch(from: nextStep)
             return
         }
