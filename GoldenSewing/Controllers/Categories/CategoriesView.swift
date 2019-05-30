@@ -31,6 +31,8 @@ public class CategoriesView: UIViewController {
         
         categoriesTable.dataSource = self
         categoriesTable.delegate = self
+        categoriesTable.accessibilityElementsHidden = false
+        categoriesTable.accessibilityIdentifier = "categoriesTable"
         
         CategoriesCell.register(in: categoriesTable)
         

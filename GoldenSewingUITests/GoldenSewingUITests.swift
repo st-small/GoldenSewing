@@ -8,14 +8,86 @@
 
 import XCTest
 
-class GoldenSewingUITests: XCTestCase {
+@testable import GoldenSewing
 
-    func testExample() {
-        
-        // Загрузили приложение
-        let app = XCUIApplication()
-        setupSnapshot(app)
+class GoldenSewingUITests: XCTestCase {
+    
+    private let app = XCUIApplication()
+    
+    override public func setUp() {
+        super.setUp()
         app.launch()
+        
+        addUIInterruptionMonitor(withDescription: "\"GoldenSewing\" Would Like to Send You Notifications") {
+            (alert) -> Bool in
+            
+            let okButton = alert.buttons["OK"]
+            if okButton.exists {
+                okButton.tap()
+            }
+            
+            let allowButton = alert.buttons["Allow"]
+            if allowButton.exists {
+                allowButton.tap()
+            }
+            
+            let allowRussianButton = alert.buttons["Разрешить"]
+            if allowRussianButton.exists {
+                allowRussianButton.tap()
+            }
+            
+            return true
+        }
+        
+        app.tap()
+    }
+    
+    override func tearDown() {
+        Springboard.deleteMyApp(name: "Золотое шитьё")
+        super.tearDown()
+    }
+    
+    public func testOnboarding() {
+        
+        addUIInterruptionMonitor(withDescription: "\"GoldenSewing\" Would Like to Send You Notifications") {
+            (alert) -> Bool in
+            
+            let okButton = alert.buttons["OK"]
+            if okButton.exists {
+                okButton.tap()
+            }
+            
+            let allowButton = alert.buttons["Allow"]
+            if allowButton.exists {
+                allowButton.tap()
+            }
+            
+            let allowRussianButton = alert.buttons["Разрешить"]
+            if allowRussianButton.exists {
+                allowRussianButton.tap()
+            }
+            
+            return true
+        }
+        
+        app.tap()
+        
+        let scrollView = app.scrollViews["OnboardingScroll"]
+        XCTAssertTrue(scrollView.waitForExistence(timeout: 3.0))
+        sleep(UInt32(1))
+        
+        repeat {
+            scrollView.swipeLeft()
+        } while self.app.buttons["Пропустить"].exists
+        
+        app.buttons["Вход"].tap()
+    }
+
+    public func testToTakeSnapshots() {
+        
+        app.buttons["Пропустить"].tap()
+        
+        XCTAssertTrue(app.tables["categoriesTable"].waitForExistence(timeout: 5.0))
         snapshot("01CategoriesItems")
         
         // Открыли раздел "Митры"
@@ -35,6 +107,8 @@ class GoldenSewingUITests: XCTestCase {
         // Нажали поиск и ввели номер артикула 9197
         app.navigationBars["Митры архиерейские, иерейские"].buttons["Search"].tap()
         app.otherElements.containing(.navigationBar, identifier:"Митры архиерейские, иерейские").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .searchField).element.tap()
+        
+        sleep(UInt32(10))
         
         let moreKey = app/*@START_MENU_TOKEN@*/.keys["more"]/*[[".keyboards",".keys[\"more, numbers\"]",".keys[\"more\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
         moreKey.tap()
@@ -60,7 +134,35 @@ class GoldenSewingUITests: XCTestCase {
         
         // Выбираем категорию "Геральдика"
         app.tables.buttons["Митры архиерейские, иерейские"].swipeDown()
+        sleep(UInt32(1))
         app.tables.buttons["Геральдика"].tap()
+        
+        XCTAssertTrue(app.collectionViews["OtherProducts"].waitForExistence(timeout: 5.0))
         snapshot("05HeraldryCategory")
+    }
+}
+
+public class Springboard {
+    
+    static let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+    
+    /**
+     Terminate and delete the app via springboard
+     */
+    class func deleteMyApp(name: String) {
+        XCUIApplication().terminate()
+        
+        // Force delete the app from the springboard
+        let icon = springboard.icons[name]
+        if icon.exists {
+            icon.press(forDuration: 2.0)
+            
+            icon.buttons["DeleteButton"].tap()
+            sleep(2)
+            springboard.alerts["Delete “\(name)”?"].buttons["Delete"].tap()
+            sleep(2)
+            
+            XCUIDevice.shared.press(.home)
+        }
     }
 }

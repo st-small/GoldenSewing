@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		522C25DD2272F9B500436B6A /* CustomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C25DC2272F9B500436B6A /* CustomNavigation.swift */; };
+		52172FF72293005300529DE5 /* Golden_Sewing_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52172FF62293005300529DE5 /* Golden_Sewing_Tests.swift */; };
+		52172FFF229300BD00529DE5 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52172FFE229300BD00529DE5 /* OnboardingTests.swift */; };
 		522C25E12272FA3800436B6A /* AboutUsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522C25DF2272FA3800436B6A /* AboutUsView.xib */; };
 		522C25E22272FA3800436B6A /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C25E02272FA3800436B6A /* AboutUsView.swift */; };
 		522C25E62272FA4400436B6A /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C25E42272FA4300436B6A /* ContactsView.swift */; };
@@ -52,7 +53,6 @@
 		5282E56222675E590089A1FD /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E55E22675E580089A1FD /* ProductModel.swift */; };
 		5282E56322675E590089A1FD /* ImageContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E55F22675E590089A1FD /* ImageContainerModel.swift */; };
 		5282E56422675E590089A1FD /* OtherProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E56022675E590089A1FD /* OtherProductModel.swift */; };
-		5282E56A22675F4E0089A1FD /* GSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E56922675F4E0089A1FD /* GSViewController.swift */; };
 		5282E56F22675F580089A1FD /* Launcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E56B22675F580089A1FD /* Launcher.swift */; };
 		5282E57022675F580089A1FD /* LaunchControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E56C22675F580089A1FD /* LaunchControllerDelegate.swift */; };
 		5282E57122675F580089A1FD /* GreetingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5282E56D22675F580089A1FD /* GreetingController.xib */; };
@@ -87,7 +87,6 @@
 		5282E5B522676B1E0089A1FD /* OneItemCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E5B422676B1E0089A1FD /* OneItemCacheService.swift */; };
 		5282E5B7226792B10089A1FD /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E5B6226792B10089A1FD /* PopAnimator.swift */; };
 		52A710C5227DF76A00D57DF5 /* OtherProductsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710C4227DF76A00D57DF5 /* OtherProductsModal.swift */; };
-		52A710C6227F0F8B00D57DF5 /* OtherProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5282E5A0226760C60089A1FD /* OtherProductsView.swift */; };
 		52A710CA227F6B1C00D57DF5 /* LikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710C9227F6B1C00D57DF5 /* LikeService.swift */; };
 		52A710E622820D1E00D57DF5 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710E422820D1E00D57DF5 /* KeychainWrapper.swift */; };
 		52A710E722820D1E00D57DF5 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A710E522820D1E00D57DF5 /* KeychainItemAccessibility.swift */; };
@@ -102,10 +101,19 @@
 		52D23C5D1F4F320100A91ADD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D23C5C1F4F320100A91ADD /* MapKit.framework */; };
 		52E202EE2271A1C9001CBE3C /* CustomRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E202ED2271A1C9001CBE3C /* CustomRefreshControl.swift */; };
 		BCDAC5875C33442E96446B0E /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB4AEFED8A00C3FF84EC710 /* Pods_OneSignalNotificationServiceExtension.framework */; };
+		D685D1003DF59BBB3649870E /* Pods_Golden_Sewing_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B401E256FDDCD2B50D545F /* Pods_Golden_Sewing_Tests.framework */; };
+		DD73C509A5E49258C5B63CBA /* Pods_GoldenSewingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C934BBFC8160A2A016C15362 /* Pods_GoldenSewingUITests.framework */; };
 		E62974629E9D796E3587EB58 /* Pods_GoldenSewing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9880B3529D71262B7DE151 /* Pods_GoldenSewing.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		52172FF92293005300529DE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 523ED2F41F29CA9400BE20E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 523ED2FB1F29CA9400BE20E5;
+			remoteInfo = GoldenSewing;
+		};
 		522C262F22730B9D00436B6A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 523ED2F41F29CA9400BE20E5 /* Project object */;
@@ -137,8 +145,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0102D037A5AC2F80F080654D /* Pods-GoldenSewingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenSewingUITests.release.xcconfig"; path = "Target Support Files/Pods-GoldenSewingUITests/Pods-GoldenSewingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0977D74DA4A0B0ECF6D2417A /* Pods-GoldenSewingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenSewingUITests.debug.xcconfig"; path = "Target Support Files/Pods-GoldenSewingUITests/Pods-GoldenSewingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		190674E63E3D99AE2F535BE5 /* Pods-GoldenSewing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenSewing.release.xcconfig"; path = "Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing.release.xcconfig"; sourceTree = "<group>"; };
-		522C25DC2272F9B500436B6A /* CustomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomNavigation.swift; path = Views/CustomNavigation.swift; sourceTree = "<group>"; };
+		52172FF42293005300529DE5 /* Golden Sewing Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Golden Sewing Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52172FF62293005300529DE5 /* Golden_Sewing_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Golden_Sewing_Tests.swift; sourceTree = "<group>"; };
+		52172FF82293005300529DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52172FFE229300BD00529DE5 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		522C25DF2272FA3800436B6A /* AboutUsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsView.xib; sourceTree = "<group>"; };
 		522C25E02272FA3800436B6A /* AboutUsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
 		522C25E42272FA4300436B6A /* ContactsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
@@ -188,7 +201,6 @@
 		5282E55E22675E580089A1FD /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductModel.swift; path = Models/ProductModel.swift; sourceTree = "<group>"; };
 		5282E55F22675E590089A1FD /* ImageContainerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageContainerModel.swift; path = Models/ImageContainerModel.swift; sourceTree = "<group>"; };
 		5282E56022675E590089A1FD /* OtherProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OtherProductModel.swift; path = Models/OtherProductModel.swift; sourceTree = "<group>"; };
-		5282E56922675F4E0089A1FD /* GSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GSViewController.swift; path = Controllers/GSViewController.swift; sourceTree = "<group>"; };
 		5282E56B22675F580089A1FD /* Launcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Launcher.swift; path = Controllers/Launcher/Launcher.swift; sourceTree = "<group>"; };
 		5282E56C22675F580089A1FD /* LaunchControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchControllerDelegate.swift; path = Controllers/Launcher/LaunchControllerDelegate.swift; sourceTree = "<group>"; };
 		5282E56D22675F580089A1FD /* GreetingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GreetingController.xib; path = Controllers/Launcher/GreetingController.xib; sourceTree = "<group>"; };
@@ -237,18 +249,31 @@
 		52B4A821229040DA006F636A /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeviceService.swift; path = Services/DeviceService.swift; sourceTree = "<group>"; };
 		52D23C5C1F4F320100A91ADD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		52E202ED2271A1C9001CBE3C /* CustomRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomRefreshControl.swift; path = Views/CustomRefreshControl.swift; sourceTree = "<group>"; };
+		570F75EFAE10D7C9DFE9783B /* Pods-Golden Sewing Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Golden Sewing Tests.debug.xcconfig"; path = "Target Support Files/Pods-Golden Sewing Tests/Pods-Golden Sewing Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		85B401E256FDDCD2B50D545F /* Pods_Golden_Sewing_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Golden_Sewing_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5044A20EF76C115143A4897 /* Pods-GoldenSewing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenSewing.debug.xcconfig"; path = "Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing.debug.xcconfig"; sourceTree = "<group>"; };
 		B89BE709A6075A851F6FE7DA /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		C47162C9E1E50A5D406D7A98 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		C934BBFC8160A2A016C15362 /* Pods_GoldenSewingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoldenSewingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB4AEFED8A00C3FF84EC710 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9880B3529D71262B7DE151 /* Pods_GoldenSewing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoldenSewing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED2DE6418EFA4B70F5705C89 /* Pods-Golden Sewing Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Golden Sewing Tests.release.xcconfig"; path = "Target Support Files/Pods-Golden Sewing Tests/Pods-Golden Sewing Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		52172FF12293005300529DE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D685D1003DF59BBB3649870E /* Pods_Golden_Sewing_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		522C262722730B9C00436B6A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD73C509A5E49258C5B63CBA /* Pods_GoldenSewingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +297,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52172FF52293005300529DE5 /* Golden Sewing Tests */ = {
+			isa = PBXGroup;
+			children = (
+				52172FF62293005300529DE5 /* Golden_Sewing_Tests.swift */,
+				52172FFE229300BD00529DE5 /* OnboardingTests.swift */,
+				52172FF82293005300529DE5 /* Info.plist */,
+			);
+			path = "Golden Sewing Tests";
+			sourceTree = "<group>";
+		};
 		5221433D226E387B00CE79EE /* Modal */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +384,7 @@
 				523ED2FE1F29CA9400BE20E5 /* GoldenSewing */,
 				52B47961219A0CA20099698C /* OneSignalNotificationServiceExtension */,
 				522C262B22730B9D00436B6A /* GoldenSewingUITests */,
+				52172FF52293005300529DE5 /* Golden Sewing Tests */,
 				523ED2FD1F29CA9400BE20E5 /* Products */,
 				52D23C5B1F4F320100A91ADD /* Frameworks */,
 				9C6F75A632D5258A44715697 /* Pods */,
@@ -361,6 +397,7 @@
 				523ED2FC1F29CA9400BE20E5 /* GoldenSewing.app */,
 				52B47960219A0CA20099698C /* OneSignalNotificationServiceExtension.appex */,
 				522C262A22730B9C00436B6A /* GoldenSewingUITests.xctest */,
+				52172FF42293005300529DE5 /* Golden Sewing Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -373,7 +410,6 @@
 				525108541F3087360044804C /* Models */,
 				57CAB2AC1F4B592000861C6A /* Views */,
 				525108521F30871E0044804C /* Controllers */,
-				523ED3081F29CA9400BE20E5 /* LaunchScreen.storyboard */,
 				525108551F3087430044804C /* Supported */,
 				525C38B421A48D10003FE500 /* Routing */,
 				522C26042273000600436B6A /* Tools */,
@@ -384,7 +420,6 @@
 		525108521F30871E0044804C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5282E56922675F4E0089A1FD /* GSViewController.swift */,
 				525C38AF21A487C8003FE500 /* Launcher */,
 				525C38C021A4AA3E003FE500 /* Onboarding */,
 				5282E577226760030089A1FD /* Categories */,
@@ -394,6 +429,7 @@
 				5282E597226760C60089A1FD /* OtherProducts */,
 				5282E5AB226760EA0089A1FD /* ProductDetail */,
 				52A710E82282110800D57DF5 /* Favourites */,
+				523ED3081F29CA9400BE20E5 /* LaunchScreen.storyboard */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -623,6 +659,8 @@
 				52D23C5C1F4F320100A91ADD /* MapKit.framework */,
 				DA9880B3529D71262B7DE151 /* Pods_GoldenSewing.framework */,
 				CDB4AEFED8A00C3FF84EC710 /* Pods_OneSignalNotificationServiceExtension.framework */,
+				85B401E256FDDCD2B50D545F /* Pods_Golden_Sewing_Tests.framework */,
+				C934BBFC8160A2A016C15362 /* Pods_GoldenSewingUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -633,7 +671,6 @@
 				522C25EA2272FB0300436B6A /* CustomTabBarController */,
 				52E202ED2271A1C9001CBE3C /* CustomRefreshControl.swift */,
 				5282E5B6226792B10089A1FD /* PopAnimator.swift */,
-				522C25DC2272F9B500436B6A /* CustomNavigation.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -645,6 +682,10 @@
 				190674E63E3D99AE2F535BE5 /* Pods-GoldenSewing.release.xcconfig */,
 				B89BE709A6075A851F6FE7DA /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
 				C47162C9E1E50A5D406D7A98 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+				570F75EFAE10D7C9DFE9783B /* Pods-Golden Sewing Tests.debug.xcconfig */,
+				ED2DE6418EFA4B70F5705C89 /* Pods-Golden Sewing Tests.release.xcconfig */,
+				0977D74DA4A0B0ECF6D2417A /* Pods-GoldenSewingUITests.debug.xcconfig */,
+				0102D037A5AC2F80F080654D /* Pods-GoldenSewingUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -652,13 +693,36 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		52172FF32293005300529DE5 /* Golden Sewing Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52172FFB2293005300529DE5 /* Build configuration list for PBXNativeTarget "Golden Sewing Tests" */;
+			buildPhases = (
+				42149EE4A53DD11E768210D4 /* [CP] Check Pods Manifest.lock */,
+				52172FF02293005300529DE5 /* Sources */,
+				52172FF12293005300529DE5 /* Frameworks */,
+				52172FF22293005300529DE5 /* Resources */,
+				3AFFB14FAD455BD83664619F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52172FFA2293005300529DE5 /* PBXTargetDependency */,
+			);
+			name = "Golden Sewing Tests";
+			productName = "Golden Sewing Tests";
+			productReference = 52172FF42293005300529DE5 /* Golden Sewing Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		522C262922730B9C00436B6A /* GoldenSewingUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 522C263122730B9D00436B6A /* Build configuration list for PBXNativeTarget "GoldenSewingUITests" */;
 			buildPhases = (
+				C87EFFB5FB41C917240CA756 /* [CP] Check Pods Manifest.lock */,
 				522C262622730B9C00436B6A /* Sources */,
 				522C262722730B9C00436B6A /* Frameworks */,
 				522C262822730B9C00436B6A /* Resources */,
+				EF6374305A262CB5F62F23CD /* [CP] Embed Pods Frameworks */,
+				52ED18A42293111F008E41A2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -721,6 +785,12 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Stanly Shiyanovskiy";
 				TargetAttributes = {
+					52172FF32293005300529DE5 = {
+						CreatedOnToolsVersion = 10.2.1;
+						DevelopmentTeam = 3PTYV272Z4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 523ED2FB1F29CA9400BE20E5;
+					};
 					522C262922730B9C00436B6A = {
 						CreatedOnToolsVersion = 10.2.1;
 						DevelopmentTeam = 3PTYV272Z4;
@@ -772,11 +842,19 @@
 				523ED2FB1F29CA9400BE20E5 /* GoldenSewing */,
 				52B4795F219A0CA20099698C /* OneSignalNotificationServiceExtension */,
 				522C262922730B9C00436B6A /* GoldenSewingUITests */,
+				52172FF32293005300529DE5 /* Golden Sewing Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		52172FF22293005300529DE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		522C262822730B9C00436B6A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -861,6 +939,81 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3AFFB14FAD455BD83664619F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Golden Sewing Tests/Pods-Golden Sewing Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Golden Sewing Tests/Pods-Golden Sewing Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42149EE4A53DD11E768210D4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Golden Sewing Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52ED18A42293111F008E41A2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcrun simctl uninstall booted ua.kr.zolotoe-shitvo.GoldenSewing\n";
+		};
 		52F372EC2183707700C1FAEE /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -885,8 +1038,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
@@ -901,8 +1052,6 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
@@ -920,14 +1069,80 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C87EFFB5FB41C917240CA756 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoldenSewingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF6374305A262CB5F62F23CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoldenSewingUITests/Pods-GoldenSewingUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoldenSewingUITests/Pods-GoldenSewingUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		52172FF02293005300529DE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52172FFF229300BD00529DE5 /* OnboardingTests.swift in Sources */,
+				52172FF72293005300529DE5 /* Golden_Sewing_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		522C262622730B9C00436B6A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52A710C6227F0F8B00D57DF5 /* OtherProductsView.swift in Sources */,
 				522C262D22730B9D00436B6A /* GoldenSewingUITests.swift in Sources */,
 				522C263522730C2A00436B6A /* SnapshotHelper.swift in Sources */,
 			);
@@ -962,7 +1177,6 @@
 				5282E55A22675DA40089A1FD /* ProductsCacheService.swift in Sources */,
 				5282E5A3226760C60089A1FD /* OtherProductsCVCell.swift in Sources */,
 				5282E55922675DA40089A1FD /* CachedImage.swift in Sources */,
-				522C25DD2272F9B500436B6A /* CustomNavigation.swift in Sources */,
 				52A710E622820D1E00D57DF5 /* KeychainWrapper.swift in Sources */,
 				5282E56122675E590089A1FD /* CategoryModel.swift in Sources */,
 				522C260F2273000600436B6A /* Guid.swift in Sources */,
@@ -999,7 +1213,6 @@
 				522C25FB2272FF0000436B6A /* String+Extension.swift in Sources */,
 				52A710CA227F6B1C00D57DF5 /* LikeService.swift in Sources */,
 				5273F2C42272206A00B75BE9 /* ProductsSquareCVCell.swift in Sources */,
-				5282E56A22675F4E0089A1FD /* GSViewController.swift in Sources */,
 				5282E55722675DA40089A1FD /* CategoriesCacheService.swift in Sources */,
 				5282E584226760030089A1FD /* CategoriesPresnter.swift in Sources */,
 				5282E54322675CB10089A1FD /* ProductsCellFactory.swift in Sources */,
@@ -1023,6 +1236,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		52172FFA2293005300529DE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 523ED2FB1F29CA9400BE20E5 /* GoldenSewing */;
+			targetProxy = 52172FF92293005300529DE5 /* PBXContainerItemProxy */;
+		};
 		522C263022730B9D00436B6A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 523ED2FB1F29CA9400BE20E5 /* GoldenSewing */;
@@ -1047,8 +1265,58 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		52172FFC2293005300529DE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 570F75EFAE10D7C9DFE9783B /* Pods-Golden Sewing Tests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3PTYV272Z4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Golden Sewing Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing.test.Golden-Sewing-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoldenSewing.app/GoldenSewing";
+			};
+			name = Debug;
+		};
+		52172FFD2293005300529DE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED2DE6418EFA4B70F5705C89 /* Pods-Golden Sewing Tests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3PTYV272Z4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Golden Sewing Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing.test.Golden-Sewing-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoldenSewing.app/GoldenSewing";
+			};
+			name = Release;
+		};
 		522C263222730B9D00436B6A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0977D74DA4A0B0ECF6D2417A /* Pods-GoldenSewingUITests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1072,6 +1340,7 @@
 		};
 		522C263322730B9D00436B6A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0102D037A5AC2F80F080654D /* Pods-GoldenSewingUITests.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1302,6 +1571,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		52172FFB2293005300529DE5 /* Build configuration list for PBXNativeTarget "Golden Sewing Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52172FFC2293005300529DE5 /* Debug */,
+				52172FFD2293005300529DE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		522C263122730B9D00436B6A /* Build configuration list for PBXNativeTarget "GoldenSewingUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
