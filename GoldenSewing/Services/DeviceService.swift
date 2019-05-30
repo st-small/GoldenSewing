@@ -17,7 +17,7 @@ public class DeviceService {
     // Services
     private var properties = UserDefaults.standard
     private let realm = try! Realm()
-    private let productsService = ProductsCacheService.shared
+    private weak var productsService = ProductsCacheService.shared
     
     public func start() {
         updateLaunchValue()
@@ -26,8 +26,8 @@ public class DeviceService {
     
     private func updateLaunchValue() {
         launchIndex = properties.integer(forKey: "launchIndex")
-        let newIndex = launchIndex + 1
-        properties.set(newIndex, forKey: "launchIndex")
+        launchIndex += 1
+        properties.set(launchIndex, forKey: "launchIndex")
     }
     
     private func findEmptyCategory() {
@@ -37,8 +37,8 @@ public class DeviceService {
         for id in categoryIds {
             let values = realm.objects(ProductModelRealmItem.self).filter({ $0.category == id })
             if values.isEmpty {
-                productsService.load(id: id)
-                productsService.all()
+                productsService?.load(id: id)
+                productsService?.all()
                 break
             }
         }

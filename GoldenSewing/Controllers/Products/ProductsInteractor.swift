@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import StoreKit
 
-public protocol ProductsPresenterDelegate {
+public protocol ProductsPresenterDelegate: class {
     func update(with data: [ProductModel])
     func updateSearchResults(with data: [ProductModel])
     func problemWithRequest()
@@ -18,7 +18,7 @@ public protocol ProductsPresenterDelegate {
 
 public class ProductsInteractor {
     
-    public var delegate: ProductsPresenterDelegate
+    public weak var delegate: ProductsPresenterDelegate?
     private var products = [ProductModel]()
     
     // Services
@@ -56,14 +56,14 @@ public class ProductsInteractor {
     }
     
     public func needReload() {
-        delegate.update(with: service.cache)
+        delegate?.update(with: service.cache)
     }
     
     private func loadCached() {
         service.load(id: categoryId)
         let cached = service.cache
         products = cached
-        delegate.update(with: cached)
+        delegate?.update(with: cached)
     }
     
     public func categoryTitle() -> String {
@@ -82,7 +82,7 @@ public class ProductsInteractor {
         
         service.onFail = { [weak self] in
             guard let this = self else { return }
-            this.delegate.problemWithRequest()
+            this.delegate?.problemWithRequest()
         }
     }
     
@@ -96,7 +96,7 @@ public class ProductsInteractor {
             return false
         }
         
-        delegate.updateSearchResults(with: data)
+        delegate?.updateSearchResults(with: data)
     }
     
     public func handleCellAction(with productId: Int) {
