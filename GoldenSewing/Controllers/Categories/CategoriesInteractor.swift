@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-public protocol CategoriesPresenterDelegate { 
+public protocol CategoriesPresenterDelegate: class {
     
     func update(with data: [CategoryModel])
     func problemWithRequest()
@@ -17,7 +17,7 @@ public protocol CategoriesPresenterDelegate {
 
 public class CategoriesInteractor {
     
-    public var delegate: CategoriesPresenterDelegate
+    public weak var delegate: CategoriesPresenterDelegate?
     
     // Services
     private let service = CategoriesCacheService()
@@ -37,13 +37,13 @@ public class CategoriesInteractor {
     }
     
     public func needReload() {
-        delegate.update(with: service.cache)
+        delegate?.update(with: service.cache)
     }
     
     private func loadCached() {
         service.load()
         let cached = service.cache
-        delegate.update(with: cached)
+        delegate?.update(with: cached)
     }
     
     private func loadData() {
@@ -58,7 +58,7 @@ public class CategoriesInteractor {
                 }
     
                 if (response.isFail) {
-                    this.delegate.problemWithRequest()
+                    this.delegate?.problemWithRequest()
                     return
                 }
                 

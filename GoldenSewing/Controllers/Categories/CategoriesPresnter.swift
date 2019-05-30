@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol CategoriesViewDelegate { 
+public protocol CategoriesViewDelegate: class {
     func reload()
     func problemWithRequest()
     
@@ -18,7 +18,7 @@ public protocol CategoriesViewDelegate {
 
 public class CategoriesPresenter {
     
-    public var delegate: CategoriesViewDelegate
+    public weak var delegate: CategoriesViewDelegate?
     
     private var categories = [CategoryModel]()
     private var interactor: CategoriesInteractor!
@@ -54,7 +54,7 @@ public class CategoriesPresenter {
     private func showLoader() {
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
-            this.delegate.showLoader()
+            this.delegate?.showLoader()
         }
     }
 }
@@ -69,18 +69,18 @@ extension CategoriesPresenter: CategoriesPresenterDelegate {
                 return
             }
             
-            this.delegate.reload()
+            this.delegate?.reload()
             
             guard !data.isEmpty else { return }
-            this.delegate.hideLoader()
+            this.delegate?.hideLoader()
         }
     }
     
     public func problemWithRequest() {
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
-            this.delegate.problemWithRequest()
-            this.delegate.hideLoader()
+            this.delegate?.problemWithRequest()
+            this.delegate?.hideLoader()
         }
     }
 }

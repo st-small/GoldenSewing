@@ -139,7 +139,7 @@ public class OtherProductsModal: UIViewController {
         exitButton.translatesAutoresizingMaskIntoConstraints = false
         exitButton.snp.remakeConstraints { make in
             make.size.equalTo(24.0)
-            make.top.equalTo(self.topLayoutGuide.snp.bottom).offset(10.0)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(10.0)
             make.trailing.equalToSuperview().offset(-10.0)
         }
     }

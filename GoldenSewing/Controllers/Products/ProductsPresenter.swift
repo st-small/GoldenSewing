@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol ProductsViewDelegate {
+public protocol ProductsViewDelegate: class {
     func showLoader()
     func hideLoader()
     func reload()
@@ -19,7 +19,7 @@ public protocol ProductsViewDelegate {
 
 public class ProductsPresenter {
     
-    public var delegate: ProductsViewDelegate
+    public weak var delegate: ProductsViewDelegate?
     
     private var products = [ProductModel]()
     private var searchText = ""
@@ -58,7 +58,7 @@ public class ProductsPresenter {
     private func showLoader() {
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
-            this.delegate.showLoader()
+            this.delegate?.showLoader()
         }
     }
     
@@ -71,17 +71,17 @@ public class ProductsPresenter {
                 return
             }
             
-            this.delegate.reload()
+            this.delegate?.reload()
             
             guard !data.isEmpty else { return }
-            this.delegate.hideLoader()
+            this.delegate?.hideLoader()
         }
     }
     
     private func hideToasts() {
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
-            this.delegate.hideToasts()
+            this.delegate?.hideToasts()
         }
     }
 }
@@ -93,7 +93,7 @@ extension ProductsPresenter: ProductsPresenterDelegate {
         guard searchText.isEmpty else {
             DispatchQueue.main.async { [weak self] in
                 guard let this = self else { return }
-                this.delegate.hideLoader()
+                this.delegate?.hideLoader()
             }
             return
         }
@@ -103,8 +103,8 @@ extension ProductsPresenter: ProductsPresenterDelegate {
     public func problemWithRequest() {
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
-            this.delegate.problemWithRequest()
-            this.delegate.hideLoader()
+            this.delegate?.problemWithRequest()
+            this.delegate?.hideLoader()
         }
     }
     
