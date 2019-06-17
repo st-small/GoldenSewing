@@ -20,12 +20,12 @@ public class DeviceService {
     private weak var productsService = ProductsCacheService.shared
     
     public func start() {
-        updateLaunchValue()
+        launchIndex = properties.integer(forKey: "launchIndex")
         findEmptyCategory()
+        migration()
     }
     
-    private func updateLaunchValue() {
-        launchIndex = properties.integer(forKey: "launchIndex")
+    public func updateLaunchValue() {
         launchIndex += 1
         properties.set(launchIndex, forKey: "launchIndex")
     }
@@ -42,5 +42,23 @@ public class DeviceService {
                 break
             }
         }
+    }
+    
+    private func migration() {
+        guard
+            let version = UIApplication.appVersion else { return }
+        let stringValue = version.replacingOccurrences(of: ".", with: "")
+        let intValue = Int(stringValue) ?? 0
+        if intValue <= 201 {
+            try! realm.write {
+                realm.deleteAll()
+            }
+        }
+    }
+}
+
+extension UIApplication {
+    static var appVersion: String? {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
 }
