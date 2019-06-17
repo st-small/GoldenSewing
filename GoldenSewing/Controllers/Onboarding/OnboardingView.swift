@@ -267,6 +267,7 @@ extension OnboardingView: UIScrollViewDelegate {
 extension OnboardingView: LaunchControllerDelegate {
     
     public var notNeedDisplay: Bool {
+        defer { deviceService.updateLaunchValue() }
         return deviceService.launchIndex != 0
     }
 }

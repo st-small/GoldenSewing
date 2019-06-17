@@ -1482,7 +1482,7 @@
 				CODE_SIGN_ENTITLEMENTS = GoldenSewing/Supported/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 34;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = GoldenSewing/Supported/Info.plist;
@@ -1505,7 +1505,7 @@
 				CODE_SIGN_ENTITLEMENTS = GoldenSewing/Supported/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = GoldenSewing/Supported/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
