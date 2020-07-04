@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import Fabric
-import Crashlytics
+import FirebaseCrashlytics
 import Firebase
 import UserNotifications
 import CoreData
@@ -30,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         registerOneSignal(launchOptions)
         
-        Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
         
         registerPushNotifications()

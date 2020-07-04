@@ -36,7 +36,7 @@ public class Launcher {
     }
     
     public var window: UIWindow {
-        
+
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = navigator
         window.makeKeyAndVisible()

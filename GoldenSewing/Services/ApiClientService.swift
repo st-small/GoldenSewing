@@ -36,8 +36,7 @@ public class ApiClientService {
         let headers: HTTPHeaders = ["Content-type": "application/x-www-form-urlencoded"]
         
         return Task { (handler: @escaping (_:ApiResponse<TData>) -> Void) in
-            
-            Alamofire.request(url, method: method, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            AF.request(url, method: method, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
                 
                 switch response.result {
                 case .success:
