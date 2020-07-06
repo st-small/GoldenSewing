@@ -24,7 +24,6 @@
 		522C25FD2272FF1400436B6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522C25FC2272FF1400436B6A /* Assets.xcassets */; };
 		522C26002272FF3500436B6A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C25FE2272FF3500436B6A /* Router.swift */; };
 		522C26012272FF3500436B6A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C25FF2272FF3500436B6A /* NavigationController.swift */; };
-		522C26032272FF5900436B6A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 522C26022272FF5900436B6A /* GoogleService-Info.plist */; };
 		522C260F2273000600436B6A /* Guid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C26052273000600436B6A /* Guid.swift */; };
 		522C26102273000600436B6A /* ThrowableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C26072273000600436B6A /* ThrowableTask.swift */; };
 		522C26132273000600436B6A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C260A2273000600436B6A /* Config.swift */; };
@@ -100,6 +99,7 @@
 		52B4A822229040DA006F636A /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4A821229040DA006F636A /* DeviceService.swift */; };
 		52D23C5D1F4F320100A91ADD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D23C5C1F4F320100A91ADD /* MapKit.framework */; };
 		52E202EE2271A1C9001CBE3C /* CustomRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E202ED2271A1C9001CBE3C /* CustomRefreshControl.swift */; };
+		52ECA41024B0A96000889686 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52ECA40F24B0A96000889686 /* GoogleService-Info.plist */; };
 		BCDAC5875C33442E96446B0E /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB4AEFED8A00C3FF84EC710 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		D685D1003DF59BBB3649870E /* Pods_Golden_Sewing_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B401E256FDDCD2B50D545F /* Pods_Golden_Sewing_Tests.framework */; };
 		DD73C509A5E49258C5B63CBA /* Pods_GoldenSewingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C934BBFC8160A2A016C15362 /* Pods_GoldenSewingUITests.framework */; };
@@ -169,7 +169,6 @@
 		522C25FC2272FF1400436B6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Supported/Assets.xcassets; sourceTree = "<group>"; };
 		522C25FE2272FF3500436B6A /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Routing/Router.swift; sourceTree = "<group>"; };
 		522C25FF2272FF3500436B6A /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = Routing/NavigationController.swift; sourceTree = "<group>"; };
-		522C26022272FF5900436B6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supported/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		522C26052273000600436B6A /* Guid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guid.swift; sourceTree = "<group>"; };
 		522C26072273000600436B6A /* ThrowableTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowableTask.swift; sourceTree = "<group>"; };
 		522C260A2273000600436B6A /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -249,6 +248,7 @@
 		52B4A821229040DA006F636A /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeviceService.swift; path = Services/DeviceService.swift; sourceTree = "<group>"; };
 		52D23C5C1F4F320100A91ADD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		52E202ED2271A1C9001CBE3C /* CustomRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomRefreshControl.swift; path = Views/CustomRefreshControl.swift; sourceTree = "<group>"; };
+		52ECA40F24B0A96000889686 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		570F75EFAE10D7C9DFE9783B /* Pods-Golden Sewing Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Golden Sewing Tests.debug.xcconfig"; path = "Target Support Files/Pods-Golden Sewing Tests/Pods-Golden Sewing Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		85B401E256FDDCD2B50D545F /* Pods_Golden_Sewing_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Golden_Sewing_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5044A20EF76C115143A4897 /* Pods-GoldenSewing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenSewing.debug.xcconfig"; path = "Target Support Files/Pods-GoldenSewing/Pods-GoldenSewing.debug.xcconfig"; sourceTree = "<group>"; };
@@ -453,7 +453,7 @@
 				522C25F12272FEF000436B6A /* AppDelegate.swift */,
 				522C25F22272FEF000436B6A /* AppDelegate+Notifications.swift */,
 				522C25F52272FF0000436B6A /* GoldenSewing.entitlements */,
-				522C26022272FF5900436B6A /* GoogleService-Info.plist */,
+				52ECA40F24B0A96000889686 /* GoogleService-Info.plist */,
 				522C25F62272FF0000436B6A /* Info.plist */,
 				522C25F82272FF0000436B6A /* String+Extension.swift */,
 				522C25F72272FF0000436B6A /* UIColor+Extension.swift */,
@@ -742,9 +742,10 @@
 				523ED2F81F29CA9400BE20E5 /* Sources */,
 				523ED2F91F29CA9400BE20E5 /* Frameworks */,
 				523ED2FA1F29CA9400BE20E5 /* Resources */,
-				52F372EC2183707700C1FAEE /* Fabric */,
+				52F372EC2183707700C1FAEE /* Crashlytics */,
 				BF9FAB1965CF3C0E5D2CB0C5 /* [CP] Embed Pods Frameworks */,
 				52B4796B219A0CA20099698C /* Embed App Extensions */,
+				52ECA41124B0D61000889686 /* Upload dsyms */,
 			);
 			buildRules = (
 			);
@@ -875,8 +876,8 @@
 				5238A46B2268F13E00243892 /* ImageModalViewer.xib in Resources */,
 				52A710EC2282112600D57DF5 /* FavouritesView.xib in Resources */,
 				5282E57F226760030089A1FD /* CategoriesView.xib in Resources */,
-				522C26032272FF5900436B6A /* GoogleService-Info.plist in Resources */,
 				5282E580226760030089A1FD /* CategoriesCell.xib in Resources */,
+				52ECA41024B0A96000889686 /* GoogleService-Info.plist in Resources */,
 				5282E5A8226760C60089A1FD /* OtherProductsView.xib in Resources */,
 				5282E5932267606B0089A1FD /* ProductsView.xib in Resources */,
 				522C25E12272FA3800436B6A /* AboutUsView.xib in Resources */,
@@ -949,6 +950,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -962,6 +964,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -997,6 +1000,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		52ECA41124B0D61000889686 /* Upload dsyms */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Upload dsyms";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp \"${PROJECT_DIR}/${PROJECT_NAME}/GoogleService-Info.plist\" -p ios \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\" \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n";
+		};
 		52ED18A42293111F008E41A2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1014,7 +1035,7 @@
 			shellPath = /bin/sh;
 			shellScript = "xcrun simctl uninstall booted ua.kr.zolotoe-shitvo.GoldenSewing\n";
 		};
-		52F372EC2183707700C1FAEE /* Fabric */ = {
+		52F372EC2183707700C1FAEE /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1024,14 +1045,14 @@
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
-			name = Fabric;
+			name = Crashlytics;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" b9c975543d293ab652770d1e7bb9ba11ed1c440b 41ea80d0efd0b374f780f4aba6f69e91511088f9aa2a287ea48fdb324ab8bfe9\n";
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		BF9FAB1965CF3C0E5D2CB0C5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1043,6 +1064,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -1056,6 +1078,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -1101,6 +1124,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -1114,6 +1138,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -1482,12 +1507,13 @@
 				CODE_SIGN_ENTITLEMENTS = GoldenSewing/Supported/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 39;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = GoldenSewing/Supported/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = GoldenSewingDevelopment;
@@ -1505,11 +1531,12 @@
 				CODE_SIGN_ENTITLEMENTS = GoldenSewing/Supported/GoldenSewing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = GoldenSewing/Supported/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = GoldenSewingDistribution;
@@ -1528,11 +1555,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.0.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing.OneSignalNotificationServiceExtension";
@@ -1553,11 +1582,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.0.3;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.kr.zolotoe-shitvo.GoldenSewing.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";

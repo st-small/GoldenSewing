@@ -74,7 +74,7 @@ public class ProductDetailInteractor {
     }
     
     public func showImagePreview(with transitionDelegate: UIViewControllerTransitioningDelegate) {
-        router.showImagePreview(productId, with: transitionDelegate)
+        router.showImagePreview(productId)
     }
     
     public func checkIsLiked() {

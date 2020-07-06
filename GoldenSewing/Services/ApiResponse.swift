@@ -14,10 +14,10 @@ public class ApiResponse<TData> {
     public let statusCode: HttpStatusCode
     public var data: TData?
     
-    public let response: DataResponse<Any>?
+    public let response: DataResponse<Any, AFError>?
     public let responseContent: String
     
-    public required init(json: JSON, response: DataResponse<Any>?, content: String) {
+    public required init(json: JSON, response: DataResponse<Any, AFError>?, content: String) {
         
         self.data = nil
         
@@ -29,7 +29,7 @@ public class ApiResponse<TData> {
         self.response = response
         self.responseContent = content
     }
-    public init(statusCode: HttpStatusCode, response: DataResponse<Any>?) {
+    public init(statusCode: HttpStatusCode, response: DataResponse<Any, AFError>?) {
         self.statusCode = statusCode
         self.data = nil
         

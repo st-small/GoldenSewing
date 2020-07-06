@@ -4,8 +4,8 @@ platform :ios, '10.0'
 target 'GoldenSewing' do
   
     use_frameworks!
-    pod 'Fabric'
-    pod 'Crashlytics'
+    pod 'Firebase/Crashlytics'
+    pod 'Firebase/Analytics'
     pod 'Firebase/Core'
     pod 'OneSignal', '>= 2.10.0', '< 3.0'
     pod 'RealmSwift'
@@ -21,7 +21,6 @@ end
 target 'Golden Sewing Tests' do
   
   use_frameworks!
-  pod 'Fabric'
   pod 'Crashlytics'
   pod 'Firebase/Core'
   pod 'OneSignal', '>= 2.10.0', '< 3.0'
@@ -38,8 +37,6 @@ end
 target 'GoldenSewingUITests' do
   
   use_frameworks!
-  pod 'Fabric'
-  pod 'Crashlytics'
   pod 'Firebase/Core'
   pod 'OneSignal', '>= 2.10.0', '< 3.0'
   pod 'RealmSwift'

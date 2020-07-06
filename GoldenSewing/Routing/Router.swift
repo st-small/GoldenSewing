@@ -39,9 +39,9 @@ public class Router {
         navigator?.pushViewController(detailVC, animated: true)
     }
     
-    public func showImagePreview(_ id: Int, with transitionDelegate: UIViewControllerTransitioningDelegate) {
+    public func showImagePreview(_ id: Int) {
         let imagePreview = ImageModalViewer(productId: id)
-        imagePreview.transitioningDelegate = transitionDelegate
-        navigator?.present(imagePreview, animated: true, completion: nil)
+        imagePreview.modalPresentationStyle = .overFullScreen
+        navigator?.present(imagePreview, animated: true)
     }
 }
