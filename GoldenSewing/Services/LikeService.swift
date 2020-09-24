@@ -49,10 +49,12 @@ public class LikeService {
     
     private func fetchKeyChainData() {
         guard
-            let vendorsData = KeychainWrapper.standard.data(forKey: key),
-            let vendors = NSKeyedUnarchiver.unarchiveObject(with: vendorsData) as? [Int] else { return }
-            likesVendors = vendors
+            let vendorsData = KeychainWrapper.standard.data(forKey: key) else { return }
+        do {
+            let vendors = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(vendorsData) as? [Int]
+            likesVendors = vendors ?? []
             updateUserDefaults()
+        } catch { }
     }
     
     private func updateUserDefaults() {
@@ -60,8 +62,10 @@ public class LikeService {
     }
     
     private func updateRemoteData() {
-        let vendorsData = NSKeyedArchiver.archivedData(withRootObject: likesVendors)
-        KeychainWrapper.standard.set(vendorsData, forKey: key)
+        do {
+            let vendorsData = try NSKeyedArchiver.archivedData(withRootObject: likesVendors, requiringSecureCoding: false)
+            KeychainWrapper.standard.set(vendorsData, forKey: key)
+        } catch  { }
     }
     
     public func checkLike(_ productId: Int) -> Bool {
