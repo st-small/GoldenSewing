@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 target 'GoldenSewing' do
   
@@ -9,12 +9,12 @@ target 'GoldenSewing' do
     pod 'Firebase/Core'
     pod 'OneSignal', '>= 2.10.0', '< 3.0'
     pod 'RealmSwift'
-    pod 'Alamofire'
-    pod 'Gloss', '~> 2.1.1'
+    pod 'Alamofire', '~> 5.2'
+    pod 'Gloss', '~> 3.2.1'
     pod 'SnapKit', '~> 5.0.0'
-    pod 'SDWebImage', '~> 5.0.2'
+    pod 'SDWebImage', '~> 5.9.1'
     pod 'Toast-Swift', '~> 5.0.0'
-    pod 'SwiftSoup', '~> 2.0.0'
+    pod 'SwiftSoup', '~> 2.3.2'
 
 end
 
@@ -25,12 +25,12 @@ target 'Golden Sewing Tests' do
   pod 'Firebase/Core'
   pod 'OneSignal', '>= 2.10.0', '< 3.0'
   pod 'RealmSwift'
-  pod 'Alamofire'
-  pod 'Gloss', '~> 2.1.1'
+  pod 'Alamofire', '~> 5.2'
+  pod 'Gloss', '~> 3.2.1'
   pod 'SnapKit', '~> 5.0.0'
-  pod 'SDWebImage', '~> 5.0.2'
+  pod 'SDWebImage', '~> 5.9.1'
   pod 'Toast-Swift', '~> 5.0.0'
-  pod 'SwiftSoup', '~> 2.0.0'
+  pod 'SwiftSoup', '~> 2.3.2'
   
 end
 
@@ -40,16 +40,24 @@ target 'GoldenSewingUITests' do
   pod 'Firebase/Core'
   pod 'OneSignal', '>= 2.10.0', '< 3.0'
   pod 'RealmSwift'
-  pod 'Alamofire'
-  pod 'Gloss', '~> 2.1.1'
+  pod 'Alamofire', '~> 5.2'
+  pod 'Gloss', '~> 3.2.1'
   pod 'SnapKit', '~> 5.0.0'
-  pod 'SDWebImage', '~> 5.0.2'
+  pod 'SDWebImage', '~> 5.9.1'
   pod 'Toast-Swift', '~> 5.0.0'
-  pod 'SwiftSoup', '~> 2.0.0'
+  pod 'SwiftSoup', '~> 2.3.2'
   
 end
 
 target 'OneSignalNotificationServiceExtension' do
   use_frameworks!
   pod 'OneSignal', '>= 2.10.0', '< 3.0'
+end
+
+post_install do |pi|
+    pi.pods_project.targets.each do |t|
+      t.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+      end
+    end
 end
