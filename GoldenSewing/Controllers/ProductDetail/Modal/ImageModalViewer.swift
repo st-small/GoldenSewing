@@ -6,8 +6,9 @@
 //  Copyright © 2019 Stanly Shiyanovskiy. All rights reserved.
 //
 
-import UIKit
 import RealmSwift
+import SDWebImage
+import UIKit
 
 public class ImageModalViewer: UIViewController {
     
@@ -19,7 +20,8 @@ public class ImageModalViewer: UIViewController {
     // Data
     private var productId: Int
     private var allPhotoScrollViews: Array<UIScrollView> = []
-    private var allPhotos: Array<UIImage> = []
+    private var allPhotosLinks: Array<URL> = []
+    private var photos: Array<UIImage> = []
     private var scrollViewDragging: Bool = false
     private var currentPhotoIndex: Int = 0
     
@@ -36,9 +38,8 @@ public class ImageModalViewer: UIViewController {
     private func prepareSourceImages() {
         guard
             let post = realm.objects(ProductModelRealmItem.self).filter({ $0.id == self.productId }).first,
-            let imageData = post.imageContainer?.imageData,
-            let image = UIImage(data: imageData) else { return }
-        allPhotos.append(image)
+            let imageLink = URL(string: post.imageContainer?.imageLink ?? "") else { return }
+        allPhotosLinks.append(imageLink)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -63,7 +64,7 @@ public class ImageModalViewer: UIViewController {
         self.scrollView.addSubview(closeAction)
         
         closeAction.snp.remakeConstraints { make in
-            make.top.equalTo(self.topLayoutGuide.snp.bottom).offset(10.0)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10.0)
             make.trailing.equalToSuperview().offset(-10.0)
             make.height.width.equalTo(24.0)
         }
@@ -88,7 +89,7 @@ public class ImageModalViewer: UIViewController {
         self.scrollView.addSubview(contentView)
         
         let screenWidth = UIScreen.main.bounds.width
-        let widthValue: CGFloat = CGFloat(allPhotos.count) * screenWidth
+        let widthValue: CGFloat = CGFloat(allPhotosLinks.count) * screenWidth
         contentView.snp.remakeConstraints { make in
             make.top.bottom.trailing.leading.height.equalToSuperview()
             make.width.equalTo(widthValue)
@@ -98,17 +99,22 @@ public class ImageModalViewer: UIViewController {
     private func setupImageViews() {
         
         var previousView: UIView = contentView
-        for x in 0...allPhotos.count-1 {
+        for x in 0...allPhotosLinks.count-1 {
             
-            let photo = allPhotos[x]
+            let photo = allPhotosLinks[x]
             
             let subScrollView = UIScrollView()
             subScrollView.delegate = self
             contentView.addSubview(subScrollView)
             allPhotoScrollViews.append(subScrollView)
             
-            let imageView = UIImageView(image: photo)
+            let imageView = UIImageView()
             imageView.contentMode = .scaleAspectFill
+            imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            imageView.sd_setImage(with: photo) { [weak self] image, _, _, _ in
+                guard let image = image else { return }
+                self?.photos.append(image)
+            }
             subScrollView.addSubview(imageView)
             
             // add subScrollView constraints
@@ -121,7 +127,7 @@ public class ImageModalViewer: UIViewController {
             
             // add imageview constraints
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            subScrollView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: (photo.size.width / photo.size.height), constant: 0))
+            subScrollView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: ((imageView.image?.size.width ?? 1) / (imageView.image?.size.height ?? 1)), constant: 0))
             subScrollView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: subScrollView, attribute: .centerX, multiplier: 1, constant: 0))
             subScrollView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: subScrollView, attribute: .centerY, multiplier: 1, constant: 0))
             
@@ -176,26 +182,26 @@ extension ImageModalViewer: UIScrollViewDelegate {
 }
 
 extension ImageModalViewer: ImageTransitionProtocol {
-    
+
     public func tranisitionSetup() {
         scrollView.isHidden = true
     }
-    
+
     public func tranisitionCleanup() {
         scrollView.isHidden = false
         let xOffset = CGFloat(currentPhotoIndex) * scrollView.frame.size.width
         scrollView.contentOffset = CGPoint(x: xOffset, y: 0)
     }
-    
+
     public func imageWindowFrame() -> CGRect {
-        
-        let photo = allPhotos[currentPhotoIndex]
+
+        let photo = photos[currentPhotoIndex]
         let scrollWindowFrame = scrollView.superview!.convert(scrollView.frame, to: nil)
-        
+
         let scrollViewRatio = scrollView.frame.size.width / scrollView.frame.size.height
         let imageRatio = photo.size.width / photo.size.height
         let touchesSides = (imageRatio > scrollViewRatio)
-        
+
         if touchesSides {
             let height = scrollWindowFrame.size.width / imageRatio
             let yPoint = scrollWindowFrame.origin.y + (scrollWindowFrame.size.height - height) / 2

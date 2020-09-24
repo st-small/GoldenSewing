@@ -6,6 +6,7 @@
 //  Copyright © 2019 Stanly Shiyanovskiy. All rights reserved.
 //
 
+import SDWebImage
 import UIKit
 
 public protocol OtherProductsModalDelegate {
@@ -32,9 +33,13 @@ public class OtherProductsModal: UIViewController {
         
         photos.forEach { (container) in
             guard
-                let imageData = container.imageData,
-                let image = UIImage(data: imageData) else { return }
-            allPhotos.append(image)
+                let imageLink = URL(string: container.imageLink ?? "") else { return }
+            let imageView = UIImageView()
+            imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            imageView.sd_setImage(with: imageLink) { [weak self] image, _, _, _ in
+                guard let image = image else { return }
+                self?.allPhotos.append(image)
+            }
         }
         
         currentPhotoIndex = selectedPhotoIndex

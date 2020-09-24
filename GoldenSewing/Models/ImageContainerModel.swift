@@ -15,10 +15,7 @@ public class ImageContainerModel: Glossy {
     
     public var id = 0
     public var thumbnailLink: String?
-    public var thumbnailData: Data?
-    
     public var imageLink: String?
-    public var imageData: Data?
     
     public required init(id: Int, thumb: String? = nil, image: String? = nil) {
         self.id = id
@@ -31,9 +28,7 @@ public class ImageContainerModel: Glossy {
         guard let item = item else { return }
         self.id = item.id
         self.thumbnailLink = item.thumbnailLink
-        self.thumbnailData = item.thumbnailData
         self.imageLink = item.imageLink
-        self.imageData = item.imageData
     }
     
     public required init?(json: JSON) {
@@ -69,8 +64,6 @@ public class ImageContainerModelRealmItem: Object {
         guard let item = item else { return }
         self.id = item.id
         self.thumbnailLink = item.thumbnailLink
-        self.thumbnailData = item.thumbnailData
         self.imageLink = item.imageLink
-        self.imageData = item.imageData
     }
 }
