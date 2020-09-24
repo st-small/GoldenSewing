@@ -44,4 +44,10 @@ public class Router {
         imagePreview.modalPresentationStyle = .overFullScreen
         navigator?.present(imagePreview, animated: true)
     }
+    
+    public func showImagePreview(_ id: Int, with transitionDelegate: UIViewControllerTransitioningDelegate) {
+        let imagePreview = ImageModalViewer(productId: id)
+        imagePreview.transitioningDelegate = transitionDelegate
+        navigator?.present(imagePreview, animated: true, completion: nil)
+    }
 }

@@ -137,15 +137,15 @@ extension OtherProductsView: OtherProductsViewDelegate {
 extension OtherProductsView: UIViewControllerTransitioningDelegate {
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let previewView = presented as! OtherProductsModal
-        guard let image = presenter.currentImage() else { return nil }
-        transition.setupImageTransition(image: image, fromDelegate: self, toDelegate: previewView)
+        guard let imageLink = presenter.currentImageLink() else { return nil }
+        transition.setupImageTransition(imageLink: imageLink, fromDelegate: self, toDelegate: previewView)
         return transition
     }
 
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let previewView = dismissed as! OtherProductsModal
-        guard let image = presenter.currentImage() else { return nil }
-        transition.setupImageTransition(image: image, fromDelegate: previewView, toDelegate: self)
+        guard let imageLink = presenter.currentImageLink() else { return nil }
+        transition.setupImageTransition(imageLink: imageLink, fromDelegate: previewView, toDelegate: self)
         return transition
     }
 }

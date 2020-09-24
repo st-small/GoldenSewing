@@ -6,6 +6,7 @@
 //  Copyright © 2019 Stanly Shiyanovskiy. All rights reserved.
 //
 
+import SDWebImage
 import UIKit
 
 public protocol ImageTransitionProtocol {
@@ -20,10 +21,21 @@ public class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private var fromDelegate: ImageTransitionProtocol?
     private var toDelegate: ImageTransitionProtocol?
     
-    public func setupImageTransition(image: UIImage, fromDelegate: ImageTransitionProtocol, toDelegate: ImageTransitionProtocol) {
-        self.image = image
+    public func setupImageTransition(imageLink: String, image: UIImage? = nil, fromDelegate: ImageTransitionProtocol, toDelegate: ImageTransitionProtocol) {
         self.fromDelegate = fromDelegate
         self.toDelegate = toDelegate
+        
+        guard let image = image else {
+            guard let url = URL(string: imageLink) else { return }
+            let imageView = UIImageView()
+            imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            imageView.sd_setImage(with: url) { [weak self] image, _, _, _ in
+                guard let image = image else { return }
+                self?.image = image
+            }
+            return
+        }
+        self.image = image
     }
     
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {

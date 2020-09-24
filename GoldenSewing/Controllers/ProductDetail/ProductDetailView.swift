@@ -260,14 +260,14 @@ extension ProductDetailView: UIViewControllerTransitioningDelegate {
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let previewView = presented as! ImageModalViewer
         guard let image = productImage.image else { return nil }
-        transition.setupImageTransition(image: image, fromDelegate: self, toDelegate: previewView)
+        transition.setupImageTransition(imageLink: "", image: image, fromDelegate: self, toDelegate: previewView)
         return transition
     }
     
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let previewView = dismissed as! ImageModalViewer
         guard let image = productImage.image else { return nil }
-        transition.setupImageTransition(image: image, fromDelegate: previewView, toDelegate: self)
+        transition.setupImageTransition(imageLink: "", image: image, fromDelegate: previewView, toDelegate: self)
         return transition
     }
 }

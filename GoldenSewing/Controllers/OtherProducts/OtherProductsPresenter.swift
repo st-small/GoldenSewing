@@ -52,11 +52,10 @@ public class OtherProductsPresenter {
         return product.imageContainers[index]
     }
     
-    public func currentImage() -> UIImage? {
+    public func currentImageLink() -> String? {
         guard
-            let imageData = product.imageContainers[selectedIndex].imageData,
-            let image = UIImage(data: imageData) else { return nil }
-        return image
+            let imageLink = product.imageContainers[selectedIndex].imageLink else { return nil }
+        return imageLink
     }
     
     public func select(_ productIndex: Int) {
