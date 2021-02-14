@@ -91,6 +91,7 @@ public class Launcher {
     }
     
     private func display(_ vc: UIViewController) {
+        vc.modalPresentationStyle = .fullScreen
         navigator.present(vc, animated: false, completion: nil)
     }
     
